@@ -48,6 +48,8 @@ button{font:inherit;border:0;margin:0;padding:0;background:none;color:inherit;cu
 .t-count{background:#ff8787}.t-blocks{background:#69db7c}.t-find{background:#748ffc}.t-song{background:#ffa94d}
 /* game */
 #stage{flex:1;display:flex;flex-direction:column;min-height:0;position:relative}
+.q.whoq{font-size:7.5vmin;background:rgba(255,255,255,.92);color:#1864ab;text-shadow:none;border-radius:4vmin;padding:1.2vmin 4vmin;margin:1vmin auto;max-width:92%;box-shadow:0 .6vmin 0 rgba(0,0,0,.15)}
+.part.rightp{filter:drop-shadow(0 0 1.2vmin #ffd43b) drop-shadow(0 0 .6vmin #fff)}
 .q{font-size:6vmin;font-weight:900;text-align:center;padding:1vmin 2vmin;color:#fff;text-shadow:0 .5vmin 0 rgba(0,0,0,.25);flex:none}
 .cars{flex:1;display:flex;flex-wrap:wrap;align-content:center;justify-content:center;gap:2vmin 3vmin;min-height:0;padding:1vmin}
 .carbtn{width:var(--cw);position:relative;transition:transform .2s}
@@ -689,7 +691,10 @@ Object.assign(EN, (() => {
     lion:'Lion', tiger:'Tiger', elephant:'Elephant', monkey:'Monkey', giraffe:'Giraffe', zebra:'Zebra', hippo:'Hippo', crocodile:'Crocodile', snake:'Snake', bear:'Bear', penguin:'Penguin' };
   const the = p => 'the ' + p;
   return {
-    an: { names: an, bang: '!', hello: 'Tap an animal and listen!', who: 'Who says that?', find: id => 'Find the ' + an[id].toLowerCase() + '!', shadow: 'Whose shadow is it?' },
+    an: { names: an, bang: '!', hello: 'Tap an animal and listen!', who: 'Who says that?',
+      says: { cow:'moo moo', horse:'neigh', sheep:'baa baa', pig:'oink oink', chicken:'cluck cluck', rooster:'cock-a-doodle-doo', duck:'quack quack', goat:'maa maa', donkey:'hee-haw',
+        dog:'woof woof', cat:'meow', mouse:'squeak squeak', bird:'tweet tweet', lion:'roar', tiger:'grrr', elephant:'toot toot', monkey:'ooh ooh aah aah', crocodile:'snap snap', snake:'hiss', bear:'growl' },
+      whoQ: w => 'Who says ' + w + '?', find: id => 'Find the ' + an[id].toLowerCase() + '!', shadow: 'Whose shadow is it?' },
     face: { names: { eyes:'eye', eyebrows:'eyebrow', eyelashes:'eyelashes', nose:'nose', mouth:'mouth', lips:'lips', teeth:'teeth', tongue:'tongue', ears:'ear', cheeks:'cheek', chin:'chin', hair:'hair', forehead:'forehead' },
       hello: 'Tap the face and listen!', find: p => 'Find ' + the(p) + '!', yes: p => 'Yes! ' + cap(the(p)) + '!', oops: (p, t) => 'That\'s ' + the(p) + '! Find ' + the(t) + '!',
       build: 'Let\'s make a face!', done: 'What a happy face!' },
@@ -712,7 +717,10 @@ Object.assign(RU, (() => {
     bear:['Медведь','медведя'], penguin:['Пингвин','пингвина'] };
   const names = {}; for (const k in an) names[k] = an[k][0];
   return { extraModes: ['farm', 'pets', 'zoo'],
-    an: { names, bang: '!', hello: 'Нажми на зверюшку и послушай!', who: 'Кто так говорит?', find: id => 'Найди ' + an[id][1] + '!', shadow: 'Чья это тень?' } };
+    an: { names, bang: '!', hello: 'Нажми на зверюшку и послушай!', who: 'Кто так говорит?',
+      says: { cow:'му-му', horse:'иго-го', sheep:'бе-е-е', pig:'хрю-хрю', chicken:'ко-ко-ко', rooster:'ку-ка-ре-ку', duck:'кря-кря', goat:'ме-е-е', donkey:'иа-иа',
+        dog:'гав-гав', cat:'мяу', mouse:'пи-пи-пи', bird:'чик-чирик', lion:'р-р-р', tiger:'р-р-р', elephant:'ту-ту', monkey:'у-у-а-а', crocodile:'ам-ам', snake:'ш-ш-ш', bear:'р-р-р' },
+      whoQ: w => 'Кто говорит ' + w + '?', find: id => 'Найди ' + an[id][1] + '!', shadow: 'Чья это тень?' } };
 })());
 Object.assign(RU.modes, { farm: 'На ферме', pets: 'Питомцы', zoo: 'Зоопарк' });
 // ---------- TOPICS data: Cantonese (animal topics only) ----------
@@ -721,7 +729,10 @@ Object.assign(YUE, (() => {
     dog:'狗仔', cat:'貓仔', rabbit:'兔仔', fish:'魚仔', bird:'雀仔', hamster:'倉鼠', mouse:'老鼠', tortoise:'烏龜',
     lion:'獅子', tiger:'老虎', elephant:'大笨象', monkey:'馬騮', giraffe:'長頸鹿', zebra:'斑馬', hippo:'河馬', crocodile:'鱷魚', snake:'蛇', bear:'熊', penguin:'企鵝' };
   return { extraModes: ['farm', 'pets', 'zoo'],
-    an: { names, bang: '！', hello: '撳吓啲動物，聽吓佢哋點叫！', who: '邊個係咁叫㗎？', find: id => '搵吓' + names[id] + '喺邊度呀？', shadow: '幫動物搵返佢個影！' } };
+    an: { names, bang: '！', hello: '撳吓啲動物，聽吓佢哋點叫！', who: '邊個係咁叫㗎？',
+      says: { cow:'哞哞', horse:'嘶嘶', sheep:'咩咩', pig:'哼哼', chicken:'咯咯咯', rooster:'喔喔喔', duck:'呱呱', goat:'咩咩', donkey:'咿呀咿呀',
+        dog:'汪汪', cat:'喵喵', mouse:'吱吱', bird:'啾啾', lion:'吼', tiger:'嗷嗚', elephant:'嘟嘟', monkey:'吱吱喳喳', crocodile:'咔嚓咔嚓', snake:'嘶嘶', bear:'吼' },
+      whoQ: w => '邊個會「' + w + '」咁叫呀？', find: id => '搵吓' + names[id] + '喺邊度呀？', shadow: '幫動物搵返佢個影！' } };
 })());
 Object.assign(YUE.modes, { farm: '農場動物', pets: '寵物', zoo: '動物園' });
 // English menu: Topics page
@@ -882,6 +893,8 @@ function confetti(n = 40) {
   }
 }
 function cheer() { SFX.honk(); confetti(); }
+// correct answer in a tap/drag quiz: cheer, say the item's name ("Bag!"), then optional follow-up
+async function rightName(nm, rest) { cheer(); stopSpeech(); if (!(await say(cap(nm) + ((L.an && L.an.bang) || '!')))) return false; return rest ? say(rest) : true; }
 
 /* ================= pictures ================= */
 function carSVG(color) {
@@ -1935,12 +1948,12 @@ function atRender(g) {
     repeatFn = () => say(L.an.hello); say(L.an.hello); return;
   }
   if (AT.sub === 'shadow') { st.innerHTML = bar.html + `<div class="q">${L.an.shadow}</div><div class="pzarea scene sc-${AT.topic}" id="sha"></div>`; bar.bind(st); return atShadow(g, tok, ids); }
-  const pool = AT.sub === 'who' ? ids.filter(id => ANIMALS[id][2]) : ids;
+  const W = AT.sub === 'who', pool = W ? ids.filter(id => ANIMALS[id][2] && L.an.says[id]) : ids;
   let t; do { t = pick(pool); } while (pool.length > 1 && t === AT.target);
   AT.target = t;
-  const opts = shuffle([t, ...shuffle(pool.filter(x => x !== t)).slice(0, AT.sub === 'who' ? 2 : 3)]);
-  const prompt = AT.sub === 'who' ? L.an.who : L.an.find(t);
-  st.innerHTML = bar.html + `<div class="q">${prompt}</div>${AT.sub === 'who' ? '<button class="ear big" id="ear">🔊</button>' : ''}<div class="opts anopts">${opts.map(id => `<button class="card big" data-id="${id}">${emo(id)}</button>`).join('')}</div>`; bar.bind(st);
+  const opts = shuffle([t, ...shuffle(pool.filter(x => x !== t && (!W || L.an.says[x] !== L.an.says[t]))).slice(0, W ? 2 : 3)]);
+  const prompt = W ? L.an.whoQ(L.an.says[t]) : L.an.find(t);
+  st.innerHTML = bar.html + `<div class="q${W ? ' whoq' : ''}" id="atq">${prompt}</div>${AT.sub === 'who' ? '<button class="ear big" id="ear">🔊</button>' : ''}<div class="opts anopts">${opts.map(id => `<button class="card big" data-id="${id}">${emo(id)}</button>`).join('')}</div>`; bar.bind(st);
   const ask = async () => { if (AT.sub === 'who') { stopSpeech(); const k = ++ASAY.tok; await playAnimal(t); if (k !== ASAY.tok || tok !== AT.tok) return; } say(prompt); };
   if ($('#ear')) tap($('#ear'), () => { anim($('#ear'), 'bounce'); ask(); });
   st.querySelectorAll('.opts .card').forEach(b => tap(b, () => atTap(g, tok, b)));
@@ -2084,7 +2097,7 @@ function ptRender(g) {
 }
 function ptQuiz(g, tok) {
   const D = PD(), keys = Object.keys(D.names).filter(k => k !== PT.target);
-  PT.target = pick(keys); PT.busy = false;
+  PT.target = pick(keys); PT.busy = false; document.querySelectorAll('.part.rightp').forEach(e => e.classList.remove('rightp'));
   const p = D.find(D.names[PT.target]); $('#bdq').textContent = p; repeatFn = () => say(p); say(p);
 }
 async function ptTap(g, tok, el) {
@@ -2093,8 +2106,8 @@ async function ptTap(g, tok, el) {
   if (PT.sub !== 'quiz') { say(cap(nm) + '!'); return; }
   if (PT.busy || tok !== PT.tok) return;
   if (k !== PT.target) { say(D.oops(nm, D.names[PT.target])); return; }
-  PT.busy = true; cheer();
-  if (!(await say(D.yes(nm) + ' ' + pick(L.praise))) || g !== scene || tok !== PT.tok) return;
+  PT.busy = true; el.classList.add('rightp');
+  if (!(await rightName(nm, pick(L.praise))) || g !== scene || tok !== PT.tok) return;
   await sleep(500); if (tok === PT.tok) ptQuiz(g, tok);
 }
 const MISSING = { hands: ['hands', 'fingers', 'thumb'], feet: ['feet', 'toes'], arms: ['arms', 'elbows', 'hands', 'fingers', 'thumb'], legs: ['legs', 'knees', 'feet', 'toes'],
@@ -2121,9 +2134,9 @@ function bodyMissing(g, tok) {
     if (PT.busy || tok !== PT.tok) return;
     const o = b.dataset.k; stopSpeech();
     if (o !== PT.target) { anim(b, 'wiggle'); SFX.boop(); say(cap(L.body.names[o]) + '! ' + pick(L.retry)); return; }
-    PT.busy = true; b.classList.add('right'); cheer();
+    PT.busy = true; b.classList.add('right');
     svg.querySelectorAll('.gone').forEach(el => { el.classList.remove('gone'); anim(el, 'popin'); });
-    if (!(await say(L.body.found(L.body.names[o]) + ' ' + pick(L.praise))) || g !== scene || tok !== PT.tok) return;
+    if (!(await rightName(L.body.found(L.body.names[o]).replace(/!$/, ''), pick(L.praise))) || g !== scene || tok !== PT.tok) return;
     await sleep(700); if (tok === PT.tok) ptRender(g);
   }));
   repeatFn = () => say(L.body.missing); say(L.body.missing);
@@ -2161,8 +2174,9 @@ function faceLayout() {
 }
 async function faceDrop(g, tok, p) {
   if (Math.hypot(p.el._x - p.tx, p.el._y - p.ty) < PT.S * 0.12) {
-    p.locked = true; p.el.dataset.locked = '1'; p.el.classList.add('locked'); glideTo(p.el, p.tx, p.ty); SFX.chime(); confetti(10);
-    if (PT.pieces.every(q => q.locked)) { await sleep(400); if (g !== scene || tok !== PT.tok) return; cheer(); stopSpeech();
+    p.locked = true; p.el.dataset.locked = '1'; p.el.classList.add('locked'); glideTo(p.el, p.tx, p.ty); SFX.chime();
+    const last = PT.pieces.every(q => q.locked), said = rightName(L.face.names[p.k]);
+    if (last) { await said; await sleep(300); if (g !== scene || tok !== PT.tok) return; cheer(); stopSpeech();
       if (!(await say(L.face.done + ' ' + pick(L.praise))) || g !== scene || tok !== PT.tok) return; await sleep(1200); if (tok === PT.tok) ptRender(g); }
   } else glideTo(p.el, p.hx, p.hy);
 }
@@ -2208,7 +2222,7 @@ async function clDrop(g, tok, p) {
   if (!inBag || CL.busy) { glideTo(p.el, p.hx, p.hy); return; }
   if (p.id !== CL.target) { glideTo(p.el, p.hx, p.hy); SFX.boop(); stopSpeech(); say(cap(L.school.names[p.id]) + '! ' + L.school.bag(L.school.names[CL.target])); return; }
   CL.busy = true; p.done = true; p.el.dataset.locked = '1'; glideTo(p.el, CL.bag.x - w / 2, CL.bag.y - w / 2); p.el.classList.add('intobag'); SFX.chime(); confetti(15); anim($('#bag'), 'bounce');
-  stopSpeech(); const ok = await say(L.school.bagYes(L.school.names[p.id]));
+  const ok = await rightName(L.school.names[p.id], L.school.bagYes(L.school.names[p.id]).replace(/^[^!]*! */, ''));
   if (!ok || g !== scene || tok !== CL.tok) return;
   CL.queue.shift(); CL.busy = false;
   if (CL.queue.length) clAsk(); else { cheer(); if (!(await say(pick(L.praise))) || tok !== CL.tok) return; await sleep(600); if (tok === CL.tok) clRender(g); }
@@ -2225,8 +2239,8 @@ async function wordFind(g, tok, S, PICS, N, findFn, again) {
     if (S.busy || tok !== S.tok) return;
     const id = b.dataset.id; stopSpeech();
     if (id !== t) { anim(b, 'wiggle'); SFX.boop(); say(cap(N[id]) + '! ' + p); return; }
-    S.busy = true; b.classList.add('right'); anim(b, 'bounce'); cheer();
-    if (!(await say(cap(N[id]) + '! ' + pick(L.praise))) || g !== scene || tok !== S.tok) return;
+    S.busy = true; b.classList.add('right'); anim(b, 'bounce');
+    if (!(await rightName(N[id], pick(L.praise))) || g !== scene || tok !== S.tok) return;
     await sleep(500); if (tok === S.tok) again();
   }));
   repeatFn = () => say(p); say(p);
@@ -2303,7 +2317,7 @@ async function hsDrop(g, tok) {
   const [rx, ry, w, h] = ROOMS[r], b = HS.box, n = (HS.placed = (HS.placed || 0) + 1), sz = Math.min(w, h) * 0.45 * b.k;
   Object.assign(el.style, { width: sz + 'px', height: sz + 'px', fontSize: sz * 0.75 + 'px' }); el.classList.add('placed');
   glideTo(el, b.x + (rx + w / 2) * b.k - sz / 2 + ((n % 3) - 1) * sz * 0.5, b.y + (ry + h * 0.55) * b.k - sz / 2);
-  stopSpeech(); const ok = await say(Hh.yes(Hh.things[P.t], Hh.rooms[r]));
+  const ok = await rightName(Hh.things[P.t], Hh.yes(Hh.things[P.t], Hh.rooms[r]));
   if (!ok || g !== scene || tok !== HS.tok) return;
   HS.queue.shift(); HS.busy = false; HS.next();
 }
