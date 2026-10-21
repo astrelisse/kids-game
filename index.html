@@ -281,6 +281,49 @@ button{font:inherit;border:0;margin:0;padding:0;background:none;color:inherit;cu
 .anopts .card{--s:min(21vw,30vh)}
 @media (orientation:portrait){.anopts .card{--s:min(40vw,24vh)}}
 .anb{background:#fff;font-size:9vmin;line-height:1;border-radius:3vmin}
+/* ---- topics ---- */
+.tiles.cats.c5{grid-template-columns:repeat(3,1fr)!important;grid-template-rows:repeat(2,1fr)!important}
+@media (orientation:portrait){.tiles.cats.c5{grid-template-columns:repeat(2,1fr)!important;grid-template-rows:repeat(3,1fr)!important}}
+.tiles.subm.n7{grid-template-columns:repeat(4,1fr)!important}
+@media (orientation:portrait){.tiles.subm.n7{grid-template-columns:repeat(2,1fr)!important}}
+.tiles.n12{grid-template-columns:repeat(4,1fr)!important;grid-template-rows:repeat(3,1fr)!important}
+@media (orientation:portrait){.tiles.n12{grid-template-columns:repeat(3,1fr)!important;grid-template-rows:repeat(4,1fr)!important}}
+.t-farm{background:#8ce99a}.t-pets{background:#ffa8a8}.t-zoo{background:#ffd43b}.t-face{background:#faa2c1}.t-body{background:#ff922b}.t-classroom{background:#74c0fc}.t-house{background:#e599f7}
+.scene{flex:1;min-height:0;border-radius:4vmin;display:flex;padding:1.5vmin}
+.sc-farm{background:linear-gradient(#bde0fe 0 35%,#8ce99a 35%)}.sc-pets{background:linear-gradient(#ffe8cc 0 60%,#e0b086 60%)}
+.sc-zoo{background:linear-gradient(#ffec99 0 40%,#d8f5a2 40%)}.sc-school{background:linear-gradient(#d0ebff 0 70%,#c5a880 70%)}
+.angrid{flex:1;display:grid;gap:1.6vmin;grid-auto-rows:1fr;min-height:0}
+.angrid.n9{grid-template-columns:repeat(3,1fr)}.angrid.n8{grid-template-columns:repeat(4,1fr)}.angrid.n11{grid-template-columns:repeat(4,1fr)}.angrid.n17{grid-template-columns:repeat(6,1fr)}
+@media (orientation:portrait){.angrid.n8{grid-template-columns:repeat(2,1fr)}.angrid.n11{grid-template-columns:repeat(3,1fr)}.angrid.n17{grid-template-columns:repeat(4,1fr)}}
+.anb{background:rgba(255,255,255,.85);border-radius:3vmin;display:flex;align-items:center;justify-content:center;min-height:0;overflow:hidden}
+.anb .emo{font-size:min(11vmin,9vh);line-height:1;pointer-events:none}
+.angrid.n17 .anb .emo{font-size:min(8vmin,7vh)}
+.anb svg{height:70%;width:auto;max-width:90%;pointer-events:none}
+.ear{align-self:center;width:16vmin;height:12vmin;font-size:8vmin;background:#fff;flex:none}
+.shadow,.apiece{position:absolute;display:flex;align-items:center;justify-content:center;line-height:1}
+.shadow{filter:brightness(0);opacity:.28;pointer-events:none}
+.apiece{touch-action:none;z-index:5;background:rgba(255,255,255,.7);border-radius:3vmin}
+.apiece.locked,.apiece.placed{background:none}
+.apiece svg,.apiece .emo{pointer-events:none}.apiece svg{width:80%;height:80%}
+.apiece .emo{font-size:1em}
+.intobag{transform:scale(.25);opacity:0;transition:transform .6s,opacity .6s .3s,left .35s,top .35s}
+.bag{position:absolute;display:flex;align-items:center;justify-content:center;line-height:1;pointer-events:none}
+.wcard svg{width:70%!important}
+.bigsvg{height:100%;width:auto;max-width:100%}
+.part.gone{visibility:hidden}
+.missopts{flex:none!important;gap:3vmin}
+.missopts:empty{display:none}
+.mcard{--s:min(17vw,20vh)!important}.mcard svg{width:85%!important;height:85%}
+.kidwrap:has(+ .missopts:not(:empty)){flex:1}
+.hwrap{flex:1;min-height:0;display:flex;justify-content:center}
+.pzarea .hwrap{position:absolute;flex:none}
+.house{height:100%;width:100%;max-width:100%}
+.room{cursor:pointer}
+.roomv{flex:1;position:relative;border-radius:4vmin;overflow:hidden;min-height:0}
+.roomv .floor{position:absolute;left:0;right:0;bottom:0;height:30%;background:rgba(120,72,30,.35)}
+.rback{position:absolute;left:2vmin;top:2vmin;z-index:3}
+.thing{position:absolute;transform:translate(-50%,-50%);width:min(20vmin,22vw);height:min(20vmin,22vw);background:rgba(255,255,255,.35);border-radius:3vmin;display:flex;align-items:center;justify-content:center}
+.thing .emo{font-size:min(15vmin,16vw);line-height:1;pointer-events:none}.thing svg{width:90%;height:90%;pointer-events:none}
 </style>
 </head>
 <body>
@@ -639,6 +682,57 @@ Object.assign(EN, (() => {
   };
 })());
 
+// ---------- TOPICS data: English (animals + face + body + classroom + house) ----------
+Object.assign(EN, (() => {
+  const an = { cow:'Cow', horse:'Horse', sheep:'Sheep', pig:'Pig', chicken:'Chicken', rooster:'Rooster', duck:'Duck', goat:'Goat', donkey:'Donkey',
+    dog:'Dog', cat:'Cat', rabbit:'Rabbit', fish:'Fish', bird:'Bird', hamster:'Hamster', mouse:'Mouse', tortoise:'Tortoise',
+    lion:'Lion', tiger:'Tiger', elephant:'Elephant', monkey:'Monkey', giraffe:'Giraffe', zebra:'Zebra', hippo:'Hippo', crocodile:'Crocodile', snake:'Snake', bear:'Bear', penguin:'Penguin' };
+  const the = p => 'the ' + p;
+  return {
+    an: { names: an, bang: '!', hello: 'Tap an animal and listen!', who: 'Who says that?', find: id => 'Find the ' + an[id].toLowerCase() + '!', shadow: 'Whose shadow is it?' },
+    face: { names: { eyes:'eye', eyebrows:'eyebrow', eyelashes:'eyelashes', nose:'nose', mouth:'mouth', lips:'lips', teeth:'teeth', tongue:'tongue', ears:'ear', cheeks:'cheek', chin:'chin', hair:'hair', forehead:'forehead' },
+      hello: 'Tap the face and listen!', find: p => 'Find ' + the(p) + '!', yes: p => 'Yes! ' + cap(the(p)) + '!', oops: (p, t) => 'That\'s ' + the(p) + '! Find ' + the(t) + '!',
+      build: 'Let\'s make a face!', done: 'What a happy face!' },
+    body: { names: { head:'head', neck:'neck', shoulders:'shoulder', arms:'arm', elbows:'elbow', hands:'hand', fingers:'fingers', thumb:'thumb', tummy:'tummy', back:'back', legs:'leg', knees:'knee', feet:'foot', toes:'toes' },
+      hello: 'Tap and listen!', find: p => 'Find ' + the(p) + '!', yes: p => 'Yes! ' + cap(the(p)) + '!', oops: (p, t) => 'That\'s ' + the(p) + '! Find ' + the(t) + '!',
+      missing: 'What\'s missing?', found: p => cap(p === 'feet' || p === 'foot' ? 'feet' : p === 'hand' ? 'hands' : p === 'arm' ? 'arms' : p === 'leg' ? 'legs' : p === 'knee' ? 'knees' : p === 'elbow' ? 'elbows' : p === 'shoulder' ? 'shoulders' : p) + '!' },
+    school: { names: { pen:'pen', pencil:'pencil', rubber:'rubber', ruler:'ruler', book:'book', bag:'bag', desk:'desk', chair:'chair', board:'board', crayon:'crayon', paper:'paper', computer:'computer', door:'door', window:'window', clock:'clock', scissors:'scissors', glue:'glue' },
+      hello: 'Tap and listen!', find: n => 'Find the ' + n + '!', bag: n => 'Put the ' + n + ' in the bag!', bagYes: n => cap(n) + '! In the bag!' },
+    house: { rooms: { kitchen:'kitchen', bedroom:'bedroom', bathroom:'bathroom', living:'living room', garden:'garden', hall:'hall' },
+      things: { bed:'bed', sofa:'sofa', table:'table', chair:'chair', lamp:'lamp', bath:'bath', shower:'shower', fridge:'fridge', cooker:'cooker', tv:'TV', cupboard:'cupboard', mirror:'mirror', toilet:'toilet', door:'door', window:'window', tree:'tree', flower:'flower' },
+      hello: 'Tap a room!', inRoom: r => 'This is the ' + r + '!', find: n => 'Find the ' + n + '!', where: n => 'Where does the ' + n + ' go?', yes: (n, r) => 'Yes! The ' + n + ' goes in the ' + r + '!' }
+  };
+})());
+// ---------- TOPICS data: Russian (animal topics only) ----------
+Object.assign(RU, (() => {
+  const an = { cow:['Корова','корову'], horse:['Лошадка','лошадку'], sheep:['Овечка','овечку'], pig:['Свинка','свинку'], chicken:['Курочка','курочку'], rooster:['Петушок','петушка'],
+    duck:['Уточка','уточку'], goat:['Козочка','козочку'], donkey:['Ослик','ослика'], dog:['Собачка','собачку'], cat:['Кошка','кошку'], rabbit:['Кролик','кролика'], fish:['Рыбка','рыбку'],
+    bird:['Птичка','птичку'], hamster:['Хомячок','хомячка'], mouse:['Мышка','мышку'], tortoise:['Черепаха','черепаху'], lion:['Лев','льва'], tiger:['Тигр','тигра'], elephant:['Слон','слона'],
+    monkey:['Обезьянка','обезьянку'], giraffe:['Жираф','жирафа'], zebra:['Зебра','зебру'], hippo:['Бегемот','бегемота'], crocodile:['Крокодил','крокодила'], snake:['Змея','змею'],
+    bear:['Медведь','медведя'], penguin:['Пингвин','пингвина'] };
+  const names = {}; for (const k in an) names[k] = an[k][0];
+  return { extraModes: ['farm', 'pets', 'zoo'],
+    an: { names, bang: '!', hello: 'Нажми на зверюшку и послушай!', who: 'Кто так говорит?', find: id => 'Найди ' + an[id][1] + '!', shadow: 'Чья это тень?' } };
+})());
+Object.assign(RU.modes, { farm: 'На ферме', pets: 'Питомцы', zoo: 'Зоопарк' });
+// ---------- TOPICS data: Cantonese (animal topics only) ----------
+Object.assign(YUE, (() => {
+  const names = { cow:'牛', horse:'馬', sheep:'綿羊', pig:'豬', chicken:'雞', rooster:'公雞', duck:'鴨', goat:'山羊', donkey:'驢仔',
+    dog:'狗仔', cat:'貓仔', rabbit:'兔仔', fish:'魚仔', bird:'雀仔', hamster:'倉鼠', mouse:'老鼠', tortoise:'烏龜',
+    lion:'獅子', tiger:'老虎', elephant:'大笨象', monkey:'馬騮', giraffe:'長頸鹿', zebra:'斑馬', hippo:'河馬', crocodile:'鱷魚', snake:'蛇', bear:'熊', penguin:'企鵝' };
+  return { extraModes: ['farm', 'pets', 'zoo'],
+    an: { names, bang: '！', hello: '撳吓啲動物，聽吓佢哋點叫！', who: '邊個係咁叫㗎？', find: id => '搵吓' + names[id] + '喺邊度呀？', shadow: '幫動物搵返佢個影！' } };
+})());
+Object.assign(YUE.modes, { farm: '農場動物', pets: '寵物', zoo: '動物園' });
+// English menu: Topics page
+Object.assign(EN.modes, { farm: 'Farm animals', pets: 'Pets', zoo: 'Zoo animals', face: 'Face', body: 'Body', classroom: 'Classroom', house: 'My house' });
+EN.menu = [
+  { id:'numbers', icon:'🔢', col:'#ff8787', label:'Numbers', modes:['count','blocks','numpad','shop'] },
+  { id:'letters', icon:'🔤', col:'#748ffc', label:'Letters', modes:['lmatch','lfind','find'] },
+  { id:'topics', icon:'🦁', col:'#51cf66', label:'Topics', modes:['farm','pets','zoo','face','body','classroom','house'] },
+  { id:'songs', icon:'🎵', col:'#ffa94d', label:'Songs and talking', modes:['song','rhymes','bear'] },
+  { id:'play', icon:'🧩', col:'#38d9a9', label:'Play', modes:['draw','puzzle','think'] } ];
+
 const LANGS = { en: EN, ru: RU, yue: YUE };
 let L = null; // the ONE active language pack; everything reads from here only
 
@@ -836,7 +930,7 @@ function tap(el, fn) { el.addEventListener('pointerdown', e => { e.preventDefaul
 
 function chooseLang(key) {
   L = LANGS[key]; MENU.cat = null;
-  ac(); SFX.honk();
+  ac(); SFX.honk(); loadSounds();
   document.documentElement.lang = L.htmlLang; document.title = L.title;
   pickVoice();
   stopSpeech();
@@ -846,7 +940,7 @@ function chooseLang(key) {
 function goLang() { leaveExtras(); MENU.cat = null; closePicker(); scene++; stopSpeech(); mode = null; L = null; showNote(false); document.title = 'Beep Beep 123'; show('lang'); }
 const MODES = ['count', 'blocks', 'find', 'song', 'draw', 'puzzle', 'shop', 'lmatch', 'lfind'];
 const MENU = { cat: null };
-function leaveExtras() { if (typeof rhStop === 'function') rhStop(); if (BR.rec) { try { BR.rec.abort(); } catch (e) {} BR.rec = null; } }
+function leaveExtras() { stopAnimalSound(); ASAY.tok++; if (typeof rhStop === 'function') rhStop(); if (BR.rec) { try { BR.rec.abort(); } catch (e) {} BR.rec = null; } }
 function goMenu(speak = true) {
   scene++; leaveExtras(); stopSpeech(); mode = null; resizeFn = null; closePicker();
   const cats = L.menu || null, cat = cats && cats.find(c => c.id === MENU.cat);
@@ -857,11 +951,11 @@ function goMenu(speak = true) {
     find: '🔍🐱', song: '🎵🚌', draw: '🖍️🎨', puzzle: '🧩' + shapeSVG('heart'), shop: '🛒' + coinSVG(5),
     lmatch: `<span class="tl">${lmLetters()[0].show}</span>${lmLetters()[0].words[0][1]}`,
     lfind: L.abc.letters.slice(0, 3).map((l, i) => `<span class="tl" style="color:${LCOLS[i * 3]}">${l.ch}</span>`).join(''),
-    numpad: '<span class="tl" style="color:#fff">1 2 3</span>', rhymes: '🎶🐑', bear: '🐻💬', think: '🚗🚌❓', body: '🙂👃', animals: '🦁🐮'
+    numpad: '<span class="tl" style="color:#fff">1 2 3</span>', rhymes: '🎶🐑', bear: '🐻💬', think: '🚗🚌❓', farm: '🐮🐷', pets: '🐶🐱', zoo: '🦁🦒', face: '😀👃', body: '🧍🦶', classroom: '✏️📕', house: '🏠🛋️'
   };
   const t = $('#tiles'); t.innerHTML = ''; t.className = 'tiles';
   if (cats && !cat) {
-    t.classList.add('cats');
+    t.classList.add('cats'); if (cats.length === 5) t.classList.add('c5');
     for (const c of cats) {
       const b = document.createElement('button'); b.className = 'tile big cat'; b.dataset.cat = c.id; b.style.background = c.col;
       b.innerHTML = `<div class="pic">${c.icon}</div><div class="lbl">${c.label}</div>`;
@@ -872,8 +966,10 @@ function goMenu(speak = true) {
     show('menu'); pickVoice(); if (speak) say(L.menuHello);
     return;
   }
-  if (cat) { t.classList.add('subm'); if (cat.modes.length === 4) t.classList.add('n4'); }
-  for (const m of (cat ? cat.modes : MODES)) {
+  const list = cat ? cat.modes : [...MODES, ...(L.extraModes || [])];
+  if (cat) { t.classList.add('subm'); if (cat.modes.length === 4) t.classList.add('n4'); if (cat.modes.length === 7) t.classList.add('n7'); }
+  else if (list.length === 12) t.classList.add('n12');
+  for (const m of list) {
     const b = document.createElement('button'); b.className = 'tile big t-' + m; b.dataset.mode = m;
     b.innerHTML = `<div class="pic">${pics[m]}</div><div class="lbl">${L.modes[m]}</div>`;
     tap(b, () => { anim(b, 'bounce'); SFX.pop(); startMode(m); });
@@ -884,12 +980,12 @@ function goMenu(speak = true) {
   if (speak) say(cat ? cat.label : L.menuHello);
 }
 function startMode(m) {
-  scene++; leaveExtras(); stopSpeech(); mode = m; resizeFn = null; closePicker();
+  loadSounds(); scene++; leaveExtras(); stopSpeech(); mode = m; resizeFn = null; closePicker();
   $('#gameTtl').textContent = L.modes[m];
   show('game');
   const g = scene;
   say(L.modes[m]);
-  ({ count: startCount, blocks: startBlocks, find: startFind, song: startSong, draw: startDraw, puzzle: startPuzzle, shop: startShop, lmatch: startLMatch, lfind: startLFind, numpad: startNumpad, rhymes: startRhymes, bear: startBear, think: startThink, body: startBody, animals: startAnimals })[m](g);
+  ({ count: startCount, blocks: startBlocks, find: startFind, song: startSong, draw: startDraw, puzzle: startPuzzle, shop: startShop, lmatch: startLMatch, lfind: startLFind, numpad: startNumpad, rhymes: startRhymes, bear: startBear, think: startThink, face: partsStart('face'), body: partsStart('body'), farm: animalTopicStart('farm'), pets: animalTopicStart('pets'), zoo: animalTopicStart('zoo'), classroom: startClassroom, house: startHouse })[m](g);
 }
 
 /* ---------- 1. Counting cars ---------- */
@@ -1657,7 +1753,7 @@ async function rhPlay(g) {
   if (RH.line >= s.lines.length) RH.line = 0;
   while (RH.line < s.lines.length) {
     const ln = s.lines[RH.line]; rhShowLine();
-    if (ln.fx === 'honk') SFX.honk(); else if (ln.fx) SFX.animal(ln.fx);
+    if (ln.fx === 'honk') SFX.honk(); else if (ln.fx) rhymeAnimal(ln.fx);
     let t = ln.fx ? 0.5 : 0.05; const notes = parseNotes(ln.n);
     for (const [f, b] of notes) { if (RH.gain) xylo(f, t, b * spb, RH.tune ? 0.3 : 0.18, RH.gain); t += b * spb; }
     const waits = [sleep(t * 1000)];
@@ -1782,124 +1878,434 @@ async function thTap(g, tok, o, b, yes) {
   await sleep(700); thRound(g);
 }
 
-/* ---------- Face & body ---------- */
-const SKIN = '#f6c9a0', SKIN_D = '#c98d5e';
-function kidSVG() {
-  return `<svg class="kid" viewBox="0 0 300 500" xmlns="http://www.w3.org/2000/svg">
-  <g class="part" data-part="legs"><rect x="112" y="345" width="32" height="105" rx="14" fill="${SKIN}" stroke="${SKIN_D}" stroke-width="3"/><rect x="156" y="345" width="32" height="105" rx="14" fill="${SKIN}" stroke="${SKIN_D}" stroke-width="3"/></g>
-  <g class="part" data-part="feet"><ellipse cx="122" cy="458" rx="30" ry="16" fill="#e03131" stroke="#a51111" stroke-width="3"/><ellipse cx="178" cy="458" rx="30" ry="16" fill="#e03131" stroke="#a51111" stroke-width="3"/></g>
-  <rect x="102" y="322" width="96" height="44" rx="10" fill="#1c7ed6" stroke="#1864ab" stroke-width="3" pointer-events="none"/>
-  <g class="part" data-part="arms"><rect x="54" y="222" width="30" height="108" rx="15" fill="#ffd43b" stroke="#e8a400" stroke-width="3" transform="rotate(18 69 222)"/><rect x="216" y="222" width="30" height="108" rx="15" fill="#ffd43b" stroke="#e8a400" stroke-width="3" transform="rotate(-18 231 222)"/></g>
-  <g class="part" data-part="hands"><circle cx="35" cy="332" r="19" fill="${SKIN}" stroke="${SKIN_D}" stroke-width="3"/><circle cx="265" cy="332" r="19" fill="${SKIN}" stroke="${SKIN_D}" stroke-width="3"/></g>
-  <g class="part" data-part="tummy"><rect x="92" y="205" width="116" height="135" rx="30" fill="#ffd43b" stroke="#e8a400" stroke-width="3"/><path d="M120 250 L150 270 L180 250" stroke="#f08c00" stroke-width="5" fill="none" stroke-linecap="round"/></g>
-  <rect x="136" y="195" width="28" height="18" fill="${SKIN}" pointer-events="none"/>
-  <g class="part" data-part="ears"><circle cx="68" cy="128" r="20" fill="${SKIN}" stroke="${SKIN_D}" stroke-width="3"/><circle cx="232" cy="128" r="20" fill="${SKIN}" stroke="${SKIN_D}" stroke-width="3"/></g>
-  <g class="part" data-part="face"><circle cx="150" cy="122" r="84" fill="${SKIN}" stroke="${SKIN_D}" stroke-width="3"/></g>
-  <g class="part" data-part="hair"><path d="M64 118 Q58 32 150 30 Q242 32 236 118 Q222 70 150 66 Q78 70 64 118Z" fill="#6d4c41" stroke="#4e342e" stroke-width="3"/></g>
-  <g class="part" data-part="eyes"><ellipse cx="118" cy="122" rx="15" ry="17" fill="#fff" stroke="#555" stroke-width="2.5"/><ellipse cx="182" cy="122" rx="15" ry="17" fill="#fff" stroke="#555" stroke-width="2.5"/><circle cx="120" cy="125" r="8" fill="#3b2314"/><circle cx="184" cy="125" r="8" fill="#3b2314"/></g>
-  <g class="part" data-part="nose"><ellipse cx="150" cy="150" rx="11" ry="9" fill="${SKIN_D}"/></g>
-  <g class="part" data-part="mouth"><path d="M120 172 Q150 202 180 172 Q150 186 120 172Z" fill="#e64980" stroke="#a61e4d" stroke-width="3" stroke-linejoin="round"/></g>
-  <circle cx="98" cy="156" r="10" fill="#ff8fab" opacity=".5" pointer-events="none"/><circle cx="202" cy="156" r="10" fill="#ff8fab" opacity=".5" pointer-events="none"/></svg>`;
+/* ================= TOPICS: animals (all languages), face / body / classroom / house (English) ================= */
+/* ---------- real animal recordings (sounds/*.mp3, see sounds/CREDITS.md) ---------- */
+const ANIMALS = { // id: [picture, topic, has real recording, synth fallback]
+  cow: ['🐮', 'farm', 1, 'moo'], horse: ['🐴', 'farm', 1, 'neigh'], sheep: ['🐑', 'farm', 1, 'baa'], pig: ['🐷', 'farm', 1, 'oink'], chicken: ['🐔', 'farm', 1, 'cluck'],
+  rooster: ['🐓', 'farm', 1, 'cluck'], duck: ['🦆', 'farm', 1, 'quack'], goat: ['🐐', 'farm', 1, 'baa'], donkey: ['🫏', 'farm', 1, 'neigh'],
+  dog: ['🐶', 'pets', 1, 'woof'], cat: ['🐱', 'pets', 1, 'meow'], rabbit: ['🐰', 'pets', 0, ''], fish: ['🐠', 'pets', 0, 'blub'], bird: ['🐦', 'pets', 1, 'tweet'],
+  hamster: ['🐹', 'pets', 0, ''], mouse: ['🐭', 'pets', 1, 'tweet'], tortoise: ['🐢', 'pets', 0, ''],
+  lion: ['🦁', 'zoo', 1, 'roar'], tiger: ['🐯', 'zoo', 1, 'growl'], elephant: ['🐘', 'zoo', 1, 'toot'], monkey: ['🐵', 'zoo', 1, 'monkey'], giraffe: ['🦒', 'zoo', 0, ''],
+  zebra: ['🦓', 'zoo', 0, 'neigh'], hippo: ['🦛', 'zoo', 0, 'growl'], crocodile: ['🐊', 'zoo', 1, 'growl'], snake: ['🐍', 'zoo', 1, 'hiss'], bear: ['🐻', 'zoo', 1, 'growl'],
+  penguin: ['🐧', 'zoo', 0, 'quack'] };
+const ANIMAL_TOPICS = ['farm', 'pets', 'zoo'];
+const topicIds = t => Object.keys(ANIMALS).filter(id => ANIMALS[id][1] === t);
+const SND = { buf: {}, started: false, src: null, fails: [], log: [] };
+function loadSounds() { // call inside a tap: unlocks Web Audio on iOS, then fetches + decodes every clip once
+  const c = ac(); if (!c || SND.started) return; SND.started = true;
+  try { const b = c.createBuffer(1, 1, 22050), s = c.createBufferSource(); s.buffer = b; s.connect(c.destination); s.start(0); } catch (e) {}
+  for (const id in ANIMALS) if (ANIMALS[id][2])
+    fetch('sounds/' + id + '.mp3').then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.arrayBuffer(); })
+      .then(ab => new Promise((res, rej) => c.decodeAudioData(ab, res, rej)))
+      .then(buf => { SND.buf[id] = buf; }).catch(() => { SND.fails.push(id); });
 }
-const BD = { sub: 'explore', target: null, tok: 0, busy: false, pieces: [] };
-function startBody(g) { BD.sub = 'explore'; bdRender(g); }
-function bdRender(g) {
-  const tok = ++BD.tok; BD.busy = false;
-  const bar = subBar([['explore', '👆'], ['quiz', '❓'], ['build', '🙂']], BD.sub, s => { BD.sub = s; bdRender(g); });
-  const st = $('#stage'), N = L.body.names;
-  if (BD.sub === 'build') { st.innerHTML = bar.html + `<div class="pzarea" id="bda"></div>`; bar.bind(st); return bdBuild(g, tok); }
-  st.innerHTML = bar.html + `<div class="q" id="bdq"></div><div class="kidwrap">${kidSVG()}</div>`; bar.bind(st);
-  st.querySelectorAll('.part').forEach(p => tap(p, () => bdTap(g, tok, p)));
-  if (BD.sub === 'explore') { $('#bdq').textContent = L.body.hello; repeatFn = () => say(L.body.hello); say(L.body.hello); }
-  else bdQuiz(g, tok);
+function stopAnimalSound() { if (SND.src) { try { SND.src.stop(); } catch (e) {} SND.src = null; } }
+function playAnimal(id) { // resolves when the sound has finished
+  stopAnimalSound();
+  const c = ac(), b = SND.buf[id];
+  SND.log.push(id + (b ? ':real' : ':synth'));
+  if (c && b) {
+    const s = c.createBufferSource(); s.buffer = b; s.connect(MASTER); s.start(); SND.src = s;
+    return new Promise(r => { let done = false; const fin = () => { if (!done) { done = true; r(); } }; s.onended = fin; setTimeout(fin, b.duration * 1000 + 120); });
+  }
+  const syn = ANIMALS[id] && ANIMALS[id][3]; if (syn) { SFX.animal(syn); return sleep(750); }
+  return sleep(60);
 }
-function bdQuiz(g, tok) {
-  const keys = Object.keys(L.body.names).filter(k => k !== BD.target);
-  BD.target = pick(keys); BD.busy = false;
-  const p = L.body.find(L.body.names[BD.target]); $('#bdq').textContent = p; repeatFn = () => say(p); say(p);
+const ASAY = { tok: 0 };
+async function animalSpeak(id, extra) { // every animal tap: real sound first, then its name
+  const t = ++ASAY.tok; stopSpeech();
+  await playAnimal(id); if (t !== ASAY.tok) return false;
+  return say(L.an.names[id] + L.an.bang + (extra ? ' ' + extra : ''));
 }
-async function bdTap(g, tok, el) {
-  const k = el.dataset.part, nm = L.body.names[k];
-  anim(el, 'pflash'); SFX.pop();
-  if (BD.sub === 'explore') { stopSpeech(); say(cap(nm) + '!'); return; }
-  if (BD.busy || tok !== BD.tok) return;
-  stopSpeech();
-  if (k !== BD.target) { SFX.boop(); say(L.body.oops(nm, L.body.names[BD.target])); return; }
-  BD.busy = true; cheer();
-  if (!(await say(L.body.yes(nm) + ' ' + pick(L.praise))) || g !== scene || tok !== BD.tok) return;
-  await sleep(500); bdQuiz(g, tok);
+const RHYME_FX = { moo: 'cow', oink: 'pig', quack: 'duck', baa: 'sheep' };
+function rhymeAnimal(fx) { const id = RHYME_FX[fx]; if (id && SND.buf[id]) playAnimal(id); else SFX.animal(fx); }
+
+/* ---------- animal topics: learn / who says that? / find / shadow puzzle ---------- */
+const AT = { topic: 'farm', sub: 'learn', tok: 0, busy: false, target: null, pieces: [] };
+const animalTopicStart = topic => g => { AT.topic = topic; AT.sub = 'learn'; AT.target = null; atRender(g); };
+const emo = id => `<span class="emo">${ANIMALS[id][0]}</span>`;
+function atRender(g) {
+  const tok = ++AT.tok; AT.busy = false; stopAnimalSound(); resizeFn = null;
+  const ids = topicIds(AT.topic);
+  const bar = subBar([['learn', '👆'], ['who', '👂'], ['find', '🔍'], ['shadow', '🧩']], AT.sub, s => { AT.sub = s; atRender(g); });
+  const st = $('#stage');
+  if (AT.sub === 'learn') {
+    st.innerHTML = bar.html + `<div class="scene sc-${AT.topic}"><div class="angrid n${ids.length}">${ids.map(id => `<button class="anb big" data-id="${id}">${emo(id)}</button>`).join('')}</div></div>`; bar.bind(st);
+    st.querySelectorAll('.anb').forEach(b => tap(b, () => { anim(b, 'bounce'); animalSpeak(b.dataset.id); }));
+    repeatFn = () => say(L.an.hello); say(L.an.hello); return;
+  }
+  if (AT.sub === 'shadow') { st.innerHTML = bar.html + `<div class="q">${L.an.shadow}</div><div class="pzarea scene sc-${AT.topic}" id="sha"></div>`; bar.bind(st); return atShadow(g, tok, ids); }
+  const pool = AT.sub === 'who' ? ids.filter(id => ANIMALS[id][2]) : ids;
+  let t; do { t = pick(pool); } while (pool.length > 1 && t === AT.target);
+  AT.target = t;
+  const opts = shuffle([t, ...shuffle(pool.filter(x => x !== t)).slice(0, AT.sub === 'who' ? 2 : 3)]);
+  const prompt = AT.sub === 'who' ? L.an.who : L.an.find(t);
+  st.innerHTML = bar.html + `<div class="q">${prompt}</div>${AT.sub === 'who' ? '<button class="ear big" id="ear">🔊</button>' : ''}<div class="opts anopts">${opts.map(id => `<button class="card big" data-id="${id}">${emo(id)}</button>`).join('')}</div>`; bar.bind(st);
+  const ask = async () => { if (AT.sub === 'who') { stopSpeech(); const k = ++ASAY.tok; await playAnimal(t); if (k !== ASAY.tok || tok !== AT.tok) return; } say(prompt); };
+  if ($('#ear')) tap($('#ear'), () => { anim($('#ear'), 'bounce'); ask(); });
+  st.querySelectorAll('.opts .card').forEach(b => tap(b, () => atTap(g, tok, b)));
+  repeatFn = ask; ask();
 }
-const FACE_BLANK = `<svg viewBox="0 0 200 200"><circle cx="22" cy="108" r="16" fill="${SKIN}" stroke="${SKIN_D}" stroke-width="3"/><circle cx="178" cy="108" r="16" fill="${SKIN}" stroke="${SKIN_D}" stroke-width="3"/>
-  <circle cx="100" cy="105" r="80" fill="${SKIN}" stroke="${SKIN_D}" stroke-width="3"/><path d="M22 100 Q18 25 100 22 Q182 25 178 100 Q165 60 100 56 Q35 60 22 100Z" fill="#6d4c41" stroke="#4e342e" stroke-width="3"/>
-  <ellipse cx="100" cy="106" rx="54" ry="22" fill="none" stroke="rgba(0,0,0,.18)" stroke-width="2" stroke-dasharray="5 4"/><circle cx="100" cy="129" r="13" fill="none" stroke="rgba(0,0,0,.18)" stroke-width="2" stroke-dasharray="5 4"/>
-  <ellipse cx="100" cy="153" rx="32" ry="15" fill="none" stroke="rgba(0,0,0,.18)" stroke-width="2" stroke-dasharray="5 4"/></svg>`;
-const FACE_PARTS = { // centre & size in face units (0-200)
-  eyes: { cx: 100, cy: 106, w: 100, h: 40, svg: `<svg viewBox="0 0 100 40"><ellipse cx="25" cy="20" rx="15" ry="17" fill="#fff" stroke="#555" stroke-width="2.5"/><ellipse cx="75" cy="20" rx="15" ry="17" fill="#fff" stroke="#555" stroke-width="2.5"/><circle cx="27" cy="23" r="8" fill="#3b2314"/><circle cx="77" cy="23" r="8" fill="#3b2314"/></svg>` },
-  nose: { cx: 100, cy: 129, w: 26, h: 22, svg: `<svg viewBox="0 0 26 22"><ellipse cx="13" cy="11" rx="12" ry="10" fill="${SKIN_D}"/></svg>` },
-  mouth: { cx: 100, cy: 153, w: 64, h: 30, svg: `<svg viewBox="0 0 64 30"><path d="M4 6 Q32 40 60 6 Q32 20 4 6Z" fill="#e64980" stroke="#a61e4d" stroke-width="3" stroke-linejoin="round"/></svg>` } };
-function bdBuild(g, tok) {
-  const area = $('#bda');
-  area.innerHTML = `<div class="faceb" id="faceb">${FACE_BLANK}</div>`;
-  BD.pieces = Object.keys(FACE_PARTS).map(k => { const el = document.createElement('div'); el.className = 'fpiece'; el.dataset.k = k; el.innerHTML = FACE_PARTS[k].svg; area.appendChild(el);
-    const p = { k, el, locked: false }; draggable(el, area, { onDown: () => { SFX.pop(); stopSpeech(); say(cap(L.body.names[k]) + '!'); }, onDrop: () => bdDrop(g, tok, p) }); return p; });
-  bdLayout(); resizeFn = () => { if (mode === 'body' && BD.sub === 'build') bdLayout(); };
-  repeatFn = () => say(L.body.build); say(L.body.build);
+async function atTap(g, tok, b) {
+  if (AT.busy || tok !== AT.tok) return;
+  const id = b.dataset.id;
+  if (id !== AT.target) { anim(b, 'wiggle'); animalSpeak(id); return; } // no failure: it just tells you who that is
+  AT.busy = true; b.classList.add('right'); anim(b, 'bounce'); confetti();
+  if (!(await animalSpeak(id, pick(L.praise))) || g !== scene || tok !== AT.tok) return;
+  await sleep(500); if (tok === AT.tok) atRender(g);
 }
-function bdLayout() {
-  const area = $('#bda'); if (!area) return;
-  const W = area.clientWidth, H = area.clientHeight, land = W > H * 1.05;
-  const S = land ? Math.min(H * 0.95, W * 0.58) : Math.min(W * 0.9, H * 0.6), fx = land ? W * 0.03 : (W - S) / 2, fy = land ? (H - S) / 2 : 0;
-  Object.assign($('#faceb').style, { left: fx + 'px', top: fy + 'px', width: S + 'px', height: S + 'px' });
-  const k = S / 200, ks = Object.keys(FACE_PARTS);
-  BD.geo = { S };
-  BD.pieces.forEach((p, i) => {
-    const f = FACE_PARTS[p.k], w = f.w * k, h = f.h * k, bw = Math.max(w, S * 0.22), bh = Math.max(h, S * 0.2);
-    Object.assign(p.el.style, { width: bw + 'px', height: bh + 'px' }); Object.assign(p.el.firstChild.style, { width: w + 'px', height: h + 'px' });
-    p.tx = fx + f.cx * k - bw / 2; p.ty = fy + f.cy * k - bh / 2;
-    if (land) { p.hx = fx + S + (W - fx - S - bw) / 2; p.hy = (H / ks.length) * (i + 0.5) - bh / 2; } else { p.hx = (W / ks.length) * (i + 0.5) - bw / 2; p.hy = fy + S + (H - fy - S - bh) / 2; }
+function atShadow(g, tok, ids) {
+  const area = $('#sha'), set = shuffle(ids).slice(0, 3);
+  AT.pieces = set.map((id, i) => {
+    const sh = document.createElement('div'); sh.className = 'shadow'; sh.dataset.id = id; sh.innerHTML = ANIMALS[id][0]; area.appendChild(sh);
+    const el = document.createElement('div'); el.className = 'apiece'; el.dataset.id = id; el.innerHTML = ANIMALS[id][0]; area.appendChild(el);
+    const p = { id, el, sh, locked: false };
+    draggable(el, area, { onDown: () => { SFX.pop(); animalSpeak(id); }, onDrop: () => atShadowDrop(g, tok, p) });
+    return p;
+  });
+  AT.order = shuffle([0, 1, 2]);
+  atShadowLayout(); resizeFn = () => { if (AT.sub === 'shadow' && tok === AT.tok) atShadowLayout(); };
+  repeatFn = () => say(L.an.shadow); say(L.an.shadow);
+}
+function atShadowLayout() {
+  const area = $('#sha'); if (!area) return;
+  const W = area.clientWidth, H = area.clientHeight, S = Math.min(W / 3.6, H / 2.5);
+  AT.S = S;
+  AT.pieces.forEach((p, i) => {
+    for (const el of [p.el, p.sh]) Object.assign(el.style, { width: S + 'px', height: S + 'px', fontSize: S * 0.78 + 'px' });
+    p.tx = W / 3 * (i + 0.5) - S / 2; p.ty = H * 0.27 - S / 2;
+    setXY(p.sh, p.tx, p.ty);
+    p.hx = W / 3 * (AT.order[i] + 0.5) - S / 2; p.hy = H * 0.75 - S / 2;
     if (p.locked) setXY(p.el, p.tx, p.ty); else if (!p.el.classList.contains('dragging')) setXY(p.el, p.hx, p.hy);
   });
 }
-async function bdDrop(g, tok, p) {
-  if (Math.hypot(p.el._x - p.tx, p.el._y - p.ty) < BD.geo.S * 0.14) {
-    p.locked = true; p.el.dataset.locked = '1'; p.el.classList.add('locked'); glideTo(p.el, p.tx, p.ty); SFX.chime(); confetti(10);
-    if (BD.pieces.every(q => q.locked)) { await sleep(400); if (g !== scene || tok !== BD.tok) return; cheer(); stopSpeech();
-      if (!(await say(L.body.done + ' ' + pick(L.praise))) || g !== scene || tok !== BD.tok) return; await sleep(1200); if (BD.sub === 'build' && tok === BD.tok) bdRender(g); }
+async function atShadowDrop(g, tok, p) {
+  if (Math.hypot(p.el._x - p.tx, p.el._y - p.ty) < AT.S * 0.55) {
+    p.locked = true; p.el.dataset.locked = '1'; p.el.classList.add('locked'); glideTo(p.el, p.tx, p.ty); SFX.chime(); confetti(12);
+    if (AT.pieces.every(q => q.locked)) {
+      await sleep(900); if (g !== scene || tok !== AT.tok) return; cheer(); stopSpeech();
+      if (!(await say(pick(L.praise))) || g !== scene || tok !== AT.tok) return; await sleep(600); if (tok === AT.tok) atRender(g);
+    }
   } else glideTo(p.el, p.hx, p.hy);
 }
 
-/* ---------- Animals ---------- */
-const AN = { sub: 'explore', target: null, tok: 0, busy: false };
-function startAnimals(g) { AN.sub = 'explore'; anRender(g); }
-function anSound(a) { if (a.synth) SFX.animal(a.synth); }
-function anRender(g) {
-  const tok = ++AN.tok; AN.busy = false;
-  const bar = subBar([['explore', '👆'], ['who', '🔊'], ['find', '🔍']], AN.sub, s => { AN.sub = s; anRender(g); });
-  const st = $('#stage'), A = L.animals.list;
-  if (AN.sub === 'explore') {
-    st.innerHTML = bar.html + `<div class="angrid">${A.map((a, i) => `<button class="anb big" data-i="${i}">${a.e}</button>`).join('')}</div>`; bar.bind(st);
-    st.querySelectorAll('.anb').forEach(b => tap(b, () => { const a = A[+b.dataset.i]; anim(b, 'bounce'); anSound(a); stopSpeech(); say(a.name + '! ' + a.line); }));
-    repeatFn = () => say(L.animals.hello); say(L.animals.hello); return;
-  }
-  const pool = AN.sub === 'who' ? A.filter(a => a.q) : A;
-  let t; do { t = pick(pool); } while (AN.target && t.id === AN.target.id);
-  AN.target = t;
-  const others = opt3(pool.filter(a => a !== t && (AN.sub !== 'who' || a.short !== t.short)), AN.sub === 'who' ? 2 : 3);
-  const opts = shuffle([t, ...others]), prompt = AN.sub === 'who' ? L.animals.who(t) : L.animals.find(t);
-  st.innerHTML = bar.html + `<div class="q">${prompt}</div><div class="opts anopts">${opts.map(a => `<button class="card big" data-id="${a.id}"><span class="emo">${a.e}</span></button>`).join('')}</div>`; bar.bind(st);
-  st.querySelectorAll('.opts .card').forEach(b => tap(b, () => anTap(g, tok, b)));
-  const ask = () => { if (AN.sub === 'who') anSound(t); say(prompt); };
-  repeatFn = ask; ask();
+/* ---------- original art for words that have no good emoji ---------- */
+const ART = {
+  table: `<svg viewBox="0 0 100 100"><rect x="8" y="34" width="84" height="12" rx="4" fill="#a0522d" stroke="#6b3410" stroke-width="3"/><rect x="16" y="46" width="9" height="44" rx="3" fill="#8b4513"/><rect x="75" y="46" width="9" height="44" rx="3" fill="#8b4513"/></svg>`,
+  lamp: `<svg viewBox="0 0 100 100"><path d="M28 14 H72 L84 46 H16Z" fill="#ffd43b" stroke="#e8a400" stroke-width="3" stroke-linejoin="round"/><rect x="46" y="46" width="8" height="36" fill="#868e96"/><ellipse cx="50" cy="88" rx="22" ry="7" fill="#495057"/><circle cx="50" cy="52" r="6" fill="#fff3bf"/></svg>`,
+  fridge: `<svg viewBox="0 0 100 100"><rect x="24" y="4" width="52" height="92" rx="8" fill="#f1f3f5" stroke="#868e96" stroke-width="3"/><line x1="24" y1="38" x2="76" y2="38" stroke="#868e96" stroke-width="3"/><rect x="64" y="16" width="5" height="14" rx="2" fill="#868e96"/><rect x="64" y="46" width="5" height="22" rx="2" fill="#868e96"/><circle cx="36" cy="20" r="4" fill="#ff6b6b"/></svg>`,
+  cooker: `<svg viewBox="0 0 100 100"><rect x="14" y="20" width="72" height="76" rx="6" fill="#f8f9fa" stroke="#868e96" stroke-width="3"/><rect x="14" y="20" width="72" height="16" rx="5" fill="#dee2e6"/><circle cx="30" cy="28" r="5" fill="#343a40"/><circle cx="50" cy="28" r="5" fill="#343a40"/><circle cx="70" cy="28" r="5" fill="#343a40"/><rect x="24" y="46" width="52" height="38" rx="5" fill="#495057"/><rect x="30" y="52" width="40" height="22" rx="3" fill="#ffa94d" opacity=".7"/><path d="M30 16 Q34 6 30 0 M50 16 Q54 6 50 0 M70 16 Q74 6 70 0" stroke="#adb5bd" stroke-width="2.5" fill="none"/></svg>`,
+  cupboard: `<svg viewBox="0 0 100 100"><rect x="12" y="6" width="76" height="88" rx="5" fill="#c08457" stroke="#7c4a24" stroke-width="3"/><line x1="50" y1="6" x2="50" y2="94" stroke="#7c4a24" stroke-width="3"/><circle cx="43" cy="50" r="4" fill="#ffd43b"/><circle cx="57" cy="50" r="4" fill="#ffd43b"/></svg>`,
+  rubber: `<svg viewBox="0 0 100 100"><g transform="rotate(-20 50 50)"><rect x="14" y="34" width="72" height="32" rx="7" fill="#ff8fab" stroke="#c2255c" stroke-width="3"/><rect x="54" y="34" width="32" height="32" rx="7" fill="#74c0fc" stroke="#1971c2" stroke-width="3"/></g></svg>`,
+  desk: `<svg viewBox="0 0 100 100"><rect x="6" y="30" width="88" height="12" rx="3" fill="#d9a066" stroke="#8a5a2b" stroke-width="3"/><rect x="60" y="42" width="30" height="48" rx="3" fill="#c08457" stroke="#8a5a2b" stroke-width="3"/><line x1="60" y1="58" x2="90" y2="58" stroke="#8a5a2b" stroke-width="2.5"/><line x1="60" y1="74" x2="90" y2="74" stroke="#8a5a2b" stroke-width="2.5"/><rect x="12" y="42" width="7" height="48" fill="#8a5a2b"/></svg>`,
+  board: `<svg viewBox="0 0 100 100"><rect x="4" y="14" width="92" height="64" rx="4" fill="#2f9e44" stroke="#8a5a2b" stroke-width="5"/><path d="M16 36 q8 -10 16 0 t16 0 M16 56 h30 M58 30 l10 22 l10 -22" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/><rect x="30" y="80" width="40" height="5" rx="2" fill="#8a5a2b"/></svg>`,
+  glue: `<svg viewBox="0 0 100 100"><rect x="34" y="30" width="32" height="62" rx="6" fill="#f8f9fa" stroke="#868e96" stroke-width="3"/><rect x="34" y="50" width="32" height="20" fill="#74c0fc"/><rect x="36" y="10" width="28" height="22" rx="5" fill="#ff922b" stroke="#d9480f" stroke-width="3"/></svg>`,
+  flower: `<svg viewBox="0 0 100 100"><path d="M50 52 V94" stroke="#2f9e44" stroke-width="6"/><ellipse cx="64" cy="76" rx="12" ry="5" fill="#40c057" transform="rotate(-30 64 76)"/>${[0, 72, 144, 216, 288].map(a => `<circle cx="${50 + 16 * Math.cos(a * Math.PI / 180)}" cy="${34 + 16 * Math.sin(a * Math.PI / 180)}" r="12" fill="#ff8fab"/>`).join('')}<circle cx="50" cy="34" r="10" fill="#ffd43b"/></svg>`
+};
+const pic = v => v.startsWith('<svg') ? v : `<span class="emo">${v}</span>`;
+const SCHOOL = { pen: '🖊️', pencil: '✏️', rubber: ART.rubber, ruler: '📏', book: '📕', bag: '🎒', desk: ART.desk, chair: '🪑', board: ART.board, crayon: '🖍️',
+  paper: '📄', computer: '💻', door: '🚪', window: '🪟', clock: '🕒', scissors: '✂️', glue: ART.glue };
+const BAG_OK = ['pen', 'pencil', 'rubber', 'ruler', 'book', 'crayon', 'paper', 'scissors', 'glue'];
+const THINGS = { bed: '🛏️', sofa: '🛋️', table: ART.table, chair: '🪑', lamp: ART.lamp, bath: '🛁', shower: '🚿', fridge: ART.fridge, cooker: ART.cooker, tv: '📺',
+  cupboard: ART.cupboard, mirror: '🪞', toilet: '🚽', door: '🚪', window: '🪟', tree: '🌳', flower: ART.flower };
+const ROOMS = { // room: [x, y, w, h] in the 800x600 house picture, wall colour, things inside, [x,y] positions (0-1) in the room view
+  bedroom: [150, 190, 250, 160, '#d0bfff', [['bed', .3, .7], ['lamp', .72, .62], ['cupboard', .86, .45], ['window', .5, .28]]],
+  bathroom: [400, 190, 250, 160, '#99e9f2', [['bath', .3, .72], ['toilet', .62, .72], ['shower', .86, .5], ['mirror', .6, .3]]],
+  living: [150, 350, 200, 170, '#ffd8a8', [['sofa', .32, .72], ['tv', .78, .66], ['lamp', .1, .62], ['window', .55, .28], ['table', .55, .82]]],
+  hall: [350, 350, 100, 170, '#ffec99', [['door', .5, .6], ['mirror', .2, .35], ['cupboard', .82, .6]]],
+  kitchen: [450, 350, 200, 170, '#b2f2bb', [['fridge', .14, .58], ['cooker', .38, .66], ['cupboard', .62, .4], ['table', .66, .8], ['chair', .88, .78], ['window', .4, .26]]],
+  garden: [0, 0, 0, 0, '#8ce99a', [['tree', .25, .5], ['flower', .55, .72], ['flower', .7, .78], ['tree', .82, .45]]] };
+const PUT = { bed: ['bedroom'], sofa: ['living'], tv: ['living'], fridge: ['kitchen'], cooker: ['kitchen'], bath: ['bathroom'], shower: ['bathroom'], toilet: ['bathroom'],
+  lamp: ['bedroom', 'living'], table: ['kitchen', 'living'], chair: ['kitchen', 'living'], mirror: ['bathroom', 'hall', 'bedroom'], cupboard: ['kitchen', 'bedroom', 'hall'] };
+
+/* ---------- Face & Body: big original drawings with precise tap zones ---------- */
+const SKIN2 = '#f8cfa8', SKIN2D = '#cf9466', HAIR = '#6d4c41', HAIRD = '#4e342e';
+function faceSVG() { // 400 x 440
+  const hit = 'fill="transparent"';
+  const lash = (cx, s) => [-40, -20, 0, 20, 40].map(a => { const r = a * Math.PI / 180, x0 = cx + 26 * Math.sin(r) * s, y0 = 222 - 22 * Math.cos(r); return `<line x1="${x0}" y1="${y0}" x2="${x0 + 12 * Math.sin(r) * s}" y2="${y0 - 12 * Math.cos(r)}"/>`; }).join('');
+  return `<svg class="bigsvg face" viewBox="0 0 400 440" xmlns="http://www.w3.org/2000/svg">
+  <g class="part" data-part="ears"><ellipse cx="52" cy="245" rx="28" ry="42" fill="${SKIN2}" stroke="${SKIN2D}" stroke-width="4"/><ellipse cx="348" cy="245" rx="28" ry="42" fill="${SKIN2}" stroke="${SKIN2D}" stroke-width="4"/><path d="M50 228 q-12 17 2 34 M350 228 q12 17 -2 34" stroke="${SKIN2D}" stroke-width="4" fill="none"/></g>
+  <ellipse cx="200" cy="240" rx="150" ry="172" fill="${SKIN2}" stroke="${SKIN2D}" stroke-width="4" pointer-events="none"/>
+  <g class="part" data-part="forehead"><path d="M96 150 Q200 120 304 150 L300 186 Q200 166 100 186Z" ${hit}/></g>
+  <g class="part" data-part="chin"><ellipse cx="200" cy="392" rx="66" ry="22" fill="${SKIN2D}" opacity=".18"/><ellipse cx="200" cy="390" rx="80" ry="26" ${hit}/></g>
+  <g class="part" data-part="hair"><path d="M46 236 Q30 70 200 58 Q370 70 354 236 Q346 160 316 140 Q290 150 270 128 Q240 152 200 132 Q160 152 130 128 Q110 150 84 140 Q54 160 46 236Z" fill="${HAIR}" stroke="${HAIRD}" stroke-width="4" stroke-linejoin="round"/></g>
+  <g class="part" data-part="cheeks"><circle cx="106" cy="300" r="34" fill="#ff8fab" opacity=".45"/><circle cx="294" cy="300" r="34" fill="#ff8fab" opacity=".45"/></g>
+  <g class="part" data-part="eyebrows"><path d="M104 184 Q138 166 172 182 M228 182 Q262 166 296 184" stroke="${HAIRD}" stroke-width="11" fill="none" stroke-linecap="round"/><path d="M100 186 Q138 160 176 184 M224 184 Q262 160 300 186" stroke="transparent" stroke-width="28" fill="none"/></g>
+  <g class="part" data-part="eyes"><ellipse cx="140" cy="236" rx="30" ry="24" fill="#fff" stroke="#495057" stroke-width="3.5"/><ellipse cx="260" cy="236" rx="30" ry="24" fill="#fff" stroke="#495057" stroke-width="3.5"/><circle cx="143" cy="238" r="14" fill="#5c3d2e"/><circle cx="263" cy="238" r="14" fill="#5c3d2e"/><circle cx="143" cy="238" r="7" fill="#111"/><circle cx="263" cy="238" r="7" fill="#111"/><circle cx="148" cy="233" r="4" fill="#fff"/><circle cx="268" cy="233" r="4" fill="#fff"/></g>
+  <g class="part" data-part="eyelashes" stroke="#212529" stroke-width="4" stroke-linecap="round">${lash(140, 1)}${lash(260, 1)}<rect x="104" y="196" width="72" height="20" ${hit} stroke="none"/><rect x="224" y="196" width="72" height="20" ${hit} stroke="none"/></g>
+  <g class="part" data-part="nose"><path d="M200 258 Q186 292 178 300 Q200 312 222 300 Q214 292 200 258Z" fill="${SKIN2D}" opacity=".85"/><ellipse cx="200" cy="292" rx="30" ry="24" ${hit}/></g>
+  <g class="part" data-part="lips"><path d="M138 338 Q170 318 200 328 Q230 318 262 338 Q232 384 200 384 Q168 384 138 338Z" fill="#e64980" stroke="#a61e4d" stroke-width="4" stroke-linejoin="round"/></g>
+  <g class="part" data-part="mouth"><path d="M156 340 Q200 330 244 340 Q226 368 200 368 Q174 368 156 340Z" fill="#5c1a2e"/></g>
+  <g class="part" data-part="teeth"><path d="M162 340 Q200 332 238 340 L234 350 Q200 344 166 350Z" fill="#fff" stroke="#dee2e6" stroke-width="1.5"/><line x1="200" y1="335" x2="200" y2="346" stroke="#dee2e6" stroke-width="1.5"/></g>
+  <g class="part" data-part="tongue"><ellipse cx="200" cy="360" rx="22" ry="9" fill="#ff8787"/><line x1="200" y1="354" x2="200" y2="364" stroke="#e03131" stroke-width="2"/></g></svg>`;
 }
-async function anTap(g, tok, b) {
-  if (AN.busy || tok !== AN.tok) return;
-  const a = L.animals.list.find(x => x.id === b.dataset.id), t = AN.target;
-  stopSpeech();
-  if (a !== t) { anim(b, 'wiggle'); SFX.boop(); say(pick(L.retry) + ' ' + (AN.sub === 'who' ? L.animals.who(t) : L.animals.find(t))); return; }
-  AN.busy = true; b.classList.add('right'); anim(b, 'bounce'); confetti(); anSound(a);
-  if (!(await say(AN.sub === 'who' ? L.animals.says(a) : a.name + '! ' + a.line)) || g !== scene || tok !== AN.tok) return;
-  await say(pick(L.praise)); if (g !== scene || tok !== AN.tok) return;
-  await sleep(500); anRender(g);
+function bodySVG() { // 560 x 560: big front view + small back view (for "back")
+  const S = `fill="${SKIN2}" stroke="${SKIN2D}" stroke-width="4"`, T = 'fill="transparent"';
+  const hand = (x, y, m) => `<g class="part" data-part="fingers">${[-21, -7, 7, 21].map(dx => `<rect x="${x + dx * m - 6}" y="${y - 58}" width="12" height="34" rx="6" ${S}/>`).join('')}<rect x="${x - 30}" y="${y - 62}" width="60" height="34" ${T}/></g>
+    <g class="part" data-part="thumb"><rect x="${x + 22 * m - 7}" y="${y - 30}" width="14" height="30" rx="7" ${S} transform="rotate(${-55 * m} ${x + 22 * m} ${y - 15})"/><circle cx="${x + 36 * m}" cy="${y - 22}" r="18" ${T}/></g>
+    <g class="part" data-part="hands"><ellipse cx="${x}" cy="${y - 12}" rx="28" ry="24" ${S}/></g>`;
+  return `<svg class="bigsvg body" viewBox="0 0 560 560" xmlns="http://www.w3.org/2000/svg">
+  <g class="part" data-part="legs"><path d="M148 300 L140 384 M136 396 L130 482" stroke="${SKIN2D}" stroke-width="40" stroke-linecap="round"/><path d="M148 300 L140 384 M136 396 L130 482" stroke="${SKIN2}" stroke-width="32" stroke-linecap="round"/>
+    <path d="M212 300 L220 384 M224 396 L230 482" stroke="${SKIN2D}" stroke-width="40" stroke-linecap="round"/><path d="M212 300 L220 384 M224 396 L230 482" stroke="${SKIN2}" stroke-width="32" stroke-linecap="round"/></g>
+  <g class="part" data-part="knees"><circle cx="138" cy="390" r="21" ${S}/><circle cx="222" cy="390" r="21" ${S}/></g>
+  <g class="part" data-part="feet"><ellipse cx="116" cy="500" rx="38" ry="20" ${S}/><ellipse cx="244" cy="500" rx="38" ry="20" ${S}/></g>
+  <g class="part" data-part="toes">${[0, 1, 2, 3, 4].map(i => `<circle cx="${84 + i * 9}" cy="${508 + i}" r="${7 - i * .7}" ${S}/><circle cx="${276 - i * 9}" cy="${508 + i}" r="${7 - i * .7}" ${S}/>`).join('')}<rect x="66" y="494" width="50" height="34" ${T}/><rect x="244" y="494" width="50" height="34" ${T}/></g>
+  <path d="M124 270 H236 V320 Q236 332 222 332 H190 L180 312 L170 332 H138 Q124 332 124 320Z" fill="#1c7ed6" stroke="#1864ab" stroke-width="4" pointer-events="none"/>
+  <g class="part" data-part="arms"><path d="M112 172 L62 226 M56 222 L44 168 M248 172 L298 226 M304 222 L316 168" stroke="#e8a400" stroke-width="38" stroke-linecap="round"/><path d="M112 172 L62 226 M56 222 L44 168 M248 172 L298 226 M304 222 L316 168" stroke="#ffd43b" stroke-width="30" stroke-linecap="round"/></g>
+  <g class="part" data-part="elbows"><circle cx="58" cy="226" r="20" fill="#ffd43b" stroke="#e8a400" stroke-width="4"/><circle cx="302" cy="226" r="20" fill="#ffd43b" stroke="#e8a400" stroke-width="4"/><circle cx="58" cy="228" r="7" fill="#e8a400"/><circle cx="302" cy="228" r="7" fill="#e8a400"/></g>
+  ${hand(42, 160, 1)}${hand(318, 160, -1)}
+  <g class="part" data-part="tummy"><path d="M120 160 Q180 146 240 160 L236 280 H124Z" fill="#ffd43b" stroke="#e8a400" stroke-width="4" stroke-linejoin="round"/><circle cx="180" cy="248" r="5" fill="#e8a400"/></g>
+  <g class="part" data-part="shoulders"><circle cx="122" cy="166" r="24" fill="#ffd43b" stroke="#e8a400" stroke-width="4"/><circle cx="238" cy="166" r="24" fill="#ffd43b" stroke="#e8a400" stroke-width="4"/></g>
+  <g class="part" data-part="neck"><rect x="164" y="124" width="32" height="30" rx="6" ${S}/></g>
+  <g class="part" data-part="head"><circle cx="180" cy="80" r="56" ${S}/><path d="M124 78 Q122 20 180 20 Q238 20 236 78 Q220 46 180 48 Q140 46 124 78Z" fill="${HAIR}" stroke="${HAIRD}" stroke-width="3"/>
+    <circle cx="160" cy="84" r="6" fill="#333"/><circle cx="200" cy="84" r="6" fill="#333"/><path d="M164 104 Q180 116 196 104" stroke="#a61e4d" stroke-width="4" fill="none" stroke-linecap="round"/></g>
+  <g transform="translate(372 120) scale(.62)" pointer-events="none">
+    <path d="M148 300 L136 482 M212 300 L224 482" stroke="${SKIN2}" stroke-width="32" stroke-linecap="round"/><ellipse cx="128" cy="498" rx="26" ry="16" fill="${SKIN2}"/><ellipse cx="232" cy="498" rx="26" ry="16" fill="${SKIN2}"/>
+    <path d="M124 270 H236 V326 H124Z" fill="#1c7ed6"/><path d="M120 172 L84 290 M240 172 L276 290" stroke="#ffd43b" stroke-width="30" stroke-linecap="round"/>
+    <circle cx="80" cy="300" r="18" fill="${SKIN2}"/><circle cx="280" cy="300" r="18" fill="${SKIN2}"/>
+    <rect x="164" y="124" width="32" height="30" rx="6" fill="${SKIN2}"/><circle cx="180" cy="80" r="56" fill="${HAIR}"/><ellipse cx="124" cy="84" rx="9" ry="14" fill="${SKIN2}"/><ellipse cx="236" cy="84" rx="9" ry="14" fill="${SKIN2}"/></g>
+  <g class="part" data-part="back" transform="translate(372 120) scale(.62)"><path d="M120 160 Q180 146 240 160 L236 280 H124Z" fill="#ffd43b" stroke="#e8a400" stroke-width="5"/><path d="M180 166 V272" stroke="#e8a400" stroke-width="4" stroke-dasharray="8 7"/></g>
+  <text x="470" y="100" font-size="44" text-anchor="middle" pointer-events="none">🔄</text></svg>`;
+}
+const PT = { kind: 'face', sub: 'learn', tok: 0, busy: false, target: null, pieces: [] };
+const partsStart = kind => g => { PT.kind = kind; PT.sub = 'learn'; PT.target = null; ptRender(g); };
+const PD = () => PT.kind === 'face' ? L.face : L.body;
+function ptRender(g) {
+  const tok = ++PT.tok; PT.busy = false; resizeFn = null;
+  const D = PD();
+  const bar = subBar([['learn', '👆'], ['quiz', '❓'], ['puzzle', '🧩']], PT.sub, s => { PT.sub = s; ptRender(g); });
+  const st = $('#stage');
+  if (PT.sub === 'puzzle' && PT.kind === 'face') { st.innerHTML = bar.html + `<div class="pzarea" id="bda"></div>`; bar.bind(st); return faceBuild(g, tok); }
+  st.innerHTML = bar.html + `<div class="q" id="bdq"></div><div class="kidwrap">${PT.kind === 'face' ? faceSVG() : bodySVG()}</div><div class="opts missopts" id="miss"></div>`; bar.bind(st);
+  st.querySelectorAll('.part').forEach(p => tap(p, () => ptTap(g, tok, p)));
+  if (PT.sub === 'learn') { $('#bdq').textContent = D.hello; repeatFn = () => say(D.hello); say(D.hello); }
+  else if (PT.sub === 'quiz') ptQuiz(g, tok);
+  else bodyMissing(g, tok);
+}
+function ptQuiz(g, tok) {
+  const D = PD(), keys = Object.keys(D.names).filter(k => k !== PT.target);
+  PT.target = pick(keys); PT.busy = false;
+  const p = D.find(D.names[PT.target]); $('#bdq').textContent = p; repeatFn = () => say(p); say(p);
+}
+async function ptTap(g, tok, el) {
+  const D = PD(), k = el.dataset.part, nm = D.names[k];
+  anim(el, 'pflash'); SFX.pop(); stopSpeech();
+  if (PT.sub !== 'quiz') { say(cap(nm) + '!'); return; }
+  if (PT.busy || tok !== PT.tok) return;
+  if (k !== PT.target) { say(D.oops(nm, D.names[PT.target])); return; }
+  PT.busy = true; cheer();
+  if (!(await say(D.yes(nm) + ' ' + pick(L.praise))) || g !== scene || tok !== PT.tok) return;
+  await sleep(500); if (tok === PT.tok) ptQuiz(g, tok);
+}
+const MISSING = { hands: ['hands', 'fingers', 'thumb'], feet: ['feet', 'toes'], arms: ['arms', 'elbows', 'hands', 'fingers', 'thumb'], legs: ['legs', 'knees', 'feet', 'toes'],
+  neck: ['neck'], knees: ['knees'], elbows: ['elbows'], shoulders: ['shoulders'] };
+function partThumb(svg, groups) { // a cropped picture of just these parts
+  let b = null;
+  for (const k of groups) svg.querySelectorAll(`.part[data-part="${k}"]`).forEach(el => { const r = el.getBBox(); if (!r.width) return;
+    b = b ? { x1: Math.min(b.x1, r.x), y1: Math.min(b.y1, r.y), x2: Math.max(b.x2, r.x + r.width), y2: Math.max(b.y2, r.y + r.height) } : { x1: r.x, y1: r.y, x2: r.x + r.width, y2: r.y + r.height }; });
+  const c = svg.cloneNode(true); c.removeAttribute('class');
+  c.querySelectorAll('*').forEach(el => { if (el.parentNode === c && !(el.classList.contains('part') && groups.includes(el.dataset.part))) el.setAttribute('display', 'none'); });
+  const pad = 8; c.setAttribute('viewBox', `${b.x1 - pad} ${b.y1 - pad} ${b.x2 - b.x1 + 2 * pad} ${b.y2 - b.y1 + 2 * pad}`);
+  return c.outerHTML;
+}
+function bodyMissing(g, tok) {
+  const svg = $('.kidwrap svg'), keys = Object.keys(MISSING);
+  let k; do { k = pick(keys); } while (k === PT.target && keys.length > 1);
+  PT.target = k; PT.busy = false;
+  const opts = shuffle([k, ...shuffle(keys.filter(x => x !== k && !MISSING[x].some(y => MISSING[k].includes(y)))).slice(0, 2)]);
+  const thumbs = opts.map(o => partThumb(svg, MISSING[o]));
+  MISSING[k].forEach(p => svg.querySelectorAll(`.part[data-part="${p}"]`).forEach(el => el.classList.add('gone')));
+  $('#bdq').textContent = L.body.missing;
+  const m = $('#miss'); m.innerHTML = opts.map((o, i) => `<button class="card big mcard" data-k="${o}">${thumbs[i]}</button>`).join('');
+  m.querySelectorAll('.mcard').forEach(b => tap(b, async () => {
+    if (PT.busy || tok !== PT.tok) return;
+    const o = b.dataset.k; stopSpeech();
+    if (o !== PT.target) { anim(b, 'wiggle'); SFX.boop(); say(cap(L.body.names[o]) + '! ' + pick(L.retry)); return; }
+    PT.busy = true; b.classList.add('right'); cheer();
+    svg.querySelectorAll('.gone').forEach(el => { el.classList.remove('gone'); anim(el, 'popin'); });
+    if (!(await say(L.body.found(L.body.names[o]) + ' ' + pick(L.praise))) || g !== scene || tok !== PT.tok) return;
+    await sleep(700); if (tok === PT.tok) ptRender(g);
+  }));
+  repeatFn = () => say(L.body.missing); say(L.body.missing);
+}
+const FACE_BLANK2 = `<svg viewBox="0 0 200 200"><circle cx="22" cy="108" r="16" fill="${SKIN2}" stroke="${SKIN2D}" stroke-width="3"/><circle cx="178" cy="108" r="16" fill="${SKIN2}" stroke="${SKIN2D}" stroke-width="3"/>
+  <circle cx="100" cy="105" r="80" fill="${SKIN2}" stroke="${SKIN2D}" stroke-width="3"/><path d="M22 100 Q18 25 100 22 Q182 25 178 100 Q165 60 100 56 Q35 60 22 100Z" fill="${HAIR}" stroke="${HAIRD}" stroke-width="3"/>
+  <g fill="none" stroke="rgba(0,0,0,.2)" stroke-width="2" stroke-dasharray="5 4"><rect x="50" y="74" width="100" height="14" rx="7"/><ellipse cx="100" cy="106" rx="54" ry="16"/><circle cx="100" cy="130" r="12"/><ellipse cx="100" cy="156" rx="32" ry="14"/></g></svg>`;
+const FACE_PARTS2 = { // centre & size in face units (0-200)
+  eyebrows: { cx: 100, cy: 81, w: 100, h: 18, svg: `<svg viewBox="0 0 100 18"><path d="M6 14 Q24 2 42 12 M58 12 Q76 2 94 14" stroke="${HAIRD}" stroke-width="6" fill="none" stroke-linecap="round"/></svg>` },
+  eyes: { cx: 100, cy: 106, w: 100, h: 34, svg: `<svg viewBox="0 0 100 34"><ellipse cx="25" cy="17" rx="16" ry="14" fill="#fff" stroke="#555" stroke-width="2.5"/><ellipse cx="75" cy="17" rx="16" ry="14" fill="#fff" stroke="#555" stroke-width="2.5"/><circle cx="27" cy="18" r="7" fill="#5c3d2e"/><circle cx="77" cy="18" r="7" fill="#5c3d2e"/></svg>` },
+  nose: { cx: 100, cy: 130, w: 26, h: 24, svg: `<svg viewBox="0 0 26 24"><path d="M13 2 Q5 16 2 20 Q13 26 24 20 Q21 16 13 2Z" fill="${SKIN2D}"/></svg>` },
+  mouth: { cx: 100, cy: 156, w: 64, h: 28, svg: `<svg viewBox="0 0 64 28"><path d="M4 6 Q32 0 60 6 Q46 28 32 28 Q18 28 4 6Z" fill="#e64980" stroke="#a61e4d" stroke-width="3" stroke-linejoin="round"/><path d="M12 8 Q32 4 52 8 Q42 20 32 20 Q22 20 12 8Z" fill="#5c1a2e"/><path d="M14 8 Q32 4 50 8 L48 12 Q32 9 16 12Z" fill="#fff"/></svg>` } };
+function faceBuild(g, tok) {
+  const area = $('#bda');
+  area.innerHTML = `<div class="faceb" id="faceb">${FACE_BLANK2}</div>`;
+  PT.pieces = Object.keys(FACE_PARTS2).map(k => { const el = document.createElement('div'); el.className = 'fpiece'; el.dataset.k = k; el.innerHTML = FACE_PARTS2[k].svg; area.appendChild(el);
+    const p = { k, el, locked: false }; draggable(el, area, { onDown: () => { SFX.pop(); stopSpeech(); say(cap(L.face.names[k]) + '!'); }, onDrop: () => faceDrop(g, tok, p) }); return p; });
+  faceLayout(); resizeFn = () => { if (PT.sub === 'puzzle' && tok === PT.tok) faceLayout(); };
+  repeatFn = () => say(L.face.build); say(L.face.build);
+}
+function faceLayout() {
+  const area = $('#bda'); if (!area) return;
+  const W = area.clientWidth, H = area.clientHeight, land = W > H * 1.05, n = PT.pieces.length;
+  const S = land ? Math.min(H * 0.95, W * 0.58) : Math.min(W * 0.9, H * 0.6), fx = land ? W * 0.03 : (W - S) / 2, fy = land ? (H - S) / 2 : 0;
+  Object.assign($('#faceb').style, { left: fx + 'px', top: fy + 'px', width: S + 'px', height: S + 'px' });
+  const k = S / 200; PT.S = S;
+  PT.pieces.forEach((p, i) => {
+    const f = FACE_PARTS2[p.k], w = f.w * k, h = f.h * k, bw = Math.max(w, S * 0.22), bh = Math.max(h, S * 0.16);
+    Object.assign(p.el.style, { width: bw + 'px', height: bh + 'px' }); Object.assign(p.el.firstChild.style, { width: w + 'px', height: h + 'px' });
+    p.tx = fx + f.cx * k - bw / 2; p.ty = fy + f.cy * k - bh / 2;
+    if (land) { p.hx = fx + S + (W - fx - S - bw) / 2; p.hy = (H / n) * (i + 0.5) - bh / 2; }
+    else { const c = i % 2, r = Math.floor(i / 2); p.hx = (W / 2) * (c + 0.5) - bw / 2; p.hy = fy + S + ((H - fy - S) / 2) * (r + 0.5) - bh / 2; }
+    if (p.locked) setXY(p.el, p.tx, p.ty); else if (!p.el.classList.contains('dragging')) setXY(p.el, p.hx, p.hy);
+  });
+}
+async function faceDrop(g, tok, p) {
+  if (Math.hypot(p.el._x - p.tx, p.el._y - p.ty) < PT.S * 0.12) {
+    p.locked = true; p.el.dataset.locked = '1'; p.el.classList.add('locked'); glideTo(p.el, p.tx, p.ty); SFX.chime(); confetti(10);
+    if (PT.pieces.every(q => q.locked)) { await sleep(400); if (g !== scene || tok !== PT.tok) return; cheer(); stopSpeech();
+      if (!(await say(L.face.done + ' ' + pick(L.praise))) || g !== scene || tok !== PT.tok) return; await sleep(1200); if (tok === PT.tok) ptRender(g); }
+  } else glideTo(p.el, p.hx, p.hy);
+}
+
+/* ---------- Classroom: learn / find / pack the school bag ---------- */
+const CL = { sub: 'learn', tok: 0, busy: false, target: null, pieces: [] };
+function startClassroom(g) { CL.sub = 'learn'; CL.target = null; clRender(g); }
+function clRender(g) {
+  const tok = ++CL.tok; CL.busy = false; resizeFn = null;
+  const N = L.school.names, ids = Object.keys(SCHOOL);
+  const bar = subBar([['learn', '👆'], ['find', '🔍'], ['bag', '🎒']], CL.sub, s => { CL.sub = s; clRender(g); });
+  const st = $('#stage');
+  if (CL.sub === 'learn') {
+    st.innerHTML = bar.html + `<div class="scene sc-school"><div class="angrid n17">${ids.map(id => `<button class="anb big wbtn" data-id="${id}">${pic(SCHOOL[id])}</button>`).join('')}</div></div>`; bar.bind(st);
+    st.querySelectorAll('.anb').forEach(b => tap(b, () => { anim(b, 'bounce'); SFX.pop(); stopSpeech(); say(cap(N[b.dataset.id]) + '!'); }));
+    repeatFn = () => say(L.school.hello); say(L.school.hello); return;
+  }
+  if (CL.sub === 'find') return wordFind(g, tok, CL, SCHOOL, N, L.school.find, () => clRender(g));
+  st.innerHTML = bar.html + `<div class="q" id="clq"></div><div class="pzarea scene sc-school" id="bga"><div class="bag" id="bag">🎒</div></div>`; bar.bind(st);
+  const area = $('#bga'), set = shuffle(BAG_OK).slice(0, 4);
+  CL.pieces = set.map(id => { const el = document.createElement('div'); el.className = 'apiece wpiece'; el.dataset.id = id; el.innerHTML = pic(SCHOOL[id]); area.appendChild(el);
+    const p = { id, el, done: false }; draggable(el, area, { onDown: () => { SFX.pop(); stopSpeech(); say(cap(N[id]) + '!'); }, onDrop: () => clDrop(g, tok, p) }); return p; });
+  CL.queue = shuffle(set).slice(0, 3);
+  clLayout(); resizeFn = () => { if (CL.sub === 'bag' && tok === CL.tok) clLayout(); };
+  clAsk();
+}
+function clAsk() { CL.target = CL.queue[0]; const p = L.school.bag(L.school.names[CL.target]); $('#clq').textContent = p; repeatFn = () => say(p); say(p); }
+function clLayout() {
+  const area = $('#bga'); if (!area) return;
+  const W = area.clientWidth, H = area.clientHeight, land = W > H, S = Math.min(land ? W / 6 : W / 4.6, H / 3.2);
+  const bag = $('#bag'), B = land ? Math.min(H * 0.8, W * 0.38) : Math.min(W * 0.6, H * 0.5);
+  Object.assign(bag.style, { width: B + 'px', height: B + 'px', fontSize: B * 0.82 + 'px', left: (land ? W * 0.7 - B / 2 : W / 2 - B / 2) + 'px', top: (land ? H / 2 - B / 2 : H * 0.03) + 'px' });
+  CL.bag = { x: (land ? W * 0.7 : W / 2), y: land ? H / 2 : H * 0.03 + B / 2, r: B * 0.5 };
+  CL.pieces.forEach((p, i) => {
+    Object.assign(p.el.style, { width: S + 'px', height: S + 'px', fontSize: S * 0.7 + 'px' });
+    if (land) { p.hx = W * 0.05 + (i % 2) * (S * 1.25); p.hy = H / 2 + (Math.floor(i / 2) - 1) * S * 1.2 + S * 0.1; }
+    else { p.hx = W / 4 * (i + 0.5) - S / 2; p.hy = H * 0.75 - S / 2; }
+    if (!p.done && !p.el.classList.contains('dragging')) setXY(p.el, p.hx, p.hy);
+  });
+}
+async function clDrop(g, tok, p) {
+  const w = p.el.offsetWidth, cx = p.el._x + w / 2, cy = p.el._y + w / 2, inBag = Math.hypot(cx - CL.bag.x, cy - CL.bag.y) < CL.bag.r;
+  if (!inBag || CL.busy) { glideTo(p.el, p.hx, p.hy); return; }
+  if (p.id !== CL.target) { glideTo(p.el, p.hx, p.hy); SFX.boop(); stopSpeech(); say(cap(L.school.names[p.id]) + '! ' + L.school.bag(L.school.names[CL.target])); return; }
+  CL.busy = true; p.done = true; p.el.dataset.locked = '1'; glideTo(p.el, CL.bag.x - w / 2, CL.bag.y - w / 2); p.el.classList.add('intobag'); SFX.chime(); confetti(15); anim($('#bag'), 'bounce');
+  stopSpeech(); const ok = await say(L.school.bagYes(L.school.names[p.id]));
+  if (!ok || g !== scene || tok !== CL.tok) return;
+  CL.queue.shift(); CL.busy = false;
+  if (CL.queue.length) clAsk(); else { cheer(); if (!(await say(pick(L.praise))) || tok !== CL.tok) return; await sleep(600); if (tok === CL.tok) clRender(g); }
+}
+// shared "Find the …!" picture quiz (classroom + house)
+async function wordFind(g, tok, S, PICS, N, findFn, again) {
+  const ids = Object.keys(N).filter(id => PICS[id]);
+  let t; do { t = pick(ids); } while (t === S.target);
+  S.target = t; S.busy = false;
+  const opts = shuffle([t, ...shuffle(ids.filter(x => x !== t)).slice(0, 3)]), p = findFn(N[t]);
+  const st = $('#stage'); st.querySelectorAll('.q,.opts,.scene,.pzarea,.house').forEach(e => e.remove());
+  st.insertAdjacentHTML('beforeend', `<div class="q">${p}</div><div class="opts anopts">${opts.map(id => `<button class="card big wcard" data-id="${id}">${pic(PICS[id])}</button>`).join('')}</div>`);
+  st.querySelectorAll('.opts .card').forEach(b => tap(b, async () => {
+    if (S.busy || tok !== S.tok) return;
+    const id = b.dataset.id; stopSpeech();
+    if (id !== t) { anim(b, 'wiggle'); SFX.boop(); say(cap(N[id]) + '! ' + p); return; }
+    S.busy = true; b.classList.add('right'); anim(b, 'bounce'); cheer();
+    if (!(await say(cap(N[id]) + '! ' + pick(L.praise))) || g !== scene || tok !== S.tok) return;
+    await sleep(500); if (tok === S.tok) again();
+  }));
+  repeatFn = () => say(p); say(p);
+}
+
+/* ---------- My house: tap rooms, go inside, find, put furniture in the right room ---------- */
+const HS = { sub: 'learn', room: null, tok: 0, busy: false, target: null };
+function startHouse(g) { HS.sub = 'learn'; HS.room = null; HS.target = null; hsRender(g); }
+function houseSVG(withThings = true, exclude = null) {
+  const R = Object.keys(ROOMS).filter(r => r !== 'garden');
+  return `<svg class="house" viewBox="0 0 800 560" xmlns="http://www.w3.org/2000/svg">
+  <g class="room" data-room="garden"><rect x="0" y="200" width="146" height="360" fill="transparent"/><rect x="654" y="200" width="146" height="360" fill="transparent"/><rect x="0" y="500" width="800" height="60" fill="#69db7c"/>
+    <text x="70" y="520" font-size="110" text-anchor="middle">🌳</text><text x="740" y="520" font-size="90" text-anchor="middle">🌳</text><text x="700" y="535" font-size="40">🌷</text><text x="80" y="545" font-size="40">🌼</text></g>
+  <path d="M120 194 L400 40 L680 194Z" fill="#e8590c" stroke="#a63e0a" stroke-width="6" stroke-linejoin="round" pointer-events="none"/>
+  <rect x="150" y="190" width="500" height="330" fill="#fff4e6" stroke="#a63e0a" stroke-width="6" pointer-events="none"/>
+  ${R.map(r => { const [x, y, w, h, col, th] = ROOMS[r];
+    const icons = withThings ? th.filter(([t]) => t !== exclude && t !== 'window').slice(0, 3).map(([t], i) => THINGS[t].startsWith('<svg') ? THINGS[t].replace('<svg', `<svg x="${x + 10 + i * (w - 20) / 3}" y="${y + h - 78}" width="${(w - 20) / 3}" height="70"`) : `<text x="${x + 10 + (i + .5) * (w - 20) / 3}" y="${y + h - 18}" font-size="${Math.min(56, (w - 20) / 3)}" text-anchor="middle">${THINGS[t]}</text>`).join('') : '';
+    return `<g class="room" data-room="${r}"><rect x="${x + 4}" y="${y + 4}" width="${w - 8}" height="${h - 8}" fill="${col}" stroke="#a63e0a" stroke-width="3"/>${icons}</g>`; }).join('')}
+  <rect x="380" y="430" width="40" height="86" rx="4" fill="#8a5a2b" pointer-events="none"/><circle cx="410" cy="476" r="4" fill="#ffd43b" pointer-events="none"/></svg>`;
+}
+function hsRender(g) {
+  const tok = ++HS.tok; HS.busy = false; resizeFn = null;
+  const bar = subBar([['learn', '👆'], ['find', '🔍'], ['move', '🚚']], HS.sub, s => { HS.sub = s; HS.room = null; hsRender(g); });
+  const st = $('#stage'), H = L.house;
+  if (HS.sub === 'find') { st.innerHTML = bar.html; bar.bind(st); return wordFind(g, tok, HS, THINGS, H.things, H.find, () => hsRender(g)); }
+  if (HS.sub === 'move') { st.innerHTML = bar.html + `<div class="q" id="hsq"></div><div class="pzarea" id="hsa"><div class="hwrap" id="hwrap">${houseSVG(false)}</div></div>`; bar.bind(st); return hsMove(g, tok); }
+  if (!HS.room) {
+    st.innerHTML = bar.html + `<div class="q">${H.hello}</div><div class="hwrap">${houseSVG()}</div>`; bar.bind(st);
+    st.querySelectorAll('.room').forEach(r => tap(r, () => { SFX.pop(); anim(r, 'pflash'); HS.room = r.dataset.room; stopSpeech(); say(H.inRoom(H.rooms[HS.room])); setTimeout(() => { if (tok === HS.tok) hsRender(g); }, 350); }));
+    repeatFn = () => say(H.hello); say(H.hello); return;
+  }
+  const [, , , , col, th] = ROOMS[HS.room];
+  st.innerHTML = bar.html + `<div class="q">${cap(H.rooms[HS.room])}</div><div class="roomv" style="background:${col}"><button class="sub big rback" id="rback">🏠</button><div class="floor"></div>${th.map(([t, x, y], i) => `<button class="thing big" data-t="${t}" style="left:${x * 100}%;top:${y * 100}%">${pic(THINGS[t])}</button>`).join('')}</div>`; bar.bind(st);
+  tap($('#rback'), () => { SFX.pop(); HS.room = null; hsRender(g); });
+  st.querySelectorAll('.thing').forEach(b => tap(b, () => { anim(b, 'bounce'); SFX.pop(); stopSpeech(); say(cap(H.things[b.dataset.t]) + '!'); }));
+  repeatFn = () => say(H.inRoom(H.rooms[HS.room]));
+}
+function hsMove(g, tok) {
+  const area = $('#hsa'), items = shuffle(Object.keys(PUT)).slice(0, 4);
+  HS.queue = items; HS.busy = false;
+  const next = () => {
+    if (tok !== HS.tok) return;
+    if (!HS.queue.length) { cheer(); say(pick(L.praise)).then(ok => { if (ok && tok === HS.tok) setTimeout(() => tok === HS.tok && hsRender(g), 600); }); return; }
+    const t = HS.queue[0]; HS.target = t;
+    const el = document.createElement('div'); el.className = 'apiece wpiece'; el.dataset.id = t; el.innerHTML = pic(THINGS[t]); area.appendChild(el);
+    HS.piece = { t, el };
+    draggable(el, area, { onDown: () => { SFX.pop(); stopSpeech(); say(cap(L.house.things[t]) + '!'); }, onDrop: () => hsDrop(g, tok) });
+    const p = L.house.where(L.house.things[t]); $('#hsq').textContent = p; repeatFn = () => say(p); say(p);
+    $('#hwrap').innerHTML = houseSVG(true, t); hsLayout(); requestAnimationFrame(() => tok === HS.tok && hsLayout());
+  };
+  HS.next = next; resizeFn = () => { if (HS.sub === 'move' && tok === HS.tok) hsLayout(); };
+  next();
+}
+function hsLayout() {
+  const area = $('#hsa'), hw = $('#hwrap'); if (!area || !hw) return;
+  const W = area.clientWidth, H = area.clientHeight, land = W > H;
+  const hwW = land ? Math.min(W * 0.78, H * 800 / 560) : Math.min(W, H * 0.7 * 800 / 560), hwH = hwW * 560 / 800;
+  Object.assign(hw.style, { width: hwW + 'px', height: hwH + 'px', left: (land ? 0 : (W - hwW) / 2) + 'px', top: (land ? (H - hwH) / 2 : 0) + 'px' });
+  HS.box = { x: parseFloat(hw.style.left), y: parseFloat(hw.style.top), k: hwW / 800 };
+  const S = Math.min(land ? (W - hwW) * 0.85 : W * 0.3, land ? H * 0.4 : (H - hwH) * 0.85);
+  HS.home = land ? [hwW + (W - hwW - S) / 2, (H - S) / 2] : [(W - S) / 2, hwH + (H - hwH - S) / 2];
+  if (HS.piece && !HS.piece.done) { Object.assign(HS.piece.el.style, { width: S + 'px', height: S + 'px', fontSize: S * 0.72 + 'px' }); if (!HS.piece.el.classList.contains('dragging')) setXY(HS.piece.el, ...HS.home); }
+}
+function roomAt(cx, cy) { // which room (in house-picture units) is under a page-area point
+  const b = HS.box, x = (cx - b.x) / b.k, y = (cy - b.y) / b.k;
+  for (const r in ROOMS) { const [rx, ry, w, h] = ROOMS[r]; if (r !== 'garden' && x >= rx && x <= rx + w && y >= ry && y <= ry + h) return r; }
+  return null;
+}
+async function hsDrop(g, tok) {
+  const P = HS.piece, el = P.el, s = el.offsetWidth, r = roomAt(el._x + s / 2, el._y + s / 2), Hh = L.house;
+  if (!r || HS.busy) { glideTo(el, ...HS.home); return; }
+  if (!PUT[P.t].includes(r)) { glideTo(el, ...HS.home); SFX.boop(); stopSpeech(); say(cap(Hh.rooms[r]) + '? ' + Hh.where(Hh.things[P.t])); return; }
+  HS.busy = true; P.done = true; el.dataset.locked = '1'; SFX.chime(); confetti(15);
+  const [rx, ry, w, h] = ROOMS[r], b = HS.box, n = (HS.placed = (HS.placed || 0) + 1), sz = Math.min(w, h) * 0.45 * b.k;
+  Object.assign(el.style, { width: sz + 'px', height: sz + 'px', fontSize: sz * 0.75 + 'px' }); el.classList.add('placed');
+  glideTo(el, b.x + (rx + w / 2) * b.k - sz / 2 + ((n % 3) - 1) * sz * 0.5, b.y + (ry + h * 0.55) * b.k - sz / 2);
+  stopSpeech(); const ok = await say(Hh.yes(Hh.things[P.t], Hh.rooms[r]));
+  if (!ok || g !== scene || tok !== HS.tok) return;
+  HS.queue.shift(); HS.busy = false; HS.next();
 }
 
 /* ================= wiring ================= */
@@ -1937,11 +2343,19 @@ document.addEventListener('visibilitychange', () => { if (document.hidden) stopS
   $('#setok').addEventListener('click', () => { save(); inp.blur(); p.classList.remove('on'); });
 })();
 (function check4() { // English extras
-  const known = new Set([...MODES, 'numpad', 'rhymes', 'bear', 'think', 'body', 'animals']);
+  const known = new Set([...MODES, 'numpad', 'rhymes', 'bear', 'think', 'farm', 'pets', 'zoo', 'face', 'body', 'classroom', 'house']);
   for (const c of EN.menu) for (const m of c.modes) { if (!known.has(m)) console.error('menu mode', m); if (!EN.modes[m]) console.error('no EN name', m); }
   for (const m of MODES) if (!EN.menu.some(c => c.modes.includes(m))) console.error('mode not in any category', m);
   for (const r of EN.rhymes.list) for (const l of r.lines) { try { parseNotes(l.n); } catch (e) { console.error('rhyme', r.id, e.message); } }
-  if (EN.animals.list.length !== 22) console.error('animals', EN.animals.list.length);
+  for (const k in LANGS) { const P = LANGS[k];
+    for (const id in ANIMALS) if (!P.an || !P.an.names[id]) console.error('animal name', k, id);
+    for (const m of (P.extraModes || [])) if (!P.modes[m]) console.error('mode name', k, m);
+    if (k !== 'en' && (P.face || P.school || P.house || P.body && P.body.missing)) console.error('English topic leaked into', k); }
+  for (const id in SCHOOL) if (!EN.school.names[id]) console.error('school word', id);
+  for (const id in THINGS) if (!EN.house.things[id]) console.error('house word', id);
+  for (const r in ROOMS) if (!EN.house.rooms[r]) console.error('room', r);
+  for (const t in PUT) for (const r of PUT[t]) if (!ROOMS[r]) console.error('put', t, r);
+  for (const k in MISSING) for (const p of MISSING[k]) if (!EN.body.names[p]) console.error('missing part', p);
   for (const k in LANGS) if (k !== 'en' && (LANGS[k].menu || LANGS[k].bear)) console.error('extras leaked into', k);
 })();
 // sanity check: every language pack has every word
