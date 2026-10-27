@@ -326,6 +326,136 @@ button{font:inherit;border:0;margin:0;padding:0;background:none;color:inherit;cu
 .rback{position:absolute;left:2vmin;top:2vmin;z-index:3}
 .thing{position:absolute;transform:translate(-50%,-50%);width:min(20vmin,22vw);height:min(20vmin,22vw);background:rgba(255,255,255,.35);border-radius:3vmin;display:flex;align-items:center;justify-content:center}
 .thing .emo{font-size:min(15vmin,16vw);line-height:1;pointer-events:none}.thing svg{width:90%;height:90%;pointer-events:none}
+/* ================= v8: CAR WORLD (English only) ================= */
+.tiles.cats.withcw{grid-template-columns:repeat(5,1fr)!important;grid-template-rows:1.25fr 1fr!important;gap:2.4vmin!important}
+.tiles.cats.withcw .cwban{grid-column:1/-1}
+.tiles.cats.withcw .cat .pic{font-size:11vmin!important;height:13vmin!important}
+.tiles.cats.withcw .cat .lbl{font-size:4vmin!important}
+@media (orientation:portrait){.tiles.cats.withcw{grid-template-columns:repeat(6,1fr)!important;grid-template-rows:1.3fr 1fr 1fr!important}
+ .tiles.cats.withcw .cat{grid-column:span 2}.tiles.cats.withcw .cat:nth-child(n+5){grid-column:span 3}}
+.cwban{position:relative;overflow:hidden;flex-direction:row!important;background:linear-gradient(180deg,#ffd43b 0 58%,#5c636a 58% 100%);display:flex;align-items:center;justify-content:center;gap:3vmin;min-height:0}
+.cwban::after{content:"";position:absolute;left:0;right:0;bottom:19%;height:1.2vmin;background:repeating-linear-gradient(90deg,#fff 0 6vmin,transparent 6vmin 11vmin);opacity:.8}
+.cwban .cwbl{position:relative;z-index:2;font-size:8.5vmin;font-weight:900;color:#fff;text-shadow:0 .6vmin 0 rgba(0,0,0,.3),0 0 2vmin rgba(255,120,0,.6);line-height:1;white-space:nowrap}
+.cwban .cwbi{position:relative;z-index:2;font-size:11vmin;line-height:1}
+.cwban .cwnew{position:absolute;right:2vmin;top:1.5vmin;z-index:3;background:#ff6b6b;color:#fff;font-size:3.6vmin;font-weight:900;border-radius:3vmin;padding:.5vmin 2vmin;transform:rotate(8deg);box-shadow:0 .5vmin 0 rgba(0,0,0,.2)}
+.cwdrv{position:absolute;bottom:4%;left:0;width:16vmin;z-index:1;will-change:transform;animation:cwdrive 7s linear infinite}
+.cwdrv svg{width:100%;display:block}
+.cwdrv.d2{animation-delay:-3.5s;width:13vmin}
+@keyframes cwdrive{from{transform:translateX(-20vmin)}to{transform:translateX(105vw)}}
+.tiles.cwm .tile{position:relative}
+.cwlv{position:absolute;right:1.5vmin;top:1.5vmin;min-width:7vmin;height:7vmin;border-radius:3.5vmin;background:#fff;color:#e8590c;font-size:3.6vmin;font-weight:900;display:flex;align-items:center;justify-content:center;padding:0 1.2vmin;box-shadow:0 .5vmin 0 rgba(0,0,0,.15)}
+.t-road{background:#5c7cfa}.t-race{background:#ff6b6b}.t-wash{background:#22b8cf}.t-park{background:#94d82d}.t-paint{background:#f783ac}.t-stickers{background:#ffa94d}
+/* shared */
+.cwtop{display:flex;justify-content:center;gap:1.4vmin;flex:none;padding:.4vmin 0 1vmin}
+.cwd{width:6vmin;height:6vmin;border-radius:50%;background:rgba(255,255,255,.45);border:.6vmin solid #fff;display:flex;align-items:center;justify-content:center;font-size:3.6vmin;line-height:1;transition:transform .25s}
+.cwd.on{background:#ffd43b;transform:scale(1.12)}
+.cwarea{flex:1;position:relative;min-height:0;overflow:hidden;border-radius:4vmin;touch-action:none}
+.cwcard{position:absolute;left:0;top:0;background:#fff;border-radius:22%;display:flex;align-items:center;justify-content:center;box-shadow:0 1vmin 0 rgba(0,0,0,.18);will-change:transform;z-index:3}
+.cwcard .ci{pointer-events:none;line-height:1;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;width:86%;height:86%}
+.cwcard .ci .e1{font-size:calc(var(--s) * .62)}
+.cwcard .ci .en{font-size:calc(var(--s) * .3)}
+.cwcard .ci svg{width:100%;height:100%;display:block}
+.cwcard .ci .dg{font-size:calc(var(--s) * .6);font-weight:900;color:#fff;width:84%;height:84%;border-radius:50%;display:flex;align-items:center;justify-content:center;text-shadow:0 .5vmin 0 rgba(0,0,0,.25)}
+.cwhint{animation:cwpulse 1s ease-in-out 3}
+@keyframes cwpulse{0%,100%{scale:1}50%{scale:1.13}}
+.cwwig{animation:cwwig .5s}
+@keyframes cwwig{0%,100%{rotate:0deg}20%{rotate:-10deg}40%{rotate:10deg}60%{rotate:-6deg}80%{rotate:6deg}}
+.cwbnc{animation:cwbnc .5s}
+@keyframes cwbnc{0%,100%{scale:1}40%{scale:1.25}}
+.cwok{box-shadow:0 0 0 1.2vmin #fff700,0 1vmin 0 rgba(0,0,0,.18)!important}
+.cwcar{position:absolute;left:0;top:0;will-change:transform;z-index:4;transform-origin:50% 50%}
+.cwcar svg{width:100%;height:100%;display:block;pointer-events:none}
+/* word road */
+.rd{background:linear-gradient(160deg,#8ce99a,#51cf66)}
+.rd svg.rds{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.rdtree{position:absolute;font-size:7vmin;pointer-events:none;z-index:1}
+/* race */
+.rc{display:flex;flex-direction:column;background:#40c057;padding:1vmin 0;gap:1vmin}
+.rlane{flex:1;position:relative;min-height:0;background:#5c636a;border-top:.6vmin solid #ced4da;border-bottom:.6vmin solid #ced4da;overflow:visible}
+.rlane::before{content:"";position:absolute;left:0;right:0;top:50%;height:.7vmin;background:repeating-linear-gradient(90deg,rgba(255,255,255,.75) 0 5vmin,transparent 5vmin 9vmin)}
+.rlane::after{content:"";position:absolute;top:0;bottom:0;right:2vmin;width:3.4vmin;background:repeating-conic-gradient(#fff 0 25%,#222 0 50%) 0 0/1.7vmin 1.7vmin}
+.rcg{position:absolute;left:0;bottom:6%;z-index:3;display:flex;flex-direction:column;align-items:center;will-change:transform;transition:transform .9s cubic-bezier(.25,.1,.2,1)}
+.rcg .rcv{width:100%;flex:none}
+.rcg.row{flex-direction:row;align-items:flex-end;bottom:8%}
+.rcg.row .cwcard{margin:0 -1vmin 0 0}
+.rcg .rcv svg{width:100%;display:block}
+.rcg .cwcard{position:relative;margin-bottom:-.6vmin}
+.rcg.zoom .rcv{animation:cwzoom .9s}
+@keyframes cwzoom{0%{rotate:0deg}15%{rotate:-6deg}60%{rotate:-3deg}100%{rotate:0deg}}
+.rtro{position:absolute;right:7vmin;top:calc(50% - 7vmin);font-size:12vmin;z-index:5;pointer-events:none}
+.rtag{position:absolute;left:1vmin;top:1vmin;width:4vmin;height:4vmin;border-radius:50%;border:.5vmin solid #fff;z-index:2}
+/* wash */
+.ws{background:linear-gradient(#a5d8ff 0 70%,#74c0fc 70%)}
+.wsbox{position:absolute;left:0;top:0;will-change:transform}
+.wsbox .wscv{position:absolute;left:0;top:0}
+.wsbox .wscv svg{width:100%;height:100%;display:block}
+.wsbadge{position:absolute;background:#fff;border-radius:50%;border:.8vmin solid #343a40;display:flex;align-items:center;justify-content:center;line-height:1;overflow:hidden}
+.wsbadge .ci{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;width:84%;height:84%}
+.wsbadge .ci svg{width:100%;height:100%}
+.mud{position:absolute;border-radius:50%;background:radial-gradient(circle at 35% 35%,#a1887f,#795548 60%,#5d4037);transition:opacity .25s,transform .25s;pointer-events:none}
+.mud.l1{opacity:.55;transform:scale(.85)}
+.mud.gone{opacity:0;transform:scale(.3)}
+.sponge{position:absolute;left:0;top:0;font-size:11vmin;line-height:1;pointer-events:none;z-index:8;will-change:transform;display:none}
+.bub{position:absolute;left:0;top:0;font-size:5vmin;pointer-events:none;z-index:7}
+.wsopts{position:absolute;left:0;right:0;bottom:1.5vmin;display:flex;justify-content:center;gap:min(3vmin,6px);z-index:6}
+.wsopts .cwcard{position:relative}
+.wsdrip{position:absolute;left:50%;top:-1vmin;transform:translateX(-50%);font-size:8vmin;z-index:2;pointer-events:none}
+/* parking */
+.pkz{background:linear-gradient(#ced4da 0 62%,#868e96 62%)}
+.pkg{position:absolute;left:3%;right:3%;top:3%;height:55%;display:grid;gap:2vmin;align-items:stretch;grid-auto-rows:1fr}
+.gar{position:relative;background:#fff3bf;border:.8vmin solid #e8590c;border-radius:3vmin 3vmin 0 0;overflow:hidden;min-height:0;min-width:0}
+.gar .gin{position:absolute;left:8%;right:8%;top:30%;bottom:0;background:#343a40;border-radius:1vmin 1vmin 0 0;overflow:hidden}
+.gar .gnum{position:absolute;left:0;right:0;top:0;height:30%;z-index:2;background:#fff3bf;display:flex;align-items:center;justify-content:center;font-weight:900;color:#e8590c;line-height:1}
+.gar .gdoor{position:absolute;inset:0;background:repeating-linear-gradient(#ffa94d 0 14%,#e8590c 14% 17%);transform-origin:50% 0;transform:scaleY(.12);transition:transform .5s ease-in}
+.gar.shut .gdoor{transform:scaleY(1)}
+.gar .gcar{position:absolute;left:8%;right:8%;bottom:4%;opacity:0}
+.gar .gcar svg{width:100%;display:block}
+.gar.shut .gcar{opacity:1}
+.gar.cone .gin{background:#495057}
+.gar .gcone{position:absolute;left:50%;bottom:6%;transform:translateX(-50%);font-size:6vmin;line-height:1}
+.pkcount{position:absolute;right:3vmin;bottom:3vmin;min-width:16vmin;height:16vmin;border-radius:50%;background:#fff;font-size:10vmin;font-weight:900;color:#e8590c;display:flex;align-items:center;justify-content:center;z-index:5;box-shadow:0 .8vmin 0 rgba(0,0,0,.2)}
+.pksign{position:absolute;left:3vmin;bottom:3vmin;width:16vmin;height:16vmin;border-radius:3vmin;background:#1c7ed6;color:#fff;font-size:11vmin;font-weight:900;display:flex;align-items:center;justify-content:center;z-index:5;border:.7vmin solid #fff;box-shadow:0 .8vmin 0 rgba(0,0,0,.2)}
+/* paint */
+.pt{background:linear-gradient(#fff4e6 0 68%,#e9ecef 68%)}
+.cwbody{transition:fill .5s}
+.pots{position:absolute;left:0;right:0;bottom:2vmin;display:flex;justify-content:center;gap:3vmin;z-index:5;flex-wrap:wrap}
+.pot{position:relative;border-radius:3vmin;background:#fff;box-shadow:0 1vmin 0 rgba(0,0,0,.18)}
+.pot svg{width:100%;height:100%;display:block;pointer-events:none}
+.drop{position:absolute;left:0;top:0;width:3vmin;height:3vmin;border-radius:50%;pointer-events:none;z-index:9}
+/* result */
+.cwres{position:absolute;inset:0;z-index:40;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.35)}
+.cwrb{background:#fff;border-radius:5vmin;padding:3vmin 5vmin;display:flex;flex-direction:column;align-items:center;gap:2vmin;box-shadow:0 1.5vmin 0 rgba(0,0,0,.15);max-width:92%}
+.cwstars{display:flex;gap:2vmin;font-size:14vmin;line-height:1}
+.cwstars span{display:inline-block;transform:scale(0)}
+.cwstars span.off{filter:grayscale(1);opacity:.3}
+.cwstars span.in{animation:popin .45s cubic-bezier(.3,1.6,.5,1) forwards}
+.cwstk{position:relative;width:26vmin;height:26vmin;display:flex;align-items:center;justify-content:center;font-size:17vmin;line-height:1}
+.cwstk::before{content:"";position:absolute;inset:-2vmin;border-radius:50%;background:repeating-conic-gradient(#ffe066 0 8deg,#fff9db 8deg 16deg);animation:cwspin 6s linear infinite;z-index:0}
+.cwstk span{position:relative;z-index:1}
+@keyframes cwspin{to{transform:rotate(360deg)}}
+.cwrbtns{display:flex;gap:4vmin}
+.cwnext{width:max(22vmin,100px);height:max(16vmin,88px);background:#51cf66;color:#fff;font-size:10vmin}
+.cwsb{width:max(22vmin,100px);height:max(16vmin,88px);background:#ffa94d;font-size:10vmin}
+.cwlvup{font-size:6vmin;font-weight:900;color:#e8590c}
+/* sticker book */
+.sbtop{display:flex;justify-content:center;align-items:center;gap:4vmin;flex:none;font-size:6vmin;font-weight:900;color:#fff;text-shadow:0 .4vmin 0 rgba(0,0,0,.25);padding-bottom:1vmin}
+.sbgrid{flex:1;display:grid;grid-template-columns:repeat(8,1fr);grid-auto-rows:1fr;gap:1.4vmin;min-height:0;background:rgba(255,255,255,.55);border-radius:4vmin;padding:1.6vmin}
+@media (orientation:portrait){.sbgrid{grid-template-columns:repeat(5,1fr)}}
+.stk{background:#fff;border-radius:2.5vmin;display:flex;align-items:center;justify-content:center;min-height:0;min-width:0;overflow:hidden;box-shadow:0 .5vmin 0 rgba(0,0,0,.12)}
+.stk span{font-size:min(9vmin,8vh);line-height:1;pointer-events:none}
+.stk.lock{background:rgba(255,255,255,.5)}
+.stk.lock span{filter:brightness(0);opacity:.18}
+/* parent progress */
+.progp{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:80;display:none;align-items:center;justify-content:center}
+.progp.on{display:flex}
+.progbox{background:#fff;border-radius:3vmin;padding:2.5vmin 3vmin;width:min(94vw,820px);max-height:92vh;overflow:auto;-webkit-overflow-scrolling:touch;touch-action:pan-y;font-family:-apple-system,system-ui,sans-serif;font-size:16px;color:#343a40;-webkit-user-select:text;user-select:text}
+.progbox h2{margin:.2em 0 .4em;font-size:22px}.progbox h3{margin:1em 0 .3em;font-size:17px}
+.progbox table{border-collapse:collapse;width:100%}.progbox td,.progbox th{border-bottom:1px solid #e9ecef;padding:5px 6px;text-align:left}
+.progbox .bar{display:inline-block;height:10px;border-radius:5px;background:#51cf66;vertical-align:middle}
+.progbtns{display:flex;gap:12px;justify-content:flex-end;margin-top:14px}
+.progbtns button{font-size:17px;padding:12px 20px;border-radius:12px;background:#e9ecef;min-height:48px}
+.progbtns .ok{background:#51cf66;color:#fff}.progbtns .rst{background:#ffe3e3;color:#c92a2a}
+.psetb{width:auto!important;padding:0 3vmin;height:11vmin;background:#748ffc;color:#fff;font-size:6vmin}
 </style>
 </head>
 <body>
@@ -340,7 +470,7 @@ button{font:inherit;border:0;margin:0;padding:0;background:none;color:inherit;cu
   <div class="setp" id="setp"><div class="setbox">
     <div class="setrow">🙂 <input id="kname" maxlength="20" autocomplete="off" autocorrect="off" spellcheck="false"></div>
     <div class="setrow" id="kages">🎂 <button class="agb" data-a="2">2</button><button class="agb" data-a="3">3</button><button class="agb" data-a="4">4</button><button class="agb" data-a="5">5</button><button class="agb" data-a="6">6</button></div>
-    <button class="big" id="setok">✓</button>
+    <div class="setrow"><button class="big psetb" id="progbtn" aria-label="progress">📊</button><button class="big" id="setok">✓</button></div>
   </div></div>
 </div>
 <div id="menu" class="screen">
@@ -744,6 +874,54 @@ EN.menu = [
   { id:'songs', icon:'🎵', col:'#ffa94d', label:'Songs and talking', modes:['song','rhymes','bear'] },
   { id:'play', icon:'🧩', col:'#38d9a9', label:'Play', modes:['draw','puzzle','think'] } ];
 
+// ---------- v8 CAR WORLD: English-only words and phrases (the Russian and Cantonese packs never get these) ----------
+Object.assign(EN.modes, { road: 'Word Road', race: 'Car Race', wash: 'Car Wash', park: 'Number Parking', paint: 'Paint Shop', stickers: 'Sticker Book' });
+EN.carWorld = { id: 'cars', icon: '🚗', col: '#ff6b6b', label: 'Car World', modes: ['road', 'race', 'wash', 'park', 'paint', 'stickers'] };
+EN.cw = (() => {
+  const art = w => (/^[aeiou]/i.test(w) ? 'an ' : 'a ') + w;
+  // id: [singular, plural, plural-only?]
+  const w = { cat:['cat','cats'], dog:['dog','dogs'], fish:['fish','fish'], bird:['bird','birds'], duck:['duck','ducks'], horse:['horse','horses'], cow:['cow','cows'], sheep:['sheep','sheep'],
+    chicken:['chicken','chickens'], frog:['frog','frogs'], monkey:['monkey','monkeys'], elephant:['elephant','elephants'], tiger:['tiger','tigers'], giraffe:['giraffe','giraffes'], mouse:['mouse','mice'],
+    snake:['snake','snakes'], lion:['lion','lions'], bear:['bear','bears'], crocodile:['crocodile','crocodiles'], zebra:['zebra','zebras'], hippo:['hippo','hippos'], spider:['spider','spiders'], goat:['goat','goats'],
+    car:['car','cars'], bus:['bus','buses'], train:['train','trains'], bike:['bike','bikes'], plane:['plane','planes'], boat:['boat','boats'], truck:['truck','trucks'], motorbike:['motorbike','motorbikes'], helicopter:['helicopter','helicopters'],
+    ball:['ball','balls'], kite:['kite','kites'], robot:['robot','robots'], teddy:['teddy bear','teddy bears'], guitar:['guitar','guitars'], camera:['camera','cameras'],
+    apple:['apple','apples'], banana:['banana','bananas'], cake:['cake','cakes'], egg:['egg','eggs'], milk:['milk','milk'], bread:['bread','bread'], orangefruit:['orange','oranges'], icecream:['ice cream','ice creams'],
+    carrot:['carrot','carrots'], grapes:['grapes','grapes',1], pear:['pear','pears'], chocolate:['chocolate','chocolates'], burger:['burger','burgers'], lemon:['lemon','lemons'], tomato:['tomato','tomatoes'], watermelon:['watermelon','watermelons'], chips:['chips','chips',1],
+    eye:['eye','eyes'], ear:['ear','ears'], nose:['nose','noses'], mouth:['mouth','mouths'], hand:['hand','hands'], foot:['foot','feet'], leg:['leg','legs'], arm:['arm','arms'],
+    hat:['hat','hats'], shoes:['shoes','shoes',1], socks:['socks','socks',1], tshirt:['T-shirt','T-shirts'], dress:['dress','dresses'], jacket:['jacket','jackets'], glasses:['glasses','glasses',1], star:['star','stars'] };
+  const fam = { mum:'Mum', dad:'Dad', baby:'the baby', grandma:'Grandma', grandpa:'Grandpa' };
+  const num = n => EN.numWord(n);
+  return {
+    art, num, fam, w,
+    hello: 'Welcome to Car World! Pick a game!',
+    // how an item is spoken: the = "the cat" / "blue" / "number five" / "Mum"; a = "a cat" / "blue" / "five"
+    word(cat, id) {
+      if (cat === 'colours') return { the: id, a: id };
+      if (cat === 'numbers') return { the: 'number ' + num(+id), a: num(+id) };
+      if (cat === 'family') return { the: fam[id], a: fam[id] === 'the baby' ? 'a baby' : fam[id] };
+      const [s, , only] = w[id]; return { the: 'the ' + s, a: only ? s : art(s), plural: !!only };
+    },
+    colourCar: c => ({ the: 'the ' + c + ' car', a: art(c + ' car') }),
+    countOf: (n, id) => { const t = num(n) + ' ' + (n === 1 ? w[id][0] : w[id][1]); return { the: t, a: t, plural: n > 1 }; },
+    road: { hello: 'Drive the car to the right picture!', ask: it => 'Drive to ' + it.the + '!' },
+    race: { hello: 'Ready, steady, go!', ask: it => 'Which car has ' + it.the + '?', finish: 'Go, go, go! To the finish line!', win: c => 'The ' + c + ' car wins! Hooray!' },
+    wash: { hello: 'Scrub, scrub! Wash the muddy car!', start: 'Wash the car! What can you see?', reveal: it => (it.plural ? 'Look! ' + cap(it.a) : 'It\'s ' + it.a) + '!',
+      colour: c => 'And the car is ' + c + '!', find: it => 'Find ' + it.the + '!', whatColour: 'What colour is the car?', clean: 'Shiny and clean!' },
+    park: { hello: 'Let\'s park the cars!', num: n => 'Park in number ' + num(n) + '!', count: n => 'Park ' + num(n) + (n === 1 ? ' car!' : ' cars!') + ' Let\'s count!',
+      done: n => cap(num(n)) + (n === 1 ? ' car!' : ' cars!') + ' All parked!', that: n => 'That\'s number ' + num(n) + '.', parked: n => 'Number ' + num(n) + '! Parked!' },
+    paint: { hello: 'Let\'s paint the car!', ask: c => 'Paint the car ' + c + '!', yes: c => 'Yes! ' + cap(art(c + ' car')) + '!', that: c => 'That\'s ' + c + '!' },
+    stickers: { hello: 'Your sticker book! Tap a sticker!', locked: 'Play a game to win this sticker!', all: 'Wow! You have all the stickers!',
+      names: { v_car:'car', v_taxi:'taxi', v_police:'police car', v_amb:'ambulance', v_fire:'fire engine', v_race:'racing car', v_bus:'bus', v_van:'van', v_pickup:'pickup truck', v_truck:'truck',
+        v_lorry:'lorry', v_tractor:'tractor', v_moto:'motorbike', v_scooter:'scooter', v_bike:'bike', v_train:'train', v_heli:'helicopter', v_plane:'plane', v_rocket:'rocket', v_boat:'boat' } },
+    yes: ['Yes!', 'Well done!', 'Great job!', 'Super!', 'Brilliant!', 'Hooray!', 'Fantastic!'],
+    oops: 'Oops!', that: it => (it.plural ? cap(it.a) : 'That\'s ' + it.a) + '.',
+    stars: n => n === 3 ? 'Three stars! Amazing!' : n === 2 ? 'Two stars! Great job!' : 'One star! Good try!',
+    sticker: n => 'You got a sticker! ' + cap(art(n)) + '!',
+    levelUp: 'Next level! Brilliant!',
+    again: 'Let\'s play again!'
+  };
+})();
+
 const LANGS = { en: EN, ru: RU, yue: YUE };
 let L = null; // the ONE active language pack; everything reads from here only
 
@@ -953,10 +1131,10 @@ function chooseLang(key) {
 function goLang() { leaveExtras(); MENU.cat = null; closePicker(); scene++; stopSpeech(); mode = null; L = null; showNote(false); document.title = 'Beep Beep 123'; show('lang'); }
 const MODES = ['count', 'blocks', 'find', 'song', 'draw', 'puzzle', 'shop', 'lmatch', 'lfind'];
 const MENU = { cat: null };
-function leaveExtras() { stopAnimalSound(); ASAY.tok++; if (typeof rhStop === 'function') rhStop(); if (BR.rec) { try { BR.rec.abort(); } catch (e) {} BR.rec = null; } }
+function leaveExtras() { if (typeof cwStopIdle === 'function') cwStopIdle(); stopAnimalSound(); ASAY.tok++; if (typeof rhStop === 'function') rhStop(); if (BR.rec) { try { BR.rec.abort(); } catch (e) {} BR.rec = null; } }
 function goMenu(speak = true) {
   scene++; leaveExtras(); stopSpeech(); mode = null; resizeFn = null; closePicker();
-  const cats = L.menu || null, cat = cats && cats.find(c => c.id === MENU.cat);
+  const cats = L.menu || null, cat = cats && (cats.find(c => c.id === MENU.cat) || (L.carWorld && L.carWorld.id === MENU.cat ? L.carWorld : null));
   $('#menuTtl').textContent = cat ? cat.label : '';
   const pics = {
     count: carSVG('#e53935').replace('<svg', '<svg style="height:72%"') + '<span>🔢</span>',
@@ -964,11 +1142,18 @@ function goMenu(speak = true) {
     find: '🔍🐱', song: '🎵🚌', draw: '🖍️🎨', puzzle: '🧩' + shapeSVG('heart'), shop: '🛒' + coinSVG(5),
     lmatch: `<span class="tl">${lmLetters()[0].show}</span>${lmLetters()[0].words[0][1]}`,
     lfind: L.abc.letters.slice(0, 3).map((l, i) => `<span class="tl" style="color:${LCOLS[i * 3]}">${l.ch}</span>`).join(''),
-    numpad: '<span class="tl" style="color:#fff">1 2 3</span>', rhymes: '🎶🐑', bear: '🐻💬', think: '🚗🚌❓', farm: '🐮🐷', pets: '🐶🐱', zoo: '🦁🦒', face: '😀👃', body: '🧍🦶', classroom: '✏️📕', house: '🏠🛋️'
+    numpad: '<span class="tl" style="color:#fff">1 2 3</span>', rhymes: '🎶🐑', bear: '🐻💬', think: '🚗🚌❓', farm: '🐮🐷', pets: '🐶🐱', zoo: '🦁🦒', face: '😀👃', body: '🧍🦶', classroom: '✏️📕', house: '🏠🛋️',
+    road: '🚗🛣️', race: '🏎️🏁', wash: '🧽🚙', park: '🅿️<span class="tl" style="color:#fff">3</span>', paint: '🎨🚗', stickers: '📒⭐'
   };
   const t = $('#tiles'); t.innerHTML = ''; t.className = 'tiles';
   if (cats && !cat) {
     t.classList.add('cats'); if (cats.length === 5) t.classList.add('c5');
+    if (L.carWorld) { // v8: big Car World banner on top of the English menu
+      const cw = L.carWorld, b = document.createElement('button'); b.className = 'tile big cwban'; b.dataset.cat = cw.id;
+      b.innerHTML = `<div class="cwdrv">${carSVG('#1e6fe5')}</div><div class="cwdrv d2">${carSVG('#e53935')}</div><span class="cwbi">🚗</span><span class="cwbl">${cw.label}</span><span class="cwbi">🏁</span><span class="cwnew">⭐</span>`;
+      tap(b, () => { anim(b, 'bounce'); SFX.honk(); MENU.cat = cw.id; goMenu(false); stopSpeech(); say(L.cw.hello); });
+      t.classList.add('withcw'); t.appendChild(b);
+    }
     for (const c of cats) {
       const b = document.createElement('button'); b.className = 'tile big cat'; b.dataset.cat = c.id; b.style.background = c.col;
       b.innerHTML = `<div class="pic">${c.icon}</div><div class="lbl">${c.label}</div>`;
@@ -980,11 +1165,11 @@ function goMenu(speak = true) {
     return;
   }
   const list = cat ? cat.modes : [...MODES, ...(L.extraModes || [])];
-  if (cat) { t.classList.add('subm'); if (cat.modes.length === 4) t.classList.add('n4'); if (cat.modes.length === 7) t.classList.add('n7'); }
+  if (cat) { t.classList.add('subm'); if (cat.modes.length === 4) t.classList.add('n4'); if (cat.modes.length === 7) t.classList.add('n7'); if (cat === L.carWorld) t.classList.add('cwm'); }
   else if (list.length === 12) t.classList.add('n12');
   for (const m of list) {
     const b = document.createElement('button'); b.className = 'tile big t-' + m; b.dataset.mode = m;
-    b.innerHTML = `<div class="pic">${pics[m]}</div><div class="lbl">${L.modes[m]}</div>`;
+    b.innerHTML = `<div class="pic">${pics[m]}</div><div class="lbl">${L.modes[m]}</div>` + (cat && cat === L.carWorld && CW_GAMES.includes(m) ? `<span class="cwlv">${'⭐'.repeat(Math.min(3, Math.ceil(cwLevel(m) / 2)))} ${cwLevel(m)}</span>` : '');
     tap(b, () => { anim(b, 'bounce'); SFX.pop(); startMode(m); });
     t.appendChild(b);
   }
@@ -998,7 +1183,7 @@ function startMode(m) {
   show('game');
   const g = scene;
   say(L.modes[m]);
-  ({ count: startCount, blocks: startBlocks, find: startFind, song: startSong, draw: startDraw, puzzle: startPuzzle, shop: startShop, lmatch: startLMatch, lfind: startLFind, numpad: startNumpad, rhymes: startRhymes, bear: startBear, think: startThink, face: partsStart('face'), body: partsStart('body'), farm: animalTopicStart('farm'), pets: animalTopicStart('pets'), zoo: animalTopicStart('zoo'), classroom: startClassroom, house: startHouse })[m](g);
+  ({ count: startCount, blocks: startBlocks, find: startFind, song: startSong, draw: startDraw, puzzle: startPuzzle, shop: startShop, lmatch: startLMatch, lfind: startLFind, numpad: startNumpad, rhymes: startRhymes, bear: startBear, think: startThink, face: partsStart('face'), body: partsStart('body'), farm: animalTopicStart('farm'), pets: animalTopicStart('pets'), zoo: animalTopicStart('zoo'), classroom: startClassroom, house: startHouse, road: startRoad, race: startRace, wash: startWash, park: startPark, paint: startPaint, stickers: startStickers })[m](g);
 }
 
 /* ---------- 1. Counting cars ---------- */
@@ -2322,6 +2507,637 @@ async function hsDrop(g, tok) {
   HS.queue.shift(); HS.busy = false; HS.next();
 }
 
+/* ================= v8: CAR WORLD (English only: reachable only from the English menu, all text from EN.cw) ================= */
+const CW_MODES = ['road', 'race', 'wash', 'park', 'paint', 'stickers'];
+const CW_GAMES = ['road', 'race', 'wash', 'park', 'paint'];
+const CW_MAX = 6;
+// language-neutral pictures (ids + pictures only)
+const CWV = {
+  colours: VOCAB.colors,
+  numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(n => [String(n), n]),
+  animals: [['cat','🐱'],['dog','🐶'],['fish','🐟'],['bird','🐦'],['duck','🦆'],['horse','🐴'],['cow','🐮'],['sheep','🐑'],['chicken','🐔'],['frog','🐸'],['monkey','🐵'],['elephant','🐘'],
+    ['tiger','🐯'],['giraffe','🦒'],['mouse','🐭'],['snake','🐍'],['lion','🦁'],['bear','🐻'],['crocodile','🐊'],['zebra','🦓'],['hippo','🦛'],['spider','🕷️'],['goat','🐐']],
+  transport: [['car','🚗'],['bus','🚌'],['train','🚂'],['bike','🚲'],['plane','✈️'],['boat','⛵'],['truck','🚚'],['motorbike','🏍️'],['helicopter','🚁']],
+  toys: [['ball','⚽'],['teddy','🧸'],['kite','🪁'],['robot','🤖'],['guitar','🎸'],['camera','📷']],
+  food: [['apple','🍎'],['banana','🍌'],['cake','🎂'],['icecream','🍦'],['egg','🥚'],['milk','🥛'],['bread','🍞'],['orangefruit','🍊'],['carrot','🥕'],['grapes','🍇'],['pear','🍐'],
+    ['chocolate','🍫'],['burger','🍔'],['lemon','🍋'],['tomato','🍅'],['watermelon','🍉'],['chips','🍟']],
+  body: [['eye','👁️'],['ear','👂'],['nose','👃'],['mouth','👄'],['hand','✋'],['foot','🦶'],['leg','🦵'],['arm','💪']],
+  family: [['mum','👩'],['dad','👨'],['baby','👶'],['grandma','👵'],['grandpa','👴']],
+  clothes: [['hat','👒'],['shoes','👟'],['socks','🧦'],['tshirt','👕'],['dress','👗'],['jacket','🧥'],['glasses','👓']]
+};
+const CW_CATS = ['colours', 'numbers', 'animals', 'transport', 'toys', 'food', 'body', 'family', 'clothes'];
+const CW_COUNT_NOUNS = ['cat', 'dog', 'duck', 'fish', 'bird', 'apple', 'banana', 'ball', 'car', 'egg', 'cake', 'star'];
+const CW_PIC = { star: '⭐' };
+for (const c of CW_CATS) for (const [id, p] of CWV[c]) if (c !== 'colours' && c !== 'numbers') CW_PIC[id] = p;
+const CW_NAMED = ['red', 'blue', 'yellow', 'green', 'orange', 'purple', 'pink']; // car colours used in races/paint
+const hexOf = c => (VOCAB.colors.find(x => x[0] === c) || [0, '#999'])[1];
+// levels: n = choices; cats (with optional size limit = familiar words first); same = chance distractors come from the same topic; phrase = chance of a short phrase
+const CW_LV = [null,
+  { n: 2, cats: { transport: 6, animals: 8, colours: 6 }, same: 0 },
+  { n: 3, cats: { transport: 9, animals: 12, colours: 8, toys: 4, food: 8 }, same: 0 },
+  { n: 3, cats: { animals: 0, food: 0, toys: 0, body: 0, family: 0, clothes: 0, numbers: 0, transport: 0, colours: 0 }, same: 0.6 },
+  { n: 4, cats: { animals: 0, food: 0, toys: 0, body: 0, family: 0, clothes: 0, numbers: 0, transport: 0, colours: 0 }, same: 0.8 },
+  { n: 3, cats: { animals: 0, food: 0, toys: 0, transport: 0, colours: 0, numbers: 0 }, same: 0.5, phrase: 0.8 },
+  { n: 4, cats: { animals: 0, food: 0, toys: 0, body: 0, family: 0, clothes: 0, numbers: 0, transport: 0, colours: 0 }, same: 0.7, phrase: 0.6 } ];
+
+/* ---------- saved progress (localStorage) ---------- */
+const CWKEY = 'kg_cw_v1';
+function cwFresh() { return { v: 1, lv: {}, rounds: {}, stars: {}, best: {}, stickers: [], cats: {}, words: {}, time: { cw: 0, all: 0 }, since: Date.now() }; }
+let CWS = (() => { try { const s = JSON.parse(localStorage.getItem(CWKEY) || 'null'); if (s && s.v === 1) return Object.assign(cwFresh(), s); } catch (e) {} return cwFresh(); })();
+function cwSave() { try { localStorage.setItem(CWKEY, JSON.stringify(CWS)); } catch (e) {} }
+const cwLevel = gm => Math.min(CW_MAX, Math.max(1, CWS.lv[gm] || 1));
+function cwRec(it, ok) { // ok: true = right first time, false = needed another try, null = only heard (no question asked)
+  const c = CWS.cats[it.cat] || (CWS.cats[it.cat] = { h: 0, c: 0, x: 0 }); c.h++; if (ok) c.c++; if (ok === null) c.x = (c.x || 0) + 1;
+  const w = CWS.words[it.key] || (CWS.words[it.key] = { h: 0, c: 0, n: it.a }); if (ok !== null) { w.h++; if (ok) w.c++; } w.n = it.a;
+  cwSave();
+}
+setInterval(() => { if (document.hidden || !L) return; CWS.time.all += 5; if (CW_MODES.includes(mode) || (MENU.cat === 'cars' && !mode)) CWS.time.cw += 5; cwSave(); }, 5000);
+
+/* ---------- pictures ---------- */
+function blobSVG(hex) {
+  return `<svg viewBox="0 0 100 100"><path d="M50 8 C68 6 74 20 86 26 C98 34 92 50 94 62 C96 80 78 92 60 90 C46 96 30 94 20 82 C8 72 4 56 10 42 C14 26 30 10 50 8Z" fill="${hex}" stroke="${hex === '#ffffff' ? '#adb5bd' : shade(hex, 0.7)}" stroke-width="4"/><ellipse cx="36" cy="32" rx="12" ry="7" fill="#fff" opacity=".45"/></svg>`;
+}
+function topCarSVG(hex) { // seen from above, facing right (for Word Road, so it can turn along the road)
+  return `<svg viewBox="0 0 124 80" xmlns="http://www.w3.org/2000/svg">
+  <rect x="18" y="4" width="22" height="12" rx="4" fill="#333"/><rect x="82" y="4" width="22" height="12" rx="4" fill="#333"/><rect x="18" y="64" width="22" height="12" rx="4" fill="#333"/><rect x="82" y="64" width="22" height="12" rx="4" fill="#333"/>
+  <rect x="6" y="10" width="112" height="60" rx="22" fill="${hex}" stroke="#333" stroke-width="3"/>
+  <path d="M76 18 Q92 20 96 40 Q92 60 76 62 Z" fill="#d7f1ff" stroke="#333" stroke-width="2.5" stroke-linejoin="round"/>
+  <rect x="34" y="20" width="36" height="40" rx="9" fill="${shade(hex, 0.85)}" stroke="#333" stroke-width="2"/>
+  <path d="M14 22 Q10 40 14 58" stroke="#d7f1ff" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <circle cx="84" cy="32" r="4.5" fill="#fff" stroke="#333" stroke-width="1.2"/><circle cx="84" cy="48" r="4.5" fill="#fff" stroke="#333" stroke-width="1.2"/><circle cx="85.5" cy="32" r="2.3" fill="#222"/><circle cx="85.5" cy="48" r="2.3" fill="#222"/>
+  <ellipse cx="114" cy="22" rx="3" ry="5" fill="#ffe066" stroke="#333" stroke-width="1.2"/><ellipse cx="114" cy="58" rx="3" ry="5" fill="#ffe066" stroke="#333" stroke-width="1.2"/></svg>`;
+}
+function numPicHTML(n) { return `<span class="dg" style="background:${BCOL[((n - 1) % 10) + 1]}">${n}</span>`; }
+function cwCarSVG(hex) { return carSVG(hex).replace('<path ', '<path class="cwbody" '); }
+function potSVG(hex) {
+  return `<svg viewBox="0 0 100 100"><path d="M18 34 L82 34 L76 90 Q75 94 70 94 L30 94 Q25 94 24 90Z" fill="#dee2e6" stroke="#495057" stroke-width="4"/>
+  <path d="M16 30 Q50 14 84 30 L84 38 Q50 30 16 38Z" fill="${hex}" stroke="${hex === '#ffffff' ? '#adb5bd' : shade(hex, 0.7)}" stroke-width="3"/>
+  <path d="M30 36 Q32 56 26 64 Q34 66 36 52 Q40 66 46 60 Q44 48 46 36Z" fill="${hex}"/><rect x="30" y="60" width="40" height="22" rx="6" fill="${hex}" stroke="${hex === '#ffffff' ? '#adb5bd' : 'none'}" stroke-width="2"/></svg>`;
+}
+/* ---------- items ---------- */
+function cwItem(cat, id) {
+  const W = L.cw.word(cat, id);
+  let pic;
+  if (cat === 'colours') pic = blobSVG(hexOf(id));
+  else if (cat === 'numbers') pic = numPicHTML(+id);
+  else pic = `<span class="e1">${CW_PIC[id]}</span>`;
+  return Object.assign({ key: cat + ':' + id, cat, id, pic }, W);
+}
+function cwPhraseCar(c) { return Object.assign({ key: 'phr:car-' + c, cat: 'phrases', id: 'car-' + c, col: c, pic: carSVG(hexOf(c)) }, L.cw.colourCar(c)); }
+function cwPhraseCount(n, id) { return Object.assign({ key: 'phr:' + n + '-' + id, cat: 'phrases', id: n + '-' + id, n, noun: id, pic: `<span class="en">${CW_PIC[id].repeat(n)}</span>` }, L.cw.countOf(n, id)); }
+function cwPool(spec) { const out = []; for (const c in spec.cats) { const lim = spec.cats[c]; (lim ? CWV[c].slice(0, lim) : CWV[c]).forEach(([id]) => out.push([c, id])); } return out; }
+function cwWeight(key) { const w = CWS.words[key]; if (!w || !w.h) return 2.5; return 1 + 3 * (1 - w.c / w.h); }
+function cwPickWeighted(list, keyFn) { let tot = 0; const ws = list.map(x => { const v = cwWeight(keyFn(x)); tot += v; return v; }); let r = Math.random() * tot; for (let i = 0; i < list.length; i++) { r -= ws[i]; if (r <= 0) return list[i]; } return list[list.length - 1]; }
+const cwClash = (a, b) => a.id === b.id || confusable(a.id, b.id) || (a.cat === 'family' && b.cat === 'family' && /^grand/.test(a.id) && /^grand/.test(b.id));
+// one question: target + (n-1) distractors, shuffled
+function cwQuestion(R, n) {
+  const spec = CW_LV[R.lv]; n = n || spec.n;
+  if (spec.phrase && Math.random() < spec.phrase) return cwPhraseQ(R, n);
+  const pool = cwPool(spec).filter(([c, id]) => !R.used.has(c + ':' + id));
+  const [tc, tid] = cwPickWeighted(pool.length ? pool : cwPool(spec), x => x[0] + ':' + x[1]);
+  const t = cwItem(tc, tid); R.used.add(t.key);
+  const same = Math.random() < spec.same;
+  const all = shuffle(cwPool(spec)).map(([c, id]) => ({ c, id })).filter(x => x.id !== tid);
+  const order = same ? [...all.filter(x => x.c === tc), ...all.filter(x => x.c !== tc)] : all.filter(x => x.c !== tc).concat(all.filter(x => x.c === tc));
+  const opts = [t], usedCats = new Set([tc]);
+  for (const x of order) {
+    if (opts.length >= n) break;
+    if (opts.some(o => cwClash(o, x))) continue;
+    if (!same && usedCats.has(x.c) && order.some(y => !usedCats.has(y.c))) continue;
+    opts.push(cwItem(x.c, x.id)); usedCats.add(x.c);
+  }
+  return { t, opts: shuffle(opts) };
+}
+function cwPhraseQ(R, n) {
+  if (Math.random() < 0.45) { // a blue car / a red car ...
+    const cols = shuffle(CW_NAMED.concat(['brown', 'black', 'white', 'grey']));
+    let tcol = cols.find(c => !R.used.has('phr:car-' + c)) || cols[0];
+    const t = cwPhraseCar(tcol); R.used.add(t.key);
+    const ds = []; for (const c of cols) { if (ds.length >= n - 1) break; if (c !== tcol && !confusable(c, tcol) && !ds.some(d => confusable(d, c))) ds.push(c); }
+    return { t, opts: shuffle([t, ...ds.map(cwPhraseCar)]) };
+  }
+  const maxN = R.lv >= 6 ? 5 : 4;
+  const noun = pick(CW_COUNT_NOUNS), k = 1 + rnd(maxN);
+  const t = cwPhraseCount(k, noun); R.used.add(t.key);
+  const others = shuffle(CW_COUNT_NOUNS.filter(x => x !== noun)), nums = shuffle([1, 2, 3, 4, 5].slice(0, maxN).filter(x => x !== k));
+  const cand = [cwPhraseCount(nums[0], noun), cwPhraseCount(k, others[0]), cwPhraseCount(nums[1], noun), cwPhraseCount(nums[2] || nums[0], others[1])];
+  const opts = [t]; for (const c of cand) { if (opts.length >= n) break; if (!opts.some(o => o.key === c.key)) opts.push(c); }
+  return { t, opts: shuffle(opts) };
+}
+
+/* ---------- shared round flow ---------- */
+const CW = { R: null, idle: 0 };
+function cwBegin(game, g) {
+  CW.R = { game, g, lv: cwLevel(game), step: 0, total: 5, miss: 0, tries: 0, used: new Set(), busy: false, cur: null };
+  return CW.R;
+}
+function cwDots(R) { return `<div class="cwtop">${Array.from({ length: R.total }, (_, i) => `<span class="cwd${i < R.step ? ' on' : ''}">${i < R.step ? '⭐' : ''}</span>`).join('')}</div>`; }
+function cwDotsUpd(R) { document.querySelectorAll('.cwd').forEach((d, i) => { const on = i < R.step; if (on && !d.classList.contains('on')) anim(d, 'popin'); d.classList.toggle('on', on); d.textContent = on ? '⭐' : ''; }); }
+function cwIdle(g, fn, ms = 9000) { clearTimeout(CW.idle); CW.idle = setTimeout(() => { if (g === scene) fn(); }, ms); }
+function cwStopIdle() { clearTimeout(CW.idle); }
+function cwHint(el) { if (el) anim(el, 'cwhint'); }
+function cwCardHTML(it, i, s) { return `<button class="cwcard" data-i="${i}" style="--s:${s}px;width:${s}px;height:${s}px"><span class="ci">${it.pic}</span></button>`; }
+const cwYes = () => pick(L.cw.yes);
+// right answer on the first try counts as "correct" for the parent screen
+function cwGood(R, it, onlyHeard) { cwStopIdle(); if (onlyHeard) cwRec(it, null); else if (R.tries === 0) cwRec(it, true); R.step++; cwDotsUpd(R); }
+function cwBad(R, it, wrong) { R.tries++; R.miss++; if (R.tries === 1) cwRec(it, false); }
+async function cwWrongSay(it, wrong, askLine) { SFX.boop(); stopSpeech(); return say(L.cw.oops + ' ' + (wrong ? L.cw.that(wrong) + ' ' : '') + askLine); }
+function cwStars(R) { return R.miss <= 1 ? 3 : R.miss <= 3 ? 2 : 1; }
+const STICKERS = [['v_car','🚗'],['v_taxi','🚕'],['v_police','🚓'],['v_amb','🚑'],['v_fire','🚒'],['v_race','🏎️'],['v_bus','🚌'],['v_van','🚐'],['v_pickup','🛻'],['v_truck','🚚'],
+  ['v_lorry','🚛'],['v_tractor','🚜'],['v_moto','🏍️'],['v_scooter','🛵'],['v_bike','🚲'],['v_train','🚂'],['v_heli','🚁'],['v_plane','✈️'],['v_rocket','🚀'],['v_boat','⛵'],
+  ...['cow','horse','sheep','pig','chicken','rooster','duck','goat','donkey','dog','cat','bird','mouse','lion','tiger','elephant','monkey','crocodile','snake','bear'].map(id => ['a_' + id, ANIMALS[id][0]])];
+const stickerName = id => id.startsWith('a_') ? L.an.names[id.slice(2)].toLowerCase() : L.cw.stickers.names[id];
+function cwAward() {
+  const have = new Set(CWS.stickers), left = STICKERS.filter(s => !have.has(s[0]));
+  if (!left.length) return null;
+  const lastV = CWS.stickers.length && CWS.stickers[CWS.stickers.length - 1].startsWith('v_');
+  const pref = left.filter(s => s[0].startsWith(lastV ? 'a_' : 'v_'));
+  const s = pick(pref.length ? pref : left); CWS.stickers.push(s[0]); cwSave(); return s;
+}
+async function cwEnd(g) {
+  const R = CW.R; if (!R || g !== scene) return;
+  cwStopIdle(); resizeFn = null;
+  const stars = cwStars(R), gm = R.game;
+  CWS.rounds[gm] = (CWS.rounds[gm] || 0) + 1; CWS.stars[gm] = (CWS.stars[gm] || 0) + stars; CWS.best[gm] = Math.max(CWS.best[gm] || 0, R.lv);
+  let up = false; if (stars >= 2 && R.lv < CW_MAX) { CWS.lv[gm] = R.lv + 1; up = true; CWS.best[gm] = Math.max(CWS.best[gm], R.lv + 1); }
+  const stk = cwAward(); cwSave();
+  const st = $('#stage'), d = document.createElement('div'); d.className = 'cwres';
+  d.innerHTML = `<div class="cwrb"><div class="cwstars">${[0, 1, 2].map(i => `<span class="${i < stars ? '' : 'off'}">⭐</span>`).join('')}</div>
+    ${up ? '<div class="cwlvup">🚀 ' + (R.lv + 1) + '</div>' : ''}${stk ? `<div class="cwstk"><span>${stk[1]}</span></div>` : ''}
+    <div class="cwrbtns"><button class="big cwnext" aria-label="play again">▶</button><button class="big cwsb" aria-label="sticker book">📒</button></div></div>`;
+  st.appendChild(d);
+  tap(d.querySelector('.cwnext'), () => { SFX.pop(); startMode(gm); });
+  tap(d.querySelector('.cwsb'), () => { SFX.pop(); startMode('stickers'); });
+  SFX.chime(); confetti(60);
+  const sp = [...d.querySelectorAll('.cwstars span')];
+  for (let i = 0; i < 3; i++) { await sleep(280); if (g !== scene) return; sp[i].classList.add('in'); if (i < stars) SFX.pop(); }
+  const lines = [L.cw.stars(stars)]; if (up) lines.push(L.cw.levelUp); if (stk) lines.push(L.cw.sticker(stickerName(stk[0])));
+  repeatFn = () => say(lines.join(' '));
+  stopSpeech(); say(lines.join(' '));
+}
+// a car following an SVG path, transforms only
+function cwPathFrames(path, w, h, from = 0, to = 1, steps = 28) {
+  const len = path.getTotalLength(), fr = [];
+  for (let i = 0; i <= steps; i++) {
+    const l = len * (from + (to - from) * i / steps), p = path.getPointAtLength(l), q = path.getPointAtLength(Math.min(len, l + 2)), p0 = path.getPointAtLength(Math.max(0, l - 2));
+    const a = Math.atan2(q.y - p0.y, q.x - p0.x) * 180 / Math.PI;
+    fr.push({ transform: `translate(${p.x - w / 2}px,${p.y - h / 2}px) rotate(${a}deg)` });
+  }
+  return fr;
+}
+function cwPlace(el, x, y, w, h, a = 0) { el.style.transform = `translate(${x - w / 2}px,${y - h / 2}px) rotate(${a}deg)`; }
+
+/* ---------- extra car sounds ---------- */
+function cwNoise(dur, type, freq, vol, st = 0) {
+  const c = ac(); if (!c) return;
+  try { const b = c.createBuffer(1, Math.floor(c.sampleRate * dur), c.sampleRate), d = b.getChannelData(0);
+    for (let i = 0; i < d.length; i++) d[i] = (Math.random() * 2 - 1) * Math.sin(Math.PI * i / d.length);
+    const s = c.createBufferSource(), f = c.createBiquadFilter(), g = c.createGain(); f.type = type; f.frequency.value = freq; g.gain.value = vol; s.buffer = b; s.connect(f); f.connect(g); g.connect(MASTER); s.start(c.currentTime + st); } catch (e) {}
+}
+Object.assign(SFX, {
+  zoom() { const c = ac(); if (!c) return; const lp = c.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 900; lp.connect(MASTER);
+    tone('sawtooth', 70, 260, 0, 0.55, 0.16, lp); tone('sawtooth', 72, 265, 0.02, 0.5, 0.08, lp); cwNoise(0.5, 'bandpass', 900, 0.15); },
+  squeak() { tone('sine', 1300 + rnd(500), 1900 + rnd(400), 0, 0.07, 0.04); },
+  splash() { cwNoise(0.45, 'highpass', 1500, 0.25); },
+  spray() { cwNoise(0.55, 'bandpass', 3000, 0.22); },
+  beepback() { for (let i = 0; i < 3; i++) tone('square', 1046, 1046, i * 0.22, 0.1, 0.035); },
+  door() { cwNoise(0.5, 'lowpass', 400, 0.35); tone('triangle', 160, 90, 0.4, 0.15, 0.12); }
+});
+
+/* ---------- 1. Word Road ---------- */
+const RD = { opts: [], t: null, geo: null };
+function startRoad(g) { cwBegin('road', g); roadItem(g, true); }
+function roadItem(g, first) {
+  if (g !== scene) return; const R = CW.R;
+  if (R.step >= R.total) return cwEnd(g);
+  const q = cwQuestion(R); RD.opts = q.opts; RD.t = q.t; R.tries = 0; R.busy = false; R.cur = q.t;
+  const st = $('#stage');
+  st.innerHTML = cwDots(R) + `<div class="cwarea rd" id="rdarea"><svg class="rds" id="rds"></svg>
+    ${RD.opts.map((o, i) => cwCardHTML(o, i, 100)).join('')}<div class="cwcar" id="rdcar">${topCarSVG('#e53935')}</div></div>`;
+  roadLayout();
+  const A = $('#rdarea'), car = $('#rdcar');
+  A.querySelectorAll('.cwcard').forEach(b => tap(b, () => roadPick(g, +b.dataset.i)));
+  roadSteer(g, car);
+  resizeFn = () => { if (mode === 'road' && !CW.R.busy) roadLayout(); };
+  const G = RD.geo;
+  try { car.animate([{ transform: G.land ? `translate(${-G.cw}px,${G.sy - G.ch / 2}px)` : `translate(${G.sx - G.cw / 2}px,${G.H + G.ch}px) rotate(-90deg)` }, { transform: car.style.transform }], { duration: 700, easing: 'ease-out' }); } catch (e) {}
+  if (!first) SFX.vroom();
+  const ask = L.cw.road.ask(RD.t); repeatFn = () => say(ask);
+  if (first) say(L.cw.road.hello);
+  say(ask);
+  cwIdle(g, () => roadNudge(g));
+}
+function roadNudge(g) { const R = CW.R; if (R.busy) return; stopSpeech(); say(L.cw.road.ask(RD.t)); cwHint($(`#rdarea .cwcard[data-i="${RD.opts.indexOf(RD.t)}"]`)); cwIdle(g, () => roadNudge(g), 12000); }
+function roadLayout() {
+  const A = $('#rdarea'); if (!A) return;
+  const W = A.clientWidth, H = A.clientHeight, n = RD.opts.length, land = W > H * 1.1;
+  const S = Math.round(Math.max(88, Math.min(land ? (H / n) * 0.8 : (W / n) * 0.84, land ? W * 0.22 : H * 0.24, 210)));
+  const cw = Math.round(Math.max(96, Math.min(land ? W * 0.16 : W * 0.26, 180))), ch = cw * 80 / 124;
+  const sx = land ? cw * 0.7 : W / 2, sy = land ? H / 2 : H - cw * 0.62;
+  const svg = $('#rds'); svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+  const rw = Math.round(ch * 0.95), dest = [];
+  let paths = '';
+  RD.opts.forEach((o, i) => {
+    const dx = land ? W - S / 2 - 12 : W * (i + 0.5) / n, dy = land ? H * (i + 0.5) / n : S / 2 + 10;
+    const ex = land ? dx - S / 2 - cw * 0.55 : dx, ey = land ? dy : dy + S / 2 + cw * 0.55;
+    const d = land ? `M${sx} ${sy} C${sx + (ex - sx) * 0.55} ${sy} ${sx + (ex - sx) * 0.45} ${ey} ${ex} ${ey} L${dx} ${dy}`
+                   : `M${sx} ${sy} C${sx} ${sy + (ey - sy) * 0.55} ${ex} ${sy + (ey - sy) * 0.45} ${ex} ${ey} L${dx} ${dy}`;
+    paths += `<path d="${d}" fill="none" stroke="#495057" stroke-width="${rw + 10}" stroke-linecap="round"/><path d="${d}" fill="none" stroke="#6c757d" stroke-width="${rw}" stroke-linecap="round"/>`;
+    dest.push({ x: dx, y: dy, ex, ey, d });
+  });
+  paths += RD.opts.map((o, i) => `<path id="rdp${i}" d="${dest[i].d}" fill="none" stroke="#fff" stroke-width="4" stroke-dasharray="14 12" stroke-linecap="round" opacity=".85"/>`).join('');
+  svg.innerHTML = paths;
+  A.querySelectorAll('.cwcard').forEach((b, i) => { b.style.width = b.style.height = S + 'px'; b.style.setProperty('--s', S + 'px'); b.style.left = (dest[i].x - S / 2) + 'px'; b.style.top = (dest[i].y - S / 2) + 'px'; });
+  const car = $('#rdcar'); car.style.width = cw + 'px'; car.style.height = ch + 'px';
+  cwPlace(car, sx, sy, cw, ch, land ? 0 : -90);
+  RD.geo = { W, H, S, cw, ch, sx, sy, land, dest };
+}
+function roadSteer(g, car) { // drag the car onto a picture ("steering"); a plain tap honks
+  let id = null, ox = 0, oy = 0, moved = false, cx = 0, cy = 0;
+  car.addEventListener('pointerdown', e => { if (CW.R.busy || id !== null) return; e.preventDefault(); ac(); id = e.pointerId; moved = false; try { car.setPointerCapture(id); } catch (er) {}
+    const r = $('#rdarea').getBoundingClientRect(); ox = r.left; oy = r.top; cx = RD.geo.sx; cy = RD.geo.sy; });
+  car.addEventListener('pointermove', e => { if (e.pointerId !== id) return; const G = RD.geo, x = e.clientX - ox, y = e.clientY - oy;
+    if (Math.hypot(x - G.sx, y - G.sy) > 12) moved = true; if (!moved) return;
+    const a = Math.atan2(y - cy, x - cx) * 180 / Math.PI; if (Math.hypot(x - cx, y - cy) > 4) { car._a = a; } cx = x; cy = y; cwPlace(car, x, y, G.cw, G.ch, car._a || 0); });
+  const up = e => { if (e.pointerId !== id) return; id = null; const G = RD.geo;
+    if (!moved) { SFX.honk(); anim(car.firstElementChild, 'cwbnc'); return; }
+    let best = -1, bd = 1e9; G.dest.forEach((d, i) => { const dd = Math.hypot(d.x - cx, d.y - cy); if (dd < bd) { bd = dd; best = i; } });
+    if (best >= 0 && bd < G.S * 0.95) roadPick(g, best, { x: cx, y: cy });
+    else { try { car.animate([{ transform: car.style.transform }, { transform: `translate(${G.sx - G.cw / 2}px,${G.sy - G.ch / 2}px) rotate(${G.land ? 0 : -90}deg)` }], { duration: 350 }); } catch (er) {} cwPlace(car, G.sx, G.sy, G.cw, G.ch, G.land ? 0 : -90); }
+  };
+  car.addEventListener('pointerup', up); car.addEventListener('pointercancel', up);
+}
+async function roadPick(g, i, dragPos) {
+  const R = CW.R; if (R.busy || g !== scene) return;
+  const o = RD.opts[i], G = RD.geo, car = $('#rdcar'), card = $(`#rdarea .cwcard[data-i="${i}"]`);
+  if (o !== RD.t) {
+    cwBad(R, RD.t, o); anim(card, 'cwwig');
+    if (dragPos) cwPlace(car, G.sx, G.sy, G.cw, G.ch, G.land ? 0 : -90); else anim(car.firstElementChild, 'cwwig');
+    if (R.tries >= 2) cwHint($(`#rdarea .cwcard[data-i="${RD.opts.indexOf(RD.t)}"]`));
+    cwIdle(g, () => roadNudge(g));
+    cwWrongSay(RD.t, o, L.cw.road.ask(RD.t)); return;
+  }
+  R.busy = true; cwGood(R, o); stopSpeech(); SFX.vroom();
+  const p = document.getElementById('rdp' + i);
+  let a;
+  try {
+    const fr = dragPos ? [{ transform: car.style.transform }, cwPathFrames(p, G.cw, G.ch, 0.93, 0.93, 1)[0]] : cwPathFrames(p, G.cw, G.ch, 0, 0.93);
+    a = car.animate(fr, { duration: dragPos ? 400 : 1500, easing: 'ease-in-out', fill: 'forwards' });
+    await new Promise(r => { a.onfinish = r; setTimeout(r, 1700); });
+  } catch (e) {}
+  if (g !== scene) return;
+  card.classList.add('cwok'); anim(card, 'cwbnc'); cheer();
+  if (!(await say(cwYes() + ' ' + cap(o.a) + '!')) || g !== scene) return;
+  await sleep(350); roadItem(g);
+}
+
+/* ---------- 2. Car Race ---------- */
+const RC = { cars: [], opts: [], t: null, prog: [], at: [], geo: null };
+function startRace(g) {
+  const R = cwBegin('race', g), n = CW_LV[R.lv].n;
+  RC.cars = shuffle(CW_NAMED.slice(0, 6)).slice(0, n); RC.prog = RC.cars.map(() => 0); RC.at = RC.cars.map(() => 0);
+  const st = $('#stage');
+  st.innerHTML = cwDots(R) + `<div class="cwarea rc" id="rcarea">${RC.cars.map((c, i) => `<div class="rlane" data-i="${i}"><span class="rtag" style="background:${hexOf(c)}"></span>
+    <div class="rcg" id="rcg${i}"><button class="cwcard" data-i="${i}" style="--s:90px;width:90px;height:90px"><span class="ci"></span></button><div class="rcv">${carSVG(hexOf(c))}</div></div></div>`).join('')}</div>`;
+  st.querySelectorAll('.rlane').forEach(l => tap(l, () => racePick(g, +l.dataset.i)));
+  raceLayout(); resizeFn = () => { if (mode === 'race') raceLayout(); };
+  say(L.cw.race.hello); SFX.vroom();
+  raceItem(g);
+}
+function raceLayout() {
+  const A = $('#rcarea'); if (!A) return;
+  const lane = A.querySelector('.rlane'), W = lane.clientWidth, H = lane.clientHeight, row = H < W * 0.45; // short lanes: the car tows its picture
+  const cw = Math.round(row ? Math.max(80, Math.min(H * 1.25, W * 0.2, 200)) : Math.max(70, Math.min(H * 0.95, Math.max(W * 0.2, 100), 200)));
+  const S = Math.round(row ? Math.max(64, Math.min(H * 0.8, 150)) : Math.max(64, Math.min(H * 0.52, Math.max(cw * 0.95, 88), 150)));
+  const gw = row ? cw + S : cw, fin = W - gw - Math.max(24, W * 0.04) - 8;
+  RC.geo = { W, H, cw, S, gw, x0: Math.max(30, W * 0.05), fin };
+  A.querySelectorAll('.rcg').forEach((gr, i) => { gr.classList.toggle('row', row); gr.style.width = gw + 'px'; gr.querySelector('.rcv').style.width = cw + 'px';
+    const c = gr.querySelector('.cwcard'); c.style.width = c.style.height = S + 'px'; c.style.setProperty('--s', S + 'px'); raceMove(i); });
+}
+function raceMove(i, x) { const G = RC.geo, gr = $('#rcg' + i); if (!gr) return; gr.style.transform = `translateX(${x != null ? x : G.x0 + (G.fin - G.x0) * RC.prog[i] / (CW.R.total + 0.6)}px)`; }
+function raceItem(g) {
+  if (g !== scene) return; const R = CW.R;
+  if (R.step >= R.total) return raceFinish(g);
+  const q = cwQuestion(R, RC.cars.length); RC.opts = q.opts; RC.t = q.t; R.tries = 0; R.busy = false;
+  document.querySelectorAll('#rcarea .rcg .ci').forEach((ci, i) => { ci.innerHTML = RC.opts[i].pic; anim(ci.parentNode, 'popin'); });
+  const ask = L.cw.race.ask(RC.t); repeatFn = () => say(ask); say(ask);
+  cwIdle(g, () => raceNudge(g));
+}
+function raceNudge(g) { if (CW.R.busy) return; stopSpeech(); say(L.cw.race.ask(RC.t)); cwHint($(`#rcg${RC.opts.indexOf(RC.t)} .cwcard`)); cwIdle(g, () => raceNudge(g), 12000); }
+async function racePick(g, i) {
+  const R = CW.R; if (R.busy || g !== scene) return;
+  const o = RC.opts[i], card = $(`#rcg${i} .cwcard`);
+  if (o !== RC.t) { cwBad(R, RC.t, o); anim(card, 'cwwig'); if (R.tries >= 2) cwHint($(`#rcg${RC.opts.indexOf(RC.t)} .cwcard`)); cwIdle(g, () => raceNudge(g)); cwWrongSay(RC.t, o, L.cw.race.ask(RC.t)); return; }
+  R.busy = true; cwGood(R, o); stopSpeech();
+  RC.prog[i]++; RC.at[i] = Date.now();
+  const gr = $('#rcg' + i); gr.classList.remove('zoom'); void gr.offsetWidth; gr.classList.add('zoom');
+  raceMove(i); SFX.zoom(); card.classList.add('cwok'); confetti(18);
+  if (!(await say(cwYes() + ' ' + cap(o.a) + '!')) || g !== scene) return;
+  card.classList.remove('cwok'); await sleep(250); raceItem(g);
+}
+async function raceFinish(g) {
+  const R = CW.R; R.busy = true; cwStopIdle();
+  say(L.cw.race.finish);
+  const order = RC.cars.map((c, i) => i).sort((a, b) => (RC.prog[b] - RC.prog[a]) || (RC.at[a] - RC.at[b]));
+  const G = RC.geo;
+  for (let k = 0; k < order.length; k++) { const i = order[k]; $('#rcg' + i).style.transitionDuration = (1.1 + k * 0.35) + 's'; raceMove(i, G.W - G.gw + G.S * 0.2); }
+  SFX.vroom(); setTimeout(() => SFX.zoom(), 300);
+  await sleep(1300); if (g !== scene) return;
+  const w = order[0], lane = document.querySelector(`.rlane[data-i="${w}"]`);
+  const tr = document.createElement('div'); tr.className = 'rtro popin'; tr.textContent = '🏆'; lane.appendChild(tr);
+  cheer(); confetti(50); stopSpeech();
+  if (!(await say(L.cw.race.win(RC.cars[w]))) || g !== scene) return;
+  await sleep(300); cwEnd(g);
+}
+
+/* ---------- 3. Car Wash ---------- */
+const WS = { t: null, col: '', blobs: [], left: 0, done: false, rect: null, geo: null, lastSq: 0, lastBub: 0, opts: [], q: null };
+function startWash(g) { cwBegin('wash', g); washItem(g, true); }
+function washItem(g, first) {
+  if (g !== scene) return; const R = CW.R;
+  if (R.step >= R.total) return cwEnd(g);
+  const spec = CW_LV[R.lv], quizN = R.lv === 1 ? 0 : R.lv === 2 ? 2 : spec.n;
+  const q = cwQuestion(R, Math.max(2, quizN)); WS.t = q.t; WS.opts = q.opts; WS.quizN = quizN;
+  WS.col = pick(CW_NAMED); WS.done = false; R.tries = 0; R.busy = false;
+  WS.colQ = R.lv >= 4 && R.step % 2 === 1; // every other car: "What colour is the car?"
+  const st = $('#stage');
+  st.innerHTML = cwDots(R) + `<div class="cwarea ws" id="wsarea"><div class="wsbox" id="wsbox"><div class="wscv">${carSVG(hexOf(WS.col))}</div><div class="wsbadge"><span class="ci">${WS.t.pic}</span></div></div>
+    <div class="sponge" id="sponge">🧽</div><div class="wsopts" id="wsopts"></div></div>`;
+  washLayout(true);
+  const A = $('#wsarea');
+  let down = false;
+  A.addEventListener('pointerdown', e => { if (WS.done) return; e.preventDefault(); ac(); down = true; WS.rect = A.getBoundingClientRect(); try { A.setPointerCapture(e.pointerId); } catch (er) {} washScrub(g, e); });
+  A.addEventListener('pointermove', e => { if (!down || WS.done) return; washScrub(g, e); });
+  const up = () => { down = false; const sp = $('#sponge'); if (sp) sp.style.display = 'none'; };
+  A.addEventListener('pointerup', up); A.addEventListener('pointercancel', up);
+  resizeFn = () => { if (mode === 'wash') washLayout(false); };
+  const box = $('#wsbox'), G = WS.geo;
+  try { box.animate([{ transform: `translate(${-G.bw - 20}px,${G.by}px)` }, { transform: `translate(${G.bx}px,${G.by}px)` }], { duration: 800, easing: 'ease-out' }); } catch (e) {}
+  SFX.vroom();
+  if (first) say(L.cw.wash.hello);
+  say(L.cw.wash.start); repeatFn = () => say(L.cw.wash.start);
+  cwIdle(g, () => washNudge(g));
+}
+function washNudge(g) { if (WS.done) return; stopSpeech(); say(L.cw.wash.start); const b = WS.blobs.find(b => b.life > 0); if (b) cwHint(b.el); cwIdle(g, () => washNudge(g), 12000); }
+function washLayout(fresh) {
+  const A = $('#wsarea'); if (!A) return;
+  const W = A.clientWidth, H = A.clientHeight, quiz = WS.quizN > 0 || WS.colQ;
+  const avH = H * (quiz ? 0.66 : 0.9);
+  const bw = Math.round(Math.min(W * 0.84, avH / (0.645 + 0.3), 720)), bh = bw * 80 / 124, b = Math.round(bw * 0.4);
+  const bx = (W - bw) / 2, by = Math.max(b * 0.7, (avH - bh - b * 0.6) / 2 + b * 0.62);
+  const box = $('#wsbox'); box.style.width = bw + 'px'; box.style.height = bh + 'px'; box.style.transform = `translate(${bx}px,${by}px)`;
+  const cv = box.querySelector('.wscv'); cv.style.width = bw + 'px'; cv.style.height = bh + 'px';
+  const bd = box.querySelector('.wsbadge'); bd.style.width = bd.style.height = b + 'px'; bd.style.left = (bw * 0.55 - b / 2) + 'px'; bd.style.top = (-b * 0.62) + 'px'; bd.style.fontSize = (b * 0.62) + 'px';
+  bd.querySelectorAll('.e1').forEach(e => e.style.fontSize = (b * 0.6) + 'px'); bd.querySelectorAll('.en').forEach(e => e.style.fontSize = (b * 0.28) + 'px');
+  bd.querySelectorAll('.dg').forEach(e => { e.style.fontSize = (b * 0.55) + 'px'; });
+  WS.geo = { W, H, bw, bh, b, bx, by };
+  if (fresh) { // mud blobs over the car body and the picture badge
+    box.querySelectorAll('.mud').forEach(m => m.remove()); WS.blobs = [];
+    const r = bw * 0.085, pts = [];
+    for (let y = bh * 0.2; y <= bh * 0.8; y += r * 1.25) for (let x = bw * 0.08; x <= bw * 0.94; x += r * 1.25) { if (y < bh * 0.42 && (x < bw * 0.33 || x > bw * 0.86)) continue; pts.push([x, y]); }
+    const bcx = bw * 0.55, bcy = -b * 0.62 + b / 2;
+    for (let y = bcy - b * 0.42; y <= bcy + b * 0.45; y += r * 1.15) for (let x = bcx - b * 0.42; x <= bcx + b * 0.45; x += r * 1.15) pts.push([x, y]);
+    for (const [x, y] of pts) {
+      const rr = r * (1 + Math.random() * 0.35), m = document.createElement('div'); m.className = 'mud';
+      const jx = x + (Math.random() - 0.5) * r * 0.4, jy = y + (Math.random() - 0.5) * r * 0.4;
+      m.style.width = m.style.height = (rr * 2) + 'px'; m.style.left = (jx - rr) + 'px'; m.style.top = (jy - rr) + 'px';
+      box.appendChild(m); WS.blobs.push({ el: m, x: jx, y: jy, r: rr, life: 2, t: 0 });
+    }
+    WS.left = WS.blobs.length;
+  }
+}
+function washScrub(g, e) {
+  const A = WS.rect, G = WS.geo; if (!A || !G) return;
+  const x = e.clientX - A.left, y = e.clientY - A.top, bx = x - G.bx, by = y - G.by, now = performance.now();
+  const sp = $('#sponge'); sp.style.display = 'block'; sp.style.transform = `translate(${x - G.b * 0.25}px,${y - G.b * 0.25}px)`;
+  let hit = false; const br = G.bw * 0.07;
+  for (const b of WS.blobs) {
+    if (b.life <= 0 || now - b.t < 90) continue;
+    if (Math.hypot(b.x - bx, b.y - by) < b.r + br) { b.life--; b.t = now; hit = true; b.el.classList.toggle('l1', b.life === 1); if (b.life <= 0) { b.el.classList.add('gone'); WS.left--; } }
+  }
+  if (hit) { cwIdle(g, () => washNudge(g)); if (now - WS.lastSq > 130) { WS.lastSq = now; SFX.squeak(); }
+    if (now - WS.lastBub > 110) { WS.lastBub = now; const u = document.createElement('div'); u.className = 'bub'; u.textContent = pick(['🫧', '💧', '🫧']); $('#wsarea').appendChild(u);
+      try { const an = u.animate([{ transform: `translate(${x}px,${y}px) scale(.5)`, opacity: 1 }, { transform: `translate(${x + (Math.random() - 0.5) * 80}px,${y - 60 - Math.random() * 60}px) scale(1.2)`, opacity: 0 }], { duration: 700 }); an.onfinish = () => u.remove(); } catch (er) { u.remove(); } } }
+  if (!WS.done && WS.left <= WS.blobs.length * 0.18) washClean(g);
+}
+async function washClean(g) {
+  WS.done = true; cwStopIdle(); const R = CW.R;
+  WS.blobs.forEach(b => b.el.classList.add('gone')); $('#sponge').style.display = 'none';
+  SFX.splash(); setTimeout(() => SFX.chime(), 250);
+  const r = $('#wsbox').getBoundingClientRect(); sparkle(r.left + r.width / 2, r.top + r.height / 3, 16);
+  stopSpeech();
+  const lines = [L.cw.wash.reveal(WS.t)]; if (R.lv >= 3 || !WS.quizN) lines.push(L.cw.wash.colour(WS.col));
+  if (!(await say(lines.join(' '))) || g !== scene) return;
+  if (!WS.quizN && !WS.colQ) { cwGood(R, WS.t, true); return washNext(g); }
+  washQuiz(g);
+}
+function washQuiz(g) {
+  const R = CW.R, G = WS.geo, n = WS.colQ ? Math.max(3, CW_LV[R.lv].n) : WS.quizN;
+  if (WS.colQ) { // colour question about the car itself
+    const cs = [WS.col]; for (const c of shuffle(CW_NAMED)) { if (cs.length >= n) break; if (!cs.includes(c) && !cs.some(x => confusable(x, c))) cs.push(c); }
+    WS.opts = shuffle(cs.map(c => cwItem('colours', c))); WS.q = WS.opts.find(o => o.id === WS.col); WS.ask = L.cw.wash.whatColour;
+  } else { WS.q = WS.t; WS.ask = L.cw.wash.find(WS.t); }
+  const S = Math.round(Math.max(88, Math.min(G.H * 0.28, (G.W - 16) / n - 10, 190)));
+  const box = $('#wsopts'); box.innerHTML = WS.opts.map((o, i) => cwCardHTML(o, i, S)).join('');
+  box.querySelectorAll('.cwcard').forEach(b => { anim(b, 'popin'); tap(b, () => washPick(g, +b.dataset.i)); });
+  R.tries = 0; say(WS.ask); repeatFn = () => say(WS.ask);
+  cwIdle(g, () => washQNudge(g));
+}
+function washQNudge(g) { if (CW.R.busy) return; stopSpeech(); say(WS.ask); cwHint($(`#wsopts .cwcard[data-i="${WS.opts.indexOf(WS.q)}"]`)); cwIdle(g, () => washQNudge(g), 12000); }
+async function washPick(g, i) {
+  const R = CW.R; if (R.busy || g !== scene) return;
+  const o = WS.opts[i], b = $(`#wsopts .cwcard[data-i="${i}"]`);
+  if (o !== WS.q) { cwBad(R, WS.q, o); anim(b, 'cwwig'); if (R.tries >= 2) cwHint($(`#wsopts .cwcard[data-i="${WS.opts.indexOf(WS.q)}"]`)); cwIdle(g, () => washQNudge(g)); cwWrongSay(WS.q, o, WS.ask); return; }
+  R.busy = true; cwGood(R, WS.q); b.classList.add('cwok'); anim(b, 'cwbnc'); cheer(); stopSpeech();
+  const line = WS.colQ ? cwYes() + ' ' + cap(L.cw.colourCar(WS.col).a) + '!' : cwYes() + ' ' + cap(WS.q.a) + '!';
+  if (!(await say(line)) || g !== scene) return;
+  washNext(g);
+}
+async function washNext(g) {
+  const G = WS.geo, box = $('#wsbox'); SFX.vroom();
+  try { const a = box.animate([{ transform: `translate(${G.bx}px,${G.by}px)` }, { transform: `translate(${G.W + 30}px,${G.by}px)` }], { duration: 900, easing: 'ease-in', fill: 'forwards' }); await new Promise(r => { a.onfinish = r; setTimeout(r, 1000); }); } catch (e) {}
+  if (g === scene) washItem(g);
+}
+
+/* ---------- 4. Number Parking ---------- */
+// odd levels: "Park in number 3!" (find the number); even levels: "Park 4 cars!" (count while parking)
+const PK = { kind: 'num', nums: [], t: 0, need: 0, parked: 0, col: '' };
+const PK_LV = [null, { kind: 'num', bays: 3, max: 5 }, { kind: 'count', min: 2, max: 4 }, { kind: 'num', bays: 4, max: 10 }, { kind: 'count', min: 3, max: 7 }, { kind: 'num', bays: 4, max: 20, min: 10 }, { kind: 'count', min: 5, max: 10 }];
+function startPark(g) { cwBegin('park', g); say(L.cw.park.hello); parkItem(g); }
+function parkItem(g) {
+  if (g !== scene) return; const R = CW.R;
+  if (R.step >= R.total) return cwEnd(g);
+  const spec = PK_LV[R.lv]; PK.kind = spec.kind; R.tries = 0; R.busy = false; PK.parked = 0; PK.col = pick(CW_NAMED);
+  let bays;
+  if (spec.kind === 'num') {
+    const lo = spec.min || 1; let t; do { t = lo + rnd(spec.max - lo + 1); } while (R.used.has('n' + t)); R.used.add('n' + t); PK.t = t;
+    const s = new Set([t]); while (s.size < spec.bays) s.add(lo + rnd(spec.max - lo + 1));
+    PK.nums = [...s].sort((a, b) => a - b); bays = PK.nums.length; PK.ask = L.cw.park.num(t);
+  } else {
+    let n; do { n = spec.min + rnd(spec.max - spec.min + 1); } while (R.used.has('c' + n) && spec.max - spec.min > 3); R.used.add('c' + n);
+    PK.need = n; bays = Math.min(10, n + 2); PK.nums = Array.from({ length: bays }, (_, i) => i + 1); PK.ask = L.cw.park.count(n);
+  }
+  const narrow = $('#stage').clientWidth < 600;
+  const cols = narrow ? (bays <= 3 ? bays : bays <= 8 ? Math.ceil(bays / 2) : 4) : (bays <= 5 ? bays : Math.ceil(bays / 2));
+  PK.cols = cols; PK.rows = Math.ceil(bays / cols);
+  const st = $('#stage');
+  st.innerHTML = cwDots(R) + `<div class="cwarea pkz" id="pkarea"><div class="pkg" style="grid-template-columns:repeat(${cols},1fr)">${PK.nums.map((n, i) =>
+    `<button class="gar${PK.kind === 'count' && i >= PK.need ? ' cone' : ''}" data-i="${i}"><span class="gnum">${PK.kind === 'num' ? n : ''}</span><span class="gin"><span class="gcar">${carSVG(hexOf(PK.col))}</span></span><span class="gdoor"></span>${PK.kind === 'count' && i >= PK.need ? '<span class="gcone">🚧</span>' : ''}</button>`).join('')}</div>
+    <div class="cwcar" id="pkcar">${carSVG(hexOf(PK.col))}</div>${PK.kind === 'count' ? `<div class="pkcount" id="pkcount">0</div><div class="pksign">${PK.need}</div>` : '<div class="pksign">P</div>'}</div>`;
+  parkLayout();
+  st.querySelectorAll('.gar').forEach(b => tap(b, () => parkPick(g, +b.dataset.i)));
+  tap($('#pkcar'), () => { if (PK.kind === 'count') parkCount(g); else { SFX.honk(); anim($('#pkcar svg'), 'cwbnc'); } });
+  resizeFn = () => { if (mode === 'park') parkLayout(); };
+  repeatFn = () => say(PK.ask); say(PK.ask); SFX.beepback();
+  cwIdle(g, () => parkNudge(g));
+}
+function parkNudge(g) { if (CW.R.busy) return; stopSpeech(); say(PK.ask); const i = PK.kind === 'num' ? PK.nums.indexOf(PK.t) : PK.parked; cwHint(document.querySelector(`.gar[data-i="${i}"]`)); cwIdle(g, () => parkNudge(g), 12000); }
+function parkLayout() {
+  const A = $('#pkarea'); if (!A) return; const W = A.clientWidth, H = A.clientHeight;
+  const cw = Math.round(Math.max(100, Math.min(W * 0.3, H * 0.3, 240))), ch = cw * 80 / 124;
+  PK.geo = { W, H, cw, ch, x: W / 2, y: H * 0.81 };
+  const pg = A.querySelector('.pkg'), gap = Math.min(W, H) * 0.02, colW = (W * 0.94 - gap * (PK.cols - 1)) / PK.cols;
+  const garH = Math.min(colW * 1.3, (H * 0.58 - gap * (PK.rows - 1)) / PK.rows); pg.style.height = (garH * PK.rows + gap * (PK.rows - 1)) + 'px';
+  const nf = Math.max(14, Math.min(garH * 0.24, colW * 0.5, 72)); A.querySelectorAll('.gnum').forEach(e => e.style.fontSize = nf + 'px');
+  A.querySelectorAll('.gcone').forEach(e => e.style.fontSize = Math.min(colW * 0.5, garH * 0.4) + 'px');
+  const c = $('#pkcar'); c.style.width = cw + 'px'; c.style.height = ch + 'px'; cwPlace(c, W / 2, H * 0.81, cw, ch);
+}
+async function parkDrive(g, i) { // drive the waiting car into garage i
+  const G = PK.geo, car = $('#pkcar'), gar = document.querySelector(`.gar[data-i="${i}"]`), ar = $('#pkarea').getBoundingClientRect(), r = gar.getBoundingClientRect();
+  const tx = r.left - ar.left + r.width / 2, ty = r.top - ar.top + r.height * 0.75, sc = Math.min(1, (r.width * 0.8) / G.cw);
+  SFX.vroom();
+  try { const a = car.animate([{ transform: `translate(${G.x - G.cw / 2}px,${G.y - G.ch / 2}px)` }, { transform: `translate(${tx - G.cw / 2}px,${G.y - G.ch / 2}px)`, offset: 0.45 },
+      { transform: `translate(${tx - G.cw / 2}px,${ty - G.ch / 2}px) scale(${sc})` }], { duration: 1000, easing: 'ease-in-out' });
+    await new Promise(r2 => { a.onfinish = r2; setTimeout(r2, 1100); }); } catch (e) {}
+  if (g !== scene) return;
+  gar.classList.add('shut'); SFX.door();
+  try { car.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 400 }); } catch (e) {}
+}
+async function parkPick(g, i) {
+  const R = CW.R; if (R.busy || g !== scene) return;
+  if (PK.kind === 'count') return parkCount(g);
+  const n = PK.nums[i], gar = document.querySelector(`.gar[data-i="${i}"]`), it = cwItem('numbers', String(Math.min(n, 10)));
+  const rec = Object.assign({}, it, { key: 'numbers:' + PK.t, a: L.cw.num(PK.t), id: String(PK.t) });
+  if (n !== PK.t) { cwBad(R, rec); anim(gar, 'cwwig'); if (R.tries >= 2) cwHint(document.querySelector(`.gar[data-i="${PK.nums.indexOf(PK.t)}"]`)); cwIdle(g, () => parkNudge(g)); SFX.boop(); stopSpeech(); say(L.cw.oops + ' ' + L.cw.park.that(n) + ' ' + PK.ask); return; }
+  R.busy = true; cwGood(R, rec); stopSpeech(); cwStopIdle();
+  await parkDrive(g, i); if (g !== scene) return;
+  cheer();
+  if (!(await say(cwYes() + ' ' + L.cw.park.parked(n))) || g !== scene) return;
+  await sleep(300); parkItem(g);
+}
+async function parkCount(g) {
+  const R = CW.R; if (R.busy || g !== scene || PK.parked >= PK.need) return;
+  R.busy = true; cwIdle(g, () => parkNudge(g));
+  const i = PK.parked; await parkDrive(g, i); if (g !== scene) return;
+  PK.parked++; const c = $('#pkcount'); c.textContent = PK.parked; anim(c, 'cwbnc'); SFX.pop();
+  stopSpeech(); say(L.cw.num(PK.parked));
+  if (PK.parked < PK.need) { R.busy = false; return; }
+  cwStopIdle(); cwGood(R, { key: 'numbers:count' + PK.need, cat: 'numbers', a: L.cw.num(PK.need) }, true);
+  await sleep(500); cheer();
+  if (!(await say(L.cw.park.done(PK.need) + ' ' + cwYes())) || g !== scene) return;
+  await sleep(300); parkItem(g);
+}
+
+/* ---------- 5. Paint Shop ---------- */
+const PT_LV = [null, { n: 2, cols: ['red', 'blue', 'yellow', 'green'] }, { n: 3, cols: ['red', 'blue', 'yellow', 'green', 'pink', 'orange'] }, { n: 4, cols: CW_NAMED },
+  { n: 4, cols: VOCAB.colors.map(c => c[0]) }, { n: 5, cols: VOCAB.colors.map(c => c[0]) }, { n: 6, cols: VOCAB.colors.map(c => c[0]) }];
+const PS = { t: '', pots: [], geo: null };
+function startPaint(g) { cwBegin('paint', g); say(L.cw.paint.hello); paintItem(g); }
+function paintItem(g) {
+  if (g !== scene) return; const R = CW.R;
+  if (R.step >= R.total) return cwEnd(g);
+  const spec = PT_LV[R.lv]; R.tries = 0; R.busy = false;
+  const fresh = spec.cols.filter(c => !R.used.has('p' + c) && c !== 'white');
+  PS.t = pick(fresh.length ? fresh : spec.cols.filter(c => c !== 'white')); R.used.add('p' + PS.t);
+  const ps = [PS.t]; for (const c of shuffle(spec.cols)) { if (ps.length >= spec.n) break; if (!ps.includes(c) && !ps.some(x => confusable(x, c))) ps.push(c); }
+  for (const c of shuffle(spec.cols)) { if (ps.length >= spec.n) break; if (!ps.includes(c)) ps.push(c); }
+  PS.pots = shuffle(ps);
+  const st = $('#stage');
+  st.innerHTML = cwDots(R) + `<div class="cwarea pt" id="ptarea"><div class="cwcar" id="ptcar">${cwCarSVG('#f1f3f5')}</div><div class="pots">${PS.pots.map((c, i) => `<button class="pot" data-i="${i}">${potSVG(hexOf(c))}</button>`).join('')}</div></div>`;
+  paintLayout();
+  st.querySelectorAll('.pot').forEach(b => tap(b, () => paintPick(g, +b.dataset.i)));
+  tap($('#ptcar'), () => { SFX.honk(); anim($('#ptcar svg'), 'cwbnc'); });
+  resizeFn = () => { if (mode === 'paint') paintLayout(); };
+  const G = PS.geo, car = $('#ptcar');
+  try { car.animate([{ transform: `translate(${-G.cw}px,${G.y - G.ch / 2}px)` }, { transform: car.style.transform }], { duration: 800, easing: 'ease-out' }); } catch (e) {}
+  SFX.vroom();
+  PS.ask = L.cw.paint.ask(PS.t); repeatFn = () => say(PS.ask); say(PS.ask);
+  cwIdle(g, () => paintNudge(g));
+}
+function paintNudge(g) { if (CW.R.busy) return; stopSpeech(); say(PS.ask); cwHint(document.querySelector(`.pot[data-i="${PS.pots.indexOf(PS.t)}"]`)); cwIdle(g, () => paintNudge(g), 12000); }
+function paintLayout() {
+  const A = $('#ptarea'); if (!A) return; const W = A.clientWidth, H = A.clientHeight, n = PS.pots.length;
+  const P = Math.round(Math.max(88, Math.min(H * 0.24, (W - 30) / n - 20, 170)));
+  A.querySelectorAll('.pot').forEach(p => { p.style.width = p.style.height = P + 'px'; });
+  const cw = Math.round(Math.min(W * 0.78, (H - P - 40) * 0.9 * 124 / 80, 640)), ch = cw * 80 / 124;
+  PS.geo = { W, H, cw, ch, x: W / 2, y: (H - P - 20) / 2 + 6 };
+  const c = $('#ptcar'); c.style.width = cw + 'px'; c.style.height = ch + 'px'; cwPlace(c, W / 2, PS.geo.y, cw, ch);
+}
+async function paintPick(g, i) {
+  const R = CW.R; if (R.busy || g !== scene) return;
+  const c = PS.pots[i], pot = document.querySelector(`.pot[data-i="${i}"]`), it = cwItem('colours', PS.t);
+  R.busy = true; anim(pot, 'cwbnc'); SFX.spray();
+  // paint drops fly from the pot to the car
+  const ar = $('#ptarea').getBoundingClientRect(), pr = pot.getBoundingClientRect(), G = PS.geo, hex = hexOf(c);
+  for (let k = 0; k < 12; k++) { const d = document.createElement('div'); d.className = 'drop'; d.style.background = hex; if (c === 'white') d.style.border = '2px solid #adb5bd'; $('#ptarea').appendChild(d);
+    const x0 = pr.left - ar.left + pr.width / 2, y0 = pr.top - ar.top + pr.height * 0.25, x1 = G.x + (Math.random() - 0.5) * G.cw * 0.8, y1 = G.y + (Math.random() - 0.5) * G.ch * 0.5;
+    try { const a = d.animate([{ transform: `translate(${x0}px,${y0}px) scale(.6)` }, { transform: `translate(${(x0 + x1) / 2}px,${Math.min(y0, y1) - 60}px) scale(1.3)`, offset: 0.5 }, { transform: `translate(${x1}px,${y1}px) scale(.4)`, opacity: 0.3 }], { duration: 500 + k * 25, easing: 'ease-in' }); a.onfinish = () => d.remove(); } catch (e) { d.remove(); } }
+  await sleep(450); if (g !== scene) return;
+  const body = document.querySelector('#ptcar .cwbody'); if (body) body.style.fill = hex;
+  if (c !== PS.t) { cwBad(R, it, cwItem('colours', c)); R.busy = false; if (R.tries >= 2) cwHint(document.querySelector(`.pot[data-i="${PS.pots.indexOf(PS.t)}"]`)); cwIdle(g, () => paintNudge(g));
+    SFX.boop(); stopSpeech(); say(L.cw.paint.that(c) + ' ' + PS.ask); return; }
+  cwGood(R, it); cheer(); const r = $('#ptcar').getBoundingClientRect(); sparkle(r.left + r.width / 2, r.top + r.height / 2, 14); stopSpeech();
+  if (!(await say(L.cw.paint.yes(c))) || g !== scene) return;
+  const car = $('#ptcar'); SFX.vroom();
+  try { const a = car.animate([{ transform: car.style.transform }, { transform: `translate(${G.W + 20}px,${G.y - G.ch / 2}px)` }], { duration: 900, easing: 'ease-in', fill: 'forwards' }); await new Promise(r2 => { a.onfinish = r2; setTimeout(r2, 1000); }); } catch (e) {}
+  if (g === scene) paintItem(g);
+}
+
+/* ---------- 6. Sticker Book ---------- */
+function startStickers(g) {
+  const have = new Set(CWS.stickers), stars = CW_GAMES.reduce((s, k) => s + (CWS.stars[k] || 0), 0);
+  const st = $('#stage');
+  st.innerHTML = `<div class="sbtop"><span>📒 ${have.size} / ${STICKERS.length}</span><span>⭐ ${stars}</span></div><div class="sbgrid">${STICKERS.map(([id, e]) => `<button class="stk${have.has(id) ? '' : ' lock'}" data-id="${id}"><span>${e}</span></button>`).join('')}</div>`;
+  st.querySelectorAll('.stk').forEach(b => tap(b, () => {
+    const id = b.dataset.id; anim(b, have.has(id) ? 'cwbnc' : 'cwwig'); stopSpeech();
+    if (!have.has(id)) { SFX.boop(); say(L.cw.stickers.locked); return; }
+    if (id.startsWith('a_')) { animalSpeak(id.slice(2)); return; }
+    SFX.honk(); say(cap(stickerName(id)) + '!');
+  }));
+  const hello = have.size >= STICKERS.length ? L.cw.stickers.all : L.cw.stickers.hello;
+  repeatFn = () => say(hello); say(hello);
+}
+
+/* ---------- parent progress (behind the 2-second home hold → ⚙️ → 📊) ---------- */
+function fmtMin(s) { const m = Math.round(s / 60); return m < 60 ? m + ' min' : Math.floor(m / 60) + ' h ' + (m % 60) + ' min'; }
+function progressHTML() {
+  const catName = { colours: 'Colours', numbers: 'Numbers', animals: 'Animals', transport: 'Transport', toys: 'Toys', food: 'Food', body: 'Body', family: 'Family', clothes: 'Clothes', phrases: 'Short phrases' };
+  const rows = Object.keys(catName).map(k => { const c = CWS.cats[k] || { h: 0, c: 0 }, p = c.h ? Math.round(100 * c.c / c.h) : 0;
+    return `<tr><td>${catName[k]}</td><td>${c.h}</td><td>${c.c}</td><td>${c.h ? p + '% <span class="bar" style="width:' + Math.max(4, p * 0.8) + 'px"></span>' : '–'}</td></tr>`; }).join('');
+  const gn = { road: 'Word Road', race: 'Car Race', wash: 'Car Wash', park: 'Number Parking', paint: 'Paint Shop' };
+  const grows = CW_GAMES.map(k => `<tr><td>${gn[k]}</td><td>${cwLevel(k)} / ${CW_MAX}</td><td>${CWS.rounds[k] || 0}</td><td>${CWS.stars[k] || 0}</td></tr>`).join('');
+  const weak = Object.values(CWS.words).filter(w => w.h >= 2 && w.c < w.h).sort((a, b) => (a.c / a.h) - (b.c / b.h)).slice(0, 8).map(w => `${w.n} (${w.c}/${w.h})`).join(', ');
+  const strong = Object.values(CWS.words).filter(w => w.h >= 2 && w.c === w.h).length;
+  const tot = Object.values(CWS.cats).reduce((s, c) => s + c.h, 0), totc = Object.values(CWS.cats).reduce((s, c) => s + c.c, 0);
+  return `<h2>📊 Car World progress</h2>
+  <div>Time in Car World: <b>${fmtMin(CWS.time.cw)}</b> · Time in the app: <b>${fmtMin(CWS.time.all)}</b> · Since ${new Date(CWS.since).toLocaleDateString()}</div>
+  <div>Words heard: <b>${tot}</b> · right first time: <b>${totc}</b> · stickers: <b>${CWS.stickers.length} / ${STICKERS.length}</b> · stars: <b>${CW_GAMES.reduce((s, k) => s + (CWS.stars[k] || 0), 0)}</b></div>
+  <h3>Games</h3><table><tr><th>Game</th><th>Level</th><th>Rounds</th><th>Stars</th></tr>${grows}</table>
+  <h3>Words by topic</h3><table><tr><th>Topic</th><th>Heard</th><th>Right first time</th><th></th></tr>${rows}</table>
+  <h3>To practise</h3><div>${weak || 'Nothing yet – keep playing!'}</div>
+  <div style="margin-top:6px;color:#868e96">Words always right (2+ times): ${strong}. Levels go up after a round with 2–3 stars (max ${CW_MAX}). Each finished round gives 1 sticker.</div>
+  <div class="progbtns"><button class="rst" id="progrst">Reset progress</button><button class="ok" id="progok">OK</button></div>`;
+}
+function openProgress() {
+  let p = $('#progp'); if (!p) { p = document.createElement('div'); p.id = 'progp'; p.className = 'progp'; p.innerHTML = '<div class="progbox" id="progbox"></div>'; document.body.appendChild(p); }
+  const render = () => {
+    $('#progbox').innerHTML = progressHTML(); let armed = false;
+    $('#progok').addEventListener('click', () => p.classList.remove('on'));
+    $('#progrst').addEventListener('click', e => { if (!armed) { armed = true; e.target.textContent = 'Tap again to erase all progress'; return; } CWS = cwFresh(); cwSave(); render(); });
+  };
+  render(); p.classList.add('on');
+}
+
 /* ================= wiring ================= */
 document.querySelectorAll('.langbtn').forEach(b => b.addEventListener('click', () => chooseLang(b.dataset.lang)));
 // Home: short tap = activity menu (same language). Hold 2 s = parent: back to language picker.
@@ -2337,7 +3153,7 @@ document.querySelectorAll('.home').forEach(h => {
 });
 document.querySelectorAll('.speak').forEach(s => tap(s, () => { anim(s, 'bounce'); stopSpeech(); if (repeatFn) repeatFn(); }));
 // toddler-proofing: no scrolling, pinch, double-tap zoom, long-press menus
-document.addEventListener('touchmove', e => e.preventDefault(), { passive: false });
+document.addEventListener('touchmove', e => { const t = e.target; if (t && t.closest && t.closest('.progbox')) return; e.preventDefault(); }, { passive: false });
 document.addEventListener('gesturestart', e => e.preventDefault());
 document.addEventListener('dblclick', e => e.preventDefault());
 document.addEventListener('contextmenu', e => e.preventDefault());
@@ -2355,6 +3171,7 @@ document.addEventListener('visibilitychange', () => { if (document.hidden) stopS
   const save = () => { try { localStorage.setItem('kg_name', inp.value.trim().slice(0, 20)); } catch (e) {} };
   inp.addEventListener('input', save);
   $('#setok').addEventListener('click', () => { save(); inp.blur(); p.classList.remove('on'); });
+  $('#progbtn').addEventListener('click', () => { save(); inp.blur(); openProgress(); });
 })();
 (function check4() { // English extras
   const known = new Set([...MODES, 'numpad', 'rhymes', 'bear', 'think', 'farm', 'pets', 'zoo', 'face', 'body', 'classroom', 'house']);
@@ -2373,6 +3190,13 @@ document.addEventListener('visibilitychange', () => { if (document.hidden) stopS
   for (const k in LANGS) if (k !== 'en' && (LANGS[k].menu || LANGS[k].bear)) console.error('extras leaked into', k);
 })();
 // sanity check: every language pack has every word
+(function check5() { // v8 Car World: English only, every word has an English name
+  for (const m of EN.carWorld.modes) if (!EN.modes[m]) console.error('cw mode name', m);
+  for (const k in LANGS) if (k !== 'en' && (LANGS[k].cw || LANGS[k].carWorld)) console.error('Car World leaked into', k);
+  for (const c of CW_CATS) for (const [id] of CWV[c]) { if (c === 'colours' || c === 'numbers') continue; if (c === 'family' ? !EN.cw.fam[id] : !EN.cw.w[id]) console.error('cw word', c, id); }
+  for (const id of CW_COUNT_NOUNS) if (!EN.cw.w[id] || !CW_PIC[id]) console.error('cw count noun', id);
+  for (const [id] of STICKERS) if (!(id.startsWith('a_') ? EN.an.names[id.slice(2)] : EN.cw.stickers.names[id])) console.error('sticker name', id);
+})();
 (function check2() { for (const k in LANGS) { const P = LANGS[k];
   for (const m of MODES) if (!P.modes[m]) console.error('missing mode', k, m);
   if (P.draw.colors.length !== 8 || P.draw.sizes.length !== 3) console.error('draw data', k);
