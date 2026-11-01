@@ -456,6 +456,121 @@ button{font:inherit;border:0;margin:0;padding:0;background:none;color:inherit;cu
 .progbtns button{font-size:17px;padding:12px 20px;border-radius:12px;background:#e9ecef;min-height:48px}
 .progbtns .ok{background:#51cf66;color:#fff}.progbtns .rst{background:#ffe3e3;color:#c92a2a}
 .psetb{width:auto!important;padding:0 3vmin;height:11vmin;background:#748ffc;color:#fff;font-size:6vmin}
+/* ================= v9: PLAY ISLAND (English only) ================= */
+#menu.isl{padding:0}
+#menu.isl .top{position:absolute;left:0;right:0;top:0;z-index:20;padding:calc(env(safe-area-inset-top) + 2vmin) calc(env(safe-area-inset-right) + 2vmin) 0 calc(env(safe-area-inset-left) + 2vmin);pointer-events:none}
+#menu.isl .top .round{pointer-events:auto}
+#menu.isl .ttl{visibility:hidden}
+.tiles.islwrap{display:block!important;padding:0!important;gap:0!important;position:relative;overflow:hidden;touch-action:none;background:linear-gradient(180deg,#3fd3e6 0%,#22b5d8 55%,#1a9cc9 100%)}
+.piwaves{position:absolute;left:0;top:0;width:calc(100% + 400px);height:100%;pointer-events:none;will-change:transform;animation:piwave 14s linear infinite;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='260'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='5' stroke-linecap='round' opacity='.45'%3E%3Cpath d='M30 40 q15 -12 30 0 q15 12 30 0'/%3E%3Cpath d='M230 90 q15 -12 30 0 q15 12 30 0'/%3E%3Cpath d='M110 170 q15 -12 30 0'/%3E%3Cpath d='M300 220 q15 -12 30 0 q15 12 30 0'/%3E%3Cpath d='M20 230 q12 -10 24 0'/%3E%3C/g%3E%3C/svg%3E")}
+.piwaves.w2{animation-duration:23s;animation-direction:reverse;opacity:.6;background-position:120px 60px}
+@keyframes piwave{from{transform:translate3d(0,0,0)}to{transform:translate3d(-400px,0,0)}}
+.islpos{position:absolute;left:0;top:0;transform-origin:0 0;will-change:transform}
+.islbob{position:relative;animation:pibob 5s ease-in-out infinite;will-change:transform}
+@keyframes pibob{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
+.islbg{position:absolute;left:0;top:0;display:block}
+.ped{position:absolute;width:260px;height:330px;display:block}
+.ped .pobj{position:absolute;left:20px;top:0;width:220px;height:220px;z-index:2;animation:pifloat 3.2s ease-in-out infinite;will-change:transform;pointer-events:none}
+.ped .pobj svg{width:100%;height:100%;display:block;filter:drop-shadow(0 6px 0 rgba(0,0,0,.12))}
+.ped .pbase{position:absolute;left:0;top:186px;width:260px;height:120px;pointer-events:none}
+.ped .pbase svg{width:100%;height:100%;display:block}
+.ped.press .pobj svg{transform:scale(.94)}
+.ped .pnew{position:absolute;right:6px;top:4px;width:62px;height:62px;z-index:3;border-radius:50%;background:#ff595e;border:5px solid #fff;box-shadow:0 5px 0 rgba(0,0,0,.18);display:flex;align-items:center;justify-content:center;font-size:34px;line-height:1;animation:pipulse 1.6s ease-in-out infinite}
+@keyframes pifloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes pipulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+.pibnc{animation:pibnc .45s}
+@keyframes pibnc{0%,100%{scale:1}40%{scale:1.15}}
+/* shared game area */
+.piarea{flex:1;position:relative;min-height:0;overflow:hidden;border-radius:4vmin;touch-action:none;box-shadow:inset 0 0 0 .6vmin rgba(255,255,255,.5)}
+.piarea>svg.piscn{position:absolute;display:block;z-index:1}
+.pipc{position:absolute;left:0;top:0;z-index:5;will-change:transform;touch-action:none;cursor:grab}
+.pipc>svg,.pipc>.pin>svg{width:100%;height:100%;display:block;pointer-events:none;filter:drop-shadow(0 .8vmin 0 rgba(0,0,0,.18))}
+.pipc.card{background:#fff;border-radius:22%;box-shadow:0 1vmin 0 rgba(0,0,0,.16)}
+.pipc.card>svg{width:78%;height:78%;margin:11%;filter:none}
+.pipc.pidrag>svg,.pipc.pidrag>.pin>svg{filter:drop-shadow(0 2vmin .6vmin rgba(0,0,0,.25))}
+.pipc.gone{display:none}
+.pitray{position:absolute;border-radius:3.5vmin;z-index:1}
+.pitray.wood{background:linear-gradient(90deg,rgba(0,0,0,.06) 0 2px,transparent 2px) 0 0/40px 100%,#e9b872;border:1vmin solid #a0673a;box-shadow:inset 0 0 0 .5vmin #f5d29c}
+.piwig{animation:cwwig .5s}
+.pihint{animation:cwpulse 1s ease-in-out 3}
+.pipop{animation:pipop .4s cubic-bezier(.3,1.6,.5,1)}
+@keyframes pipop{from{scale:.2;opacity:0}to{scale:1;opacity:1}}
+.pibubble{position:absolute;z-index:8;background:#fff;border-radius:4vmin;padding:1vmin 2.4vmin;font-weight:900;color:#2b2d42;box-shadow:0 .8vmin 0 rgba(0,0,0,.15);display:flex;align-items:center;gap:1vmin;pointer-events:none}
+/* magic hat */
+.piarea.hat{background:radial-gradient(ellipse at 50% 120%,#8f5cf7 0%,#5a2fb3 45%,#2c1468 100%)}
+.picurt{position:absolute;top:0;bottom:0;width:15%;z-index:0;pointer-events:none}
+.picurt svg{width:100%;height:100%;display:block}
+.picurt.l{left:0}.picurt.r{right:0;transform:scaleX(-1)}
+.pibunny{transition:transform .7s cubic-bezier(.3,1.5,.5,1)}
+/* scene puzzle */
+.piarea.scene{background:#9be7ff}
+.piarea.scene.farm{background:#a5e3ff}
+.piarea.scene.street{background:#bde9ff}
+.alive .scobj{animation:pibob 2.4s ease-in-out infinite}
+/* shopping */
+.piarea.cart{background:linear-gradient(180deg,#fff4e0 0 70%,#f6d8a8 70% 100%)}
+.pishelf{position:absolute;z-index:1;border-radius:2.5vmin;background:#ffe8cc;border:1vmin solid #c2803f}
+.pishelf i{position:absolute;left:0;right:0;height:2.2vmin;background:#c2803f;border-top:.5vmin solid #a0673a}
+.picartb,.picartf{position:absolute;pointer-events:none}
+.picartb{z-index:2}.picartf{z-index:4}
+.picartb svg,.picartf svg{width:100%;height:100%;display:block}
+.pinc{position:absolute;z-index:3;pointer-events:none}
+.pinc svg{width:100%;height:100%;display:block}
+.picount{position:absolute;z-index:9;min-width:16vmin;height:16vmin;border-radius:8vmin;background:#ffd43b;border:1vmin solid #fff;box-shadow:0 1vmin 0 rgba(0,0,0,.18);font-size:10vmin;font-weight:900;color:#2b2d42;display:flex;align-items:center;justify-content:center;padding:0 2vmin;pointer-events:none}
+/* dress up */
+.piarea.dress{background:repeating-linear-gradient(90deg,#d3f9d8 0 6vmin,#ebfbee 6vmin 12vmin)}
+.piarea.dress::after{content:"";position:absolute;left:0;right:0;bottom:0;height:16%;background:#e3a35f;border-top:1vmin solid #c2803f;z-index:0}
+.pikid{position:absolute;z-index:2}
+.pikid svg{width:100%;height:100%;display:block}
+.pikid.jump{animation:pijump .6s ease-in-out 2}
+@keyframes pijump{0%,100%{transform:translateY(0)}50%{transform:translateY(-8%)}}
+.pitray.ward{background:#ffe8cc;border:1.4vmin solid #a0673a;box-shadow:inset 0 2.4vmin 0 #c2803f}
+/* fish bowl */
+.piarea.fish{background:linear-gradient(180deg,#e7f5ff 0 72%,#d0bfff 72% 100%)}
+.pitray.pond{background:radial-gradient(ellipse at 50% 40%,#74c0fc 0%,#339af0 70%,#1c7ed6 100%);border:1vmin solid #2b8a3e;box-shadow:inset 0 0 0 1vmin #8ce99a}
+.pibowl{position:absolute;z-index:2;pointer-events:none}
+.pibowl svg{width:100%;height:100%;display:block}
+.pibowlfront{z-index:4}
+.pibf{position:absolute;z-index:3;pointer-events:none}
+.pibf>div{width:100%;height:100%;animation:piswim 3s ease-in-out infinite alternate}
+.pibf.flip>div{animation-name:piswim2}
+.pibf svg{width:100%;height:100%;display:block}
+.pibf.lit>div>svg{filter:drop-shadow(0 0 1.4vmin #fff700) drop-shadow(0 0 .6vmin #fff)}
+@keyframes piswim{from{transform:translateX(-14%) translateY(4%)}to{transform:translateX(14%) translateY(-4%)}}
+@keyframes piswim2{from{transform:scaleX(-1) translateX(-14%)}to{transform:scaleX(-1) translateX(14%) translateY(-4%)}}
+.pipc.swim>.pin{width:100%;height:100%;animation:pisway 1.8s ease-in-out infinite alternate}
+@keyframes pisway{from{transform:rotate(-6deg)}to{transform:rotate(6deg) translateY(-6%)}}
+.pinb{position:absolute;z-index:2;pointer-events:none;display:flex;align-items:flex-end;justify-content:center}
+.pinb svg{height:100%;width:auto;max-width:100%}
+.pitgt{position:absolute;z-index:6;border-radius:50%;background:#ffd43b;border:1vmin solid #fff;box-shadow:0 1vmin 0 rgba(0,0,0,.18);font-weight:900;color:#2b2d42;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.pinum{position:absolute;z-index:5;border-radius:24%;color:#fff;font-weight:900;display:flex;align-items:center;justify-content:center;text-shadow:0 .6vmin 0 rgba(0,0,0,.25);box-shadow:0 1vmin 0 rgba(0,0,0,.18);border:.8vmin solid #fff}
+/* treasure chest */
+.piarea.chest{background:linear-gradient(180deg,#8be0ff 0 38%,#2bb3e6 38% 52%,#ffe29a 52% 100%)}
+.pichest{position:absolute;z-index:3}
+.pichest .cb,.pichest .cl{position:absolute;left:0;width:100%}
+.pichest .cb{bottom:0;height:66%;z-index:2}
+.pichest .cl{top:0;height:40%;z-index:3;transform-origin:50% 100%;transition:transform .5s cubic-bezier(.3,1.5,.5,1)}
+.pichest.open .cl{transform:translateY(-34%) rotate(-14deg)}
+.pichest svg{width:100%;height:100%;display:block}
+.pichest .tr{position:absolute;left:10%;width:80%;top:20%;height:60%;z-index:1;display:flex;align-items:center;justify-content:center;line-height:1;opacity:0;transform:translateY(30%) scale(.3);transition:transform .6s cubic-bezier(.3,1.6,.5,1),opacity .2s}
+.pichest.open .tr{opacity:1;transform:translateY(-62%) scale(1);z-index:4}
+/* animal tree */
+.piarea.tree{background:linear-gradient(180deg,#a5e3ff 0 80%,#79c84a 80% 100%)}
+.pispot{position:absolute;z-index:3}
+.pispot .ta{position:absolute;left:12%;top:0;width:76%;height:76%;z-index:1;transition:transform .5s cubic-bezier(.3,1.6,.5,1),opacity .25s;transform:translateY(40%) scale(.3);opacity:0;pointer-events:none}
+.pispot.peek .ta{transform:translateY(-6%) scale(.92);opacity:1}
+.pispot.open .ta{transform:translateY(-46%) scale(1.08);opacity:1}
+.pispot .tc{position:absolute;left:0;bottom:0;width:100%;height:62%;z-index:2;pointer-events:none}
+.pispot .ta svg,.pispot .tc svg{width:100%;height:100%;display:block}
+.pispot.shake .tc{animation:cwwig .6s}
+.pispot.found .ta svg{filter:drop-shadow(0 0 1.2vmin #fff700)}
+/* easel */
+.piarea.easel{background:linear-gradient(180deg,#fff0f6 0 74%,#e3a35f 74% 100%)}
+.pieobj{cursor:pointer}
+.pibrush{position:absolute;z-index:9;pointer-events:none;width:12vmin;height:12vmin}
+.pipot{position:absolute;z-index:5}
+.pipot.sel{filter:drop-shadow(0 0 1.4vmin #fff700)}
 </style>
 </head>
 <body>
@@ -922,6 +1037,52 @@ EN.cw = (() => {
   };
 })();
 
+// ---------- v9 PLAY ISLAND: English-only words and phrases (the Russian and Cantonese packs never get these) ----------
+Object.assign(EN.modes, { hat: 'Magic Hat', scene: 'Picture Puzzle', cart: 'Shopping', dress: 'Dress Up', fish: 'Fish Bowl', chest: 'Treasure Chest', tree: 'Animal Tree', easel: 'Paint Easel' });
+EN.island = { label: 'Play Island' };
+EN.pi = (() => {
+  const art = w => (/^[aeiou]/i.test(w) ? 'an ' : 'a ') + w;
+  const num = n => EN.numWord(n);
+  // id: [singular, plural, plural-only?]
+  const food = { apple: ['apple', 'apples'], banana: ['banana', 'bananas'], carrot: ['carrot', 'carrots'], milk: ['milk', 'milk', 1], bread: ['bread', 'bread', 1], egg: ['egg', 'eggs'],
+    cake: ['cake', 'cakes'], orange: ['orange', 'oranges'], grapes: ['grapes', 'grapes', 1], pear: ['pear', 'pears'], tomato: ['tomato', 'tomatoes'], watermelon: ['watermelon', 'watermelons'],
+    icecream: ['ice cream', 'ice creams'], lemon: ['lemon', 'lemons'] };
+  const things = { sun: 'sun', cloud: 'cloud', bird: 'bird', boat: 'boat', whale: 'whale', fish: 'fish', crab: 'crab', starfish: 'starfish', palm: 'palm tree', cow: 'cow', pig: 'pig', sheep: 'sheep',
+    horse: 'horse', chicken: 'chicken', duck: 'duck', tractor: 'tractor', tree: 'tree', car: 'car', bus: 'bus', truck: 'truck', plane: 'plane', house: 'house', lights: 'traffic lights', train: 'train' };
+  const clothes = { hat: ['hat'], tshirt: ['T-shirt'], trousers: ['trousers', 1], shoes: ['shoes', 1], socks: ['socks', 1], jacket: ['jacket'], glasses: ['glasses', 1] };
+  const shapes = { circle: 'circle', square: 'square', triangle: 'triangle', star: 'star', heart: 'heart', rectangle: 'rectangle', oval: 'oval', diamond: 'diamond' };
+  const paint = { sun: 'sun', ball: 'ball', apple: 'apple', balloon: 'balloon', star: 'star', heart: 'heart', fish: 'fish', car: 'car', flower: 'flower', kite: 'kite' };
+  const ped = { cars: 'Car World', numbers: 'Numbers', songs: 'Songs', more: 'More games' };
+  const it = (the, a, plural) => ({ the, a, plural: !!plural });
+  return {
+    art, num, food, things, clothes, shapes, paint, ped,
+    hello: 'Welcome to Play Island! Tap a game!',
+    more: 'More games! What shall we play?',
+    // item builders: { the: 'the red circle', a: 'a red circle' }
+    shape: (s, c) => c ? it('the ' + c + ' ' + shapes[s], art(c + ' ' + shapes[s])) : it('the ' + shapes[s], art(shapes[s])),
+    foodIt: id => { const [s, , only] = food[id]; return it('the ' + s, only ? s : art(s), only); },
+    foodN: (n, id) => { const w = n === 1 ? food[id][0] : food[id][1]; return it(num(n) + ' ' + w, num(n) + ' ' + w, n > 1); },
+    thing: id => it('the ' + things[id], art(things[id]), id === 'lights'),
+    cloth: (k, c) => { const [w, pl] = clothes[k], ww = (c ? c + ' ' : '') + w; return it('the ' + ww, pl ? ww : art(ww), pl); },
+    hat: { hello: 'Magic hat! Put the shapes in the hat!', free: 'Drag a shape into the hat!', put: x => 'Put ' + x.the + ' in the hat!',
+      not: x => 'Not there! Where does ' + x.the + ' go?', that: x => 'That\'s ' + x.a + '.', done: 'Abracadabra! Look, a bunny!' },
+    scene: { names: { sea: 'the sea', farm: 'the farm', street: 'the street' }, hello: s => 'Look! ' + cap({ sea: 'the sea', farm: 'the farm', street: 'the street' }[s]) + '! Put the pictures in their places!',
+      free: 'Drag a picture onto its shadow!', ask: x => 'Where does ' + x.the + ' go?', not: 'Not there! Try another place!', that: x => (x.plural ? 'Those are ' : 'That\'s ') + x.the + '.',
+      done: s => 'Hooray! Look at ' + { sea: 'the sea', farm: 'the farm', street: 'the street' }[s] + '!' },
+    cart: { hello: 'Let\'s go shopping!', put: x => 'Put ' + x.the + ' in the cart!', yes: x => cap(x.a) + '! In the cart!', that: x => (x.plural ? cap(x.a) : 'That\'s ' + x.a) + '.',
+      done: 'Beep! All done! Thank you!', enough: n => 'We have ' + num(n) + '!' },
+    dress: { hello: 'Let\'s get dressed!', put: x => 'Put on ' + x.the + '!', yes: x => cap(x.the) + '! Great!', that: x => (x.plural ? 'Those are ' : 'That\'s ') + x.the + '.',
+      done: 'You look great! Hooray!' },
+    fish: { hello: 'Fish time! Let\'s count the fish!', put: n => 'Put ' + num(n) + ' fish in the bowl!', how: 'How many fish?', lets: 'Let\'s count!',
+      got: n => cap(num(n)) + ' fish! Well done!', enough: n => 'We have ' + num(n) + ' fish!' },
+    chest: { hello: 'Treasure! Find the right letter!', that: l => 'That\'s the letter ' + l.say + '.', treasure: 'Treasure!' },
+    tree: { hello: 'Who is in the tree? Tap and see!', peek: 'Look! Lots of animals!', find: n => 'Find the ' + n + '!', hidden: 'Who is hiding? Tap the leaves!',
+      yes: (n, s) => 'Yes! The ' + n + ' says ' + s + '!', that: n => 'That\'s the ' + n + '!', done: 'Bye bye, animals!' },
+    easel: { hello: 'Let\'s paint a picture!', ask: (o, c) => 'Colour the ' + paint[o] + ' ' + c + '!', yes: (o, c) => 'Yes! ' + cap(art(c + ' ' + paint[o])) + '!',
+      thatCol: c => 'That\'s ' + c + '!', thatObj: o => 'That\'s the ' + paint[o] + '!', done: 'What a beautiful picture!' }
+  };
+})();
+
 const LANGS = { en: EN, ru: RU, yue: YUE };
 let L = null; // the ONE active language pack; everything reads from here only
 
@@ -1120,7 +1281,7 @@ function show(id) { document.querySelectorAll('.screen').forEach(s => s.classLis
 function tap(el, fn) { el.addEventListener('pointerdown', e => { e.preventDefault(); ac(); fn(e); }); }
 
 function chooseLang(key) {
-  L = LANGS[key]; MENU.cat = null;
+  L = LANGS[key]; MENU.cat = null; MENU.back = null;
   ac(); SFX.honk(); loadSounds();
   document.documentElement.lang = L.htmlLang; document.title = L.title;
   pickVoice();
@@ -1128,12 +1289,14 @@ function chooseLang(key) {
   say(L.hello); // inside the tap handler: unlocks speech on iOS
   goMenu(false);
 }
-function goLang() { leaveExtras(); MENU.cat = null; closePicker(); scene++; stopSpeech(); mode = null; L = null; showNote(false); document.title = 'Beep Beep 123'; show('lang'); }
+function goLang() { leaveExtras(); MENU.cat = null; MENU.back = null; $('#menu').classList.remove('isl'); closePicker(); scene++; stopSpeech(); mode = null; L = null; showNote(false); document.title = 'Beep Beep 123'; show('lang'); }
 const MODES = ['count', 'blocks', 'find', 'song', 'draw', 'puzzle', 'shop', 'lmatch', 'lfind'];
-const MENU = { cat: null };
+const MENU = { cat: null, back: null }; // back: the menu page to return to (v9: 'more' = the classic English menu)
 function leaveExtras() { if (typeof cwStopIdle === 'function') cwStopIdle(); stopAnimalSound(); ASAY.tok++; if (typeof rhStop === 'function') rhStop(); if (BR.rec) { try { BR.rec.abort(); } catch (e) {} BR.rec = null; } }
 function goMenu(speak = true) {
   scene++; leaveExtras(); stopSpeech(); mode = null; resizeFn = null; closePicker();
+  $('#menu').classList.toggle('isl', !!(L.island && !MENU.cat));
+  if (L.island && !MENU.cat) return piIsland(speak);
   const cats = L.menu || null, cat = cats && (cats.find(c => c.id === MENU.cat) || (L.carWorld && L.carWorld.id === MENU.cat ? L.carWorld : null));
   $('#menuTtl').textContent = cat ? cat.label : '';
   const pics = {
@@ -1151,13 +1314,13 @@ function goMenu(speak = true) {
     if (L.carWorld) { // v8: big Car World banner on top of the English menu
       const cw = L.carWorld, b = document.createElement('button'); b.className = 'tile big cwban'; b.dataset.cat = cw.id;
       b.innerHTML = `<div class="cwdrv">${carSVG('#1e6fe5')}</div><div class="cwdrv d2">${carSVG('#e53935')}</div><span class="cwbi">🚗</span><span class="cwbl">${cw.label}</span><span class="cwbi">🏁</span><span class="cwnew">⭐</span>`;
-      tap(b, () => { anim(b, 'bounce'); SFX.honk(); MENU.cat = cw.id; goMenu(false); stopSpeech(); say(L.cw.hello); });
+      tap(b, () => { anim(b, 'bounce'); SFX.honk(); MENU.back = MENU.cat; MENU.cat = cw.id; goMenu(false); stopSpeech(); say(L.cw.hello); });
       t.classList.add('withcw'); t.appendChild(b);
     }
     for (const c of cats) {
       const b = document.createElement('button'); b.className = 'tile big cat'; b.dataset.cat = c.id; b.style.background = c.col;
       b.innerHTML = `<div class="pic">${c.icon}</div><div class="lbl">${c.label}</div>`;
-      tap(b, () => { anim(b, 'bounce'); SFX.pop(); MENU.cat = c.id; goMenu(false); say(c.label); });
+      tap(b, () => { anim(b, 'bounce'); SFX.pop(); MENU.back = MENU.cat; MENU.cat = c.id; goMenu(false); say(c.label); });
       t.appendChild(b);
     }
     repeatFn = () => say(L.menuHello);
@@ -1183,7 +1346,7 @@ function startMode(m) {
   show('game');
   const g = scene;
   say(L.modes[m]);
-  ({ count: startCount, blocks: startBlocks, find: startFind, song: startSong, draw: startDraw, puzzle: startPuzzle, shop: startShop, lmatch: startLMatch, lfind: startLFind, numpad: startNumpad, rhymes: startRhymes, bear: startBear, think: startThink, face: partsStart('face'), body: partsStart('body'), farm: animalTopicStart('farm'), pets: animalTopicStart('pets'), zoo: animalTopicStart('zoo'), classroom: startClassroom, house: startHouse, road: startRoad, race: startRace, wash: startWash, park: startPark, paint: startPaint, stickers: startStickers })[m](g);
+  ({ count: startCount, blocks: startBlocks, find: startFind, song: startSong, draw: startDraw, puzzle: startPuzzle, shop: startShop, lmatch: startLMatch, lfind: startLFind, numpad: startNumpad, rhymes: startRhymes, bear: startBear, think: startThink, face: partsStart('face'), body: partsStart('body'), farm: animalTopicStart('farm'), pets: animalTopicStart('pets'), zoo: animalTopicStart('zoo'), classroom: startClassroom, house: startHouse, road: startRoad, race: startRace, wash: startWash, park: startPark, paint: startPaint, stickers: startStickers, hat: startHat, scene: startScene, cart: startCart, dress: startDress, fish: startFish, chest: startChest, tree: startTree, easel: startEasel })[m](g);
 }
 
 /* ---------- 1. Counting cars ---------- */
@@ -2658,7 +2821,7 @@ async function cwEnd(g) {
   const R = CW.R; if (!R || g !== scene) return;
   cwStopIdle(); resizeFn = null;
   const stars = cwStars(R), gm = R.game;
-  CWS.rounds[gm] = (CWS.rounds[gm] || 0) + 1; CWS.stars[gm] = (CWS.stars[gm] || 0) + stars; CWS.best[gm] = Math.max(CWS.best[gm] || 0, R.lv);
+  CWS.rounds[gm] = (CWS.rounds[gm] || 0) + 1; CWS.bs = CWS.bs || {}; CWS.bs[gm] = Math.max(CWS.bs[gm] || 0, stars); CWS.stars[gm] = (CWS.stars[gm] || 0) + stars; CWS.best[gm] = Math.max(CWS.best[gm] || 0, R.lv);
   let up = false; if (stars >= 2 && R.lv < CW_MAX) { CWS.lv[gm] = R.lv + 1; up = true; CWS.best[gm] = Math.max(CWS.best[gm], R.lv + 1); }
   const stk = cwAward(); cwSave();
   const st = $('#stage'), d = document.createElement('div'); d.className = 'cwres';
@@ -3111,18 +3274,18 @@ function startStickers(g) {
 /* ---------- parent progress (behind the 2-second home hold → ⚙️ → 📊) ---------- */
 function fmtMin(s) { const m = Math.round(s / 60); return m < 60 ? m + ' min' : Math.floor(m / 60) + ' h ' + (m % 60) + ' min'; }
 function progressHTML() {
-  const catName = { colours: 'Colours', numbers: 'Numbers', animals: 'Animals', transport: 'Transport', toys: 'Toys', food: 'Food', body: 'Body', family: 'Family', clothes: 'Clothes', phrases: 'Short phrases' };
+  const catName = { colours: 'Colours', numbers: 'Numbers', animals: 'Animals', transport: 'Transport', toys: 'Toys', food: 'Food', body: 'Body', family: 'Family', clothes: 'Clothes', shapes: 'Shapes', letters: 'Letters', things: 'Things (sun, tree, house…)', phrases: 'Short phrases' };
   const rows = Object.keys(catName).map(k => { const c = CWS.cats[k] || { h: 0, c: 0 }, p = c.h ? Math.round(100 * c.c / c.h) : 0;
     return `<tr><td>${catName[k]}</td><td>${c.h}</td><td>${c.c}</td><td>${c.h ? p + '% <span class="bar" style="width:' + Math.max(4, p * 0.8) + 'px"></span>' : '–'}</td></tr>`; }).join('');
-  const gn = { road: 'Word Road', race: 'Car Race', wash: 'Car Wash', park: 'Number Parking', paint: 'Paint Shop' };
-  const grows = CW_GAMES.map(k => `<tr><td>${gn[k]}</td><td>${cwLevel(k)} / ${CW_MAX}</td><td>${CWS.rounds[k] || 0}</td><td>${CWS.stars[k] || 0}</td></tr>`).join('');
+  const gn = { road: '🚗 Word Road', race: '🚗 Car Race', wash: '🚗 Car Wash', park: '🚗 Number Parking', paint: '🚗 Paint Shop', hat: '🏝️ Magic Hat', scene: '🏝️ Picture Puzzle', cart: '🏝️ Shopping', dress: '🏝️ Dress Up', fish: '🏝️ Fish Bowl', chest: '🏝️ Treasure Chest', tree: '🏝️ Animal Tree', easel: '🏝️ Paint Easel' };
+  const grows = CW_GAMES.map(k => `<tr><td>${gn[k]}</td><td>${cwLevel(k)} / ${CW_MAX}</td><td>${CWS.rounds[k] || 0}</td><td>${CWS.stars[k] || 0}</td><td>${'⭐'.repeat((CWS.bs || {})[k] || 0) || '–'}</td></tr>`).join('');
   const weak = Object.values(CWS.words).filter(w => w.h >= 2 && w.c < w.h).sort((a, b) => (a.c / a.h) - (b.c / b.h)).slice(0, 8).map(w => `${w.n} (${w.c}/${w.h})`).join(', ');
   const strong = Object.values(CWS.words).filter(w => w.h >= 2 && w.c === w.h).length;
   const tot = Object.values(CWS.cats).reduce((s, c) => s + c.h, 0), totc = Object.values(CWS.cats).reduce((s, c) => s + c.c, 0);
-  return `<h2>📊 Car World progress</h2>
-  <div>Time in Car World: <b>${fmtMin(CWS.time.cw)}</b> · Time in the app: <b>${fmtMin(CWS.time.all)}</b> · Since ${new Date(CWS.since).toLocaleDateString()}</div>
+  return `<h2>📊 Progress: Play Island + Car World</h2>
+  <div>Time on Play Island: <b>${fmtMin(CWS.time.pi || 0)}</b> · Time in Car World: <b>${fmtMin(CWS.time.cw)}</b> · Time in the app: <b>${fmtMin(CWS.time.all)}</b> · Since ${new Date(CWS.since).toLocaleDateString()}</div>
   <div>Words heard: <b>${tot}</b> · right first time: <b>${totc}</b> · stickers: <b>${CWS.stickers.length} / ${STICKERS.length}</b> · stars: <b>${CW_GAMES.reduce((s, k) => s + (CWS.stars[k] || 0), 0)}</b></div>
-  <h3>Games</h3><table><tr><th>Game</th><th>Level</th><th>Rounds</th><th>Stars</th></tr>${grows}</table>
+  <h3>Games</h3><table><tr><th>Game</th><th>Level</th><th>Rounds</th><th>Stars</th><th>Best</th></tr>${grows}</table>
   <h3>Words by topic</h3><table><tr><th>Topic</th><th>Heard</th><th>Right first time</th><th></th></tr>${rows}</table>
   <h3>To practise</h3><div>${weak || 'Nothing yet – keep playing!'}</div>
   <div style="margin-top:6px;color:#868e96">Words always right (2+ times): ${strong}. Levels go up after a round with 2–3 stars (max ${CW_MAX}). Each finished round gives 1 sticker.</div>
@@ -3138,6 +3301,1079 @@ function openProgress() {
   render(); p.classList.add('on');
 }
 
+/* ================= v9: PLAY ISLAND art — original inline SVG (thick dark outlines, flat bright colours, soft shadows) ================= */
+const pO = '#2b2d42';
+const pS = (w = 4) => `stroke="${pO}" stroke-width="${w}" stroke-linejoin="round" stroke-linecap="round"`;
+const pGL = (x, y, rx, ry, r = 0) => `<ellipse cx="${x}" cy="${y}" rx="${rx}" ry="${ry}" fill="#fff" opacity=".5" transform="rotate(${r} ${x} ${y})"/>`;
+const pEYE = (x, y, r = 5) => `<circle cx="${x}" cy="${y}" r="${r}" fill="${pO}"/><circle cx="${(x + r * .35).toFixed(1)}" cy="${(y - r * .38).toFixed(1)}" r="${(r * .38).toFixed(1)}" fill="#fff"/>`;
+const pSMILE = (x, y, w, sw = 3.5) => `<path d="M${x - w} ${y} Q${x} ${y + w * .9} ${x + w} ${y}" fill="none" ${pS(sw)}/>`;
+const pCHEEK = (x, y, r = 4.5) => `<circle cx="${x}" cy="${y}" r="${r}" fill="#ff8fab" opacity=".7"/>`;
+const pSHD = (x, y, rx, ry) => `<ellipse cx="${x}" cy="${y}" rx="${rx}" ry="${ry}" fill="#000" opacity=".14"/>`;
+const pSvg = (inner, vb = '0 0 100 100') => `<svg viewBox="${vb}" xmlns="http://www.w3.org/2000/svg">${inner}</svg>`;
+const pNest = (svg, x, y, w, h, extra = '') => svg.replace('<svg', `<svg x="${x}" y="${y}" width="${w}" height="${h}" overflow="visible" ${extra}`);
+const pWheel = (x, y, r) => `<circle cx="${x}" cy="${y}" r="${r}" fill="#3d3d4e" ${pS()}/><circle cx="${x}" cy="${y}" r="${r * .42}" fill="#dee2e6" ${pS(3)}/>`;
+const pStarD = (cx, cy, R, r) => starPath(cx, cy, R, r);
+
+// ---------- shapes (Magic Hat) ----------
+const PI_SHAPES = {
+  circle: 'M50 10 A40 40 0 1 1 49.9 10Z',
+  square: 'M22 14 H78 Q86 14 86 22 V78 Q86 86 78 86 H22 Q14 86 14 78 V22 Q14 14 22 14Z',
+  triangle: 'M50 10 Q53 10 55 14 L92 82 Q94 88 88 88 L12 88 Q6 88 8 82 L45 14 Q47 10 50 10Z',
+  star: starPath(50, 54, 46, 20),
+  heart: 'M50 88 C22 68 6 52 10 32 C14 14 38 10 50 28 C62 10 86 14 90 32 C94 52 78 68 50 88Z',
+  rectangle: 'M10 28 H90 Q96 28 96 34 V66 Q96 72 90 72 H10 Q4 72 4 66 V34 Q4 28 10 28Z',
+  oval: 'M4 50 A46 28 0 1 1 96 50 A46 28 0 1 1 4 50Z',
+  diamond: 'M50 4 Q53 4 55 7 L88 46 Q91 50 88 54 L55 93 Q53 96 50 96 Q47 96 45 93 L12 54 Q9 50 12 46 L45 7 Q47 4 50 4Z'
+};
+const PI_SHAPE_COL = { circle: '#ff595e', square: '#1982c4', triangle: '#8ac926', star: '#ffca3a', heart: '#f15bb5', rectangle: '#ff924c', oval: '#4cc9f0', diamond: '#9b5de5' };
+function piShapeSVG(k, col) { return pSvg(`<path d="${PI_SHAPES[k]}" fill="${col}" ${pS(5)}/>` + (k === 'circle' || k === 'oval' ? pGL(34, 36, 8, 5, -30) : pGL(30, k === 'triangle' ? 62 : 34, 6, 4, -30))); }
+
+// ---------- food (Shopping) ----------
+const PIF = {
+  apple: (c = '#e53935') => pSvg(`<path d="M52 28 Q54 16 62 8" fill="none" ${pS(5)}/><path d="M56 22 Q70 6 86 14 Q76 32 56 22Z" fill="#69c043" ${pS()}/><path d="M50 30 C34 18 8 26 10 54 C12 82 34 98 50 88 C66 98 88 82 90 54 C92 26 66 18 50 30Z" fill="${c}" ${pS()}/>${pGL(29, 48, 7, 13, 20)}`),
+  banana: () => pSvg(`<path d="M22 14 Q6 58 42 84 Q66 98 90 86 Q90 79 80 79 Q52 80 37 57 Q27 39 31 17Z" fill="#ffd43b" ${pS()}/><path d="M22 15 L22 6 L31 7 L31 17Z" fill="#8d5524" ${pS(3)}/><path d="M24 40 Q30 66 58 84" fill="none" stroke="#e6a700" stroke-width="4" stroke-linecap="round"/><circle cx="88" cy="83" r="3" fill="#8d5524"/>`),
+  carrot: () => pSvg(`<path d="M60 26 Q52 8 62 2 Q70 12 66 24 Q74 6 88 8 Q84 22 70 30 Q86 24 96 32 Q84 40 68 34Z" fill="#69c043" ${pS()}/><path d="M68 32 Q82 44 70 56 L24 94 Q16 98 14 90 L46 38 Q56 24 68 32Z" fill="#ff8c1a" ${pS()}/><path d="M44 54 l8 5 M36 68 l7 5 M28 81 l6 4" stroke="${pO}" stroke-width="3" stroke-linecap="round"/>`),
+  milk: () => pSvg(`<path d="M30 30 L38 14 L62 14 L70 30Z" fill="#e9ecef" ${pS()}/><rect x="40" y="6" width="20" height="9" rx="2" fill="#1e6fe5" ${pS(3)}/><rect x="30" y="30" width="40" height="62" rx="3" fill="#fff" ${pS()}/><rect x="30" y="48" width="40" height="24" fill="#4dabf7" ${pS()}/><path d="M50 51 Q42 61 50 68 Q58 61 50 51Z" fill="#fff"/>`),
+  bread: () => pSvg(`<path d="M10 62 Q8 34 30 32 Q36 18 50 22 Q64 18 70 32 Q92 34 90 62 L88 82 Q88 88 82 88 L18 88 Q12 88 12 82Z" fill="#e3a35f" ${pS()}/><path d="M32 40 Q36 50 34 60 M50 34 Q54 46 52 58 M68 40 Q72 50 70 60" fill="none" stroke="#a86b2d" stroke-width="4" stroke-linecap="round"/>${pGL(26, 46, 5, 8, 20)}`),
+  egg: () => pSvg(`<ellipse cx="50" cy="54" rx="31" ry="39" fill="#fff6e0" ${pS()}/>${pGL(38, 38, 6, 11, 20)}`),
+  cake: () => pSvg(`<rect x="46" y="12" width="8" height="20" rx="2" fill="#74c0fc" ${pS(3)}/><path d="M50 0 Q58 8 50 13 Q42 8 50 0Z" fill="#ffd43b" ${pS(2.5)}/><path d="M12 42 Q12 32 50 32 Q88 32 88 42 L88 84 Q88 93 50 93 Q12 93 12 84Z" fill="#f8c291" ${pS()}/><path d="M12 42 Q12 32 50 32 Q88 32 88 42 L88 54 Q82 62 76 54 Q70 64 62 54 Q54 64 46 54 Q38 64 30 54 Q22 62 12 54Z" fill="#ff8fc7" ${pS()}/><g stroke-width="3.5" stroke-linecap="round"><path d="M30 72 l4 -3" stroke="#4dabf7"/><path d="M50 78 l5 2" stroke="#ffd43b"/><path d="M70 70 l3 4" stroke="#69c043"/></g>`),
+  orange: () => pSvg(`<circle cx="50" cy="56" r="38" fill="#fb8c00" ${pS()}/><path d="M50 18 Q52 10 58 6" fill="none" ${pS(4)}/><path d="M54 16 Q66 2 80 10 Q70 24 54 16Z" fill="#69c043" ${pS()}/>${pGL(34, 42, 6, 10, 30)}<g fill="#e67700"><circle cx="62" cy="58" r="1.8"/><circle cx="54" cy="72" r="1.8"/><circle cx="70" cy="70" r="1.8"/></g>`),
+  grapes: () => pSvg(`<path d="M50 20 Q50 8 58 4" fill="none" ${pS(4)}/><path d="M54 14 Q68 2 80 12 Q68 22 54 14Z" fill="#69c043" ${pS()}/>` + [[50, 90], [38, 74], [62, 74], [26, 56], [50, 58], [74, 56], [36, 36], [64, 36]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="13" fill="#8e44ad" ${pS(3.5)}/><circle cx="${x - 4}" cy="${y - 4}" r="3" fill="#fff" opacity=".45"/>`).join('')),
+  pear: () => pSvg(`<path d="M50 16 Q52 8 58 4" fill="none" ${pS(4)}/><path d="M50 16 Q61 16 61 31 Q61 41 71 52 Q85 70 75 86 Q65 96 50 96 Q35 96 25 86 Q15 70 29 52 Q39 41 39 31 Q39 16 50 16Z" fill="#c0d72f" ${pS()}/><path d="M55 12 Q66 2 76 10 Q66 18 55 12Z" fill="#69c043" ${pS(3)}/>${pGL(34, 66, 5, 10, 20)}`),
+  tomato: () => pSvg(`<ellipse cx="50" cy="58" rx="40" ry="34" fill="#e53935" ${pS()}/><path d="M50 26 L56 32 L68 28 L61 38 L67 46 L50 40 L33 46 L39 38 L32 28 L44 32Z" fill="#69c043" ${pS(3)}/>${pGL(28, 56, 6, 10, 20)}`),
+  watermelon: () => pSvg(`<path d="M6 36 Q50 110 94 36Z" fill="#43a047" ${pS()}/><path d="M15 38 Q50 96 85 38Z" fill="#ff5c6c"/><path d="M6 36 Q50 110 94 36Z" fill="none" ${pS()}/><g fill="${pO}"><ellipse cx="34" cy="48" rx="2.5" ry="4"/><ellipse cx="50" cy="58" rx="2.5" ry="4"/><ellipse cx="66" cy="48" rx="2.5" ry="4"/><ellipse cx="44" cy="70" rx="2.5" ry="4"/><ellipse cx="58" cy="72" rx="2.5" ry="4"/></g>`),
+  icecream: () => pSvg(`<path d="M30 52 L50 97 L70 52Z" fill="#f4b968" ${pS()}/><path d="M38 60 L58 80 M48 56 L64 68 M62 60 L42 80" stroke="#c9853a" stroke-width="3" stroke-linecap="round"/><circle cx="50" cy="26" r="17" fill="#8d5524" ${pS()}/><circle cx="50" cy="45" r="22" fill="#ff9ec7" ${pS()}/><circle cx="50" cy="8" r="6" fill="#e53935" ${pS(3)}/>${pGL(40, 38, 5, 7, 20)}`),
+  lemon: () => pSvg(`<path d="M6 52 Q12 46 20 44 Q50 18 80 44 Q88 46 94 52 Q88 58 80 60 Q50 86 20 60 Q12 58 6 52Z" fill="#ffe14d" ${pS()}/>${pGL(34, 44, 6, 10, 60)}`)
+};
+
+// ---------- scene objects (Picture Puzzle) ----------
+function pFishSVG(c = '#ff924c', c2 = '#ffca3a') {
+  return pSvg(`<path d="M74 50 L94 32 Q90 50 94 68Z" fill="${c2}" ${pS()}/><path d="M10 50 Q30 20 62 30 Q80 38 80 50 Q80 62 62 70 Q30 80 10 50Z" fill="${c}" ${pS()}/><path d="M44 30 Q52 18 62 24 L60 32Z" fill="${c2}" ${pS(3)}/><path d="M50 40 Q56 50 50 60 M60 38 Q66 50 60 62" fill="none" stroke="${c2}" stroke-width="4" stroke-linecap="round"/>${pEYE(26, 46, 5)}<path d="M14 56 Q18 58 22 56" fill="none" ${pS(3)}/>`);
+}
+const PIS = {
+  sun: () => pSvg(`<g stroke="${pO}" stroke-width="4" stroke-linejoin="round">${Array.from({ length: 10 }, (_, i) => { const a = i * 36 * Math.PI / 180, c = Math.cos(a), s = Math.sin(a); return `<path d="M${(50 + c * 34).toFixed(1)} ${(50 + s * 34).toFixed(1)} L${(50 + Math.cos(a + .2) * 47).toFixed(1)} ${(50 + Math.sin(a + .2) * 47).toFixed(1)} L${(50 + Math.cos(a - .2) * 47).toFixed(1)} ${(50 + Math.sin(a - .2) * 47).toFixed(1)}Z" fill="#ff9f1c"/>`; }).join('')}</g><circle cx="50" cy="50" r="32" fill="#ffd60a" ${pS()}/>${pEYE(40, 46, 4)}${pEYE(60, 46, 4)}${pSMILE(50, 58, 9)}${pCHEEK(34, 57)}${pCHEEK(66, 57)}`),
+  cloud: () => pSvg(`<path d="M22 72 Q4 72 6 56 Q8 42 24 44 Q26 24 48 24 Q66 22 72 40 Q92 36 94 56 Q96 72 78 72Z" fill="#fff" ${pS()}/><path d="M24 62 Q40 66 52 62" fill="none" stroke="#d0ebff" stroke-width="4" stroke-linecap="round"/>`),
+  bird: () => pSvg(`<path d="M70 52 L94 42 L90 58Z" fill="#1982c4" ${pS()}/><ellipse cx="50" cy="56" rx="30" ry="24" fill="#4dabf7" ${pS()}/><circle cx="32" cy="40" r="17" fill="#4dabf7" ${pS()}/><path d="M16 40 L4 46 L16 48Z" fill="#ffb703" ${pS(3)}/>${pEYE(28, 36, 4)}<path d="M44 52 Q60 30 76 44 Q66 66 44 52Z" fill="#a5d8ff" ${pS()}/><path d="M40 78 L38 90 M56 79 L58 90" ${pS(3.5)}/>`),
+  boat: () => pSvg(`<rect x="47" y="6" width="6" height="60" rx="2" fill="#a0673a" ${pS(3)}/><path d="M55 10 Q78 34 86 60 L55 60Z" fill="#fff" ${pS()}/><path d="M45 18 Q30 40 18 60 L45 60Z" fill="#ffca3a" ${pS()}/><path d="M53 6 L70 10 L53 15Z" fill="#ff595e" ${pS(2.5)}/><path d="M6 62 L94 62 L80 86 Q78 90 72 90 L28 90 Q22 90 20 86Z" fill="#ff595e" ${pS()}/><path d="M12 70 H88" stroke="#fff" stroke-width="4"/><circle cx="34" cy="78" r="4.5" fill="#d0ebff" ${pS(2.5)}/><circle cx="50" cy="78" r="4.5" fill="#d0ebff" ${pS(2.5)}/><circle cx="66" cy="78" r="4.5" fill="#d0ebff" ${pS(2.5)}/>`),
+  fish: () => pFishSVG('#ff924c', '#ffca3a'),
+  crab: () => pSvg(`<path d="M30 68 L14 80 M30 74 L18 90 M70 68 L86 80 M70 74 L82 90" ${pS(4)}/><path d="M24 54 Q12 50 12 36" fill="none" ${pS(4)}/><path d="M76 54 Q88 50 88 36" fill="none" ${pS(4)}/><path d="M12 38 Q2 26 10 16 Q14 24 18 22 Q22 30 12 38Z" fill="#ff595e" ${pS(3.5)}/><path d="M88 38 Q98 26 90 16 Q86 24 82 22 Q78 30 88 38Z" fill="#ff595e" ${pS(3.5)}/><path d="M40 46 L38 32 M60 46 L62 32" ${pS(3.5)}/><ellipse cx="50" cy="62" rx="30" ry="20" fill="#ff595e" ${pS()}/><circle cx="38" cy="30" r="6" fill="#fff" ${pS(3)}/><circle cx="62" cy="30" r="6" fill="#fff" ${pS(3)}/><circle cx="38" cy="30" r="2.6" fill="${pO}"/><circle cx="62" cy="30" r="2.6" fill="${pO}"/>${pSMILE(50, 64, 8)}`),
+  starfish: () => pSvg(`<path d="${pStarD(50, 54, 46, 22)}" fill="#ff924c" ${pS(4.5)}/>${pEYE(43, 50, 3.5)}${pEYE(57, 50, 3.5)}${pSMILE(50, 58, 5, 3)}<g fill="#ffd8a8"><circle cx="50" cy="22" r="2.5"/><circle cx="24" cy="44" r="2.5"/><circle cx="76" cy="44" r="2.5"/><circle cx="34" cy="78" r="2.5"/><circle cx="66" cy="78" r="2.5"/></g>`),
+  whale: () => pSvg(`<path d="M50 22 Q46 10 38 8 M50 22 Q54 10 62 8 M50 22 V8" fill="none" stroke="#74c0fc" stroke-width="4" stroke-linecap="round"/><path d="M6 62 Q8 30 44 30 Q76 30 82 50 L96 38 Q99 56 92 62 Q99 70 96 86 L82 72 Q70 86 40 84 Q8 84 6 62Z" fill="#4c6ef5" ${pS()}/><path d="M10 66 Q26 82 58 80 Q40 72 10 66Z" fill="#bac8ff"/>${pEYE(24, 54, 4.5)}<path d="M10 66 Q20 70 30 66" fill="none" ${pS(3)}/>${pCHEEK(34, 64)}`),
+  palm: () => pSvg(`<path d="M42 98 Q38 72 47 46 L55 46 Q49 72 56 98Z" fill="#b07a43" ${pS()}/><path d="M44 62 H52 M42 76 H54 M42 88 H55" stroke="${pO}" stroke-width="2.5"/>` + [[-150, 34], [-100, 30], [-30, 34], [20, 30], [-65, 28]].map(([a, L]) => { const r = a * Math.PI / 180, ex = 51 + Math.cos(r) * L * 1.3, ey = 42 + Math.sin(r) * L * 1.1 + 12, mx = 51 + Math.cos(r) * L * .6, my = 42 + Math.sin(r) * L * .6 - 10; return `<path d="M51 42 Q${(mx - 8).toFixed(0)} ${(my - 6).toFixed(0)} ${ex.toFixed(0)} ${ey.toFixed(0)} Q${(mx + 6).toFixed(0)} ${(my + 10).toFixed(0)} 51 42Z" fill="#43a047" ${pS(3.5)}/>`; }).join('') + `<circle cx="46" cy="47" r="5" fill="#8d5524" ${pS(3)}/><circle cx="56" cy="48" r="5" fill="#8d5524" ${pS(3)}/>`),
+  cow: () => pSvg(`<path d="M88 40 Q96 48 92 62" fill="none" ${pS(3.5)}/><circle cx="92" cy="64" r="4" fill="${pO}"/>${[26, 38, 66, 78].map(x => `<rect x="${x - 5}" y="60" width="10" height="28" rx="3" fill="#fff" ${pS(3.5)}/><rect x="${x - 5}" y="84" width="10" height="6" rx="2" fill="${pO}"/>`).join('')}<rect x="20" y="34" width="70" height="36" rx="16" fill="#fff" ${pS()}/><path d="M48 36 Q58 40 54 52 Q44 56 42 46Z M70 52 Q80 50 82 60 Q74 68 66 62Z" fill="${pO}"/><path d="M8 18 Q4 10 10 8 M30 18 Q34 10 28 8" fill="none" stroke="#e6c77a" stroke-width="5" stroke-linecap="round"/><ellipse cx="4" cy="28" rx="7" ry="4" fill="#fff" ${pS(3)}/><ellipse cx="34" cy="28" rx="7" ry="4" fill="#fff" ${pS(3)}/><ellipse cx="19" cy="32" rx="15" ry="16" fill="#fff" ${pS()}/><ellipse cx="19" cy="44" rx="14" ry="9" fill="#ffadc6" ${pS(3.5)}/><circle cx="14" cy="44" r="2" fill="${pO}"/><circle cx="24" cy="44" r="2" fill="${pO}"/>${pEYE(13, 28, 3.5)}${pEYE(25, 28, 3.5)}`),
+  pig: () => pSvg(`<path d="M88 46 q8 -4 4 4 q-4 6 4 4" fill="none" ${pS(3)}/>${[32, 44, 64, 76].map(x => `<rect x="${x - 5}" y="64" width="10" height="20" rx="3" fill="#ff9ec7" ${pS(3.5)}/>`).join('')}<ellipse cx="58" cy="56" rx="33" ry="24" fill="#ffadd2" ${pS()}/><path d="M12 22 L14 36 L26 28Z M38 22 L36 36 L26 28Z" fill="#ff9ec7" ${pS(3)}/><circle cx="25" cy="44" r="18" fill="#ffadd2" ${pS()}/><ellipse cx="17" cy="50" rx="9" ry="7" fill="#ff85c0" ${pS(3)}/><circle cx="14" cy="50" r="1.8" fill="${pO}"/><circle cx="20" cy="50" r="1.8" fill="${pO}"/>${pEYE(20, 38, 3.2)}${pEYE(32, 38, 3.2)}${pCHEEK(34, 50, 3.5)}`),
+  sheep: () => pSvg(`${[34, 46, 64, 76].map(x => `<rect x="${x - 4}" y="62" width="8" height="24" rx="3" fill="${pO}"/>`).join('')}<path d="M28 40 Q26 28 38 30 Q42 20 54 24 Q64 18 72 26 Q86 24 86 38 Q96 46 88 56 Q90 70 76 70 Q68 78 56 72 Q44 78 36 70 Q22 72 24 58 Q16 48 28 40Z" fill="#fff" ${pS()}/><ellipse cx="22" cy="46" rx="13" ry="16" fill="#495057" ${pS()}/><ellipse cx="9" cy="40" rx="7" ry="4" fill="#495057" ${pS(3)}/><ellipse cx="35" cy="40" rx="7" ry="4" fill="#495057" ${pS(3)}/><path d="M12 34 Q16 26 24 30 Q30 26 32 34" fill="#fff" ${pS(3)}/><circle cx="17" cy="44" r="4" fill="#fff"/><circle cx="27" cy="44" r="4" fill="#fff"/><circle cx="17.5" cy="44.5" r="2" fill="${pO}"/><circle cx="27.5" cy="44.5" r="2" fill="${pO}"/>${pSMILE(22, 53, 4, 2.5)}`),
+  horse: () => pSvg(`<path d="M86 40 Q98 50 92 74 Q86 64 84 52Z" fill="#6b3e1f" ${pS(3.5)}/>${[34, 44, 68, 78].map(x => `<rect x="${x - 4.5}" y="58" width="9" height="32" rx="3" fill="#c2803f" ${pS(3.5)}/><rect x="${x - 4.5}" y="86" width="9" height="5" fill="${pO}"/>`).join('')}<rect x="28" y="36" width="60" height="30" rx="14" fill="#c2803f" ${pS()}/><path d="M24 50 L36 40 L30 14 Q26 6 18 10 L6 28 Q2 36 10 38 L20 34Z" fill="#c2803f" ${pS()}/><path d="M28 12 Q40 16 40 40 L34 40 Q30 24 24 14Z" fill="#6b3e1f" ${pS(3)}/><path d="M22 8 L24 0 L28 8Z" fill="#c2803f" ${pS(3)}/>${pEYE(20, 20, 3.4)}<circle cx="8" cy="32" r="1.8" fill="${pO}"/>`),
+  chicken: () => pSvg(`<path d="M44 80 V92 M56 80 V92 M40 92 H48 M52 92 H60" stroke="#f08c00" stroke-width="4" stroke-linecap="round"/><path d="M76 42 Q92 30 90 50 Q96 56 84 62Z" fill="#fff" ${pS(3.5)}/><ellipse cx="54" cy="60" rx="30" ry="24" fill="#fff" ${pS()}/><path d="M42 56 Q56 46 66 60 Q54 72 42 56Z" fill="#f1f3f5" ${pS(3)}/><circle cx="32" cy="36" r="16" fill="#fff" ${pS()}/><path d="M24 22 Q26 12 32 18 Q34 10 40 18 Q44 14 42 24Z" fill="#e53935" ${pS(3)}/><path d="M16 36 L6 40 L16 44Z" fill="#ffb703" ${pS(3)}/><path d="M18 46 Q16 54 22 52Z" fill="#e53935" ${pS(2.5)}/>${pEYE(28, 33, 3.4)}`),
+  duck: () => pSvg(`<path d="M80 50 L94 40 L90 58Z" fill="#ffd43b" ${pS()}/><ellipse cx="56" cy="62" rx="34" ry="22" fill="#ffd43b" ${pS()}/><path d="M46 58 Q64 46 76 60 Q62 74 46 58Z" fill="#fcc419" ${pS(3)}/><circle cx="30" cy="38" r="17" fill="#ffd43b" ${pS()}/><path d="M16 40 Q2 40 2 46 Q8 50 18 47Z" fill="#ff922b" ${pS(3)}/>${pEYE(28, 34, 3.6)}`),
+  tractor: () => pSvg(`<rect x="70" y="20" width="6" height="22" fill="#868e96" ${pS(3)}/><path d="M10 50 L10 40 Q10 36 14 36 L58 36 L58 62 L10 62Z" fill="#43a047" ${pS()}/><path d="M50 62 L50 14 L84 14 L88 62Z" fill="#43a047" ${pS()}/><path d="M56 20 L80 20 L82 40 L56 40Z" fill="#d0ebff" ${pS(3)}/><rect x="6" y="40" width="10" height="8" rx="2" fill="#ffd43b" ${pS(2.5)}/>${pWheel(26, 70, 13)}${pWheel(72, 64, 24)}`),
+  tree: () => pSvg(`<path d="M42 96 L44 58 L56 58 L58 96Z" fill="#a0673a" ${pS()}/><path d="M50 6 Q72 4 78 22 Q96 28 92 48 Q96 66 76 70 Q64 80 50 72 Q34 80 22 70 Q4 66 8 48 Q4 28 22 22 Q28 4 50 6Z" fill="#69c043" ${pS()}/><circle cx="34" cy="36" r="5" fill="#e53935" ${pS(2.5)}/><circle cx="64" cy="30" r="5" fill="#e53935" ${pS(2.5)}/><circle cx="70" cy="56" r="5" fill="#e53935" ${pS(2.5)}/><circle cx="40" cy="58" r="5" fill="#e53935" ${pS(2.5)}/>`),
+  car: () => carSVG('#1e6fe5'),
+  bus: () => pSvg(`<rect x="4" y="26" width="92" height="50" rx="10" fill="#ffca3a" ${pS()}/><rect x="4" y="60" width="92" height="7" fill="#ff924c"/><rect x="4" y="26" width="92" height="50" rx="10" fill="none" ${pS()}/>${[12, 32, 52].map(x => `<rect x="${x}" y="34" width="16" height="16" rx="3" fill="#d0ebff" ${pS(3)}/>`).join('')}<rect x="74" y="34" width="14" height="30" rx="3" fill="#d0ebff" ${pS(3)}/>${pWheel(24, 78, 10)}${pWheel(74, 78, 10)}`),
+  truck: () => pSvg(`<rect x="4" y="22" width="60" height="50" rx="4" fill="#1982c4" ${pS()}/><path d="M64 40 L84 40 L96 56 L96 72 L64 72Z" fill="#ff595e" ${pS()}/><path d="M70 45 L82 45 L90 56 L70 56Z" fill="#d0ebff" ${pS(3)}/>${pWheel(22, 76, 10)}${pWheel(46, 76, 10)}${pWheel(82, 76, 10)}`),
+  bike: () => pSvg(`<circle cx="24" cy="66" r="18" fill="none" ${pS(5)}/><circle cx="76" cy="66" r="18" fill="none" ${pS(5)}/><path d="M24 66 L42 40 L66 40 L76 66 M42 40 L52 66 L66 40 M52 66 L24 66" fill="none" stroke="#ff595e" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/><path d="M40 32 L48 32 M66 40 L62 26 L72 24" fill="none" ${pS(5)}/><circle cx="52" cy="66" r="4" fill="${pO}"/>`),
+  plane: () => pSvg(`<path d="M44 52 L30 84 L42 84 L64 54Z" fill="#4dabf7" ${pS()}/><path d="M8 50 Q8 40 22 40 L80 40 Q96 42 96 50 Q96 58 80 60 L22 60 Q8 60 8 50Z" fill="#fff" ${pS()}/><path d="M12 42 L6 22 L18 22 L30 40Z" fill="#ff595e" ${pS()}/><path d="M44 48 L30 16 L42 16 L64 46Z" fill="#4dabf7" ${pS()}/>${[50, 62, 74].map(x => `<circle cx="${x}" cy="50" r="3.5" fill="#d0ebff" ${pS(2.5)}/>`).join('')}<path d="M84 44 Q92 46 92 50 L84 50Z" fill="#d0ebff" ${pS(2.5)}/>`),
+  house: () => pSvg(`<rect x="16" y="44" width="68" height="50" fill="#ffe8cc" ${pS()}/><path d="M6 48 L50 8 L94 48Z" fill="#ff595e" ${pS()}/><rect x="42" y="64" width="16" height="30" rx="3" fill="#a0673a" ${pS(3)}/><rect x="22" y="54" width="14" height="14" fill="#d0ebff" ${pS(3)}/><rect x="64" y="54" width="14" height="14" fill="#d0ebff" ${pS(3)}/><circle cx="54" cy="80" r="1.8" fill="${pO}"/>`),
+  lights: () => pSvg(`<rect x="46" y="60" width="8" height="38" fill="#868e96" ${pS(3)}/><rect x="30" y="4" width="40" height="62" rx="10" fill="#343a40" ${pS()}/><circle cx="50" cy="18" r="8" fill="#ff595e" ${pS(3)}/><circle cx="50" cy="35" r="8" fill="#ffca3a" ${pS(3)}/><circle cx="50" cy="52" r="8" fill="#8ac926" ${pS(3)}/>`),
+  train: () => pSvg(`<rect x="60" y="20" width="30" height="50" rx="4" fill="#ff595e" ${pS()}/><rect x="66" y="28" width="18" height="16" rx="3" fill="#d0ebff" ${pS(3)}/><rect x="10" y="40" width="54" height="30" rx="6" fill="#1982c4" ${pS()}/><rect x="20" y="22" width="12" height="20" fill="#495057" ${pS(3)}/><path d="M6 70 L4 78 L14 72Z" fill="#ffca3a" ${pS(3)}/>${pWheel(24, 76, 9)}${pWheel(48, 76, 9)}${pWheel(76, 76, 9)}`)
+};
+
+// ---------- animal faces (Animal Tree) ----------
+const PIFACE = {
+  cat: () => `<path d="M18 40 L22 6 L44 24Z M82 40 L78 6 L56 24Z" fill="#ffa94d" ${pS()}/><path d="M24 30 L25 14 L36 24Z M76 30 L75 14 L64 24Z" fill="#ffc9de"/><ellipse cx="50" cy="56" rx="38" ry="34" fill="#ffa94d" ${pS()}/><path d="M50 24 V34 M42 26 L44 34 M58 26 L56 34" stroke="#e8590c" stroke-width="4" stroke-linecap="round"/>${pEYE(36, 52, 5.5)}${pEYE(64, 52, 5.5)}<path d="M45 62 L55 62 L50 68Z" fill="#ff6b9a" ${pS(2.5)}/>${pSMILE(44, 70, 6, 3)}${pSMILE(56, 70, 6, 3)}<path d="M28 64 L8 60 M28 70 L8 74 M72 64 L92 60 M72 70 L92 74" stroke="${pO}" stroke-width="2.5" stroke-linecap="round"/>`,
+  dog: () => `<ellipse cx="50" cy="54" rx="34" ry="34" fill="#d9a066" ${pS()}/><path d="M22 28 Q4 30 6 62 Q16 70 24 56Z M78 28 Q96 30 94 62 Q84 70 76 56Z" fill="#8d5524" ${pS()}/><ellipse cx="50" cy="70" rx="20" ry="15" fill="#f8e1c4" ${pS(3.5)}/><ellipse cx="50" cy="62" rx="8" ry="6" fill="${pO}"/>${pEYE(37, 48, 5.5)}${pEYE(63, 48, 5.5)}<path d="M50 68 V74 M42 76 Q50 82 58 76" fill="none" ${pS(3)}/><path d="M50 80 Q50 90 56 88 Q58 82 54 79Z" fill="#ff6b9a" ${pS(2.5)}/>`,
+  monkey: () => `<circle cx="14" cy="50" r="13" fill="#a0673a" ${pS()}/><circle cx="86" cy="50" r="13" fill="#a0673a" ${pS()}/><circle cx="14" cy="50" r="6" fill="#f3c99b"/><circle cx="86" cy="50" r="6" fill="#f3c99b"/><circle cx="50" cy="50" r="38" fill="#a0673a" ${pS()}/><path d="M50 36 Q60 24 72 34 Q82 48 72 64 Q68 84 50 84 Q32 84 28 64 Q18 48 28 34 Q40 24 50 36Z" fill="#f3c99b" ${pS(3.5)}/>${pEYE(40, 48, 5)}${pEYE(60, 48, 5)}<circle cx="46" cy="62" r="1.8" fill="${pO}"/><circle cx="54" cy="62" r="1.8" fill="${pO}"/>${pSMILE(50, 70, 10)}`,
+  bear: () => `<circle cx="20" cy="22" r="14" fill="#8d5524" ${pS()}/><circle cx="80" cy="22" r="14" fill="#8d5524" ${pS()}/><circle cx="20" cy="22" r="6" fill="#d9a066"/><circle cx="80" cy="22" r="6" fill="#d9a066"/><ellipse cx="50" cy="54" rx="40" ry="36" fill="#8d5524" ${pS()}/><ellipse cx="50" cy="68" rx="18" ry="14" fill="#d9a066" ${pS(3.5)}/><ellipse cx="50" cy="62" rx="7" ry="5" fill="${pO}"/>${pEYE(34, 48, 5)}${pEYE(66, 48, 5)}${pSMILE(50, 70, 7, 3)}`,
+  lion: () => `<path d="${Array.from({ length: 16 }, (_, i) => { const a = i / 16 * Math.PI * 2, r = i % 2 ? 46 : 38; return (i ? 'L' : 'M') + (50 + Math.cos(a) * r).toFixed(1) + ' ' + (52 + Math.sin(a) * r).toFixed(1); }).join(' ')}Z" fill="#d9480f" ${pS()}/><circle cx="26" cy="28" r="8" fill="#fcc419" ${pS(3)}/><circle cx="74" cy="28" r="8" fill="#fcc419" ${pS(3)}/><circle cx="50" cy="54" r="29" fill="#fcc419" ${pS()}/><ellipse cx="50" cy="66" rx="14" ry="10" fill="#fff3bf" ${pS(3)}/><path d="M44 60 L56 60 L50 66Z" fill="${pO}"/>${pEYE(39, 48, 4.5)}${pEYE(61, 48, 4.5)}${pSMILE(50, 70, 6, 3)}`,
+  tiger: () => `<path d="M16 34 L20 10 L38 22Z M84 34 L80 10 L62 22Z" fill="#ff922b" ${pS()}/><ellipse cx="50" cy="54" rx="40" ry="36" fill="#ff922b" ${pS()}/><path d="M50 18 V30 M38 20 L42 30 M62 20 L58 30 M10 50 L22 52 M12 64 L24 62 M90 50 L78 52 M88 64 L76 62" stroke="${pO}" stroke-width="5" stroke-linecap="round"/><ellipse cx="50" cy="70" rx="20" ry="14" fill="#fff" ${pS(3)}/><path d="M44 62 L56 62 L50 68Z" fill="#ff6b9a" ${pS(2.5)}/>${pEYE(36, 48, 5)}${pEYE(64, 48, 5)}${pSMILE(50, 72, 6, 3)}`,
+  mouse: () => `<circle cx="18" cy="30" r="18" fill="#adb5bd" ${pS()}/><circle cx="82" cy="30" r="18" fill="#adb5bd" ${pS()}/><circle cx="18" cy="30" r="10" fill="#ffc9de"/><circle cx="82" cy="30" r="10" fill="#ffc9de"/><ellipse cx="50" cy="58" rx="30" ry="30" fill="#adb5bd" ${pS()}/>${pEYE(40, 54, 4.5)}${pEYE(60, 54, 4.5)}<circle cx="50" cy="70" r="5" fill="#ff6b9a" ${pS(2.5)}/><path d="M38 70 L14 66 M38 74 L16 80 M62 70 L86 66 M62 74 L84 80" stroke="${pO}" stroke-width="2.5" stroke-linecap="round"/>`,
+  pig: () => `<path d="M18 36 L16 10 L40 22Z M82 36 L84 10 L60 22Z" fill="#ff9ec7" ${pS()}/><circle cx="50" cy="54" r="38" fill="#ffadd2" ${pS()}/><ellipse cx="50" cy="66" rx="16" ry="12" fill="#ff85c0" ${pS(3.5)}/><ellipse cx="44" cy="66" rx="3" ry="4" fill="${pO}"/><ellipse cx="56" cy="66" rx="3" ry="4" fill="${pO}"/>${pEYE(36, 48, 5)}${pEYE(64, 48, 5)}${pCHEEK(24, 64, 5)}${pCHEEK(76, 64, 5)}`,
+  cow: () => `<path d="M22 22 Q14 10 20 4 M78 22 Q86 10 80 4" fill="none" stroke="#e6c77a" stroke-width="7" stroke-linecap="round"/><ellipse cx="8" cy="40" rx="12" ry="7" fill="#fff" ${pS(3.5)}/><ellipse cx="92" cy="40" rx="12" ry="7" fill="#fff" ${pS(3.5)}/><ellipse cx="50" cy="48" rx="34" ry="36" fill="#fff" ${pS()}/><path d="M24 26 Q36 20 40 32 Q34 42 24 38Z" fill="${pO}"/><ellipse cx="50" cy="74" rx="28" ry="18" fill="#ffadc6" ${pS()}/><ellipse cx="40" cy="74" rx="3.5" ry="5" fill="${pO}"/><ellipse cx="60" cy="74" rx="3.5" ry="5" fill="${pO}"/>${pEYE(36, 46, 5)}${pEYE(64, 46, 5)}`,
+  sheep: () => `<ellipse cx="12" cy="50" rx="12" ry="7" fill="#495057" ${pS(3.5)}/><ellipse cx="88" cy="50" rx="12" ry="7" fill="#495057" ${pS(3.5)}/><ellipse cx="50" cy="56" rx="28" ry="34" fill="#495057" ${pS()}/><path d="M20 34 Q16 16 34 16 Q40 4 54 10 Q70 4 74 18 Q88 22 80 38 Q66 44 50 38 Q34 44 20 34Z" fill="#fff" ${pS()}/><circle cx="40" cy="54" r="7" fill="#fff"/><circle cx="60" cy="54" r="7" fill="#fff"/>${pEYE(41, 55, 4)}${pEYE(61, 55, 4)}${pSMILE(50, 74, 6, 3)}`,
+  elephant: () => `<ellipse cx="16" cy="50" rx="18" ry="26" fill="#adb5bd" ${pS()}/><ellipse cx="84" cy="50" rx="18" ry="26" fill="#adb5bd" ${pS()}/><ellipse cx="16" cy="50" rx="9" ry="16" fill="#ffc9de"/><ellipse cx="84" cy="50" rx="9" ry="16" fill="#ffc9de"/><ellipse cx="50" cy="46" rx="30" ry="32" fill="#adb5bd" ${pS()}/><path d="M42 60 Q42 84 30 92 Q36 98 42 94 Q56 82 58 60Z" fill="#adb5bd" ${pS()}/>${pEYE(38, 44, 5)}${pEYE(62, 44, 5)}${pCHEEK(30, 56)}${pCHEEK(70, 56)}`,
+  bird: () => `<path d="M46 14 Q50 2 56 12 Q60 4 62 16" fill="#1982c4" ${pS(3)}/><circle cx="50" cy="52" r="38" fill="#4dabf7" ${pS()}/><ellipse cx="50" cy="66" rx="22" ry="18" fill="#d0ebff"/><path d="M10 54 Q4 70 18 76 Q22 64 14 52Z M90 54 Q96 70 82 76 Q78 64 86 52Z" fill="#1982c4" ${pS(3.5)}/>${pEYE(38, 42, 5.5)}${pEYE(62, 42, 5.5)}<path d="M42 54 L58 54 L50 66Z" fill="#ffb703" ${pS(3)}/>`,
+  duck: () => `<path d="M50 14 Q46 4 52 2 Q54 8 56 12" fill="#ffd43b" ${pS(3)}/><circle cx="50" cy="50" r="38" fill="#ffd43b" ${pS()}/><path d="M28 64 Q50 56 72 64 Q72 76 50 78 Q28 76 28 64Z" fill="#ff922b" ${pS()}/><path d="M30 66 Q50 70 70 66" fill="none" ${pS(3)}/>${pEYE(36, 44, 5.5)}${pEYE(64, 44, 5.5)}`,
+  chicken: () => `<path d="M34 18 Q32 4 42 10 Q46 0 54 10 Q62 2 64 16Z" fill="#e53935" ${pS()}/><circle cx="50" cy="52" r="36" fill="#fff" ${pS()}/><path d="M42 58 L58 58 L50 70Z" fill="#ffb703" ${pS(3)}/><path d="M46 70 Q44 80 50 80 Q56 80 54 70Z" fill="#e53935" ${pS(2.5)}/>${pEYE(38, 46, 5)}${pEYE(62, 46, 5)}`,
+  snake: () => `<path d="M10 92 Q10 74 30 74 L70 74 Q88 74 88 86 Q88 96 70 96 L28 96" fill="#69c043" ${pS()}/><path d="M28 96 Q14 96 10 92" fill="none" ${pS()}/><path d="M34 78 Q30 50 48 40" fill="none" stroke="${pO}" stroke-width="20" stroke-linecap="round"/><path d="M34 78 Q30 50 48 40" fill="none" stroke="#69c043" stroke-width="13" stroke-linecap="round"/><ellipse cx="54" cy="34" rx="26" ry="20" fill="#69c043" ${pS()}/>${pEYE(46, 28, 4.5)}${pEYE(62, 28, 4.5)}<path d="M76 40 L90 42 M84 41 L92 36 M84 41 L92 46" stroke="#e53935" stroke-width="3" stroke-linecap="round"/>${pSMILE(60, 42, 8, 3)}<circle cx="40" cy="84" r="3" fill="#2f9e44"/><circle cx="60" cy="84" r="3" fill="#2f9e44"/>`,
+  horse: () => `<path d="M30 18 L28 2 L40 12Z M70 18 L72 2 L60 12Z" fill="#c2803f" ${pS()}/><path d="M40 10 Q50 0 60 10 Q56 22 50 26 Q44 22 40 10Z" fill="#6b3e1f" ${pS(3)}/><path d="M26 30 Q26 12 50 12 Q74 12 74 30 L72 70 Q72 94 50 94 Q28 94 28 70Z" fill="#c2803f" ${pS()}/><ellipse cx="50" cy="78" rx="20" ry="14" fill="#e3b07a" ${pS(3.5)}/><ellipse cx="43" cy="78" rx="2.5" ry="3.5" fill="${pO}"/><ellipse cx="57" cy="78" rx="2.5" ry="3.5" fill="${pO}"/>${pEYE(38, 42, 5)}${pEYE(62, 42, 5)}`
+};
+const piFaceSVG = id => pSvg(PIFACE[id]());
+
+// ---------- clothes (Dress Up): drawn in the character's own 200 x 400 space ----------
+const PICL = {
+  socks: { bb: [56, 300, 88, 80], z: 1, d: c => `<path d="M68 304 H94 V352 Q94 362 84 364 L66 368 Q58 368 58 360 Q58 352 68 350Z M106 304 H132 V350 Q142 352 142 360 Q142 368 134 368 L116 364 Q106 362 106 352Z" fill="${c}" ${pS()}/><path d="M68 314 H94 M106 314 H132" stroke="#fff" stroke-width="5"/>` },
+  trousers: { bb: [56, 220, 88, 120], z: 2, d: c => `<path d="M64 224 H136 L138 330 Q138 336 132 336 L108 336 Q104 336 104 330 L100 262 L96 330 Q96 336 92 336 L68 336 Q62 336 62 330Z" fill="${c}" ${pS()}/><path d="M64 236 H136" stroke="${shade(c, .75)}" stroke-width="4"/><circle cx="100" cy="230" r="3" fill="${pO}"/>` },
+  shoes: { bb: [44, 336, 112, 48], z: 3, d: c => `<path d="M64 342 H96 V370 Q96 378 88 378 L52 378 Q44 378 46 370 Q50 356 64 352Z M104 342 H136 V352 Q150 356 154 370 Q156 378 148 378 L112 378 Q104 378 104 370Z" fill="${c}" ${pS()}/><path d="M48 372 H96 M104 372 H152" stroke="#fff" stroke-width="5"/><path d="M70 352 l12 0 M118 352 l12 0" stroke="#fff" stroke-width="3" stroke-linecap="round"/>` },
+  tshirt: { bb: [30, 124, 140, 120], z: 4, d: c => `<path d="M72 130 Q100 144 128 130 L164 152 L152 184 L136 176 L136 240 L64 240 L64 176 L48 184 L36 152Z" fill="${c}" ${pS()}/><path d="M84 132 Q100 150 116 132" fill="none" stroke="${shade(c, .7)}" stroke-width="5"/><path d="${pStarD(100, 190, 16, 7)}" fill="#fff" opacity=".85"/>` },
+  jacket: { bb: [24, 122, 152, 128], z: 5, d: c => `<path d="M70 128 L92 146 L92 246 L60 246 L60 180 L50 222 L28 216 L44 150Z M130 128 L108 146 L108 246 L140 246 L140 180 L150 222 L172 216 L156 150Z" fill="${c}" ${pS()}/><path d="M70 128 L86 158 L92 146 M130 128 L114 158 L108 146" fill="${shade(c, .8)}" ${pS(3)}/><rect x="64" y="196" width="18" height="12" rx="3" fill="${shade(c, .8)}" ${pS(3)}/><rect x="118" y="196" width="18" height="12" rx="3" fill="${shade(c, .8)}" ${pS(3)}/>` },
+  hat: { bb: [36, 4, 128, 82], z: 6, d: c => `<path d="M46 74 Q44 22 100 20 Q156 22 154 74Z" fill="${c}" ${pS()}/><rect x="40" y="64" width="120" height="18" rx="9" fill="${shade(c, .75)}" ${pS()}/><circle cx="100" cy="16" r="11" fill="#fff" ${pS()}/><path d="M60 48 Q100 36 140 48" fill="none" stroke="#fff" stroke-width="5" opacity=".6"/>` },
+  glasses: { bb: [56, 70, 88, 36], z: 7, d: c => `<circle cx="80" cy="88" r="15" fill="#e7f5ff" fill-opacity=".35" stroke="${c}" stroke-width="7"/><circle cx="120" cy="88" r="15" fill="#e7f5ff" fill-opacity=".35" stroke="${c}" stroke-width="7"/><path d="M95 88 H105" stroke="${c}" stroke-width="6"/>` }
+};
+const PICL_ORDER = ['socks', 'trousers', 'shoes', 'tshirt', 'jacket', 'hat', 'glasses'];
+function piKidSVG() { // an original little boy in a vest, ready to be dressed; slots in layer order
+  const skin = '#ffd8b5';
+  return `<svg viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg">${pSHD(100, 384, 70, 10)}
+  <path d="M70 230 L66 352 Q66 360 74 360 L88 360 Q94 360 94 352 L98 240 M102 240 L106 352 Q106 360 112 360 L126 360 Q134 360 134 352 L130 230" fill="${skin}" ${pS()}/>
+  <path d="M60 352 Q66 344 94 346 V368 Q94 374 88 374 L58 374 Q52 374 54 366Z M106 346 Q134 344 140 352 L146 366 Q148 374 142 374 L112 374 Q106 374 106 368Z" fill="${skin}" ${pS()}/>
+  <path d="M66 140 L40 206 Q36 216 46 218 Q54 220 56 212 L74 168 M134 140 L160 206 Q164 216 154 218 Q146 220 144 212 L126 168" fill="${skin}" ${pS()}/>
+  <path d="M66 136 Q100 128 134 136 L134 236 L66 236Z" fill="#fff" ${pS()}/><path d="M80 134 Q100 160 120 134" fill="none" ${pS(3)}/>
+  <path d="M64 222 H136 L138 262 L104 262 L100 250 L96 262 L62 262Z" fill="#74c0fc" ${pS()}/>
+  <rect x="90" y="118" width="20" height="18" fill="${skin}" ${pS()}/>
+  <circle cx="44" cy="84" r="12" fill="${skin}" ${pS()}/><circle cx="156" cy="84" r="12" fill="${skin}" ${pS()}/>
+  <circle cx="100" cy="76" r="52" fill="${skin}" ${pS()}/>
+  <path d="M50 70 Q46 24 96 22 Q150 20 152 66 Q140 46 118 44 Q122 54 112 56 Q104 42 86 46 Q90 56 76 56 Q66 48 50 70Z" fill="#6b3e1f" ${pS()}/>
+  ${pEYE(80, 86, 6.5)}${pEYE(120, 86, 6.5)}${pCHEEK(68, 102, 7)}${pCHEEK(132, 102, 7)}<path d="M84 104 Q100 120 116 104 Z" fill="#e8590c" ${pS(3.5)}/><circle cx="100" cy="94" r="3" fill="#e0a07a"/>
+  ${PICL_ORDER.map(k => `<g class="clslot" data-k="${k}"></g>`).join('')}</svg>`;
+}
+// slot order inside the svg: body parts drawn first, then clothes in PICL_ORDER (socks under shoes, T-shirt under jacket)
+function piClothSVG(k, c) { const b = PICL[k].bb; return `<svg viewBox="${b.join(' ')}" xmlns="http://www.w3.org/2000/svg">${PICL[k].d(c)}</svg>`; }
+
+// ---------- island pedestal objects (each 120 x 120) ----------
+const PIPED = {
+  hat: () => pSvg(`${pSHD(60, 108, 46, 8)}<ellipse cx="60" cy="98" rx="52" ry="12" fill="#5f3dc4" ${pS()}/><path d="M26 30 Q60 18 94 30 L88 96 L32 96Z" fill="#7b4ddb" ${pS()}/><ellipse cx="60" cy="28" rx="34" ry="8" fill="#4c2a9e" ${pS()}/><rect x="31" y="78" width="58" height="12" fill="#f15bb5" ${pS(3)}/><path d="${PI_SHAPES.star}" transform="translate(36 40) scale(.2)" fill="#ffca3a" ${pS(14)}/><circle cx="72" cy="52" r="8" fill="#4cc9f0" ${pS(3)}/><path d="M60 66 L66 76 L54 76Z" fill="#8ac926" ${pS(3)}/><path d="M96 10 L106 2 M100 18 l10 0 M90 4 l-2 -2" stroke="#ffca3a" stroke-width="4" stroke-linecap="round"/>`, '0 0 120 120'),
+  scene: () => pSvg(`${pNest(PIS.boat(), 6, 6, 108, 100)}<path d="M2 96 Q16 88 30 96 Q44 104 58 96 Q72 88 86 96 Q100 104 118 96 L118 112 L2 112Z" fill="#4dabf7" ${pS()}/>`, '0 0 120 120'),
+  cart: () => pSvg(`${pSHD(60, 112, 46, 6)}${pNest(PIF.apple(), 30, 6, 34, 34)}${pNest(PIF.banana(), 54, 4, 36, 36)}${pNest(PIF.carrot(), 14, 14, 30, 30)}<path d="M6 26 L18 26 L30 84 L96 84" fill="none" ${pS(5)}/><path d="M18 34 L108 34 L98 72 L28 72Z" fill="#ff595e" ${pS()}/><path d="M24 48 H104 M26 60 H101 M44 34 L46 72 M64 34 V72 M84 34 L82 72" stroke="#fff" stroke-width="3" opacity=".8"/>${pWheel(38, 98, 9)}${pWheel(86, 98, 9)}`, '0 0 120 120'),
+  dress: () => pSvg(`${pSHD(60, 114, 44, 6)}<rect x="16" y="6" width="88" height="104" rx="8" fill="#c2803f" ${pS()}/><rect x="24" y="14" width="72" height="90" rx="4" fill="#ffe8cc" ${pS(3)}/><path d="M28 26 H92" ${pS(3.5)}/>${pNest(piClothSVG('tshirt', '#e53935'), 26, 24, 40, 36)}${pNest(piClothSVG('trousers', '#1e6fe5'), 62, 26, 28, 40)}${pNest(piClothSVG('hat', '#fdd835'), 28, 64, 34, 22)}${pNest(piClothSVG('shoes', '#43a047'), 60, 74, 32, 16)}<path d="M104 30 L118 22 L118 104 L104 110Z" fill="#a0673a" ${pS(3.5)}/><circle cx="110" cy="66" r="3" fill="#ffd43b" ${pS(2)}/>`, '0 0 120 120'),
+  fish: () => pSvg(`${pSHD(60, 112, 44, 6)}<path d="M28 18 L92 18 L90 26 Q112 48 104 76 Q96 104 60 106 Q24 104 16 76 Q8 48 30 26Z" fill="#c5f6fa" fill-opacity=".9" ${pS()}/><path d="M14 58 Q60 50 106 58 Q104 98 60 102 Q16 98 14 58Z" fill="#3bc9db" opacity=".75"/><path d="M28 18 L92 18 L90 26 Q112 48 104 76 Q96 104 60 106 Q24 104 16 76 Q8 48 30 26Z" fill="none" ${pS()}/>${pNest(pFishSVG('#ff924c', '#ffca3a'), 24, 54, 40, 40)}${pNest(pFishSVG('#f15bb5', '#ffca3a'), 58, 66, 32, 32)}<circle cx="52" cy="44" r="4" fill="#fff" ${pS(2)}/><circle cx="60" cy="34" r="3" fill="#fff" ${pS(2)}/><rect x="82" y="4" width="34" height="30" rx="8" fill="#ffd43b" ${pS(3)}/><text x="99" y="28" text-anchor="middle" font-size="24" font-weight="900" font-family="Arial Rounded MT Bold,Arial,sans-serif" fill="${pO}">4</text>`, '0 0 120 120'),
+  chest: () => pSvg(`${pSHD(60, 112, 50, 6)}<path d="M12 50 Q12 18 60 18 Q108 18 108 50Z" fill="#c2803f" ${pS()}/><rect x="12" y="50" width="96" height="58" rx="4" fill="#a0673a" ${pS()}/><path d="M28 50 V108 M92 50 V108 M28 22 V50 M92 22 V50" stroke="#ffca3a" stroke-width="7"/><path d="M28 50 V108 M92 50 V108" fill="none" ${pS(2)}/><rect x="48" y="44" width="24" height="26" rx="4" fill="#ffca3a" ${pS(3.5)}/><circle cx="60" cy="54" r="3.5" fill="${pO}"/><path d="M60 56 V64" ${pS(3)}/><text x="60" y="98" text-anchor="middle" font-size="24" font-weight="900" font-family="Arial Rounded MT Bold,Arial,sans-serif" fill="#fff" stroke="${pO}" stroke-width="1.5">ABC</text>`, '0 0 120 120'),
+  tree: () => pSvg(`${pSHD(60, 114, 40, 6)}<path d="M52 112 L54 70 L66 70 L68 112Z" fill="#a0673a" ${pS()}/><path d="M60 6 Q84 4 90 24 Q112 30 106 54 Q112 78 86 82 Q72 92 60 84 Q46 92 32 82 Q6 78 14 54 Q6 30 30 24 Q36 4 60 6Z" fill="#69c043" ${pS()}/>${pNest(piFaceSVG('monkey'), 16, 30, 40, 40)}${pNest(piFaceSVG('bird'), 66, 18, 34, 34)}${pNest(piFaceSVG('cat'), 62, 54, 30, 30)}`, '0 0 120 120'),
+  easel: () => pSvg(`<path d="M30 112 L52 20 M90 112 L68 20 M60 20 V114" ${pS(6)}/><path d="M30 112 L52 20 M90 112 L68 20 M60 20 V114" stroke="#c2803f" stroke-width="3" stroke-linecap="round"/><rect x="14" y="10" width="92" height="72" rx="4" fill="#fff" ${pS()}/>${pNest(PIS.sun(), 22, 14, 40, 40)}<path d="M18 78 Q40 54 62 70 Q80 56 102 74 L102 78 L18 78Z" fill="#8ac926" ${pS(3)}/>${pNest(carSVG('#e53935'), 56, 46, 44, 28)}<rect x="14" y="80" width="92" height="8" rx="3" fill="#c2803f" ${pS(3)}/><circle cx="104" cy="100" r="10" fill="#1e6fe5" ${pS(3)}/><circle cx="16" cy="100" r="10" fill="#fdd835" ${pS(3)}/>`, '0 0 120 120'),
+  cars: () => pSvg(`${pSHD(60, 104, 50, 6)}<rect x="86" y="8" width="4" height="60" fill="#868e96" ${pS(2)}/><path d="M90 10 H116 V30 H90Z" fill="#fff" ${pS(3)}/><path d="M90 10 h6.5 v5 h-6.5Z M103 10 h6.5 v5 h-6.5Z M96.5 15 h6.5 v5 h-6.5Z M109.5 15 h6.5 v5 h-6.5Z M90 20 h6.5 v5 h-6.5Z M103 20 h6.5 v5 h-6.5Z M96.5 25 h6.5 v5 h-6.5Z M109.5 25 h6.5 v5 h-6.5Z" fill="${pO}"/>${pNest(carSVG('#e53935'), 2, 36, 112, 72)}`, '0 0 120 120'),
+  songs: () => pSvg(`${pSHD(60, 112, 42, 6)}<rect x="14" y="40" width="92" height="66" rx="14" fill="#ff924c" ${pS()}/><circle cx="44" cy="74" r="20" fill="#ffe8cc" ${pS()}/><circle cx="44" cy="74" r="9" fill="#495057" ${pS(3)}/><rect x="72" y="56" width="24" height="10" rx="4" fill="#ffd43b" ${pS(3)}/><circle cx="78" cy="86" r="5" fill="#4dabf7" ${pS(3)}/><circle cx="92" cy="86" r="5" fill="#ff595e" ${pS(3)}/><path d="M30 40 L60 14" ${pS(5)}/><path d="M80 6 V30 Q72 26 68 32 Q66 40 76 38 Q84 36 84 28 V14 L96 18 V8Z" fill="#9b5de5" ${pS(3)}/><path d="M100 30 V44 Q94 41 91 45 Q90 51 97 50 Q103 49 103 42 V32Z" fill="#f15bb5" ${pS(3)}/>`, '0 0 120 120'),
+  numbers: () => pSvg(`${pSHD(60, 112, 50, 6)}` + [[1, 8, 1], [2, 44, 2], [3, 80, 3]].map(([n, x]) => { let s = ''; for (let i = 0; i < n; i++) s += `<rect x="${x}" y="${100 - (i + 1) * 26}" width="32" height="26" rx="5" fill="${BCOL[n]}" ${pS(3.5)}/>`; const ty = 100 - n * 26; return s + `<circle cx="${x + 11}" cy="${ty + 11}" r="3" fill="${pO}"/><circle cx="${x + 21}" cy="${ty + 11}" r="3" fill="${pO}"/><path d="M${x + 11} ${ty + 18} Q${x + 16} ${ty + 22} ${x + 21} ${ty + 18}" fill="none" ${pS(2.5)}/><text x="${x + 16}" y="${ty - 4}" text-anchor="middle" font-size="22" font-weight="900" font-family="Arial Rounded MT Bold,Arial,sans-serif" fill="#fff" stroke="${pO}" stroke-width="1.5">${n}</text>`; }).join(''), '0 0 120 120'),
+  more: () => pSvg(`${pSHD(60, 112, 50, 6)}<path d="M14 48 L106 48 L100 108 L20 108Z" fill="#4dabf7" ${pS()}/>${pNest(piFaceSVG('bear'), 12, 8, 44, 44)}<circle cx="80" cy="36" r="18" fill="#fff" ${pS()}/><path d="M80 18 L86 30 L80 42 L74 30Z M62 36 Q80 28 98 36" fill="none" ${pS(3)}/><path d="M10 48 L110 48 L106 62 L14 62Z" fill="#1982c4" ${pS()}/><path d="${pStarD(60, 84, 16, 7)}" fill="#ffca3a" ${pS(3)}/><path d="M60 18 L56 4 L66 8Z" fill="#ff595e" ${pS(2.5)}/>`, '0 0 120 120')
+};
+
+/* ================= v9: PLAY ISLAND (English only: reachable only when L.island exists, all text from EN.pi) ================= */
+const PI_GAMES = ['hat', 'scene', 'cart', 'dress', 'fish', 'chest', 'tree', 'easel'];
+CW_GAMES.push(...PI_GAMES); // parent progress table + sticker-book star total include the island games
+setInterval(() => { if (document.hidden || !L || !L.island) return; if (PI_GAMES.includes(mode) || (!mode && !MENU.cat && $('#menu').classList.contains('on'))) { CWS.time.pi = (CWS.time.pi || 0) + 5; cwSave(); } }, 5000);
+const piClamp = (v, a, b) => Math.max(a, Math.min(b, v));
+function piRand(seed) { let s = seed >>> 0; return () => { s = (s * 1664525 + 1013904223) >>> 0; return s / 4294967296; }; }
+Object.assign(SFX, {
+  magic() { [784, 988, 1175, 1568, 1976].forEach((f, i) => tone('sine', f, f * 1.01, i * 0.07, 0.25, 0.09)); },
+  whoosh() { cwNoise(0.35, 'bandpass', 1400, 0.18); },
+  plop() { tone('sine', 900, 260, 0, 0.16, 0.2); tone('sine', 500, 900, 0.08, 0.1, 0.06); },
+  click() { tone('square', 1200, 900, 0, 0.05, 0.05); },
+  locked() { tone('square', 180, 150, 0, 0.09, 0.08); tone('square', 180, 150, 0.12, 0.09, 0.08); },
+  creak() { tone('sawtooth', 220, 420, 0, 0.35, 0.05); cwNoise(0.3, 'bandpass', 700, 0.08); },
+  rustle() { cwNoise(0.4, 'highpass', 2500, 0.16); },
+  splat() { cwNoise(0.18, 'lowpass', 800, 0.3); tone('sine', 300, 120, 0, 0.12, 0.12); },
+  count(i) { const f = 523 * Math.pow(2, Math.min(i, 12) / 12); tone('triangle', f, f, 0, 0.18, 0.12); }
+});
+
+/* ---------- shared helpers for the island games ---------- */
+function piArea(cls) { const st = $('#stage'); st.innerHTML = cwDots(CW.R) + `<div class="piarea ${cls}" id="piarea"></div>`; return $('#piarea'); }
+// position with the `translate` property so keyframe `scale`/`rotate` bounces stay centred on the piece
+function piSet(el, x, y, s = 1) { el._x = x; el._y = y; el._s = s; el.style.translate = `${x.toFixed(1)}px ${y.toFixed(1)}px`; el.style.transform = s === 1 ? 'translateZ(0)' : `translateZ(0) scale(${s})`; }
+function piGlide(el, x, y, s = 1, ms = 380) {
+  return new Promise(r => { el.style.transition = `translate ${ms}ms cubic-bezier(.25,1.15,.5,1),transform ${ms}ms cubic-bezier(.25,1.15,.5,1)`; piSet(el, x, y, s); setTimeout(() => { el.style.transition = 'none'; r(); }, ms + 30); });
+}
+function piPiece(A, html, P, cls = '') { const el = document.createElement('div'); el.className = 'pipc ' + cls; el.style.width = el.style.height = P + 'px'; el._w = el._h = P; el.innerHTML = html; A.appendChild(el); return el; }
+function piSize(el, P) { el.style.width = el.style.height = P + 'px'; el._w = el._h = P; }
+// drag with pointer events, transforms only; a press without movement is a tap
+function piDrag(el, A, h) {
+  let id = null, sx = 0, sy = 0, ox = 0, oy = 0, moved = false;
+  el.addEventListener('pointerdown', e => {
+    if (id !== null || el.dataset.lock) return;
+    e.preventDefault(); ac(); id = e.pointerId; try { el.setPointerCapture(id); } catch (er) {}
+    sx = e.clientX; sy = e.clientY; ox = el._x; oy = el._y; moved = false; el.style.transition = 'none'; el.style.zIndex = ++ZTOP; cwStopIdle();
+    if (h.down) h.down(el);
+  });
+  el.addEventListener('pointermove', e => {
+    if (e.pointerId !== id) return; const dx = e.clientX - sx, dy = e.clientY - sy;
+    if (!moved && dx * dx + dy * dy < 81) return;
+    if (!moved) { moved = true; el.classList.add('pidrag'); if (h.start) h.start(el); }
+    const W = A.clientWidth, H = A.clientHeight;
+    piSet(el, piClamp(ox + dx, -el._w * 0.3, W - el._w * 0.7), piClamp(oy + dy, -el._h * 0.3, H - el._h * 0.7), 1.1);
+  });
+  const up = e => {
+    if (e.pointerId !== id) return; id = null; el.classList.remove('pidrag');
+    if (!moved) { if (h.tap) h.tap(el); return; }
+    piSet(el, el._x, el._y, 1);
+    if (h.drop) h.drop(el, { x: el._x + el._w / 2, y: el._y + el._h / 2 });
+  };
+  el.addEventListener('pointerup', up); el.addEventListener('pointercancel', up);
+}
+// tray on the right (landscape) or along the bottom (portrait)
+function piSplit(A, frac = 0.26, minT = 130, maxT = 290) {
+  const W = A.clientWidth, H = A.clientHeight, land = W >= H * 1.05;
+  if (land) { const tw = Math.round(piClamp(W * frac, minT, maxT)); return { W, H, land, scene: { x: 0, y: 0, w: W - tw, h: H }, tray: { x: W - tw, y: 0, w: tw, h: H } }; }
+  const th = Math.round(piClamp(H * frac, minT, maxT)); return { W, H, land, scene: { x: 0, y: 0, w: W, h: H - th }, tray: { x: 0, y: H - th, w: W, h: th } };
+}
+// split that leaves room for n pieces of >= P px in the tray
+function piSplitN(A, frac, minT, maxT, n, P = 96) {
+  const W = A.clientWidth, H = A.clientHeight, land = W >= H * 1.05, g = 12, s = P + g;
+  let need; if (land) { const rows = Math.max(1, Math.floor((H - 40) / s)); need = Math.ceil(n / rows) * s + 44; } else { const cols = Math.max(1, Math.floor((W - 40) / s)); need = Math.ceil(n / cols) * s + 44; }
+  return piSplit(A, frac, Math.max(minT, need), Math.max(maxT, need));
+}
+// grid that always shows all n pieces (shrinks below 88px only if nothing else fits)
+function piGridAll(T, n, Pmax = 150) { for (let pm = 88; pm >= 40; pm -= 8) { const G = piGrid(T, n, Pmax, pm); if (G.k >= n) return G; } return piGrid(T, n, Pmax, 30); }
+// best grid for n pieces in rect T (pieces >= Pmin; returns how many fit)
+function piGrid(T, n, Pmax = 150, Pmin = 88, gap = 12) {
+  let best = null;
+  for (let k = n; k >= 1; k--) {
+    for (let c = 1; c <= k; c++) {
+      const r = Math.ceil(k / c), P = Math.min(Pmax, (T.w - gap * (c + 1)) / c, (T.h - gap * (r + 1)) / r);
+      if (P >= Pmin && (!best || (best.k < k) || (best.k === k && P > best.P))) best = { k, c, r, P: Math.floor(P) };
+    }
+    if (best && best.k === k) break;
+  }
+  if (!best) best = { k: 1, c: 1, r: 1, P: Math.floor(Math.max(60, Math.min(T.w, T.h) - 2 * gap)) };
+  const { c, r, P, k } = best, gx = (T.w - c * P) / (c + 1), gy = (T.h - r * P) / (r + 1), pts = [];
+  for (let i = 0; i < k; i++) { const row = Math.floor(i / c), inRow = Math.min(c, k - row * c), gxr = (T.w - inRow * P) / (inRow + 1), col = i % c;
+    pts.push({ x: T.x + gxr + col * (P + gxr), y: T.y + gy + row * (P + gy) }); }
+  return { k, P, pts };
+}
+// an SVG scene (fixed viewBox) letterboxed into rect R of the play area; returns the mapping scene units → area px
+function piPlaceSvg(svg, R, VW, VH, pad = 0, vx = 0, vy = 0) {
+  const s = Math.min((R.w - pad * 2) / VW, (R.h - pad * 2) / VH), w = VW * s, h = VH * s, x = R.x + (R.w - w) / 2, y = R.y + (R.h - h) / 2;
+  svg.style.left = x + 'px'; svg.style.top = y + 'px'; svg.style.width = w + 'px'; svg.style.height = h + 'px';
+  return { s, x, y, w, h, X: v => x + (v - vx) * s, Y: v => y + (v - vy) * s, rect: (a, b, c, d) => ({ x: x + (a - vx) * s, y: y + (b - vy) * s, w: c * s, h: d * s }) };
+}
+const piCenter = r => ({ x: r.x + r.w / 2, y: r.y + r.h / 2 });
+const piDist = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
+// fly a piece onto a target rect (area px), shrinking/growing so its picture covers the rect
+function piFlyTo(el, r, ms = 360) { const s = Math.max(r.w, r.h) / el._w; return piGlide(el, r.x + r.w / 2 - el._w / 2, r.y + r.h / 2 - el._h / 2, s, ms); }
+function piHome(el) { el.classList.remove('piwig'); void el.offsetWidth; el.classList.add('piwig'); return piGlide(el, el._hx, el._hy, 1, 420); }
+const piAreaPt = (A, el) => { const a = A.getBoundingClientRect(), r = el.getBoundingClientRect(); return { x: r.left - a.left, y: r.top - a.top, w: r.width, h: r.height }; };
+function piSparkleAt(A, x, y, n = 12) { const a = A.getBoundingClientRect(); sparkle(a.left + x, a.top + y, n); }
+// misses are counted per item; record only the first try of each item
+function piMiss(R, p, it) { R.tries = p.tries || 0; cwBad(R, it); p.tries = R.tries; }
+function piHit(R, p, it) { R.tries = p.tries || 0; cwGood(R, it); R.tries = 0; }
+async function piSayYes(line) { stopSpeech(); return say(line); }
+
+/* ---------- Play Island hub ---------- */
+const PI_PEDS = [ // [id, kind] in the order of the sandy path
+  ['hat', 'mode'], ['scene', 'mode'], ['cart', 'mode'], ['dress', 'mode'],
+  ['cars', 'cat'], ['fish', 'mode'], ['tree', 'mode'], ['chest', 'mode'],
+  ['easel', 'mode'], ['numbers', 'cat'], ['songs', 'cat'], ['more', 'cat']];
+const IS = { s: 1, px: 0, py: 0, IW: 1600, IH: 1000, land: true, pan: false };
+function piIslandGeo(land) {
+  const IW = land ? 1640 : 1000, IH = land ? 1000 : 1540, cols = land ? 4 : 3, rows = land ? 3 : 4;
+  const x0 = land ? 250 : 200, dx = land ? 380 : 300, y0 = land ? 270 : 300, dy = land ? 270 : 300;
+  const jit = [[0, 0], [20, -16], [-14, 10], [10, -8], [-18, 14], [14, -6], [-8, 12], [18, 0], [-10, -12], [12, 10], [-16, -4], [6, 14]];
+  const pts = PI_PEDS.map((p, i) => { const r = Math.floor(i / cols), c0 = i % cols, c = r % 2 ? cols - 1 - c0 : c0; return { x: x0 + c * dx + jit[i][0], y: y0 + r * dy + jit[i][1] }; });
+  return { IW, IH, pts };
+}
+function piBlob(cx, cy, rx, ry, n, seed, wob = 0.035) {
+  const R = piRand(seed), ph = [R() * 6, R() * 6, R() * 6], pts = [];
+  for (let i = 0; i < 96; i++) {
+    const t = i / 96 * Math.PI * 2, c = Math.cos(t), s = Math.sin(t);
+    const k = 1 + wob * Math.sin(3 * t + ph[0]) + wob * 0.8 * Math.sin(5 * t + ph[1]) + wob * 0.5 * Math.sin(8 * t + ph[2]);
+    pts.push([cx + rx * k * Math.sign(c) * Math.pow(Math.abs(c), 2 / n), cy + ry * k * Math.sign(s) * Math.pow(Math.abs(s), 2 / n)]);
+  }
+  // smooth closed curve through midpoints
+  let d = ''; for (let i = 0; i < pts.length; i++) { const p = pts[i], q = pts[(i + 1) % pts.length], m = [(p[0] + q[0]) / 2, (p[1] + q[1]) / 2]; d += (i ? ' Q' : 'M' + ((pts[pts.length - 1][0] + p[0]) / 2).toFixed(1) + ' ' + ((pts[pts.length - 1][1] + p[1]) / 2).toFixed(1) + ' Q') + p[0].toFixed(1) + ' ' + p[1].toFixed(1) + ' ' + m[0].toFixed(1) + ' ' + m[1].toFixed(1); }
+  return d + 'Z';
+}
+function piIslandSVG(G, land) {
+  const { IW, IH, pts } = G, cx = IW / 2, cy = IH / 2 + 10, rx = IW / 2 - 40, ry = IH / 2 - 60;
+  const outer = piBlob(cx, cy, rx, ry, 3.2, 7), grass = piBlob(cx, cy - 8, rx - 46, ry - 46, 3.2, 7);
+  let path = `M${pts[0].x - 120} ${pts[0].y + 40}`;
+  for (let i = 0; i < pts.length; i++) { const p = pts[i], q = pts[i + 1]; if (!q) { path += ` L${p.x + 60} ${p.y + 40}`; break; } path += ` Q${p.x} ${p.y + 60} ${(p.x + q.x) / 2} ${(p.y + q.y) / 2 + 40}`; }
+  const R = piRand(42); let deco = '';
+  const near = (x, y, d) => pts.some(p => Math.hypot(p.x - x, p.y - 30 - y) < d);
+  for (let i = 0; i < 70 && deco.length < 9000; i++) { // flowers and grass tufts in the free spaces
+    const x = 120 + R() * (IW - 240), y = 120 + R() * (IH - 240); if (near(x, y, 170)) continue;
+    const t = ((x - cx) / (rx - 90)) ** 2 + ((y - cy) / (ry - 90)) ** 2; if (t > 0.92) continue;
+    if (R() < 0.55) { const c = pick(['#ff595e', '#ffca3a', '#f15bb5', '#fff', '#4dabf7']); deco += `<g transform="translate(${x.toFixed(0)} ${y.toFixed(0)})">${[0, 72, 144, 216, 288].map(a => `<circle cx="${(Math.cos(a * Math.PI / 180) * 9).toFixed(1)}" cy="${(Math.sin(a * Math.PI / 180) * 9).toFixed(1)}" r="8" fill="${c}" stroke="${pO}" stroke-width="3"/>`).join('')}<circle r="6" fill="#ffd43b" stroke="${pO}" stroke-width="3"/></g>`; }
+    else deco += `<path d="M${x.toFixed(0)} ${y.toFixed(0)} q-6 -22 -16 -26 M${x.toFixed(0)} ${y.toFixed(0)} q0 -24 2 -32 M${x.toFixed(0)} ${y.toFixed(0)} q8 -20 18 -24" fill="none" stroke="#3f9b2a" stroke-width="6" stroke-linecap="round"/>`;
+  }
+  const palms = land ? [[70, 330, 200], [IW - 250, 300, 200], [IW / 2 - 90, IH - 210, 170]] : [[40, 150, 170], [IW - 200, IH / 2 - 120, 170], [60, IH - 330, 180]];
+  return `<svg class="islbg" width="${IW}" height="${IH + 80}" viewBox="0 0 ${IW} ${IH + 80}" xmlns="http://www.w3.org/2000/svg">
+  <path d="${outer}" transform="translate(16 62)" fill="#0b6e8f" opacity=".35"/>
+  <path d="${outer}" transform="translate(0 40)" fill="#c47f45" stroke="${pO}" stroke-width="9"/>
+  <path d="${outer}" transform="translate(0 40)" fill="none" stroke="#a0673a" stroke-width="22" stroke-dasharray="2 60" stroke-linecap="round" opacity=".7"/>
+  <path d="${outer}" fill="#ffe29a" stroke="${pO}" stroke-width="9"/>
+  <path d="${grass}" fill="#79d24f" stroke="#5cb338" stroke-width="8"/>
+  <ellipse cx="${cx - rx * 0.4}" cy="${cy - ry * 0.35}" rx="${rx * 0.28}" ry="${ry * 0.2}" fill="#8fe060" opacity=".7"/><ellipse cx="${cx + rx * 0.35}" cy="${cy + ry * 0.3}" rx="${rx * 0.3}" ry="${ry * 0.22}" fill="#8fe060" opacity=".7"/>
+  <path d="${path}" fill="none" stroke="#e9c46a" stroke-width="84" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="${path}" fill="none" stroke="#fff0b8" stroke-width="64" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="${path}" fill="none" stroke="#f3d27a" stroke-width="10" stroke-dasharray="4 46" stroke-linecap="round"/>
+  ${deco}${palms.map(([x, y, s]) => pNest(PIS.palm(), x, y, s, s)).join('')}</svg>`;
+}
+function piPedBase(stars, kind, id) {
+  const sp = [-46, 0, 46].map((dx, i) => `<path d="${starPath(130 + dx, 84, 19, 8.5)}" fill="${i < stars ? '#ffd43b' : '#fff3bf'}" stroke="${i < stars ? '#e67700' : '#e9c46a'}" stroke-width="4" stroke-linejoin="round"/>`).join('');
+  const dots = ['#ff595e', '#4dabf7', '#8ac926', '#f15bb5', '#ffca3a'].map((c, i) => `<circle cx="${50 + i * 40}" cy="${86 + (i % 2 ? 4 : 0)}" r="8" fill="${c}" stroke="${pO}" stroke-width="3"/>`).join('');
+  const side = kind === 'mode' ? '#ff924c' : { cars: '#ff595e', numbers: '#4dabf7', songs: '#9b5de5', more: '#20c997' }[id];
+  return `<svg viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg"><ellipse cx="130" cy="104" rx="126" ry="16" fill="#000" opacity=".16"/>
+  <path d="M8 44 L8 80 Q8 108 130 108 Q252 108 252 80 L252 44Z" fill="${side}" stroke="${pO}" stroke-width="6"/>
+  <ellipse cx="130" cy="44" rx="122" ry="34" fill="#ffd43b" stroke="${pO}" stroke-width="6"/><ellipse cx="130" cy="40" rx="96" ry="22" fill="#ffe066"/>${kind === 'mode' ? sp : dots}</svg>`;
+}
+function piIsland(speak) {
+  const t = $('#tiles'); t.innerHTML = ''; t.className = 'tiles islwrap'; $('#menuTtl').textContent = '';
+  t.innerHTML = `<div class="piwaves"></div><div class="piwaves w2"></div><div class="islpos" id="islpos"><div class="islbob" id="islbob"></div></div>`;
+  repeatFn = () => say(L.pi.hello);
+  show('menu'); pickVoice();
+  piIslandBuild(); piIslandPan();
+  resizeFn = () => { if (!mode && !MENU.cat && L && L.island && $('#islpos')) piIslandBuild(); };
+  if (speak) say(L.pi.hello);
+}
+function piIslandBuild() {
+  const t = $('#tiles'), W = t.clientWidth, H = t.clientHeight, land = W >= H * 0.9, G = piIslandGeo(land);
+  const bob = $('#islbob'); bob.style.width = G.IW + 'px'; bob.style.height = (G.IH + 80) + 'px';
+  bob.innerHTML = piIslandSVG(G, land) + PI_PEDS.map(([id, kind], i) => {
+    const p = G.pts[i], played = kind === 'mode' && (CWS.rounds[id] || 0) > 0, st = kind === 'mode' ? ((CWS.bs || {})[id] || 0) : 0;
+    return `<button class="ped" data-id="${id}" data-kind="${kind}" aria-label="${kind === 'mode' ? L.modes[id] : L.pi.ped[id]}" style="left:${p.x - 130}px;top:${p.y - 230}px">
+      <div class="pbase">${piPedBase(st, kind, id)}</div><div class="pobj" style="animation-delay:${-(i * 0.37).toFixed(2)}s">${PIPED[id]()}</div>${kind === 'mode' && !played ? '<span class="pnew">✨</span>' : ''}</button>`;
+  }).join('');
+  // fit: the island fills the screen under the top bar; on small screens it can be panned (pedestals stay >= ~100 px)
+  const topPad = Math.min(W, H) * 0.12, aw = W, ah = H - topPad * 0.6;
+  let s = Math.min(aw / G.IW, ah / (G.IH + 40)) * 1.02; const smin = 104 / 260; if (s < smin) s = smin;
+  Object.assign(IS, { s, IW: G.IW, IH: G.IH + 80, land, W, H, topPad });
+  IS.pan = G.IW * s > W + 2 || (G.IH + 80) * s > H + 2;
+  IS.px = (W - G.IW * s) / 2; IS.py = topPad * 0.6 + (ah - (G.IH + 40) * s) / 2;
+  piIslandApply();
+}
+function piIslandApply() {
+  const sw = IS.IW * IS.s, sh = IS.IH * IS.s;
+  if (sw > IS.W) IS.px = piClamp(IS.px, IS.W - sw - 10, 10); else IS.px = (IS.W - sw) / 2;
+  if (sh > IS.H) IS.py = piClamp(IS.py, IS.H - sh - 10, IS.topPad * 0.6); 
+  const el = $('#islpos'); if (el) el.style.transform = `translate3d(${IS.px.toFixed(1)}px,${IS.py.toFixed(1)}px,0) scale(${IS.s.toFixed(4)})`;
+}
+function piIslandPan() {
+  const t = $('#tiles'); let st = null;
+  t.onpointerdown = e => {
+    if (st) return; e.preventDefault(); ac();
+    const ped = e.target.closest && e.target.closest('.ped');
+    st = { id: e.pointerId, x: e.clientX, y: e.clientY, px: IS.px, py: IS.py, moved: false, ped };
+    try { t.setPointerCapture(e.pointerId); } catch (er) {}
+    if (ped) ped.classList.add('press');
+  };
+  t.onpointermove = e => {
+    if (!st || e.pointerId !== st.id) return; const dx = e.clientX - st.x, dy = e.clientY - st.y;
+    if (!st.moved && dx * dx + dy * dy > 196) { st.moved = true; if (st.ped) st.ped.classList.remove('press'); }
+    if (st.moved && IS.pan) { IS.px = st.px + dx; IS.py = st.py + dy; piIslandApply(); }
+  };
+  const end = e => { if (!st || e.pointerId !== st.id) return; const s = st; st = null; if (s.ped) s.ped.classList.remove('press'); if (!s.moved && s.ped && e.type === 'pointerup') piPedTap(s.ped); };
+  t.onpointerup = end; t.onpointercancel = end;
+}
+function piPedTap(b) {
+  const id = b.dataset.id, kind = b.dataset.kind, g = scene;
+  anim(b.querySelector('.pobj'), 'pibnc');
+  if (kind === 'mode') { SFX.pop(); setTimeout(() => { if (g === scene) startMode(id); }, 320); return; }
+  MENU.back = null;
+  if (id === 'cars') { SFX.honk(); MENU.cat = 'cars'; goMenu(false); stopSpeech(); say(L.cw.hello); return; }
+  SFX.pop(); MENU.cat = id; goMenu(false); stopSpeech();
+  say(id === 'more' ? L.pi.more : ((L.menu.find(c => c.id === id) || {}).label || L.pi.ped[id]));
+}
+
+/* ---------- a. Magic Hat: drag shapes into the outlines ---------- */
+const HT = { free: true, slots: [], queue: [], opts: [], t: null, map: null, svg: null, ask: '' };
+const HT_LV = [null, { free: 1, set: ['circle', 'square', 'triangle', 'star', 'heart'] }, { free: 1 }, { n: 3 }, { n: 3, col: 1 }, { n: 4, col: 1 }, { n: 4, col: 1, hard: 1 }];
+const HT_COLS = ['red', 'blue', 'yellow', 'green', 'orange', 'pink'];
+const HT_POS = [[212, 182], [388, 182], [300, 292], [212, 402], [388, 402]], HT_SZ = 134, HT_VW = 600, HT_VH = 790, HT_VY = -150;
+const HT_PAIR = { circle: 'oval', oval: 'circle', square: 'rectangle', rectangle: 'square', diamond: 'square', triangle: 'diamond', star: 'heart', heart: 'star' };
+const PI_CURTAIN = `<svg viewBox="0 0 100 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0 H100 Q86 110 62 190 Q52 240 60 260 Q40 330 74 400 H0Z" fill="#e03131" stroke="${pO}" stroke-width="4" vector-effect="non-scaling-stroke"/><path d="M30 0 Q34 120 28 200 Q24 300 34 400 M62 0 Q60 90 48 170" fill="none" stroke="#a51111" stroke-width="5" vector-effect="non-scaling-stroke"/><rect x="0" y="236" width="70" height="16" rx="6" fill="#fcc419" stroke="${pO}" stroke-width="3" vector-effect="non-scaling-stroke"/></svg>`;
+const htIt = p => Object.assign({ key: p.c ? 'phr:' + p.c + '-' + p.shape : 'shapes:' + p.shape, cat: p.c ? 'phrases' : 'shapes' }, L.pi.shape(p.shape, p.c));
+function htSVG() {
+  const sl = HT.slots.map((s, i) => { const [x, y] = HT_POS[i]; return `<g class="hslot" data-i="${i}"><svg x="${x - HT_SZ / 2}" y="${y - HT_SZ / 2}" width="${HT_SZ}" height="${HT_SZ}" viewBox="0 0 100 100" overflow="visible"><path d="${PI_SHAPES[s.shape]}" fill="rgba(20,0,60,.3)" stroke="#fff" stroke-width="4.5" stroke-dasharray="9 7" stroke-linejoin="round"/></svg><g class="hfill"></g></g>`; }).join('');
+  const bunny = `<g class="pibunny" id="htbunny" style="transform:translateY(240px)"><ellipse cx="272" cy="-70" rx="20" ry="56" fill="#fff" stroke="${pO}" stroke-width="7" transform="rotate(-12 272 -70)"/><ellipse cx="272" cy="-66" rx="9" ry="38" fill="#ffc9de" transform="rotate(-12 272 -66)"/><ellipse cx="328" cy="-70" rx="20" ry="56" fill="#fff" stroke="${pO}" stroke-width="7" transform="rotate(12 328 -70)"/><ellipse cx="328" cy="-66" rx="9" ry="38" fill="#ffc9de" transform="rotate(12 328 -66)"/><circle cx="300" cy="10" r="58" fill="#fff" stroke="${pO}" stroke-width="7"/>${pEYE(280, 0, 8)}${pEYE(320, 0, 8)}<path d="M294 18 L306 18 L300 26Z" fill="#ff6b9a"/>${pSMILE(300, 30, 12, 5)}${pCHEEK(262, 26, 9)}${pCHEEK(338, 26, 9)}</g>`;
+  return `<svg class="piscn" viewBox="0 ${HT_VY} ${HT_VW} ${HT_VH}" xmlns="http://www.w3.org/2000/svg">
+  <ellipse cx="300" cy="606" rx="290" ry="28" fill="#000" opacity=".3"/>${bunny}
+  <path d="M120 72 Q300 40 480 72 L462 540 Q300 572 138 540Z" fill="#7b4ddb" stroke="${pO}" stroke-width="9" stroke-linejoin="round"/>
+  <path d="M150 90 Q160 300 152 520" fill="none" stroke="#9775fa" stroke-width="16" stroke-linecap="round" opacity=".6"/>
+  <path d="M141 468 Q300 498 459 468 L462 540 Q300 572 138 540Z" fill="#f15bb5" stroke="${pO}" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M30 560 Q300 640 570 560 Q590 540 560 528 Q300 600 40 528 Q10 540 30 560Z" fill="#5f3dc4" stroke="${pO}" stroke-width="8" stroke-linejoin="round"/>
+  <ellipse cx="300" cy="70" rx="180" ry="34" fill="#4c2a9e" stroke="${pO}" stroke-width="9"/>
+  <path d="${starPath(462, 84, 26, 11)}" fill="#ffd43b" stroke="${pO}" stroke-width="5" stroke-linejoin="round"/><path d="${starPath(120, 470, 18, 8)}" fill="#ffd43b" stroke="${pO}" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M500 -40 L560 -110" stroke="${pO}" stroke-width="16" stroke-linecap="round"/><path d="M500 -40 L548 -96" stroke="#212529" stroke-width="9" stroke-linecap="round"/><path d="M548 -96 L560 -110" stroke="#fff" stroke-width="9" stroke-linecap="round"/>
+  ${sl}</svg>`;
+}
+function startHat(g) {
+  const R = cwBegin('hat', g), spec = HT_LV[Math.min(R.lv, HT_LV.length - 1)];
+  HT.free = !!spec.free; HT.spec = spec;
+  const shapes = spec.set ? shuffle(spec.set) : shuffle(Object.keys(PI_SHAPES)).slice(0, 5);
+  HT.slots = shapes.map(s => ({ shape: s, filled: false })); HT.opts = []; HT.t = null;
+  const A = piArea('hat');
+  A.innerHTML = `<div class="picurt l">${PI_CURTAIN}</div><div class="picurt r">${PI_CURTAIN}</div><div class="pitray wood" id="httray"></div>` + htSVG();
+  HT.svg = A.querySelector('svg.piscn');
+  HT.queue = HT.free ? shuffle(HT.slots.map((s, i) => ({ shape: s.shape, c: null, hex: PI_SHAPE_COL[s.shape], slot: i, tries: 0 }))) : [];
+  resizeFn = () => { if (mode === 'hat') htLayout(); };
+  say(L.pi.hat.hello);
+  if (HT.free) { htLayout(); HT.ask = L.pi.hat.free; repeatFn = () => say(HT.ask); cwIdle(g, () => htNudge(g)); }
+  else htItem(g);
+}
+function htShown() { return HT.free ? HT.queue : HT.opts; }
+function htLayout() {
+  const A = $('#piarea'); if (!A || !HT.svg) return; const g = scene;
+  const S = HT.free ? piSplit(A, 0.27) : piSplitN(A, 0.27, 130, 290, HT.opts.length), tr = $('#httray'), m = 8;
+  Object.assign(tr.style, { left: S.tray.x + m + 'px', top: S.tray.y + m + 'px', width: S.tray.w - 2 * m + 'px', height: S.tray.h - 2 * m + 'px' });
+  const cw = Math.max(30, S.scene.w * 0.12);
+  A.querySelectorAll('.picurt').forEach(c => { c.style.width = cw + 'px'; c.style.left = c.classList.contains('l') ? S.scene.x + 'px' : (S.scene.x + S.scene.w - cw) + 'px'; c.style.right = 'auto'; });
+  HT.map = piPlaceSvg(HT.svg, { x: S.scene.x + cw * 0.5, y: S.scene.y, w: S.scene.w - cw, h: S.scene.h }, HT_VW, HT_VH, 4, 0, HT_VY);
+  const list = htShown(), T = { x: S.tray.x + m + 4, y: S.tray.y + m + 4, w: S.tray.w - 2 * m - 8, h: S.tray.h - 2 * m - 8 }, G = HT.free ? piGrid(T, list.length, 160) : piGridAll(T, list.length, 160);
+  list.forEach((p, i) => {
+    if (i >= G.k) { if (p.el) p.el.classList.add('gone'); return; }
+    if (!p.el) { p.el = piPiece(A, piShapeSVG(p.shape, p.hex), G.P); p.el.dataset.k = p.shape; p.el.dataset.c = p.c || ''; anim(p.el, 'pipop');
+      piDrag(p.el, A, { tap: () => htTap(p), drop: (el, pt) => htDrop(g, p, pt) }); }
+    p.el.classList.remove('gone'); piSize(p.el, G.P); p.el._hx = G.pts[i].x; p.el._hy = G.pts[i].y; if (!p.el.classList.contains('pidrag')) piSet(p.el, p.el._hx, p.el._hy);
+  });
+}
+const htSlotRect = i => HT.map.rect(HT_POS[i][0] - HT_SZ / 2, HT_POS[i][1] - HT_SZ / 2, HT_SZ, HT_SZ);
+function htTap(p) { anim(p.el.firstElementChild, 'cwbnc'); SFX.pop(); stopSpeech(); say(cap(htIt(p).a) + '!'); cwIdle(scene, () => htNudge(scene)); }
+function htHintSlot(i) { const s = HT.svg.querySelector(`.hslot[data-i="${i}"] path`); if (!s) return; s.style.stroke = '#ffd43b'; s.style.strokeWidth = '9'; setTimeout(() => { s.style.stroke = ''; s.style.strokeWidth = ''; }, 2600); }
+function htNudge(g) {
+  const R = CW.R; if (!R || R.busy || g !== scene) return;
+  stopSpeech(); say(HT.ask);
+  if (HT.free) { const p = HT.queue.find(q => q.el && !q.el.classList.contains('gone')); if (p) { anim(p.el, 'pihint'); htHintSlot(p.slot); } }
+  else if (HT.t && HT.t.el) anim(HT.t.el, 'pihint');
+  cwIdle(g, () => htNudge(g), 12000);
+}
+function htItem(g) {
+  const R = CW.R; if (g !== scene) return; const spec = HT.spec;
+  HT.opts.forEach(p => p.el && p.el.remove());
+  const left = HT.slots.map((s, i) => i).filter(i => !HT.slots[i].filled), i = pick(left), s = HT.slots[i].shape;
+  const c = spec.col ? pick(HT_COLS) : null, t = { shape: s, c, hex: c ? hexOf(c) : PI_SHAPE_COL[s], slot: i, tries: 0 }, opts = [t];
+  const other = () => { if (spec.hard && Math.random() < 0.6) return HT_PAIR[s]; return pick(Object.keys(PI_SHAPES).filter(x => x !== s && (spec.hard || HT_PAIR[s] !== x || x === 'diamond'))); };
+  if (c) {
+    const oc = pick(HT_COLS.filter(x => x !== c && !confusable(x, c))); opts.push({ shape: s, c: oc, hex: hexOf(oc) });
+    const os = other(); opts.push({ shape: os, c, hex: hexOf(c) });
+    for (let k = 0; opts.length < spec.n && k < 40; k++) { const s2 = Math.random() < 0.5 ? s : other(), c2 = pick(HT_COLS); if (!opts.some(o => o.shape === s2 && o.c === c2)) opts.push({ shape: s2, c: c2, hex: hexOf(c2) }); }
+  } else for (const o of shuffle(Object.keys(PI_SHAPES).filter(x => x !== s && HT_PAIR[s] !== x))) { if (opts.length >= spec.n) break; opts.push({ shape: o, c: null, hex: PI_SHAPE_COL[o] }); }
+  HT.t = t; HT.opts = shuffle(opts); R.busy = false; R.tries = 0;
+  htLayout();
+  HT.ask = L.pi.hat.put(L.pi.shape(s, c)); repeatFn = () => say(HT.ask); say(HT.ask);
+  cwIdle(g, () => htNudge(g));
+}
+async function htDrop(g, p, pt) {
+  const R = CW.R; if (!R || g !== scene) return;
+  if (R.busy) return piGlide(p.el, p.el._hx, p.el._hy);
+  if (HT.free) {
+    let best = -1, bd = 1e9;
+    HT.slots.forEach((s, i) => { if (s.filled) return; const d = piDist(pt, piCenter(htSlotRect(i))); if (d < bd) { bd = d; best = i; } });
+    if (best < 0 || bd > HT_SZ * HT.map.s * 0.8 + 24) { cwIdle(g, () => htNudge(g)); return piGlide(p.el, p.el._hx, p.el._hy); }
+    if (HT.slots[best].shape !== p.shape) {
+      piMiss(R, p, htIt(p)); SFX.boop(); piHome(p.el); stopSpeech(); say(L.pi.hat.not(L.pi.shape(p.shape)));
+      if (p.tries >= 2) htHintSlot(p.slot); cwIdle(g, () => htNudge(g)); return;
+    }
+    return htPlace(g, p, best);
+  }
+  const hr = HT.map.rect(110, 20, 380, 560), inHat = pt.x > hr.x && pt.x < hr.x + hr.w && pt.y > hr.y && pt.y < hr.y + hr.h;
+  if (!inHat) { cwIdle(g, () => htNudge(g)); return piGlide(p.el, p.el._hx, p.el._hy); }
+  if (p !== HT.t) {
+    piMiss(R, HT.t, htIt(HT.t)); SFX.boop(); piHome(p.el); stopSpeech(); say(L.cw.oops + ' ' + L.pi.hat.that(L.pi.shape(p.shape, p.c)) + ' ' + HT.ask);
+    if (HT.t.tries >= 2) anim(HT.t.el, 'pihint'); cwIdle(g, () => htNudge(g)); return;
+  }
+  return htPlace(g, p, p.slot);
+}
+async function htPlace(g, p, i) {
+  const R = CW.R, A = $('#piarea'); R.busy = true; p.el.dataset.lock = 1; cwStopIdle();
+  await piFlyTo(p.el, htSlotRect(i), 300); if (g !== scene) return;
+  HT.slots[i].filled = true; const [x, y] = HT_POS[i];
+  HT.svg.querySelector(`.hslot[data-i="${i}"] .hfill`).innerHTML = `<svg x="${x - HT_SZ / 2}" y="${y - HT_SZ / 2}" width="${HT_SZ}" height="${HT_SZ}" viewBox="0 0 100 100" overflow="visible"><path d="${PI_SHAPES[p.shape]}" fill="${p.hex}" stroke="${pO}" stroke-width="5" stroke-linejoin="round"/></svg>`;
+  p.el.remove(); p.el = null; if (HT.free) HT.queue = HT.queue.filter(q => q !== p);
+  SFX.magic(); const c = piCenter(htSlotRect(i)); piSparkleAt(A, c.x, c.y, 14);
+  const it = htIt(p); piHit(R, p, it);
+  const line = cap(HT.free ? it.a : it.the) + '!';
+  stopSpeech();
+  if (R.step >= R.total) { await say(line + ' ' + cwYes()); return htFinish(g); }
+  if (HT.free) { R.busy = false; htLayout(); say(line); cwIdle(g, () => htNudge(g)); return; }
+  await say(line + ' ' + cwYes()); if (g !== scene) return;
+  htItem(g);
+}
+async function htFinish(g) {
+  if (g !== scene) return; const b = $('#htbunny'); if (b) b.style.transform = 'translateY(0px)';
+  SFX.magic(); setTimeout(() => SFX.magic(), 300); confetti(50); stopSpeech();
+  await say(L.pi.hat.done); if (g === scene) { await sleep(400); cwEnd(g); }
+}
+
+/* ---------- b. Picture Puzzle: drag missing pictures onto their shadows ---------- */
+const SC = { scene: 'sea', spots: [], queue: [], t: null, map: null, svg: null, ask: '', last: '' };
+const SC_VW = 1000, SC_VH = 640;
+const SC_LV = [null, { free: 1 }, { free: 1 }, { free: 1 }, { ask: 1, n: 3 }, { ask: 1, n: 4 }, { ask: 1, n: 5 }];
+const SC_CAT = { cow: 'animals', pig: 'animals', sheep: 'animals', horse: 'animals', chicken: 'animals', duck: 'animals', bird: 'animals', whale: 'animals', fish: 'animals', crab: 'animals', starfish: 'animals',
+  boat: 'transport', car: 'transport', bus: 'transport', truck: 'transport', plane: 'transport', tractor: 'transport', train: 'transport' };
+const SC_SCENES = {
+  sea: { spots: [['sun', 700, 14, 130, 130], ['cloud', 60, 24, 190, 130], ['bird', 470, 34, 110, 110], ['boat', 290, 110, 250, 250], ['whale', 590, 290, 240, 210], ['fish', 110, 320, 160, 160], ['crab', 690, 496, 140, 140], ['starfish', 160, 496, 130, 130], ['palm', 830, 150, 170, 250]],
+    bg: () => `<rect width="1000" height="640" fill="#9be7ff"/><path d="M0 250 Q125 236 250 250 T500 250 T750 250 T1000 250 V640 H0Z" fill="#2bb3e6" stroke="${pO}" stroke-width="5"/>
+      ${[[70, 300], [420, 420], [880, 470], [300, 520], [560, 300]].map(([x, y]) => `<path d="M${x} ${y} q20 -14 40 0 q20 14 40 0" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".55"/>`).join('')}
+      <ellipse cx="915" cy="402" rx="125" ry="34" fill="#ffe29a" stroke="${pO}" stroke-width="5"/><path d="M0 560 Q250 515 500 555 Q760 595 1000 535 V640 H0Z" fill="#ffe29a" stroke="${pO}" stroke-width="5"/>
+      <g fill="#f8c291" stroke="${pO}" stroke-width="3"><circle cx="480" cy="600" r="9"/><circle cx="920" cy="600" r="7"/><circle cx="60" cy="610" r="8"/></g>` },
+  farm: { spots: [['sun', 820, 20, 120, 120], ['cloud', 70, 20, 190, 130], ['tree', 30, 140, 230, 250], ['horse', 250, 230, 190, 190], ['cow', 620, 220, 200, 200], ['sheep', 820, 290, 150, 150], ['pig', 90, 440, 170, 170], ['chicken', 330, 450, 140, 140], ['tractor', 470, 390, 210, 210], ['duck', 730, 480, 140, 140]],
+    bg: () => `<rect width="1000" height="640" fill="#a5e3ff"/><path d="M0 300 Q220 210 450 290 Q700 360 1000 250 V640 H0Z" fill="#9ad66b" stroke="${pO}" stroke-width="5"/>
+      <path d="M395 192 L500 108 L605 192Z" fill="#c92a2a" stroke="${pO}" stroke-width="6" stroke-linejoin="round"/><rect x="410" y="185" width="180" height="175" fill="#e03131" stroke="${pO}" stroke-width="6"/>
+      <rect x="458" y="268" width="84" height="92" fill="#fff5f5" stroke="${pO}" stroke-width="5"/><path d="M458 268 L542 360 M542 268 L458 360" stroke="${pO}" stroke-width="5"/><circle cx="500" cy="220" r="20" fill="#ffe066" stroke="${pO}" stroke-width="5"/>
+      ${[[0, 400], [600, 1000]].map(([a, b]) => { let s = `<rect x="${a}" y="326" width="${b - a - (a ? 0 : 0)}" height="12" fill="#fff" stroke="${pO}" stroke-width="3"/><rect x="${a}" y="352" width="${b - a}" height="12" fill="#fff" stroke="${pO}" stroke-width="3"/>`; for (let x = a + 20; x < b; x += 70) s += `<rect x="${x}" y="310" width="16" height="66" rx="4" fill="#fff" stroke="${pO}" stroke-width="3"/>`; return s; }).join('')}
+      <path d="M0 384 Q500 344 1000 392 V640 H0Z" fill="#79c84a"/><ellipse cx="800" cy="580" rx="175" ry="50" fill="#4dabf7" stroke="${pO}" stroke-width="5"/>` },
+  street: { spots: [['sun', 830, 20, 120, 120], ['cloud', 40, 20, 180, 120], ['plane', 370, 30, 210, 150], ['house', 30, 200, 230, 230], ['tree', 290, 240, 170, 190], ['lights', 820, 220, 120, 200], ['car', 50, 450, 220, 160], ['bus', 340, 380, 280, 220], ['truck', 660, 400, 250, 200]],
+    bg: () => `<rect width="1000" height="640" fill="#bde9ff"/>
+      ${[[0, 150, 150, '#ffd8a8'], [480, 190, 130, '#d0bfff'], [610, 130, 120, '#b2f2bb'], [900, 170, 100, '#ffc9c9']].map(([x, y, w, c]) => { let s = `<rect x="${x}" y="${y}" width="${w}" height="${430 - y}" fill="${c}" stroke="${pO}" stroke-width="4"/>`; for (let yy = y + 20; yy < 380; yy += 50) for (let xx = x + 18; xx < x + w - 30; xx += 40) s += `<rect x="${xx}" y="${yy}" width="22" height="26" rx="3" fill="#fff" stroke="${pO}" stroke-width="3"/>`; return s; }).join('')}
+      <rect x="-5" y="410" width="1010" height="42" fill="#ced4da" stroke="${pO}" stroke-width="4"/><rect x="-5" y="450" width="1010" height="200" fill="#5c5f66" stroke="${pO}" stroke-width="4"/>
+      ${[0, 1, 2, 3, 4, 5].map(i => `<rect x="${30 + i * 170}" y="540" width="90" height="12" rx="6" fill="#fff"/>`).join('')}` }
+};
+const scIt = id => Object.assign({ key: (SC_CAT[id] || 'things') + ':' + id, cat: SC_CAT[id] || 'things' }, L.pi.thing(id));
+const scArt = id => (PIS[id] || PIS.sun)();
+function startScene(g) {
+  const R = cwBegin('scene', g), spec = SC_LV[Math.min(R.lv, SC_LV.length - 1)];
+  const names = Object.keys(SC_SCENES), first = !CWS.rounds.scene;
+  SC.scene = first ? 'sea' : pick(names.filter(n => n !== SC.last)); SC.last = SC.scene; SC.spec = spec;
+  const all = SC_SCENES[SC.scene].spots, miss = new Set(shuffle(all.map(s => s[0])).slice(0, 5));
+  SC.spots = all.map(([id, x, y, w, h]) => ({ id, x, y, w, h, miss: miss.has(id), done: !miss.has(id) }));
+  SC.queue = shuffle(SC.spots.filter(s => s.miss).map(s => ({ id: s.id, spot: s, tries: 0 }))); SC.t = null;
+  const A = piArea('scene ' + SC.scene);
+  A.innerHTML = `<div class="pitray wood" id="sctray"></div><svg class="piscn" viewBox="0 0 ${SC_VW} ${SC_VH}" xmlns="http://www.w3.org/2000/svg"><defs><filter id="pisil" x="-5%" y="-5%" width="110%" height="110%"><feFlood flood-color="#1b3a57" flood-opacity=".42"/><feComposite in2="SourceAlpha" operator="in"/></filter><clipPath id="scclip"><rect width="${SC_VW}" height="${SC_VH}" rx="24"/></clipPath></defs><g clip-path="url(#scclip)">${SC_SCENES[SC.scene].bg()}
+    ${SC.spots.map(s => `<g class="scs" data-id="${s.id}"><g class="sil" filter="url(#pisil)" ${s.miss ? '' : 'style="display:none"'}>${pNest(scArt(s.id), s.x, s.y, s.w, s.h)}</g><g class="real"${s.miss ? ' style="display:none"' : ''}><g class="scobj" style="animation-delay:${(-Math.random() * 2).toFixed(2)}s">${pNest(scArt(s.id), s.x, s.y, s.w, s.h)}</g></g></g>`).join('')}</g></svg>`;
+  SC.svg = A.querySelector('svg.piscn');
+  resizeFn = () => { if (mode === 'scene') scLayout(); };
+  say(L.pi.scene.hello(SC.scene));
+  if (spec.free) { scLayout(); SC.ask = L.pi.scene.free; repeatFn = () => say(SC.ask); cwIdle(g, () => scNudge(g)); }
+  else scItem(g);
+}
+function scShown() { if (SC.spec.free) return SC.queue; const t = SC.queue.find(q => q === SC.t); const rest = SC.queue.filter(q => q !== t); return t ? [t, ...rest].slice(0, SC.spec.n) : rest; }
+function scLayout() {
+  const A = $('#piarea'); if (!A || !SC.svg) return; const g = scene;
+  const S = piSplit(A, 0.24, 120, 270), tr = $('#sctray'), m = 8;
+  Object.assign(tr.style, { left: S.tray.x + m + 'px', top: S.tray.y + m + 'px', width: S.tray.w - 2 * m + 'px', height: S.tray.h - 2 * m + 'px' });
+  SC.map = piPlaceSvg(SC.svg, S.scene, SC_VW, SC_VH, 6);
+  let list = scShown(); const T = { x: S.tray.x + m + 4, y: S.tray.y + m + 4, w: S.tray.w - 2 * m - 8, h: S.tray.h - 2 * m - 8 }, G = piGrid(T, list.length, 160);
+  // prompted mode: the asked picture always stays visible in the tray
+  if (!SC.spec.free && SC.t && list.indexOf(SC.t) >= G.k) list = [SC.t, ...list.filter(q => q !== SC.t)];
+  const order = SC.spec.free ? list : (SC.ord && SC.ord.length === list.length ? SC.ord : (SC.ord = shuffle(list.slice(0, G.k)).concat(list.slice(G.k))));
+  SC.queue.forEach(p => { if (p.el && !order.slice(0, G.k).includes(p)) p.el.classList.add('gone'); });
+  order.slice(0, G.k).forEach((p, i) => {
+    if (!p.el) { p.el = piPiece(A, scArt(p.id), G.P); p.el.dataset.id = p.id; anim(p.el, 'pipop'); piDrag(p.el, A, { tap: () => scTap(p), drop: (el, pt) => scDrop(g, p, pt) }); }
+    p.el.classList.remove('gone'); piSize(p.el, G.P); p.el._hx = G.pts[i].x; p.el._hy = G.pts[i].y; if (!p.el.classList.contains('pidrag')) piSet(p.el, p.el._hx, p.el._hy);
+  });
+}
+const scRect = s => SC.map.rect(s.x, s.y, s.w, s.h);
+function scTap(p) { anim(p.el.firstElementChild, 'cwbnc'); SFX.pop(); stopSpeech(); say(cap(scIt(p.id).a) + '!'); cwIdle(scene, () => scNudge(scene)); }
+function scHint(s) { const e = SC.svg.querySelector(`.scs[data-id="${s.id}"] .sil`); if (!e) return; e.style.opacity = '.35'; setTimeout(() => { e.style.opacity = ''; }, 500); setTimeout(() => { e.style.opacity = '.35'; }, 1000); setTimeout(() => { e.style.opacity = ''; }, 1500); }
+function scNudge(g) {
+  const R = CW.R; if (!R || R.busy || g !== scene) return; stopSpeech(); say(SC.ask);
+  const p = SC.spec.free ? SC.queue.find(q => q.el && !q.el.classList.contains('gone')) : SC.t; if (p && p.el) { anim(p.el, 'pihint'); scHint(p.spot); }
+  cwIdle(g, () => scNudge(g), 12000);
+}
+function scItem(g) {
+  const R = CW.R; if (g !== scene) return; SC.t = pick(SC.queue); SC.ord = null; R.busy = false; R.tries = 0;
+  scLayout(); SC.ask = L.pi.scene.ask(scIt(SC.t.id)); repeatFn = () => say(SC.ask); say(SC.ask); cwIdle(g, () => scNudge(g));
+}
+async function scDrop(g, p, pt) {
+  const R = CW.R; if (!R || g !== scene) return;
+  if (R.busy) return piGlide(p.el, p.el._hx, p.el._hy);
+  let best = null, bd = 1e9; for (const s of SC.spots) { if (s.done) continue; const d = piDist(pt, piCenter(scRect(s))); if (d < bd) { bd = d; best = s; } }
+  const own = scRect(p.spot), dOwn = piDist(pt, piCenter(own)), tol = Math.max(own.w, own.h) * 0.62 + 26;
+  const onScene = pt.x >= SC.map.x && pt.x <= SC.map.x + SC.map.w && pt.y >= SC.map.y && pt.y <= SC.map.y + SC.map.h;
+  if (!SC.spec.free && p !== SC.t && onScene) {
+    piMiss(R, SC.t, scIt(SC.t.id)); SFX.boop(); piHome(p.el); stopSpeech(); say(L.cw.oops + ' ' + L.pi.scene.that(scIt(p.id)) + ' ' + SC.ask);
+    if (SC.t.tries >= 2) { anim(SC.t.el, 'pihint'); scHint(SC.t.spot); } cwIdle(g, () => scNudge(g)); return;
+  }
+  if (dOwn <= tol && (best === p.spot || dOwn <= bd + 10)) return scPlace(g, p);
+  if (best && bd <= Math.max(scRect(best).w, scRect(best).h) * 0.55 + 20) {
+    piMiss(R, p, scIt(p.id)); SFX.boop(); piHome(p.el); stopSpeech(); say(L.pi.scene.not); if (p.tries >= 2) scHint(p.spot); cwIdle(g, () => scNudge(g)); return;
+  }
+  cwIdle(g, () => scNudge(g)); return piGlide(p.el, p.el._hx, p.el._hy);
+}
+async function scPlace(g, p) {
+  const R = CW.R, A = $('#piarea'); R.busy = true; p.el.dataset.lock = 1; cwStopIdle();
+  const r = scRect(p.spot); await piFlyTo(p.el, r, 300); if (g !== scene) return;
+  p.spot.done = true; const grp = SC.svg.querySelector(`.scs[data-id="${p.id}"]`); grp.querySelector('.sil').style.display = 'none'; grp.querySelector('.real').style.display = '';
+  p.el.remove(); p.el = null; SC.queue = SC.queue.filter(q => q !== p); SC.ord = null;
+  SFX.pop(); SFX.chime(); const c = piCenter(r); piSparkleAt(A, c.x, c.y, 14);
+  const it = scIt(p.id); piHit(R, p, it); stopSpeech();
+  const line = cap(it.a) + '!';
+  if (R.step >= R.total) { await say(line); return scFinish(g); }
+  if (SC.spec.free) { R.busy = false; scLayout(); say(line); cwIdle(g, () => scNudge(g)); return; }
+  await say(line + ' ' + cwYes()); if (g !== scene) return; scItem(g);
+}
+async function scFinish(g) {
+  if (g !== scene) return; SC.svg.classList.add('alive'); confetti(50); SFX.chime(); stopSpeech();
+  if (SC.scene === 'farm') playAnimal('cow'); else if (SC.scene === 'street') SFX.honk(); else SFX.splash();
+  await sleep(500); await say(L.pi.scene.done(SC.scene)); if (g === scene) { await sleep(300); cwEnd(g); }
+}
+
+/* ---------- c. Shopping Cart: "Put the apple in the cart!" + counting ---------- */
+const CA = { shelf: [], incart: [], t: null, need: 0, got: 0, ask: '', geo: null, used: new Set() };
+const CA_EASY = ['apple', 'banana', 'egg', 'cake', 'milk', 'orange', 'carrot', 'bread'];
+const CA_COUNT = ['apple', 'banana', 'carrot', 'egg', 'orange', 'pear', 'tomato', 'lemon', 'cake'];
+const CA_LV = [null, { k: 3, pool: CA_EASY }, { k: 4 }, { count: [2, 3] }, { k: 4, count: [2, 4], mix: 1 }, { count: [3, 5], two: 1 }, { count: [3, 6], two: 1 }];
+const CA_IN = [[105, 150], [160, 150], [215, 150], [262, 150], [132, 116], [188, 116], [242, 116], [110, 84], [165, 84], [220, 84], [262, 88], [190, 60]];
+const caIt = id => Object.assign({ key: 'food:' + id, cat: 'food' }, L.pi.foodIt(id));
+const caItN = (n, id) => Object.assign({ key: 'phr:' + n + '-' + id, cat: 'phrases' }, L.pi.foodN(n, id));
+const CART_BACK = `<svg viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg"><path d="M50 62 L310 62 L286 184 L76 184Z" fill="#ffe3e3" stroke="${pO}" stroke-width="6" stroke-linejoin="round"/></svg>`;
+const CART_FRONT = `<svg viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg"><g stroke="#ff595e" stroke-width="6" opacity=".9">${[90, 130, 170, 210, 250].map(x => `<path d="M${x + 6} 66 L${x + 12} 182"/>`).join('')}<path d="M58 100 L302 100 M66 140 L294 140"/></g>
+  <path d="M50 62 L310 62 L286 184 L76 184Z" fill="none" stroke="${pO}" stroke-width="7" stroke-linejoin="round"/><path d="M46 60 L314 60" stroke="#ff595e" stroke-width="12" stroke-linecap="round"/><path d="M46 60 L314 60" fill="none" stroke="${pO}" stroke-width="3" opacity=".6"/>
+  <path d="M10 34 L44 34 L82 214 L290 214" fill="none" stroke="${pO}" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 34 L44 34 L82 214 L290 214" fill="none" stroke="#adb5bd" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="2" y="26" width="30" height="16" rx="8" fill="#1e6fe5" stroke="${pO}" stroke-width="4"/>${pWheel(108, 246, 20)}${pWheel(264, 246, 20)}</svg>`;
+function startCart(g) {
+  const R = cwBegin('cart', g); CA.spec = CA_LV[Math.min(R.lv, CA_LV.length - 1)]; CA.incart = []; CA.shelf = []; CA.used = new Set();
+  const A = piArea('cart');
+  A.innerHTML = `<div class="pishelf" id="cashelf"></div><div class="picartb" id="cacb">${CART_BACK}</div><div class="picartf" id="cacf">${CART_FRONT}</div>`;
+  resizeFn = () => { if (mode === 'cart') caLayout(); };
+  say(L.pi.cart.hello); caItem(g);
+}
+function caGeo() {
+  const A = $('#piarea'), W = A.clientWidth, H = A.clientHeight, land = W >= H * 1.05;
+  const cartR = land ? { x: 6, y: H * 0.18, w: W * 0.4, h: H * 0.8 } : { x: W * 0.06, y: H * 0.56, w: W * 0.88, h: H * 0.43 };
+  const shelfR = land ? { x: W * 0.43, y: 8, w: W * 0.57 - 10, h: H - 16 } : { x: 8, y: 8, w: W - 16, h: H * 0.54 - 8 };
+  const cs = Math.min(cartR.w / 320, cartR.h / 280), cw = 320 * cs, ch = 280 * cs, cx = cartR.x + (cartR.w - cw) / 2, cy = cartR.y + (cartR.h - ch) / 2;
+  return { W, H, land, shelfR, cart: { x: cx, y: cy, w: cw, h: ch, s: cs } };
+}
+function caItem(g) {
+  const R = CW.R; if (g !== scene) return; if (R.step >= R.total) return caFinish(g);
+  const spec = CA.spec, G0 = caGeo(), cap = piGrid({ x: 0, y: 0, w: G0.shelfR.w - 16, h: G0.shelfR.h - 16 }, 12, 130).k;
+  CA.shelf.forEach(p => p.el && p.el.remove()); CA.shelf = []; R.tries = 0; R.busy = false; CA.got = 0;
+  const count = spec.count && (!spec.mix || R.step % 2 === 1);
+  let items = [];
+  if (!count) {
+    const pool = (spec.pool || Object.keys(PIF)).filter(id => !CA.used.has(id)), t = pick(pool.length ? pool : Object.keys(PIF)); CA.used.add(t);
+    items = [t, ...shuffle(Object.keys(PIF).filter(x => x !== t && (!spec.pool || spec.pool.includes(x)))).slice(0, Math.min(spec.k, cap) - 1)];
+    CA.t = { id: t, tries: 0 }; CA.need = 1; CA.ask = L.pi.cart.put(L.pi.foodIt(t));
+  } else {
+    const [a, b] = spec.count, n = Math.min(a + rnd(b - a + 1), cap - 2), pool = CA_COUNT.filter(id => !CA.used.has(id)), t = pick(pool.length ? pool : CA_COUNT); CA.used.add(t);
+    const extra = Math.min(cap - n - (spec.two ? 2 : 1), 2);
+    for (let i = 0; i < n + Math.max(1, extra); i++) items.push(t);
+    const room = cap - items.length, others = shuffle(Object.keys(PIF).filter(x => x !== t));
+    if (spec.two && room >= 2) { const o = pick(CA_COUNT.filter(x => x !== t)); for (let i = 0; i < Math.min(room - 1, n); i++) items.push(o); }
+    let add = 0; for (const o of others) { if (add >= 2 || items.length >= cap) break; if (!items.includes(o)) { items.push(o); add++; } }
+    CA.t = { id: t, tries: 0 }; CA.need = n; CA.ask = L.pi.cart.put(L.pi.foodN(n, t));
+  }
+  CA.shelf = shuffle(items).map((id, i) => ({ id, i, tries: 0 }));
+  caLayout(true);
+  const cnt = $('#cacount'); if (cnt) cnt.remove();
+  repeatFn = () => say(CA.ask); say(CA.ask); cwIdle(g, () => caNudge(g));
+}
+function caLayout(fresh) {
+  const A = $('#piarea'); if (!A) return; const g = scene, G = caGeo(); CA.geo = G;
+  const sh = $('#cashelf'); Object.assign(sh.style, { left: G.shelfR.x + 'px', top: G.shelfR.y + 'px', width: G.shelfR.w + 'px', height: G.shelfR.h + 'px' });
+  const T = { x: G.shelfR.x + 8, y: G.shelfR.y + 8, w: G.shelfR.w - 16, h: G.shelfR.h - 16 }, grid = piGrid(T, CA.shelf.length, 130);
+  // shelf planks under each row
+  const rows = [...new Set(grid.pts.map(p => Math.round(p.y)))];
+  sh.innerHTML = rows.map(y => `<i style="top:${(y - G.shelfR.y + grid.P - 6).toFixed(0)}px"></i>`).join('');
+  CA.shelf.forEach((p, i) => {
+    if (p.gone) return; const pt = grid.pts[i]; if (!pt) { if (p.el) p.el.classList.add('gone'); return; }
+    if (!p.el) { p.el = piPiece(A, PIF[p.id](), grid.P); p.el.dataset.id = p.id; if (fresh) anim(p.el, 'pipop'); piDrag(p.el, A, { tap: () => caTap(p), drop: (el, pt2) => caDrop(g, p, pt2) }); }
+    piSize(p.el, grid.P); p.el._hx = pt.x; p.el._hy = pt.y; if (!p.el.classList.contains('pidrag')) piSet(p.el, pt.x, pt.y);
+  });
+  for (const id of ['#cacb', '#cacf']) Object.assign($(id).style, { left: G.cart.x + 'px', top: G.cart.y + 'px', width: G.cart.w + 'px', height: G.cart.h + 'px' });
+  CA.incart.forEach((p, k) => { const r = caSlot(k); piSize(p.el, p.el._w); piSet(p.el, r.x + r.w / 2 - p.el._w / 2, r.y + r.h / 2 - p.el._h / 2, r.w / p.el._w); });
+  const cnt = $('#cacount'); if (cnt) caCountPos(cnt);
+}
+function caSlot(k) { const G = CA.geo, [x, y] = CA_IN[k % CA_IN.length], j = Math.floor(k / CA_IN.length) * 8, S = 74 * G.cart.s; return { x: G.cart.x + (x + j) * G.cart.s - S / 2, y: G.cart.y + (y - j) * G.cart.s - S / 2, w: S, h: S }; }
+function caCountPos(el) { const G = CA.geo; el.style.left = (G.cart.x + G.cart.w * 0.5) + 'px'; el.style.top = Math.max(4, G.cart.y - G.cart.h * 0.08) + 'px'; el.style.translate = '-50% 0'; }
+function caTap(p) { anim(p.el.firstElementChild, 'cwbnc'); SFX.pop(); stopSpeech(); say(cap(caIt(p.id).a) + '!'); cwIdle(scene, () => caNudge(scene)); }
+function caNudge(g) { const R = CW.R; if (!R || R.busy || g !== scene) return; stopSpeech(); say(CA.ask); const p = CA.shelf.find(q => !q.gone && q.id === CA.t.id && q.el); if (p) anim(p.el, 'pihint'); cwIdle(g, () => caNudge(g), 12000); }
+async function caDrop(g, p, pt) {
+  const R = CW.R; if (!R || g !== scene) return;
+  const G = CA.geo, c = G.cart, inCart = pt.x > c.x + c.w * 0.05 && pt.x < c.x + c.w * 1.0 && pt.y > c.y - c.h * 0.2 && pt.y < c.y + c.h * 0.8;
+  if (R.busy || !inCart) { cwIdle(g, () => caNudge(g)); return piGlide(p.el, p.el._hx, p.el._hy); }
+  if (p.id !== CA.t.id) {
+    piMiss(R, CA.t, CA.need > 1 ? caItN(CA.need, CA.t.id) : caIt(CA.t.id)); SFX.boop(); piHome(p.el); stopSpeech();
+    say(L.cw.oops + ' ' + L.pi.cart.that(caIt(p.id)) + ' ' + CA.ask); if (CA.t.tries >= 2) caNudge(g); else cwIdle(g, () => caNudge(g)); return;
+  }
+  // into the cart
+  p.gone = true; p.el.dataset.lock = 1; p.el.style.pointerEvents = 'none';
+  const k = CA.incart.length, r = caSlot(k); CA.incart.push(p);
+  piGlide(p.el, r.x + r.w / 2 - p.el._w / 2, r.y + r.h / 2 - p.el._h / 2, r.w / p.el._w, 320).then(() => { if (p.el) p.el.style.zIndex = 3; });
+  SFX.clink(); CA.got++; cwStopIdle();
+  if (CA.need > 1) {
+    let cnt = $('#cacount'); if (!cnt) { cnt = document.createElement('div'); cnt.id = 'cacount'; cnt.className = 'picount'; $('#piarea').appendChild(cnt); caCountPos(cnt); }
+    cnt.textContent = CA.got; anim(cnt, 'cwbnc'); SFX.count(CA.got);
+  }
+  if (CA.got < CA.need) { stopSpeech(); say(cap(L.pi.num(CA.got)) + '!'); cwIdle(g, () => caNudge(g)); return; }
+  R.busy = true; const it = CA.need > 1 ? caItN(CA.need, CA.t.id) : caIt(CA.t.id); piHit(R, CA.t, it);
+  await sleep(250); if (g !== scene) return; cheer(); stopSpeech();
+  await say((CA.need > 1 ? cap(L.pi.num(CA.got)) + '! ' : '') + L.pi.cart.yes(it)); if (g !== scene) return;
+  caItem(g);
+}
+async function caFinish(g) {
+  if (g !== scene) return; CW.R.busy = true; const G = CA.geo, dx = G.W + 40;
+  CA.shelf.forEach(p => p.el && !p.gone && p.el.classList.add('gone'));
+  ['#cacb', '#cacf'].forEach(id => { const e = $(id); e.style.transition = 'transform 1.4s ease-in'; e.style.transform = `translateX(${dx}px)`; });
+  CA.incart.forEach(p => piGlide(p.el, p.el._x + dx, p.el._y, p.el._s, 1400));
+  SFX.chaching(); setTimeout(() => SFX.vroom(), 300); stopSpeech(); await say(L.pi.cart.done); if (g === scene) { await sleep(300); cwEnd(g); }
+}
+
+/* ---------- d. Dress Up: "Put on the red T-shirt!" ---------- */
+const DS = { steps: [], opts: [], t: null, svg: null, map: null, ask: '' };
+const DS_TYPES = ['hat', 'tshirt', 'trousers', 'shoes', 'socks', 'jacket'];
+const DS_COLS = ['red', 'blue', 'yellow', 'green', 'orange', 'pink', 'purple'];
+const DS_LV = [null, { n: 2 }, { n: 3 }, { n: 3, col: 1 }, { n: 4, col: 1 }, { n: 4, col: 1, gl: 1 }, { n: 4, col: 1, gl: 1 }];
+const dsIt = p => Object.assign({ key: p.say ? 'phr:' + p.c + '-' + p.k : 'clothes:' + p.k, cat: p.say ? 'phrases' : 'clothes' }, L.pi.cloth(p.k, p.say ? p.c : null));
+function startDress(g) {
+  const R = cwBegin('dress', g), spec = DS.spec = DS_LV[Math.min(R.lv, DS_LV.length - 1)];
+  let st = shuffle(DS_TYPES.concat(spec.gl ? ['glasses'] : [])).slice(0, 5);
+  const sw = (a, b) => { const i = st.indexOf(a), j = st.indexOf(b); if (i >= 0 && j >= 0 && i > j) { st[i] = b; st[j] = a; } };
+  sw('socks', 'shoes'); sw('tshirt', 'jacket'); DS.steps = st; DS.opts = [];
+  const A = piArea('dress'); A.innerHTML = `<div class="pitray ward" id="dstray"></div>` + piKidSVG().replace('<svg', '<svg class="piscn pikidsvg"');
+  DS.svg = A.querySelector('svg.piscn');
+  resizeFn = () => { if (mode === 'dress') dsLayout(); };
+  say(L.pi.dress.hello); dsItem(g);
+}
+function dsItem(g) {
+  const R = CW.R; if (g !== scene) return; if (R.step >= R.total) return dsFinish(g);
+  const spec = DS.spec, k = DS.steps[R.step]; DS.opts.forEach(p => p.el && p.el.remove()); R.tries = 0; R.busy = false;
+  const c = pick(DS_COLS), t = { k, c, hex: hexOf(c), say: !!spec.col, tries: 0 }, opts = [t];
+  const otherTypes = shuffle(DS_TYPES.concat(spec.gl ? ['glasses'] : []).filter(x => x !== k));
+  if (spec.col) {
+    const oc = pick(DS_COLS.filter(x => x !== c && !confusable(x, c))); opts.push({ k, c: oc, hex: hexOf(oc), say: true });
+    opts.push({ k: otherTypes[0], c, hex: hexOf(c), say: true });
+    for (let i = 1; opts.length < spec.n && i < otherTypes.length; i++) { const c2 = pick(DS_COLS.filter(x => x !== c)); opts.push({ k: otherTypes[i], c: c2, hex: hexOf(c2), say: true }); }
+  } else for (const o of otherTypes) { if (opts.length >= spec.n) break; const c2 = pick(DS_COLS); opts.push({ k: o, c: c2, hex: hexOf(c2), say: false }); }
+  DS.t = t; DS.opts = shuffle(opts); dsLayout();
+  DS.ask = L.pi.dress.put(L.pi.cloth(k, spec.col ? c : null)); repeatFn = () => say(DS.ask); say(DS.ask); cwIdle(g, () => dsNudge(g));
+}
+function dsLayout() {
+  const A = $('#piarea'); if (!A || !DS.svg) return; const g = scene, S = piSplitN(A, 0.34, 130, 330, DS.opts.length, 100), tr = $('#dstray'), m = 8;
+  Object.assign(tr.style, { left: S.tray.x + m + 'px', top: S.tray.y + m + 'px', width: S.tray.w - 2 * m + 'px', height: S.tray.h - 2 * m + 'px' });
+  DS.map = piPlaceSvg(DS.svg, S.scene, 200, 400, 8);
+  const T = { x: S.tray.x + m + 6, y: S.tray.y + m + (S.land ? 20 : 14), w: S.tray.w - 2 * m - 12, h: S.tray.h - 2 * m - (S.land ? 26 : 20) }, G = piGridAll(T, DS.opts.length, 170);
+  DS.opts.forEach((p, i) => {
+    if (p.placed) return; const pt = G.pts[i]; if (!pt) { if (p.el) p.el.classList.add('gone'); return; }
+    if (!p.el) { p.el = piPiece(A, piClothSVG(p.k, p.hex), G.P); p.el.dataset.k = p.k; p.el.dataset.c = p.c; anim(p.el, 'pipop'); piDrag(p.el, A, { tap: () => dsTap(p), drop: (el, q) => dsDrop(g, p, q) }); }
+    p.el.classList.remove('gone'); piSize(p.el, G.P); p.el._hx = pt.x; p.el._hy = pt.y; if (!p.el.classList.contains('pidrag')) piSet(p.el, pt.x, pt.y);
+  });
+}
+function dsTap(p) { anim(p.el.firstElementChild, 'cwbnc'); SFX.pop(); stopSpeech(); const it = L.pi.cloth(p.k, DS.spec.col ? p.c : null); say(cap(it.a) + '!'); cwIdle(scene, () => dsNudge(scene)); }
+function dsNudge(g) { const R = CW.R; if (!R || R.busy || g !== scene) return; stopSpeech(); say(DS.ask); if (DS.t.el) anim(DS.t.el, 'pihint'); cwIdle(g, () => dsNudge(g), 12000); }
+async function dsDrop(g, p, pt) {
+  const R = CW.R; if (!R || g !== scene) return;
+  const r = DS.map.rect(-10, -10, 220, 410), onKid = pt.x > r.x && pt.x < r.x + r.w && pt.y > r.y && pt.y < r.y + r.h;
+  if (R.busy || !onKid) { cwIdle(g, () => dsNudge(g)); return piGlide(p.el, p.el._hx, p.el._hy); }
+  if (p !== DS.t) {
+    piMiss(R, DS.t, dsIt(DS.t)); SFX.boop(); piHome(p.el); stopSpeech();
+    say(L.cw.oops + ' ' + L.pi.dress.that(L.pi.cloth(p.k, DS.spec.col ? p.c : null)) + ' ' + DS.ask);
+    if (DS.t.tries >= 2) anim(DS.t.el, 'pihint'); cwIdle(g, () => dsNudge(g)); return;
+  }
+  R.busy = true; p.el.dataset.lock = 1; cwStopIdle();
+  const b = PICL[p.k].bb; await piFlyTo(p.el, DS.map.rect(b[0], b[1], b[2], b[3]), 320); if (g !== scene) return;
+  DS.svg.querySelector(`.clslot[data-k="${p.k}"]`).innerHTML = PICL[p.k].d(p.hex); p.placed = true; p.el.remove(); p.el = null;
+  SFX.whoosh(); SFX.chime(); const c = piCenter(DS.map.rect(b[0], b[1], b[2], b[3])); piSparkleAt($('#piarea'), c.x, c.y, 12);
+  const it = dsIt(p); piHit(R, p, it); stopSpeech();
+  await say(L.pi.dress.yes(L.pi.cloth(p.k, DS.spec.col ? p.c : null))); if (g !== scene) return;
+  dsItem(g);
+}
+async function dsFinish(g) {
+  if (g !== scene) return; CW.R.busy = true; DS.opts.forEach(p => p.el && p.el.classList.add('gone'));
+  DS.svg.classList.add('pikid', 'jump'); DS.svg.style.position = 'absolute'; confetti(50); SFX.chime(); stopSpeech();
+  await say(L.pi.dress.done); if (g === scene) { await sleep(300); cwEnd(g); }
+}
+
+/* ---------- e. Fish Bowl: "Put four fish in the bowl!" / "How many fish?" ---------- */
+const FB = { need: 0, got: 0, kind: 'put', inbowl: [], pond: [], opts: [], ask: '', geo: null, last: 0 };
+const FB_LV = [null, { put: [1, 3] }, { put: [2, 5] }, { put: [3, 6], how: [1, 4] }, { put: [4, 8], how: [2, 6] }, { put: [5, 10], how: [3, 8] }, { put: [6, 10], how: [5, 10] }];
+const FB_COLS = [['#ff924c', '#ffca3a'], ['#f15bb5', '#ffca3a'], ['#4dabf7', '#d0ebff'], ['#8ac926', '#ffe066'], ['#9b5de5', '#f783ac'], ['#ff595e', '#ffd43b']];
+const FB_BP = 'M112 40 L288 40 L282 66 Q382 140 362 262 Q342 384 200 396 Q58 384 38 262 Q18 140 118 66Z';
+const BOWL_BACK = `<svg viewBox="0 0 400 420" xmlns="http://www.w3.org/2000/svg"><ellipse cx="200" cy="404" rx="150" ry="14" fill="#000" opacity=".15"/><path d="${FB_BP}" fill="#e3fafc" opacity=".9"/>
+  <path d="M42 160 Q200 138 358 160 Q372 230 362 262 Q342 384 200 396 Q58 384 38 262 Q30 210 42 160Z" fill="#4dc4e8"/><path d="M42 160 Q200 138 358 160" fill="none" stroke="#fff" stroke-width="6" opacity=".7"/>
+  <path d="M300 360 Q290 300 304 250 M316 360 Q322 310 336 280 M288 362 Q270 320 276 290" fill="none" stroke="#2f9e44" stroke-width="12" stroke-linecap="round"/>
+  <path d="M66 344 Q200 322 334 344 Q306 390 200 396 Q94 390 66 344Z" fill="#ffd8a8" stroke="${pO}" stroke-width="4"/><g fill="#e8590c" opacity=".5"><circle cx="120" cy="360" r="5"/><circle cx="180" cy="372" r="5"/><circle cx="250" cy="364" r="5"/><circle cx="210" cy="350" r="4"/></g></svg>`;
+const BOWL_FRONT = `<svg viewBox="0 0 400 420" xmlns="http://www.w3.org/2000/svg"><path d="${FB_BP}" fill="none" stroke="${pO}" stroke-width="9" stroke-linejoin="round"/>
+  <path d="M86 150 Q62 220 84 300" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" opacity=".75"/><path d="M104 34 H296" stroke="${pO}" stroke-width="16" stroke-linecap="round"/><path d="M104 34 H296" stroke="#c5f6fa" stroke-width="8" stroke-linecap="round"/></svg>`;
+const fbRange = ([a, b]) => a + rnd(b - a + 1);
+function startFish(g) {
+  const R = cwBegin('fish', g); FB.spec = FB_LV[Math.min(R.lv, FB_LV.length - 1)]; FB.inbowl = []; FB.pond = []; FB.opts = []; FB.last = 0;
+  const A = piArea('fish');
+  A.innerHTML = `<div class="pitray pond" id="fbtray"></div><div class="pibowl" id="fbback">${BOWL_BACK}</div><div class="pibowl pibowlfront" id="fbfront">${BOWL_FRONT}</div><div class="pinb" id="fbnb"></div><div class="pitgt" id="fbtgt"></div>`;
+  resizeFn = () => { if (mode === 'fish') fbLayout(); };
+  say(L.pi.fish.hello); fbItem(g);
+}
+function fbItem(g) {
+  const R = CW.R; if (g !== scene) return; if (R.step >= R.total) return fbFinish(g);
+  FB.inbowl.forEach(f => f.el.remove()); FB.inbowl = []; FB.opts.forEach(o => o.el && o.el.remove()); FB.opts = []; FB.got = 0; R.tries = 0; R.busy = false;
+  const spec = FB.spec; FB.kind = spec.how && R.step % 2 === 1 ? 'how' : 'put';
+  let n; for (let k = 0; k < 10; k++) { n = fbRange(FB.kind === 'put' ? spec.put : spec.how); if (n !== FB.last) break; } FB.last = n; FB.need = n; FB.t = { n, tries: 0 };
+  if (FB.kind === 'how') {
+    for (let i = 0; i < n; i++) fbAddBowl();
+    const c = new Set([n]); while (c.size < 3) { const d = n + pick([-2, -1, 1, 2]); if (d >= 1 && d <= 10) c.add(d); }
+    FB.opts = shuffle([...c]).map(v => ({ v })); FB.ask = L.pi.fish.how;
+  } else FB.ask = L.pi.fish.put(n);
+  fbLayout(true); fbBlocks(FB.kind === 'how' ? 0 : 0);
+  const t = $('#fbtgt'); t.textContent = FB.kind === 'how' ? '?' : n; anim(t, 'pipop');
+  repeatFn = () => say(FB.ask); say(FB.ask); cwIdle(g, () => fbNudge(g));
+}
+function fbAddBowl() {
+  const k = FB.inbowl.length, cols = FB_COLS[k % FB_COLS.length], el = document.createElement('div');
+  el.className = 'pibf' + (Math.random() < 0.5 ? ' flip' : ''); el.innerHTML = `<div style="animation-delay:${(-Math.random() * 3).toFixed(2)}s;animation-duration:${(2.4 + Math.random() * 1.5).toFixed(2)}s">${pFishSVG(cols[0], cols[1])}</div>`;
+  const cx = 110 + (k % 4) * 60 + (Math.floor(k / 4) % 2) * 26 + Math.random() * 10, cy = 300 - Math.floor(k / 4) * 52 - Math.random() * 10; // bowl units
+  const f = { el, bx: cx, by: cy }; FB.inbowl.push(f); $('#piarea').appendChild(el); fbPlaceBowlFish(f); return f;
+}
+function fbPlaceBowlFish(f) { const G = FB.geo; if (!G) return; const S = 66 * G.bs; f.el.style.width = f.el.style.height = S + 'px'; f.el.style.transform = `translate3d(${G.bx + f.bx * G.bs - S / 2}px,${G.by + f.by * G.bs - S / 2}px,0)`; }
+function fbBlocks(n) { const el = $('#fbnb'); el.innerHTML = n ? friendSVG([{ n, col: BCOL[((n - 1) % 10) + 1] }], Math.max(4, FB.need, n)) : ''; if (n) anim(el.firstElementChild, 'cwbnc'); }
+function fbLayout(fresh) {
+  const A = $('#piarea'); if (!A) return; const g = scene, S = piSplitN(A, 0.33, 140, 340, FB.kind === 'how' ? FB.opts.length : 2), m = 8;
+  Object.assign($('#fbtray').style, { left: S.tray.x + m + 'px', top: S.tray.y + m + 'px', width: S.tray.w - 2 * m + 'px', height: S.tray.h - 2 * m + 'px' });
+  const nbw = S.scene.w * 0.24, BR = { x: S.scene.x + nbw, y: S.scene.y + 4, w: S.scene.w - nbw - 4, h: S.scene.h - 8 };
+  const bs = Math.min(BR.w / 400, BR.h / 420), bw = 400 * bs, bh = 420 * bs, bx = BR.x + (BR.w - bw) / 2, by = BR.y + (BR.h - bh) / 2;
+  FB.geo = { bs, bx, by, bw, bh };
+  for (const id of ['#fbback', '#fbfront']) Object.assign($(id).style, { left: bx + 'px', top: by + 'px', width: bw + 'px', height: bh + 'px' });
+  Object.assign($('#fbnb').style, { left: S.scene.x + 6 + 'px', top: S.scene.y + S.scene.h * 0.06 + 'px', width: nbw - 8 + 'px', height: S.scene.h * 0.9 + 'px' });
+  const ts = Math.max(64, Math.min(bw * 0.24, 130)), t = $('#fbtgt'); Object.assign(t.style, { left: bx + 'px', top: by + 'px', width: ts + 'px', height: ts + 'px', fontSize: ts * 0.6 + 'px' });
+  FB.inbowl.forEach(fbPlaceBowlFish);
+  const T = { x: S.tray.x + m + 6, y: S.tray.y + m + 6, w: S.tray.w - 2 * m - 12, h: S.tray.h - 2 * m - 12 };
+  if (FB.kind === 'how') {
+    FB.pond.forEach(p => p.el && p.el.classList.add('gone'));
+    const G = piGridAll(T, FB.opts.length, 150);
+    FB.opts.forEach((o, i) => {
+      if (!o.el) { o.el = document.createElement('button'); o.el.className = 'pinum'; o.el.textContent = o.v; o.el.style.background = BCOL[((o.v - 1) % 10) + 1]; A.appendChild(o.el); anim(o.el, 'pipop'); tap(o.el, () => fbAnswer(g, o)); }
+      Object.assign(o.el.style, { width: G.P + 'px', height: G.P + 'px', fontSize: G.P * 0.62 + 'px', translate: `${G.pts[i].x}px ${G.pts[i].y}px`, left: 0, top: 0 });
+    });
+    return;
+  }
+  const G = piGrid(T, 6, 130);
+  for (let i = 0; i < G.k; i++) { if (!FB.pond[i]) FB.pond[i] = { i }; const p = FB.pond[i]; if (!p.el) fbSpawn(g, p, G.P, !fresh); p.el.classList.remove('gone'); piSize(p.el, G.P); p.el._hx = G.pts[i].x; p.el._hy = G.pts[i].y; if (!p.el.classList.contains('pidrag')) piSet(p.el, p.el._hx, p.el._hy); }
+  for (let i = G.k; i < FB.pond.length; i++) if (FB.pond[i] && FB.pond[i].el) FB.pond[i].el.classList.add('gone');
+}
+function fbSpawn(g, p, P, pop) {
+  const A = $('#piarea'), c = pick(FB_COLS); p.c = c; p.el = piPiece(A, `<div class="pin" style="animation-delay:${(-Math.random() * 2).toFixed(2)}s">${pFishSVG(c[0], c[1])}</div>`, P, 'swim'); p.el.dataset.fish = 1;
+  if (pop) anim(p.el, 'pipop');
+  piDrag(p.el, A, { tap: () => { SFX.plop(); anim(p.el.firstElementChild, 'cwbnc'); stopSpeech(); say('Fish!'); cwIdle(scene, () => fbNudge(scene)); }, drop: (el, pt) => fbDrop(g, p, pt) });
+}
+function fbNudge(g) { const R = CW.R; if (!R || R.busy || g !== scene) return; stopSpeech(); say(FB.ask); if (FB.kind === 'put') { const p = FB.pond.find(q => q.el && !q.el.classList.contains('gone')); if (p) anim(p.el, 'pihint'); } cwIdle(g, () => fbNudge(g), 12000); }
+async function fbDrop(g, p, pt) {
+  const R = CW.R, G = FB.geo; if (!R || g !== scene) return;
+  const inBowl = pt.x > G.bx + G.bw * 0.05 && pt.x < G.bx + G.bw * 0.95 && pt.y > G.by && pt.y < G.by + G.bh;
+  if (R.busy || FB.kind !== 'put' || !inBowl) { cwIdle(g, () => fbNudge(g)); return piGlide(p.el, p.el._hx, p.el._hy); }
+  const el = p.el; p.el = null; el.dataset.lock = 1; FB.got++; cwStopIdle();
+  const f = { el: null, bx: 0, by: 0 }, k = FB.inbowl.length, bx = 110 + (k % 4) * 60 + (Math.floor(k / 4) % 2) * 26, by = 300 - Math.floor(k / 4) * 52, S = 66 * G.bs;
+  piGlide(el, G.bx + bx * G.bs - el._w / 2, G.by + by * G.bs - el._h / 2, S / el._w, 300).then(() => { el.remove(); fbAddBowl(); });
+  SFX.plop(); SFX.count(FB.got); fbBlocks(FB.got);
+  setTimeout(() => { if (g === scene && FB.kind === 'put') fbLayout(false); }, 380); // a new fish swims into the pond
+  if (FB.got < FB.need) { stopSpeech(); say(cap(L.pi.num(FB.got)) + '!'); cwIdle(g, () => fbNudge(g)); return; }
+  R.busy = true; piHit(R, FB.t, { key: 'numbers:' + FB.need, cat: 'numbers', a: L.pi.num(FB.need), the: L.pi.num(FB.need) });
+  stopSpeech(); await say(cap(L.pi.num(FB.got)) + '!'); if (g !== scene) return; cheer(); await sleep(200);
+  await say(L.pi.fish.got(FB.need)); if (g !== scene) return; await sleep(200); fbItem(g);
+}
+async function fbCount(g, n) {
+  for (let i = 0; i < n; i++) { if (g !== scene) return false; const f = FB.inbowl[i]; if (f) f.el.classList.add('lit'); fbBlocks(i + 1); SFX.count(i + 1); await say(cap(L.pi.num(i + 1)) + (i === n - 1 ? '!' : ',')); }
+  return true;
+}
+async function fbAnswer(g, o) {
+  const R = CW.R; if (!R || R.busy || g !== scene) return; R.busy = true; cwStopIdle(); anim(o.el, 'cwbnc'); stopSpeech();
+  const n = FB.need, it = { key: 'numbers:' + n, cat: 'numbers', a: L.pi.num(n), the: L.pi.num(n) };
+  if (o.v !== n) {
+    piMiss(R, FB.t, it); SFX.boop(); anim(o.el, 'cwwig');
+    await say(L.cw.oops + ' ' + L.pi.fish.lets); if (!(await fbCount(g, n)) || g !== scene) return;
+    FB.inbowl.forEach(f => f.el.classList.remove('lit')); fbBlocks(0); R.busy = false; say(L.pi.fish.how); cwIdle(g, () => fbNudge(g)); return;
+  }
+  piHit(R, FB.t, it); o.el.style.boxShadow = '0 0 0 1.4vmin #fff700'; SFX.pop();
+  if (!(await fbCount(g, n))) return; cheer(); $('#fbtgt').textContent = n;
+  await say(L.pi.fish.got(n)); if (g !== scene) return; await sleep(200); fbItem(g);
+}
+async function fbFinish(g) { if (g !== scene) return; CW.R.busy = true; confetti(50); SFX.chime(); stopSpeech(); await say(cwYes()); if (g === scene) cwEnd(g); }
+
+/* ---------- f. Treasure Chest: find the letter, the chest opens ---------- */
+const CH = { chests: [], t: null, ask: '', key: null };
+const CH_LV = [null, { n: 2, set: 'ABCDST' }, { n: 3, set: 'ABCDEFGHMPST' }, { n: 3 }, { n: 4 }, { n: 4, lower: 1 }, { n: 4, lower: 1, hard: 1 }];
+const CH_CONF = { B: 'D', D: 'B', P: 'Q', Q: 'P', M: 'W', W: 'M', N: 'M', E: 'F', F: 'E', C: 'G', G: 'C', U: 'V', V: 'U', I: 'L', L: 'I', O: 'Q' };
+const CH_LID = `<svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg"><path d="M8 78 Q8 6 100 6 Q192 6 192 78Z" fill="#c2803f" stroke="${pO}" stroke-width="6" stroke-linejoin="round"/><path d="M46 12 Q42 40 44 78 M156 12 Q160 40 158 78" stroke="#ffca3a" stroke-width="16"/><path d="M8 78 Q8 6 100 6 Q192 6 192 78Z" fill="none" stroke="${pO}" stroke-width="6" stroke-linejoin="round"/><path d="M30 34 Q100 16 170 34" fill="none" stroke="#fff" stroke-width="6" opacity=".35" stroke-linecap="round"/></svg>`;
+const chBody = txt => `<svg viewBox="0 0 200 132" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="2" width="184" height="124" rx="8" fill="#a0673a" stroke="${pO}" stroke-width="6"/><rect x="36" y="2" width="18" height="124" fill="#ffca3a" stroke="${pO}" stroke-width="3"/><rect x="146" y="2" width="18" height="124" fill="#ffca3a" stroke="${pO}" stroke-width="3"/><rect x="62" y="14" width="76" height="92" rx="18" fill="#fff3bf" stroke="${pO}" stroke-width="5"/><text x="100" y="84" text-anchor="middle" font-size="${txt.length > 1 ? 50 : 66}" font-weight="900" font-family="Arial Rounded MT Bold,Arial,sans-serif" fill="#1864ab">${txt}</text></svg>`;
+const CH_KEY = pSvg(`<circle cx="30" cy="30" r="20" fill="#ffd43b" stroke="${pO}" stroke-width="5"/><circle cx="30" cy="30" r="8" fill="#fff3bf" stroke="${pO}" stroke-width="4"/><path d="M44 44 L88 88 M70 70 L60 80 M80 80 L72 88" stroke="${pO}" stroke-width="14" stroke-linecap="round"/><path d="M44 44 L88 88 M70 70 L60 80 M80 80 L72 88" stroke="#ffd43b" stroke-width="7" stroke-linecap="round"/>`);
+function startChest(g) {
+  const R = cwBegin('chest', g); CH.spec = CH_LV[Math.min(R.lv, CH_LV.length - 1)]; CH.used = new Set();
+  const A = piArea('chest'); A.innerHTML = '';
+  CH.key = piPiece(A, CH_KEY, 100); CH.key.style.zIndex = 8;
+  piDrag(CH.key, A, { tap: () => { anim(CH.key.firstElementChild, 'cwbnc'); SFX.click(); stopSpeech(); say(CH.ask); }, drop: (el, pt) => chKeyDrop(g, pt) });
+  resizeFn = () => { if (mode === 'chest') chLayout(); };
+  say(L.pi.chest.hello); chItem(g);
+}
+function chItem(g) {
+  const R = CW.R; if (g !== scene) return; if (R.step >= R.total) return chFinish(g);
+  const spec = CH.spec, all = L.abc.letters, set = spec.set ? all.filter(l => spec.set.includes(l.ch)) : all;
+  const fresh = set.filter(l => !CH.used.has(l.ch)), t = pick(fresh.length ? fresh : set); CH.used.add(t.ch);
+  const opts = [t]; if (spec.hard && CH_CONF[t.ch]) opts.push(all.find(l => l.ch === CH_CONF[t.ch]));
+  for (const l of shuffle(set.length > spec.n + 2 ? set : all)) { if (opts.length >= spec.n) break; if (opts.includes(l) || (!spec.hard && (CH_CONF[t.ch] === l.ch || CH_CONF[l.ch] === t.ch))) continue; opts.push(l); }
+  CH.chests.forEach(c => c.el.remove());
+  const A = $('#piarea');
+  CH.chests = shuffle(opts).map(l => { const w = pick(l.words), el = document.createElement('div'); el.className = 'pichest'; el.dataset.ch = l.ch;
+    el.innerHTML = `<div class="tr"><span>${w[1]}</span></div><div class="cb">${chBody(spec.lower ? l.ch.toLowerCase() : l.show)}</div><div class="cl">${CH_LID}</div>`; A.appendChild(el); anim(el, 'pipop'); return { l, w, el }; });
+  CH.chests.forEach((c, i) => tap(c.el, () => chPick(g, i)));
+  CH.t = { l: t, tries: 0 }; R.tries = 0; R.busy = false; chLayout();
+  CH.ask = L.abc.findSay(t); repeatFn = () => say(CH.ask); say(CH.ask); cwIdle(g, () => chNudge(g));
+}
+function chLayout() {
+  const A = $('#piarea'); if (!A) return; const W = A.clientWidth, H = A.clientHeight, n = CH.chests.length, gap = 16;
+  const keyH = Math.round(piClamp(H * 0.24, 96, 170)); let cols = n; if ((W - gap * (n + 1)) / n < 130 || (W < H && n > 3)) cols = Math.ceil(n / 2);
+  const rows = Math.ceil(n / cols), zoneH = H - keyH, C = Math.floor(Math.min((W - gap * (cols + 1)) / cols, (zoneH - gap * (rows + 1)) / rows / 1.15, 280)), ch = C * 0.8;
+  CH.chests.forEach((c, i) => { const r = Math.floor(i / cols), inRow = Math.min(cols, n - r * cols), col = i % cols, gx = (W - inRow * C) / (inRow + 1), gy = (zoneH - rows * ch * 1.15) / (rows + 1);
+    const x = gx + col * (C + gx), y = gy + r * (ch * 1.15 + gy) + ch * 0.25; Object.assign(c.el.style, { left: x + 'px', top: y + 'px', width: C + 'px', height: ch + 'px' }); c.el.querySelector('.tr span').style.fontSize = C * 0.42 + 'px'; c.r = { x, y, w: C, h: ch }; });
+  const K = Math.max(96, Math.min(keyH - 10, 150)); piSize(CH.key, K); CH.key._hx = (W - K) / 2; CH.key._hy = H - K - 4; if (!CH.key.classList.contains('pidrag')) piSet(CH.key, CH.key._hx, CH.key._hy);
+}
+function chNudge(g) { const R = CW.R; if (!R || R.busy || g !== scene) return; stopSpeech(); say(CH.ask); anim(CH.key, 'pihint'); if (CH.t.tries >= 2) { const c = CH.chests.find(c => c.l === CH.t.l); if (c) anim(c.el, 'pihint'); } cwIdle(g, () => chNudge(g), 12000); }
+function chKeyDrop(g, pt) {
+  const i = CH.chests.findIndex(c => pt.x > c.r.x - 20 && pt.x < c.r.x + c.r.w + 20 && pt.y > c.r.y - 30 && pt.y < c.r.y + c.r.h + 20);
+  piGlide(CH.key, CH.key._hx, CH.key._hy); if (i >= 0) chPick(g, i); else cwIdle(g, () => chNudge(g));
+}
+async function chPick(g, i) {
+  const R = CW.R; if (!R || R.busy || g !== scene) return; const c = CH.chests[i], t = CH.t.l, it = { key: 'letters:' + t.ch, cat: 'letters', a: t.ch, the: t.ch };
+  cwStopIdle();
+  if (c.l !== t) { piMiss(R, CH.t, it); SFX.locked(); anim(c.el, 'cwwig'); stopSpeech(); say(L.pi.chest.that(c.l) + ' ' + CH.ask); if (CH.t.tries >= 2) { const k = CH.chests.find(q => q.l === t); anim(k.el, 'pihint'); } cwIdle(g, () => chNudge(g)); return; }
+  R.busy = true; SFX.creak(); c.el.classList.add('open'); piHit(R, CH.t, it);
+  await sleep(350); if (g !== scene) return; SFX.chime(); const r = c.r; piSparkleAt($('#piarea'), r.x + r.w / 2, r.y + r.h * 0.2, 16); confetti(20);
+  stopSpeech(); await say(L.abc.link(t, c.w[0])); if (g !== scene) return; await sleep(500); chItem(g);
+}
+async function chFinish(g) { if (g !== scene) return; CW.R.busy = true; confetti(60); SFX.chaching(); stopSpeech(); await say(L.pi.chest.treasure + ' ' + cwYes()); if (g === scene) cwEnd(g); }
+
+/* ---------- g. Animal Tree: tap the leaves, hear the real animal sound and its name ---------- */
+const TR = { spots: [], t: null, ask: '', mode: 'explore', map: null, svg: null, land: true };
+const TR_LV = [null, { m: 'explore' }, { m: 'find', n: 5 }, { m: 'who', n: 5 }, { m: 'find', n: 6 }, { m: 'who', n: 6 }, { m: 'mix', n: 6 }];
+const TR_UP = ['bird', 'monkey', 'cat', 'snake', 'mouse', 'bear'], TR_DOWN = ['dog', 'pig', 'duck', 'chicken', 'sheep', 'cow', 'lion', 'tiger', 'elephant', 'horse'];
+const TR_GEO = { land: { VW: 1000, VH: 700, s: { cl: [250, 150, 200], ct: [400, 34, 200], cr: [550, 150, 200], hole: [408, 360, 184], bl: [24, 452, 236], br: [740, 452, 236] } },
+  port: { VW: 700, VH: 1000, s: { cl: [80, 250, 200], ct: [250, 90, 200], cr: [420, 250, 200], hole: [255, 585, 190], bl: [6, 756, 236], br: [458, 756, 236] } } };
+const TR_LEAF = pSvg(`<path d="M8 56 Q2 36 18 30 Q20 10 42 12 Q54 0 70 10 Q92 8 92 30 Q100 44 92 56Z" fill="#51b83a" stroke="${pO}" stroke-width="4" stroke-linejoin="round"/><path d="M20 40 Q30 30 40 36 M56 26 Q66 18 76 26" fill="none" stroke="#8fe060" stroke-width="5" stroke-linecap="round"/>`, '0 0 100 60');
+const TR_BUSH = pSvg(`<path d="M4 58 Q0 34 16 30 Q16 8 40 12 Q52 -2 68 10 Q94 6 94 32 Q102 44 96 58Z" fill="#2f9e44" stroke="${pO}" stroke-width="4" stroke-linejoin="round"/><g fill="#ff595e" stroke="${pO}" stroke-width="2"><circle cx="30" cy="36" r="4"/><circle cx="60" cy="24" r="4"/><circle cx="76" cy="44" r="4"/></g>`, '0 0 100 60');
+const TR_HOLE = pSvg(`<path d="M6 22 Q50 44 94 22 L94 60 L6 60Z" fill="#a0673a"/><path d="M6 22 Q50 44 94 22" fill="none" stroke="${pO}" stroke-width="5" stroke-linecap="round"/>`, '0 0 100 60');
+function trBG(land) {
+  const G = land ? { cx: 500, cy: 230, rx: 300, ry: 200, tx: 500, ty0: 320, ty1: 640, gy: 610, W: 1000, H: 700, hole: [500, 470] } : { cx: 350, cy: 360, rx: 290, ry: 260, tx: 350, ty0: 480, ty1: 935, gy: 910, W: 700, H: 1000, hole: [350, 690] };
+  const R = piRand(5), circ = []; for (let i = 0; i < 14; i++) { const a = i / 14 * Math.PI * 2; circ.push([G.cx + Math.cos(a) * G.rx * 0.78, G.cy + Math.sin(a) * G.ry * 0.74, 70 + R() * 40]); }
+  circ.push([G.cx, G.cy, Math.min(G.rx, G.ry) * 0.9]);
+  return `<svg class="piscn" viewBox="0 0 ${G.W} ${G.H}" xmlns="http://www.w3.org/2000/svg"><path d="M0 ${G.gy} Q${G.W / 2} ${G.gy - 40} ${G.W} ${G.gy} V${G.H} H0Z" fill="#79c84a"/><path d="M0 ${G.gy} Q${G.W / 2} ${G.gy - 40} ${G.W} ${G.gy}" fill="none" stroke="${pO}" stroke-width="5"/>
+  <path d="M${G.tx - 64} ${G.ty1} Q${G.tx - 50} ${G.ty0 + 140} ${G.tx - 56} ${G.ty0} L${G.tx + 56} ${G.ty0} Q${G.tx + 50} ${G.ty0 + 140} ${G.tx + 64} ${G.ty1}Z" fill="#a0673a" stroke="${pO}" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M${G.tx - 20} ${G.ty0 + 60} Q${G.tx - 14} ${G.ty0 + 160} ${G.tx - 24} ${G.ty1 - 30} M${G.tx + 24} ${G.ty0 + 90} Q${G.tx + 20} ${G.ty0 + 200} ${G.tx + 28} ${G.ty1 - 60}" fill="none" stroke="#7d4f27" stroke-width="6" stroke-linecap="round"/>
+  ${circ.map(([x, y, r]) => `<circle cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" r="${r.toFixed(0)}" fill="#69c043" stroke="${pO}" stroke-width="8"/>`).join('')}${circ.map(([x, y, r]) => `<circle cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" r="${(r - 4).toFixed(0)}" fill="#69c043"/>`).join('')}
+  <ellipse cx="${G.cx - G.rx * 0.3}" cy="${G.cy - G.ry * 0.3}" rx="${G.rx * 0.3}" ry="${G.ry * 0.22}" fill="#8fe060" opacity=".6"/>
+  <ellipse cx="${G.hole[0]}" cy="${G.hole[1]}" rx="46" ry="56" fill="#4a2c12" stroke="${pO}" stroke-width="6"/>
+  ${[[60, G.gy + 30], [G.W - 80, G.gy + 40], [G.W / 2 - 160, G.gy + 50]].map(([x, y]) => `<g transform="translate(${x} ${y})">${[0, 72, 144, 216, 288].map(a => `<circle cx="${(Math.cos(a * Math.PI / 180) * 9).toFixed(1)}" cy="${(Math.sin(a * Math.PI / 180) * 9).toFixed(1)}" r="8" fill="#fff" stroke="${pO}" stroke-width="3"/>`).join('')}<circle r="6" fill="#ffd43b" stroke="${pO}" stroke-width="3"/></g>`).join('')}</svg>`;
+}
+function startTree(g) {
+  const R = cwBegin('tree', g), spec = TR.spec = TR_LV[Math.min(R.lv, TR_LV.length - 1)];
+  const keys = ['cl', 'ct', 'cr', 'hole', 'bl', 'br'], n = spec.n || 5, use = shuffle(keys).slice(0, n);
+  const up = shuffle(TR_UP), down = shuffle(TR_DOWN);
+  TR.spots = keys.filter(k => use.includes(k)).map(k => ({ k, id: (k === 'bl' || k === 'br') ? down.pop() : up.pop(), open: false, found: false }));
+  TR.asked = new Set(); TR.t = null;
+  const A = piArea('tree'); A.innerHTML = '';
+  TR.spots.forEach((s, i) => { const el = document.createElement('div'); el.className = 'pispot' + (spec.m !== 'explore' ? ' peek' : ''); el.dataset.id = s.id;
+    el.innerHTML = `<div class="ta">${piFaceSVG(s.id)}</div><div class="tc">${s.k === 'hole' ? TR_HOLE : (s.k === 'bl' || s.k === 'br') ? TR_BUSH : TR_LEAF}</div>`; s.el = el; A.appendChild(el); tap(el, () => trTap(g, i)); });
+  resizeFn = () => { if (mode === 'tree') trLayout(); };
+  trLayout(); say(spec.m === 'explore' ? L.pi.tree.hello : L.pi.tree.peek);
+  if (spec.m === 'explore') { TR.ask = L.pi.tree.hidden; repeatFn = () => say(TR.ask); trRustle(); cwIdle(g, () => trNudge(g)); }
+  else trItem(g);
+}
+function trLayout() {
+  const A = $('#piarea'); if (!A) return; const W = A.clientWidth, H = A.clientHeight, land = W >= H, G = TR_GEO[land ? 'land' : 'port'];
+  if (!TR.svg || TR.land !== land) { if (TR.svg) TR.svg.remove(); A.insertAdjacentHTML('afterbegin', trBG(land)); TR.svg = A.querySelector('svg.piscn'); TR.land = land; }
+  TR.map = piPlaceSvg(TR.svg, { x: 0, y: 0, w: W, h: H }, G.VW, G.VH, 4);
+  TR.spots.forEach(s => { const [x, y, sz] = G.s[s.k], r = TR.map.rect(x, y, sz, sz); if (r.w < 92) { const d = (92 - r.w) / 2; r.x = piClamp(r.x - d, 0, W - 92); r.y = piClamp(r.y - d, 0, H - 92); r.w = r.h = 92; } Object.assign(s.el.style, { left: r.x + 'px', top: r.y + 'px', width: r.w + 'px', height: r.h + 'px' }); s.r = r; });
+}
+function trRustle() { const s = pick(TR.spots.filter(x => !x.open) .concat([])); if (s) { s.el.classList.remove('shake'); void s.el.offsetWidth; s.el.classList.add('shake'); SFX.rustle(); } }
+function trNudge(g) {
+  const R = CW.R; if (!R || R.busy || g !== scene) return; stopSpeech();
+  if (TR.mode === 'who' && TR.t) trAskWho(g); else { say(TR.ask); if (TR.spec.m === 'explore') trRustle(); else if (TR.t) anim(TR.t.el, 'pihint'); }
+  cwIdle(g, () => trNudge(g), 12000);
+}
+const trName = id => L.an.names[id].toLowerCase();
+const trIt = id => ({ key: 'animals:' + id, cat: 'animals', a: trName(id), the: 'the ' + trName(id) });
+async function trAskWho(g) { const t = TR.t, tok = ++ASAY.tok; stopSpeech(); await playAnimal(t.id); if (tok !== ASAY.tok || g !== scene) return; say(TR.ask); }
+function trItem(g) {
+  const R = CW.R; if (g !== scene) return; if (R.step >= R.total) return trFinish(g);
+  const left = TR.spots.filter(s => !s.found); TR.t = pick(left); TR.t.tries = 0; R.tries = 0; R.busy = false;
+  TR.mode = TR.spec.m === 'mix' ? (R.step % 2 ? 'who' : 'find') : TR.spec.m;
+  if (TR.mode === 'who') { TR.ask = L.an.whoQ(L.an.says[TR.t.id]); repeatFn = () => trAskWho(g); trAskWho(g); }
+  else { TR.ask = L.pi.tree.find(trName(TR.t.id)); repeatFn = () => say(TR.ask); say(TR.ask); }
+  cwIdle(g, () => trNudge(g), 10000);
+}
+async function trTap(g, i) {
+  const R = CW.R, s = TR.spots[i]; if (!R || g !== scene) return;
+  if (TR.spec.m === 'explore') {
+    if (s.open) { animalSpeak(s.id); anim(s.el.querySelector('.ta'), 'cwbnc'); return; }
+    if (R.busy) return; R.busy = true; cwStopIdle(); s.open = true; s.el.classList.add('open'); SFX.rustle();
+    piSparkleAt($('#piarea'), s.r.x + s.r.w / 2, s.r.y, 10); cwGood(R, trIt(s.id), true);
+    const ok = await animalSpeak(s.id); if (g !== scene) return; R.busy = false;
+    if (R.step >= R.total) return trFinish(g);
+    cwIdle(g, () => trNudge(g), 8000); return;
+  }
+  if (R.busy) return;
+  if (s.found) { animalSpeak(s.id); return; }
+  cwStopIdle();
+  if (s !== TR.t) { piMiss(R, TR.t, trIt(TR.t.id)); anim(s.el, 'cwwig'); R.busy = true; await animalSpeak(s.id); if (g !== scene) return; stopSpeech();
+    if (TR.mode === 'who') { await say(L.pi.tree.that(trName(s.id))); if (g !== scene) return; R.busy = false; trAskWho(g); } else { R.busy = false; say(L.pi.tree.that(trName(s.id)) + ' ' + TR.ask); }
+    if (TR.t.tries >= 2) anim(TR.t.el, 'pihint'); cwIdle(g, () => trNudge(g)); return; }
+  R.busy = true; s.found = true; s.el.classList.add('open', 'found'); piHit(R, TR.t, trIt(s.id)); cheer();
+  piSparkleAt($('#piarea'), s.r.x + s.r.w / 2, s.r.y, 14);
+  ++ASAY.tok; await playAnimal(s.id); if (g !== scene) return;
+  stopSpeech(); await say(L.pi.tree.yes(L.an.names[s.id].toLowerCase(), L.an.says[s.id])); if (g !== scene) return;
+  setTimeout(() => { if (s.el && !TR.spots.every(x => x.found)) s.el.classList.remove('open'); }, 200);
+  trItem(g);
+}
+async function trFinish(g) { if (g !== scene) return; CW.R.busy = true; TR.spots.forEach(s => s.el.classList.add('open')); confetti(50); SFX.chime(); stopSpeech(); await sleep(600); await say(L.pi.tree.done); if (g === scene) cwEnd(g); }
+
+/* ---------- h. Paint Easel: "Colour the sun yellow!" ---------- */
+const ES = { objs: [], t: 0, col: '', pots: [], sel: null, ask: '', svg: null, map: null };
+const ES_LV = [null, { o: 1, p: 2, nat: 1 }, { o: 1, p: 3 }, { o: 2, p: 3 }, { o: 3, p: 4 }, { o: 3, p: 5 }, { o: 3, p: 5 }];
+const ES_NAT = { sun: 'yellow', apple: 'red', ball: 'blue', balloon: 'red', star: 'yellow', heart: 'pink', fish: 'orange', car: 'blue', flower: 'pink', kite: 'green' };
+const ES_COLS = ['red', 'blue', 'yellow', 'green', 'orange', 'pink', 'purple', 'brown', 'black'];
+const ES_SLOTS = [null, [[155, 62, 290, 290]], [[70, 100, 210, 210], [320, 100, 210, 210]], [[62, 42, 165, 165], [218, 222, 165, 165], [374, 42, 165, 165]]];
+const ES_OBJ = {
+  sun: f => `<g fill="${f}" class="reg" stroke="${pO}" stroke-width="4" stroke-linejoin="round">${Array.from({ length: 10 }, (_, i) => { const a = i * 36 * Math.PI / 180; return `<path d="M${(50 + Math.cos(a) * 34).toFixed(1)} ${(50 + Math.sin(a) * 34).toFixed(1)} L${(50 + Math.cos(a + .2) * 48).toFixed(1)} ${(50 + Math.sin(a + .2) * 48).toFixed(1)} L${(50 + Math.cos(a - .2) * 48).toFixed(1)} ${(50 + Math.sin(a - .2) * 48).toFixed(1)}Z"/>`; }).join('')}<circle cx="50" cy="50" r="32"/></g>${pEYE(40, 46, 4)}${pEYE(60, 46, 4)}${pSMILE(50, 58, 9)}`,
+  ball: f => `<circle class="reg" cx="50" cy="50" r="42" fill="${f}" ${pS()}/><path d="M12 40 Q50 62 88 40 M32 12 Q48 50 30 88 M70 12 Q54 50 72 88" fill="none" ${pS(3.5)}/>`,
+  apple: f => `<path d="M52 28 Q54 16 62 8" fill="none" ${pS(5)}/><path d="M56 22 Q70 6 86 14 Q76 32 56 22Z" fill="#69c043" ${pS()}/><path class="reg" d="M50 30 C34 18 8 26 10 54 C12 82 34 98 50 88 C66 98 88 82 90 54 C92 26 66 18 50 30Z" fill="${f}" ${pS()}/>`,
+  balloon: f => `<path d="M50 74 Q42 84 54 98" fill="none" ${pS(3)}/><ellipse class="reg" cx="50" cy="40" rx="32" ry="36" fill="${f}" ${pS()}/><path class="reg" d="M44 80 L56 80 L50 72Z" fill="${f}" ${pS(3)}/>`,
+  star: f => `<path class="reg" d="${starPath(50, 54, 46, 20)}" fill="${f}" ${pS(4.5)}/>`,
+  heart: f => `<path class="reg" d="${PI_SHAPES.heart}" fill="${f}" ${pS(4.5)}/>`,
+  fish: f => `<path class="reg" d="M74 50 L94 30 Q90 50 94 70Z M10 50 Q30 20 62 30 Q80 38 80 50 Q80 62 62 70 Q30 80 10 50Z" fill="${f}" ${pS()}/>${pEYE(26, 46, 5)}<path d="M48 40 Q54 50 48 60" fill="none" ${pS(3)}/>`,
+  car: f => `<g transform="translate(0 16) scale(.806)"><path class="reg" d="${CAR_BODY}" fill="${f}" stroke="${pO}" stroke-width="4" stroke-linejoin="round"/><path d="${CAR_WIN}" fill="#d7f1ff" stroke="${pO}" stroke-width="3"/><circle cx="34" cy="61" r="11" fill="#333"/><circle cx="34" cy="61" r="4.5" fill="#ddd"/><circle cx="90" cy="61" r="11" fill="#333"/><circle cx="90" cy="61" r="4.5" fill="#ddd"/></g>`,
+  flower: f => `<path d="M50 56 V98 M50 80 Q30 66 22 76 Q34 90 50 84 M50 74 Q70 60 78 70 Q66 84 50 78" fill="#69c043" stroke="#2f9e44" stroke-width="5" stroke-linecap="round"/><g class="reg" fill="${f}" stroke="${pO}" stroke-width="4">${[0, 72, 144, 216, 288].map(a => `<circle cx="${(50 + Math.cos((a - 90) * Math.PI / 180) * 22).toFixed(1)}" cy="${(36 + Math.sin((a - 90) * Math.PI / 180) * 22).toFixed(1)}" r="16"/>`).join('')}</g><circle cx="50" cy="36" r="12" fill="#ffd43b" ${pS()}/>`,
+  kite: f => `<path d="M50 82 Q40 90 50 96 Q62 100 56 92" fill="none" ${pS(3)}/><path class="reg" d="M50 4 L84 40 L50 82 L16 40Z" fill="${f}" ${pS()}/><path d="M50 4 V82 M16 40 H84" ${pS(3)}/>`
+};
+const ES_EASEL = `<path d="M150 560 L232 30 M450 560 L368 30 M300 560 V30" stroke="${pO}" stroke-width="22" stroke-linecap="round"/><path d="M150 560 L232 30 M450 560 L368 30 M300 560 V30" stroke="#c2803f" stroke-width="12" stroke-linecap="round"/>
+  <rect x="36" y="16" width="528" height="396" rx="10" fill="#fff" stroke="${pO}" stroke-width="8"/><rect x="28" y="408" width="544" height="26" rx="8" fill="#c2803f" stroke="${pO}" stroke-width="6"/>`;
+const esIt = c => ({ key: 'colours:' + c, cat: 'colours', a: c, the: c });
+function startEasel(g) {
+  const R = cwBegin('easel', g); ES.spec = ES_LV[Math.min(R.lv, ES_LV.length - 1)]; ES.used = new Set();
+  piArea('easel'); resizeFn = () => { if (mode === 'easel') esLayout(); };
+  say(L.pi.easel.hello); esItem(g);
+}
+function esItem(g) {
+  const R = CW.R; if (g !== scene) return; if (R.step >= R.total) return esFinish(g);
+  const spec = ES.spec, A = $('#piarea'); R.tries = 0; R.busy = false; ES.sel = null;
+  const ids = shuffle(Object.keys(ES_OBJ).filter(k => !ES.used.has(k))).slice(0, spec.o); ES.t = rnd(ids.length); ES.used.add(ids[ES.t]); if (ES.used.size > 7) ES.used = new Set([ids[ES.t]]);
+  const tid = ids[ES.t], col = spec.nat ? ES_NAT[tid] : pick(ES_COLS.filter(c => c !== 'black' && c !== 'brown')); ES.col = col;
+  const pots = [col]; for (const c of shuffle(ES_COLS)) { if (pots.length >= spec.p) break; if (!pots.includes(c) && !pots.some(x => confusable(x, c))) pots.push(c); }
+  ES.objs = ids.map((id, i) => ({ id, slot: ES_SLOTS[ids.length][i] }));
+  A.innerHTML = `<div class="pitray wood" id="estray"></div><svg class="piscn" viewBox="0 0 600 570" xmlns="http://www.w3.org/2000/svg">${ES_EASEL}${ES.objs.map((o, i) => `<g class="pieobj" data-i="${i}"><svg x="${o.slot[0]}" y="${o.slot[1]}" width="${o.slot[2]}" height="${o.slot[3]}" viewBox="0 0 100 100" overflow="visible">${ES_OBJ[o.id]('#ffffff')}</svg></g>`).join('')}</svg>`;
+  ES.svg = A.querySelector('svg.piscn');
+  ES.svg.querySelectorAll('.pieobj').forEach(e => tap(e, () => esObjTap(g, +e.dataset.i)));
+  ES.pots = shuffle(pots).map(c => ({ c })); ES.tt = { tries: 0 };
+  esLayout();
+  ES.ask = L.pi.easel.ask(tid, col); repeatFn = () => say(ES.ask); say(ES.ask); cwIdle(g, () => esNudge(g));
+}
+function esLayout() {
+  const A = $('#piarea'); if (!A || !ES.svg) return; const g = scene, S = piSplitN(A, 0.2, 110, 210, ES.pots.length), m = 8;
+  Object.assign($('#estray').style, { left: S.tray.x + m + 'px', top: S.tray.y + m + 'px', width: S.tray.w - 2 * m + 'px', height: S.tray.h - 2 * m + 'px' });
+  ES.map = piPlaceSvg(ES.svg, S.scene, 600, 570, 6);
+  const T = { x: S.tray.x + m + 4, y: S.tray.y + m + 4, w: S.tray.w - 2 * m - 8, h: S.tray.h - 2 * m - 8 }, G = piGridAll(T, ES.pots.length, 140);
+  ES.pots.forEach((p, i) => {
+    if (!p.el) { p.el = piPiece(A, potSVG(hexOf(p.c)), G.P, 'pipot'); p.el.dataset.c = p.c; anim(p.el, 'pipop'); piDrag(p.el, A, { tap: () => esPot(g, p), drop: (el, pt) => esPotDrop(g, p, pt) }); }
+    piSize(p.el, G.P); p.el._hx = G.pts[i].x; p.el._hy = G.pts[i].y; if (!p.el.classList.contains('pidrag')) piSet(p.el, p.el._hx, p.el._hy);
+  });
+}
+const esRect = i => { const s = ES.objs[i].slot; return ES.map.rect(s[0], s[1], s[2], s[3]); };
+function esNudge(g) { const R = CW.R; if (!R || R.busy || g !== scene) return; stopSpeech(); say(ES.ask); const p = ES.pots.find(q => q.c === ES.col); if (p && p.el) anim(p.el, 'pihint'); cwIdle(g, () => esNudge(g), 12000); }
+function esPot(g, p) {
+  const R = CW.R; if (!R || R.busy || g !== scene) return; cwStopIdle();
+  ES.pots.forEach(q => q.el.classList.toggle('sel', q === p)); ES.sel = p.c; anim(p.el.firstElementChild, 'cwbnc'); SFX.pop();
+  if (ES.objs.length === 1) return esPaint(g, 0, p.c, p);
+  stopSpeech(); say(cap(p.c) + '!'); cwIdle(g, () => esNudge(g));
+}
+function esPotDrop(g, p, pt) {
+  piGlide(p.el, p.el._hx, p.el._hy);
+  const i = ES.objs.findIndex((o, k) => { const r = esRect(k); return pt.x > r.x - 20 && pt.x < r.x + r.w + 20 && pt.y > r.y - 20 && pt.y < r.y + r.h + 20; });
+  if (i >= 0) { ES.pots.forEach(q => q.el.classList.toggle('sel', q === p)); ES.sel = p.c; esPaint(g, i, p.c, p); } else cwIdle(g, () => esNudge(g));
+}
+function esObjTap(g, i) {
+  const R = CW.R; if (!R || R.busy || g !== scene) return;
+  if (ES.sel) return esPaint(g, i, ES.sel, ES.pots.find(q => q.c === ES.sel));
+  stopSpeech(); say(cap(L.pi.paint[ES.objs[i].id]) + '!'); anim(ES.svg.querySelector(`.pieobj[data-i="${i}"] svg`), 'cwbnc');
+}
+async function esPaint(g, i, c, pot) {
+  const R = CW.R; if (!R || R.busy || g !== scene) return; cwStopIdle(); R.busy = true;
+  const r = esRect(i), A = $('#piarea'), o = ES.objs[i];
+  if (pot && pot.el) { // a paint splash flies from the pot to the picture
+    const pr = { x: pot.el._x + pot.el._w / 2, y: pot.el._y + pot.el._h * 0.3 }, hex = hexOf(c);
+    for (let k = 0; k < 8; k++) { const d = document.createElement('div'); d.className = 'drop'; d.style.background = hex; A.appendChild(d); const x1 = r.x + r.w * (0.25 + Math.random() * 0.5), y1 = r.y + r.h * (0.25 + Math.random() * 0.5);
+      try { const an = d.animate([{ transform: `translate(${pr.x}px,${pr.y}px) scale(.6)` }, { transform: `translate(${(pr.x + x1) / 2}px,${Math.min(pr.y, y1) - 50}px) scale(1.2)`, offset: 0.5 }, { transform: `translate(${x1}px,${y1}px) scale(.4)`, opacity: 0.3 }], { duration: 380 + k * 20, easing: 'ease-in' }); an.onfinish = () => d.remove(); } catch (e) { d.remove(); } }
+    await sleep(380); if (g !== scene) return;
+  }
+  if (i !== ES.t) { piMiss(R, ES.tt, esIt(ES.col)); SFX.boop(); anim(ES.svg.querySelector(`.pieobj[data-i="${i}"] svg`), 'cwwig'); stopSpeech(); R.busy = false; say(L.pi.easel.thatObj(o.id) + ' ' + ES.ask); cwIdle(g, () => esNudge(g)); return; }
+  ES.svg.querySelectorAll(`.pieobj[data-i="${i}"] .reg`).forEach(e => e.setAttribute('fill', hexOf(c))); SFX.splat();
+  if (c !== ES.col) { piMiss(R, ES.tt, esIt(ES.col)); stopSpeech(); R.busy = false; say(L.pi.easel.thatCol(c) + ' ' + ES.ask); if (ES.tt.tries >= 2) esNudge(g); else cwIdle(g, () => esNudge(g)); return; }
+  piHit(R, ES.tt, esIt(c)); cheer(); piSparkleAt(A, r.x + r.w / 2, r.y + r.h / 2, 16); stopSpeech();
+  await say(L.pi.easel.yes(o.id, c)); if (g !== scene) return; await sleep(500); esItem(g);
+}
+async function esFinish(g) { if (g !== scene) return; CW.R.busy = true; confetti(50); SFX.chime(); stopSpeech(); await say(L.pi.easel.done); if (g === scene) cwEnd(g); }
+
+
 /* ================= wiring ================= */
 document.querySelectorAll('.langbtn').forEach(b => b.addEventListener('click', () => chooseLang(b.dataset.lang)));
 // Home: short tap = activity menu (same language). Hold 2 s = parent: back to language picker.
@@ -3145,7 +4381,7 @@ document.querySelectorAll('.home').forEach(h => {
   let timer = null, fired = false, down = false;
   h.addEventListener('pointerdown', e => { e.preventDefault(); down = true; fired = false; h.classList.add('holding');
     timer = setTimeout(() => { fired = true; h.classList.remove('holding'); goLang(); }, 2000); });
-  const end = (go) => { if (!down) return; down = false; clearTimeout(timer); h.classList.remove('holding'); if (go && !fired) { if (mode) { SFX.pop(); goMenu(); } else if (MENU.cat && $('#menu').classList.contains('on')) { SFX.pop(); MENU.cat = null; goMenu(); } } };
+  const end = (go) => { if (!down) return; down = false; clearTimeout(timer); h.classList.remove('holding'); if (go && !fired) { if (mode) { SFX.pop(); goMenu(); } else if (MENU.cat && $('#menu').classList.contains('on')) { SFX.pop(); MENU.cat = MENU.back || null; MENU.back = null; goMenu(); } } };
   h.addEventListener('pointerup', () => end(true));
   h.addEventListener('pointerleave', () => end(false));
   h.addEventListener('pointercancel', () => end(false));
@@ -3196,6 +4432,17 @@ document.addEventListener('visibilitychange', () => { if (document.hidden) stopS
   for (const c of CW_CATS) for (const [id] of CWV[c]) { if (c === 'colours' || c === 'numbers') continue; if (c === 'family' ? !EN.cw.fam[id] : !EN.cw.w[id]) console.error('cw word', c, id); }
   for (const id of CW_COUNT_NOUNS) if (!EN.cw.w[id] || !CW_PIC[id]) console.error('cw count noun', id);
   for (const [id] of STICKERS) if (!(id.startsWith('a_') ? EN.an.names[id.slice(2)] : EN.cw.stickers.names[id])) console.error('sticker name', id);
+})();
+(function check6() { // v9 Play Island: English only, every game and word has English text
+  for (const k in LANGS) if (k !== 'en' && (LANGS[k].island || LANGS[k].pi)) console.error('Play Island leaked into', k);
+  for (const m of PI_GAMES) if (!EN.modes[m]) console.error('pi mode name', m);
+  for (const [id, kind] of PI_PEDS) { if (!PIPED[id]) console.error('pedestal art', id); if (kind === 'cat' && !EN.pi.ped[id]) console.error('pedestal name', id); }
+  for (const id in PIF) if (!EN.pi.food[id]) console.error('food word', id);
+  for (const s in SC_SCENES) for (const [id] of SC_SCENES[s].spots) { if (!EN.pi.things[id]) console.error('scene word', id); if (!PIS[id]) console.error('scene art', id); }
+  for (const k of DS_TYPES.concat(['glasses'])) if (!EN.pi.clothes[k] || !PICL[k]) console.error('clothes', k);
+  for (const k in PI_SHAPES) if (!EN.pi.shapes[k]) console.error('shape word', k);
+  for (const k in ES_OBJ) if (!EN.pi.paint[k]) console.error('paint word', k);
+  for (const id of TR_UP.concat(TR_DOWN)) { if (!PIFACE[id]) console.error('face', id); if (!EN.an.names[id] || !EN.an.says[id]) console.error('tree animal', id); if (!ANIMALS[id] || !ANIMALS[id][2]) console.error('no recording', id); }
 })();
 (function check2() { for (const k in LANGS) { const P = LANGS[k];
   for (const m of MODES) if (!P.modes[m]) console.error('missing mode', k, m);
