@@ -1,4 +1,4 @@
-# Toddler learning game (EN / RU / Cantonese) — v9
+# Toddler learning game (EN / RU / Cantonese) — v10
 
 A single-page, offline-friendly game for a 3–4 year old, made for iPad Safari.
 
@@ -8,7 +8,14 @@ A single-page, offline-friendly game for a 3–4 year old, made for iPad Safari.
 
 Open `index.html` over http(s) (e.g. GitHub Pages). Opened as a local `file://`, the animal recordings can't load and the game uses built-in synth sounds instead.
 
-## New in v9: Play Island (English only)
+## New in v10: calm, clean design + recorded voice
+- **Tap to start**: a big button on first open. One tap unlocks sound on iPad and on classroom touch boards.
+- **Recorded voice**: every spoken line has its own small MP3 in `sounds/voice/en`, `sounds/voice/ru` and `sounds/voice/yue` (British English, Russian and Cantonese neural voices). Files are named by a hash of the sentence; a list of the files is built into `index.html`, so the game never asks for a missing file. The built-in Web Speech voice is used only for lines with the child's name (Talk with Bear).
+- **The task is always written** in big dark text at the top of every game, next to a "hear it again" speaker button. The instruction plays at the start of each round; tapping a picture says its word.
+- **English home**: 7 big cards: Letters, Numbers, Car World, Songs, Play, Animals and me, All games. Each opens 3–4 big picture cards. Letters → Letter match, Find the letter, Treasure Chest, Find it. Stars won show as a small badge.
+- **One design for all three languages**: one soft colour per section, white rounded cards, the Fredoka font, line icons instead of emoji, flat drawn pictures in the letter and word games, a single star pop instead of confetti. Russian and Cantonese keep their own menus and texts.
+
+## v9: Play Island (English only)
 Choosing English now opens **Play Island**: a cartoon island in moving water with 12 bobbing pedestals. Tap a pedestal: the game says its name and opens it. On a small phone you can drag the island to see all pedestals. Stars won show on each pedestal. All the art is original (drawn in code); nothing is copied from other apps.
 
 Pedestals: Magic Hat, Picture Puzzle, Shopping, Dress Up, Fish Bowl, Animal Tree, Treasure Chest, Paint Easel, plus **Car World**, **Numbers**, **Songs** and **More games** (the full classic English menu). Russian and Cantonese are unchanged and never show the island.
