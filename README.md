@@ -1,4 +1,10 @@
-# Toddler learning game (EN / RU / Cantonese) — v10
+# Toddler learning game (EN / RU / Cantonese) — v11
+
+## New in v11 (English only)
+- **Toy shop, upgraded** (home card "Toy shop", also in All games → Numbers). Four tabs: **Toys** (the original toy shop, unchanged), **Menu** (Snack Cafe board: Drinks juice HK$8, milk HK$6, water HK$4; Snacks sandwich HK$15, popcorn HK$10, chips HK$7; Sweets cookie HK$5, cake HK$12, ice cream HK$9, doughnut HK$8; Fruit apple HK$3, banana HK$3; tap an item to hear "Cookie. Five dollars."), **Cafe** (role-play as customer or waiter with a robot waiter; pick the right sentence from 3 buttons), **Mia** (Mia buys a cookie and a juice: pick the total HK$13, then drag coins HK$1/2/5/10 into the tray; 3 more orders up to HK$20; receipt with stars).
+- **Robot Friend** (new home card, also in All games): "My Amazing Robot Friend" sentence builders: has/have, can, describing words (shiny, small, kind, fast, big, yummy), because, and "Write your order" word tiles. Each finished sentence is read aloud; a reward card lists the sentences with stars.
+- 598 new recorded lines (Sonia, warm settings). Russian and Cantonese are unchanged.
+
 
 A single-page, offline-friendly game for a 3–4 year old, made for iPad Safari.
 
