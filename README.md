@@ -1,4 +1,13 @@
-# Toddler learning game (EN / RU / Cantonese) — v11
+# Toddler learning game (EN / RU / Cantonese) — v12
+
+## New in v12 (English only)
+- **Shop game: "Choose a shop!"** The Toy shop card now opens 4 big shop-front cards; each shop sells only its own things, never mixed:
+  - **Food shop** (yellow): the Snack Cafe menu (juice HK$8, milk HK$6, water HK$4, sandwich HK$15, popcorn HK$10, chips HK$7, cookie HK$5, cake HK$12, ice cream HK$9, doughnut HK$8, apple HK$3, banana HK$3), cafe role-play with the robot waiter, Mia's order (cookie + juice = HK$13).
+  - **Toy shop** (coral): balloon 1, yo-yo 2, ball 3, doll 4, car 5, teddy bear 6, kite 7, robot 8, train 9 (HK$). Also "Pay" = the original toy coin game, now toys only.
+  - **School shop** (blue): rubber 1, paper 1, pencil 2, crayon 3, pen 4, ruler 5, book 8, bag 10.
+  - **Clothes shop** (green): socks 3, hat 6, T-shirt 7, skirt 8, trousers 9, dress 9, shoes 10, jacket 10.
+- Toy/School/Clothes tabs: **Shelf** (tap = "Ruler. Five dollars."), **Play** (customer or shopkeeper role-play: "Can I have a ruler, please?"), **Orders** (three people want two things, then Mum wants three; total up to HK$20, drag coins into the tray, receipt with stars). A dark **Shops** button (top of the tab bar) always goes back to the chooser; Home is always top left.
+- 600 new recorded lines (Sonia, warm settings). Russian and Cantonese are unchanged.
 
 ## New in v11 (English only)
 - **Toy shop, upgraded** (home card "Toy shop", also in All games → Numbers). Four tabs: **Toys** (the original toy shop, unchanged), **Menu** (Snack Cafe board: Drinks juice HK$8, milk HK$6, water HK$4; Snacks sandwich HK$15, popcorn HK$10, chips HK$7; Sweets cookie HK$5, cake HK$12, ice cream HK$9, doughnut HK$8; Fruit apple HK$3, banana HK$3; tap an item to hear "Cookie. Five dollars."), **Cafe** (role-play as customer or waiter with a robot waiter; pick the right sentence from 3 buttons), **Mia** (Mia buys a cookie and a juice: pick the total HK$13, then drag coins HK$1/2/5/10 into the tray; 3 more orders up to HK$20; receipt with stars).
