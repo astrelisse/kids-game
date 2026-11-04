@@ -1,4 +1,10 @@
-# Toddler learning game (EN / RU / Cantonese) — v12
+# Toddler learning game (EN / RU / Cantonese) — v13
+
+## New in v13 (English only)
+- **Face and body, redrawn** (Animals and me → Face and body; "Face" in All games opens My face): a realistic illustrated child (original SVG: shaded skin, real-looking hair, eyes with irises and highlights, ears, teeth). A picker opens **My face** (big close-up: eyes, ears, nose, mouth, hair, face, teeth, eyebrows) or **My body** (whole child: head, face, hair, eyes, ears, nose, mouth, shoulders, body, tummy, arms, hands, fingers, legs, knees, feet). Each has **Listen** (tap a part to hear it) and **Find** ("Touch the nose!": 6 or 8 parts, stars at the end). Tap areas are big invisible zones; small parts also count from close by, and the mouth counts for teeth, the hand for fingers.
+- **Dress up** (new home card; Robot Friend moved to All games): an open wardrobe and a boy or girl to dress by dragging (touch or mouse) or tapping. **Dress up** = free play with T-shirt, shirt, trousers, shorts, skirt, dress, jacket, hat, socks, shoes, glasses, bag ("A blue jacket!"); the tick shows "You look great!" and an outfit picture. **School** = "Get ready for school!" step by step: white shirt, grey trousers or shorts, white socks, school tie, navy jumper, black school shoes, school bag. **Weather** = sunny or rainy, pick what fits.
+- The older picture-island "Dress Up" game is now called "Get dressed" so there are not two cards with the same name.
+- 105 new recorded lines (Sonia, warm settings). Russian and Cantonese are unchanged.
 
 ## New in v12 (English only)
 - **Shop game: "Choose a shop!"** The Toy shop card now opens 4 big shop-front cards; each shop sells only its own things, never mixed:
