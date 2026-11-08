@@ -1,4 +1,19 @@
-# Toddler learning game (EN / RU / Cantonese) — v13
+# Toddler learning game (EN / RU / Cantonese) — v14
+
+## New in v14 (English only)
+- **Play for 5 minutes**: one button chains 3–4 short games (from the chosen book topic, or the words the child finds hardest), with a "Next game!" card between them and a calm finish.
+- **Time to finish**: after 5 or 10 minutes (grown-up chooses, or Off) a gentle "Time to finish! Well done!" screen with an off-screen idea. Grown-ups hold the button for 5 more minutes.
+- **For grown-ups page** (hold the grown-ups button for 2 seconds): Today (time, games, words heard, words that needed help, one idea for home), Book topics, Settings (timer, quiet or normal reward sounds, show demos again, save English for offline, erase all data), Privacy, Progress.
+- **My book topics**: 14 topics (Hello and me, Colours, Numbers, Shapes, Toys, Animals, Food, My body, Clothes, School things, My house, Transport, Letters, Weather). Topic names only, so a grown-up can match what the class is doing. The game is not made by, linked to or checked against any textbook or publisher.
+- **First-time hand demo** for every English game (shown once; can be reset in Settings).
+- **Practise missed words**: Car World, Play Island, Find it and Face and body bring back words the child got wrong. All English games record words heard today.
+- **Tap instead of drag**: in drag games the child can tap a piece, then tap where it goes. Bigger Draw tools.
+- **Talk moments**: in the shop role-plays, Face and body and Dress up, the child is asked to say something to the grown-up.
+- **Try at home** card at the end of each game with a real-life activity.
+- **Quieter rewards** by default (soft chimes).
+- **Car art**: no eyes on the windscreen (English only).
+- **Offline**: `sw.js` service worker keeps played files; Settings can save all English voices (about 41 MB). Russian and Cantonese voice files are not stored offline.
+- 66 new Sonia voice lines in `sounds/voice/en/`.
 
 ## New in v13 (English only)
 - **Face and body, redrawn** (Animals and me → Face and body; "Face" in All games opens My face): a realistic illustrated child (original SVG: shaded skin, real-looking hair, eyes with irises and highlights, ears, teeth). A picker opens **My face** (big close-up: eyes, ears, nose, mouth, hair, face, teeth, eyebrows) or **My body** (whole child: head, face, hair, eyes, ears, nose, mouth, shoulders, body, tummy, arms, hands, fingers, legs, knees, feet). Each has **Listen** (tap a part to hear it) and **Find** ("Touch the nose!": 6 or 8 parts, stars at the end). Tap areas are big invisible zones; small parts also count from close by, and the mouth counts for teeth, the hand for fingers.
