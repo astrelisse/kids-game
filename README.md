@@ -1,4 +1,11 @@
-# Toddler learning game (EN / RU / Cantonese) — v14
+# Toddler learning game (EN / RU / Cantonese) — v15
+
+## New in v15 (English only)
+- **Letter themes in Find it**: Find it now opens a chooser: Letter F, Letter I, Letter Z, Letter W, or All words (the old game).
+- Each letter has an intro card (big Ff / Ii / Zz / Ww, "F is for fish! Let's find things that start with F!"). Then each round shows exactly 3 pictures: one word that starts with the letter and two everyday words that don't (dog, cat, apple…). The voice asks "Which one starts with F? Find the F!" and reads the three names while each card lights up. A right tap: "Frog! F is for frog!"; a wrong tap: "Dog starts with D. Try again!" (the card dims and shows its letter). A missed word comes back later. Calm reward at the end, then a try-at-home card ("Find something at home that starts with F!").
+- Words — F: four frogs, five flowers, flower, farm, fork, fish, fire truck, fan · I: insect, igloo, ink, in (cat in the box), iguana, ill (teddy), ice cream (long I sound, marked "long i") · Z: zebra, zoo, zip, zero, zigzag, zoom · W: water, watch, window, whale, worm, web, wave, wheel.
+- **My book topics → Letter of the week** (Letter F/I/Z/W). The grown-ups page (Book topics) can set the letter of the week; "Play for 5 minutes" starts with that letter's Find it (topic Letter of the week, Letters, or no topic).
+- 22 new original pictures; 202 new Sonia voice lines in `sounds/voice/en/`.
 
 ## New in v14 (English only)
 - **Play for 5 minutes**: one button chains 3–4 short games (from the chosen book topic, or the words the child finds hardest), with a "Next game!" card between them and a calm finish.
