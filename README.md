@@ -1,5 +1,8 @@
 # Toddler learning game (EN / RU / Cantonese) — v15
 
+## Review build: Find it letters A–Z (not published)
+English Find it now opens every letter A–Z, in the same 3-picture rounds as F, I, Z and W. F, I, Z and W keep their words. New letters use short sets of familiar words, original pictures, and the existing Sonia voice for any line that was not already recorded. Q says kw (queen, quilt, quiet, quail). X is labeled honestly: x-ray says eks; xylophone is spelled with X but starts with a Z sound, not eks. Russian and Cantonese are unchanged. This build is for review only.
+
 ## New in v15 (English only)
 - **Letter themes in Find it**: Find it now opens a chooser: Letter F, Letter I, Letter Z, Letter W, or All words (the old game).
 - Each letter has an intro card (big Ff / Ii / Zz / Ww, "F is for fish! Let's find things that start with F!"). Then each round shows exactly 3 pictures: one word that starts with the letter and two everyday words that don't (dog, cat, apple…). The voice asks "Which one starts with F? Find the F!" and reads the three names while each card lights up. A right tap: "Frog! F is for frog!"; a wrong tap: "Dog starts with D. Try again!" (the card dims and shows its letter). A missed word comes back later. Calm reward at the end, then a try-at-home card ("Find something at home that starts with F!").
