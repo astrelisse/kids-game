@@ -1,7 +1,9 @@
 # Toddler learning game (EN / RU / Cantonese) — v15
 
-## Review build: Find it letters A–Z (not published)
-English Find it now opens every letter A–Z, in the same 3-picture rounds as F, I, Z and W. F, I, Z and W keep their words. New letters use short sets of familiar words, original pictures, and the existing Sonia voice for any line that was not already recorded. Q says kw (queen, quilt, quiet, quail). X is labeled honestly: x-ray says eks; xylophone is spelled with X but starts with a Z sound, not eks. Russian and Cantonese are unchanged. This build is for review only.
+## Review build: more Find it questions from Little Fox letter-song words (not published)
+English Find it keeps every current word and picture, including the insects group, the hand x-ray, and the nose close-up. Extra rounds add everyday target nouns from the Little Fox phonics letter songs (album 리틀팍스 파닉스 알파벳 동요 and the ABC Book "is for" words, plus the older YouTube Letter B song). Only the words are used. No song lyrics, melody, characters, logos, or their pictures. New pictures are original. New lines are Sonia warm (en-GB-SoniaNeural, rate -8%, pitch +5Hz); lines that already existed are reused. Q still says kw. X is unchanged: x-ray says eks, and xylophone is spelled with X but starts with a Z sound. Russian and Cantonese are unchanged. This build is for review only.
+
+Added, and already in the game: A axe (song spelling ax) · B boat, bed, books, balloons, box, basket (ball, bus, and bear were already there) · C camera · D donkey, dinosaur · E elf, elk · F fox, frog · G gum, goose, gorilla · H hen, hut, hippo · J jet, jeep · K koala · L ladybug · M map, mitten · N nut, nine · O ox, otter · P piano, pizza, puppy · Q quiz, quarter · R rat, red, room, rose · S sea, sandwich · T top, taxi, tent · V vest · W well, wolf, wagon · Y yarn. I and U needed nothing new. Not added: balls (already ball), ducks and dogs (already duck and dog), sock (already socks), zipper (already zip), and the X-song words fox, six, box, and T. rex, because those do not begin with X.
 
 ## New in v15 (English only)
 - **Letter themes in Find it**: Find it now opens a chooser: Letter F, Letter I, Letter Z, Letter W, or All words (the old game).
